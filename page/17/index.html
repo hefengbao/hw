@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>HelloWorld</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="好记性不如烂笔头，保存在收藏夹里的链接，过段时间后就可能打不开了，摘录是不错的保存方式。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="HelloWorld">
+<meta property="og:url" content="https://hefengbao.github.io/helloworld/page/17/index.html">
+<meta property="og:site_name" content="HelloWorld">
+<meta property="og:description" content="好记性不如烂笔头，保存在收藏夹里的链接，过段时间后就可能打不开了，摘录是不错的保存方式。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="He Fengbao">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/helloworld/atom.xml" title="HelloWorld" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/helloworld/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/helloworld/" id="logo">HelloWorld</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/helloworld/">Home</a>
+        
+          <a class="main-nav-link" href="/helloworld/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/helloworld/about">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/helloworld/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://hefengbao.github.io/helloworld"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-Setup-is-unable-to-find-the-_ifconfig_-program-on-your-machine" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/helloworld/setup-is-unable-to-find-the-ifconfig-program-on-your-machine.html" class="article-date">
+  <time datetime="2017-10-01T09:17:10.000Z" itemprop="datePublished">2017-10-01</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/helloworld/categories/Linux/">Linux</a>►<a class="article-category-link" href="/helloworld/categories/Linux/Ubuntu/">Ubuntu</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/helloworld/setup-is-unable-to-find-the-ifconfig-program-on-your-machine.html">Setup is unable to find the &#34;ifconfig&#34; program on your machine</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>VMware 安装 Ubuntu,之后安装 VMware Tools ,安装过程中可能遇到如下提示：</p>
+<p><code>Setup is unable to find the &quot;ifconfig&quot; program on your machine.  Please make sure it is installed.  Do you want to specify the location of this program by hand? [yes]</code></p>
+<p>输入 <code>yes</code> ，按 <code>Enter</code> 键确认，或直接 按 <code>Enter</code> 键，则会有如下提示：</p>
+<p><code>What is the location of the &quot;ifconfig&quot; program on your machine? </code></p>
+<p>按 <code>Enter</code> 键,会有如下提示:</p>
+<p><code> The answer &quot;&quot; is invalid.  It must be the complete name of a binary file.</code><br>不能正常安装。</p>
+<p>输入 <code>no</code> ，按 <code>Enter</code> 键，则会有如下提示：</p>
+<p><code>Unable to continue. Execution aborted. </code><br>直接退出安装。</p>
+<p>** 解决办法 :**</p>
+<p>运行以下命令安装 <code>ifconfig</code> ：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install net-tools</span><br></pre></td></tr></table></figure>
+
+<p>然后再次安装 VMware Tools  即可。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://hefengbao.github.io/helloworld/setup-is-unable-to-find-the-ifconfig-program-on-your-machine.html" data-id="ckpqdom66000m1r8jb8iob1cq" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/helloworld/tags/ubuntu/" rel="tag">ubuntu</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Android-之-DatePickerDialog" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/helloworld/android-datepickerdialog.html" class="article-date">
+  <time datetime="2017-08-20T03:12:33.000Z" itemprop="datePublished">2017-08-20</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/helloworld/categories/Android/">Android</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/helloworld/android-datepickerdialog.html">Android 之 DatePickerDialog</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>DatePickerDialog 用来设置日期。基本用法：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">Calendar mCalendar = Calendar.getInstance();</span><br><span class="line"><span class="comment">//格式化日期</span></span><br><span class="line">SimpleDateFormat format = <span class="keyword">new</span> SimpleDateFormat(<span class="string">&quot;yyyy-MM-dd&quot;</span>);</span><br><span class="line"></span><br><span class="line">DatePickerDialog pickerDialog = <span class="keyword">new</span> DatePickerDialog(<span class="keyword">this</span>, <span class="keyword">new</span> DatePickerDialog.OnDateSetListener() &#123;</span><br><span class="line"></span><br><span class="line">           <span class="meta">@Override</span></span><br><span class="line">           <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onDateSet</span><span class="params">(DatePicker arg0, <span class="keyword">int</span> year, <span class="keyword">int</span> month, <span class="keyword">int</span> day)</span> </span>&#123;</span><br><span class="line">               mCalendar.set(year, month, day);<span class="comment">//将点击获得的年月日获取到calendar中。</span></span><br><span class="line">               Toast.makeText(<span class="keyword">this</span>, format.format(mCalendar.getTime()),Toast.LENGTH_LONG).show(); </span><br><span class="line">           &#125;</span><br><span class="line">       &#125;,mCalendar.get(Calendar.YEAR), mCalendar.get(Calendar.MONTH), mCalendar.get(Calendar.DAY_OF_MONTH));</span><br><span class="line">	<span class="comment">//设置最大可选日期</span></span><br><span class="line">       pickerDialog.getDatePicker().setMaxDate((<span class="keyword">new</span> Date()).getTime());</span><br><span class="line">       pickerDialog.show();</span><br></pre></td></tr></table></figure>
+
+<p>把上述代码放在 <code>view</code> 的 <code>click</code> 时间监听中便可触发，并且默认选择的日期是当前日期。</p>
+<p>但在实际应用中，我们可能需要默认显示的是传来的值，如生日等，如何做？</p>
+<p>上面代码中，在实例化 <code>DatePickerDialog</code> 时传入的 <code>mCalendar.get(Calendar.YEAR), mCalendar.get(Calendar.MONTH), mCalendar.get(Calendar.DAY_OF_MONTH)</code> ，便是用来设置默认选择的日期，我们可以把传来的日期转化为 <code>Calendar</code> 对象即可，代码如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">Calendar mCalendar = Calendar.getInstance();</span><br><span class="line"><span class="comment">//格式化日期</span></span><br><span class="line">SimpleDateFormat format = <span class="keyword">new</span> SimpleDateFormat(<span class="string">&quot;yyyy-MM-dd&quot;</span>);</span><br><span class="line"></span><br><span class="line">String str = <span class="string">&quot;1988-11-11&quot;</span>; <span class="comment">//这是可以是传来的日期，也可从 `view`获取</span></span><br><span class="line"><span class="keyword">if</span> (str != <span class="keyword">null</span>)&#123;</span><br><span class="line">           <span class="keyword">try</span> &#123;</span><br><span class="line">               Date date = format.parse(str);</span><br><span class="line">               mCalendar.setTime(date);</span><br><span class="line">           &#125; <span class="keyword">catch</span> (ParseException e) &#123;</span><br><span class="line">               e.printStackTrace();</span><br><span class="line">           &#125;</span><br><span class="line">       &#125;</span><br><span class="line"></span><br><span class="line">DatePickerDialog pickerDialog = <span class="keyword">new</span> DatePickerDialog(<span class="keyword">this</span>, <span class="keyword">new</span> DatePickerDialog.OnDateSetListener() &#123;</span><br><span class="line"></span><br><span class="line">           <span class="meta">@Override</span></span><br><span class="line">           <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onDateSet</span><span class="params">(DatePicker arg0, <span class="keyword">int</span> year, <span class="keyword">int</span> month, <span class="keyword">int</span> day)</span> </span>&#123;</span><br><span class="line">               mCalendar.set(year, month, day);<span class="comment">//将点击获得的年月日获取到calendar中。</span></span><br><span class="line">               Toast.makeText(<span class="keyword">this</span>, format.format(mCalendar.getTime()),Toast.LENGTH_LONG).show(); </span><br><span class="line">           &#125;</span><br><span class="line">       &#125;,mCalendar.get(Calendar.YEAR), mCalendar.get(Calendar.MONTH), mCalendar.get(Calendar.DAY_OF_MONTH));</span><br><span class="line">	<span class="comment">//设置最大可选日期</span></span><br><span class="line">       pickerDialog.getDatePicker().setMaxDate((<span class="keyword">new</span> Date()).getTime());</span><br><span class="line">       pickerDialog.show();</span><br></pre></td></tr></table></figure>
+
+<p>打开日期对话框时，默认选择的便是 <code>1988-11-11</code>。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://hefengbao.github.io/helloworld/android-datepickerdialog.html" data-id="ckpqdom61000e1r8j8muz51c1" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/helloworld/tags/android/" rel="tag">android</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Ubuntu-搭建-git-server" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/helloworld/ubuntu-install-git-server.html" class="article-date">
+  <time datetime="2017-07-11T11:53:57.000Z" itemprop="datePublished">2017-07-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/helloworld/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/">版本控制</a>►<a class="article-category-link" href="/helloworld/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/Git/">Git</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/helloworld/ubuntu-install-git-server.html">Ubuntu 搭建 git server</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><strong>假设服务器 <code>ip</code> 地址为 <code>192.168.1.1</code></strong></p>
+<h3 id="1、安装-git"><a href="#1、安装-git" class="headerlink" title="1、安装 git:"></a>1、安装 <code>git</code>:</h3><h4 id="1-1-安装："><a href="#1-1-安装：" class="headerlink" title="1.1 安装："></a>1.1 安装：</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install git-core</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-2-创建-git-仓库目录："><a href="#1-2-创建-git-仓库目录：" class="headerlink" title="1.2 创建 git 仓库目录："></a>1.2 创建 <code>git</code> 仓库目录：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;home</span><br><span class="line">mkdir git</span><br></pre></td></tr></table></figure>
+
+<h4 id="1-3-创建密钥存放目录："><a href="#1-3-创建密钥存放目录：" class="headerlink" title="1.3 创建密钥存放目录："></a>1.3 创建密钥存放目录：</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;home&#x2F;git</span><br><span class="line">mkdir .ssh</span><br></pre></td></tr></table></figure>
+
+<h3 id="2、新建-git-用户，用来管理-git-服务："><a href="#2、新建-git-用户，用来管理-git-服务：" class="headerlink" title="2、新建 git 用户，用来管理  git 服务："></a>2、新建 <code>git</code> 用户，用来管理  <code>git</code> 服务：</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo adduser git</span><br></pre></td></tr></table></figure>
+
+<h3 id="3、创建证书登陆："><a href="#3、创建证书登陆：" class="headerlink" title="3、创建证书登陆："></a>3、创建证书登陆：</h3><h4 id="3-1-安装-openssh-server"><a href="#3-1-安装-openssh-server" class="headerlink" title="3.1 安装 openssh-server:"></a>3.1 安装 <code>openssh-server</code>:</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt-get install openssh-server</span><br></pre></td></tr></table></figure>
+
+<p>通过命令 <code>s –e|grep ssh</code> ,查看ssh服务是否启动（是否安装成功）</p>
+<h4 id="3-2-在本机（客户端）生成证书："><a href="#3-2-在本机（客户端）生成证书：" class="headerlink" title="3.2 在本机（客户端）生成证书："></a>3.2 在本机（客户端）生成证书：</h4><p>我用的是 Windows, 打开 <code>git bash</code>,用如下命令生成：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen –t rsa </span><br></pre></td></tr></table></figure>
+
+<p>在 <code>C:\Users\用户名\.ssh</code> 目录可看到：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">id_rsa.pub     #公钥</span><br><span class="line">id_ras  #私钥</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-3-把证书上传到-git-服务器："><a href="#3-3-把证书上传到-git-服务器：" class="headerlink" title="3.3 把证书上传到 git 服务器："></a>3.3 把证书上传到 <code>git</code> 服务器：</h4><p>在 <code>C:\Users\用户名\.ssh</code> 目录下打开 <code>git bash</code>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">scp id_rsa.pub root@192.168.1.1:&#x2F;home&#x2F;git&#x2F;.ssh</span><br></pre></td></tr></table></figure>
+
+<h4 id="3-4-服务器端密钥配置："><a href="#3-4-服务器端密钥配置：" class="headerlink" title="3.4 服务器端密钥配置："></a>3.4 服务器端密钥配置：</h4><p>进入 <code>/home/git/.ssh</code> 目录：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;home&#x2F;git&#x2F;.ssh</span><br></pre></td></tr></table></figure>
+
+<p>如果 <code>authorized_kesys</code> 不存在，则重新生成：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">touch authorized_kesys</span><br></pre></td></tr></table></figure>
+
+<p>将客户端上传的公钥id_rsa.pub的内容追加到authroized_keys中：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cat id_rsa.pub &gt;&gt; authorized_keys</span><br></pre></td></tr></table></figure>
+
+<h3 id="4、初始化-git-仓库："><a href="#4、初始化-git-仓库：" class="headerlink" title="4、初始化 git 仓库："></a>4、初始化 <code>git</code> 仓库：</h3><p>修改<code>git</code>目录的用户/用户组：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo chown -R git:git git</span><br></pre></td></tr></table></figure>
+
+<p>初始化：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">cd &#x2F;home&#x2F;git</span><br><span class="line"></span><br><span class="line">sudo git init --bare sample.git</span><br></pre></td></tr></table></figure>
+
+<h3 id="5、禁用-shell-登陆："><a href="#5、禁用-shell-登陆：" class="headerlink" title="5、禁用 shell 登陆："></a>5、禁用 <code>shell</code> 登陆：</h3><p>打开 <code>/etc/passwd</code> 文件，找到 <code>git</code>用户，把 <code>git:x:1000:1000::/home/git:</code> 修改为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git:x:1000:1000::&#x2F;home&#x2F;git:&#x2F;usr&#x2F;bin&#x2F;git-shell</span><br></pre></td></tr></table></figure>
+
+<h3 id="6、克隆仓库："><a href="#6、克隆仓库：" class="headerlink" title="6、克隆仓库："></a>6、克隆仓库：</h3><p>在客户端打开 <code>git bash</code>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git clone git@192.168.1.1:&#x2F;home&#x2F;git&#x2F;sample.git</span><br></pre></td></tr></table></figure>
+
+<p>结束！！！</p>
+<hr>
+<h4 id="资料参考："><a href="#资料参考：" class="headerlink" title="资料参考："></a>资料参考：</h4><p><a target="_blank" rel="noopener" href="http://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000/00137583770360579bc4b458f044ce7afed3df579123eca000">搭建Git服务器 - 廖雪峰</a><br><a target="_blank" rel="noopener" href="http://blog.csdn.net/poisonchry/article/details/11849781">在 Ubuntu 系统中部署 Git Server</a><br><a target="_blank" rel="noopener" href="https://my.oschina.net/yushulx/blog/609779">如何在Ubuntu上几步搭建Git Server</a><br><a target="_blank" rel="noopener" href="http://www.cnblogs.com/huntaiji/p/6287707.html">Ubuntu上搭建Git服务器</a><br><a target="_blank" rel="noopener" href="http://www.cnblogs.com/ggjucheng/archive/2012/08/19/2646346.html">ssh证书登录(实例详解)</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://hefengbao.github.io/helloworld/ubuntu-install-git-server.html" data-id="ckpqdom63000j1r8j7fwk4frr" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/helloworld/tags/git/" rel="tag">git</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-php-artisan-route_list--Call-to-undefined-function-Yajra_Pdo_oci_connect()" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/helloworld/call-to-undefined-function-Yajra-Pdo-oci-connect.html" class="article-date">
+  <time datetime="2017-07-06T01:28:50.000Z" itemprop="datePublished">2017-07-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/helloworld/categories/PHP/">PHP</a>►<a class="article-category-link" href="/helloworld/categories/PHP/Laravel/">Laravel</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/helloworld/call-to-undefined-function-Yajra-Pdo-oci-connect.html">php artisan route:list  Call to undefined function Yajra\Pdo\oci_connect()</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>Laravel 框架中用 yajra/laravel-oci8 链接 Oracle 数据库，查询数据没问题，但是当运行 <code>php artisan route:list</code> 命令时会报错：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">C:\wamp64\www\stat2&gt;php artisan route:list</span><br><span class="line"></span><br><span class="line">  [Symfony\Component\Debug\Exception\FatalThrowableError]</span><br><span class="line">  Call to undefined function Yajra\Pdo\oci_connect()</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>** 原因： ** CLI 模式下没有开启 <code>oci8</code> 扩展</p>
+<p>我在 Windows 上用 WAMPServer 配置的 PHP 开发环境。</p>
+<p>在浏览器中访问 <code>http://localhost/?phpinfo=1</code> ，可找到如下内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Configuration File (php.ini) Path	C:\Windows</span><br><span class="line">Loaded Configuration File	C:\wamp64\bin\apache\apache2.4.23\bin\php.ini</span><br></pre></td></tr></table></figure>
+
+<p>加载的配置文件是<code>C:\wamp64\bin\apache\apache2.4.23\bin\php.ini</code></p>
+<p>CLI模式下：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">C:\wamp64\www\stat2&gt;php --ini</span><br><span class="line">Configuration File (php.ini) Path: C:\Windows</span><br><span class="line">Loaded Configuration File:         C:\wamp64\bin\php\php7.0.10\php.ini</span><br><span class="line">Scan <span class="keyword">for</span> additional .ini files <span class="keyword">in</span>: (none)</span><br><span class="line">Additional .ini files parsed:      (none)</span><br></pre></td></tr></table></figure>
+
+<p>加载的配置文件是 <code> C:\wamp64\bin\php\php7.0.10\php.ini</code></p>
+<p>打开两个文件可发先它们开启的扩展是不一样的</p>
+<p>** 解决办法： **</p>
+<p>在 <code> C:\wamp64\bin\php\php7.0.10\php.ini</code> 文件中开启 <code>oci8</code> 扩展</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">extension&#x3D;php_oci8_12c.dll</span><br><span class="line">;如果需要使用PDO</span><br><span class="line">extension&#x3D;php_pdo_oci.dll</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://hefengbao.github.io/helloworld/call-to-undefined-function-Yajra-Pdo-oci-connect.html" data-id="ckpqdom61000d1r8jel6i9yas" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/helloworld/tags/laravel/" rel="tag">laravel</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Windows-下-VisualSVN-配置钩子（post-commit）" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/helloworld/windows-visualsvn-post-commit.html" class="article-date">
+  <time datetime="2017-06-23T04:07:45.000Z" itemprop="datePublished">2017-06-23</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/helloworld/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/">版本控制</a>►<a class="article-category-link" href="/helloworld/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/VisualSVN/">VisualSVN</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/helloworld/windows-visualsvn-post-commit.html">Windows 下 VisualSVN 配置钩子（post-commit）</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在实际项目中，一般都要用到版本控制工具。这篇文章是关于版本控制工具 VisualSVN，对于网站（在线系统）类项目，我们在 <code>commit</code> 的同时，也希望新提交的代码能自动部署到服务器目录，便要用到钩子（hook）功能,具体配置的是 <code>post-commit</code>,如下图：</p>
+<img src="/helloworld/images/201706/23/1/njbHBu2cK0.png" class="">
+
+<p>在 windows server 服务器安装 VisualSVN server 服务端和 TortoiseSVN客户端，创建 repository，略过不提。</p>
+<p>在项目名称点击鼠标右键，选择“Properties”-&gt;选择“Hooks”选项卡，选中 “Post-commit hook” ,点击 “Edit”,编辑内容如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@echo off  </span><br><span class="line">SET REPOS&#x3D;%1  </span><br><span class="line">SET REV&#x3D;%2  </span><br><span class="line">SET DIR&#x3D;%REPOS%&#x2F;hooks  </span><br><span class="line">SET PATH&#x3D;%PATH%;  </span><br><span class="line">SET WORKING_COPY&#x3D;&quot;C:&#x2F;wamp64&#x2F;www&#x2F;test&quot;</span><br><span class="line">svn update %WORKING_COPY% --username username  --password password</span><br></pre></td></tr></table></figure>
+
+<p><strong>其中， WORKING_COPY 是项目在服务器（这里指如Apache、Nginx等web服务器）中的目录，并且是svn目录，这里要做的是：右键，签出（checkout）项目，而不是右键新建目录，这也是为何要安装TortoiseSVN的原因。</strong></p>
+<p>这是，在自己的电脑上新建、修改文件，然后提交到版本库，可能出现如下错误：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">post-commit hook failed (exit code 1) with output:</span><br><span class="line">svn: E155004: Working copy &#39;C:\wamp64\www\test&#39; locked</span><br><span class="line">svn: E200031: sqlite: attempt to write a readonly database</span><br><span class="line">svn: E200031: sqlite: attempt to write a readonly database</span><br><span class="line">svn: run &#39;svn cleanup&#39; to remove locks (type &#39;svn help cleanup&#39; for details)</span><br></pre></td></tr></table></figure>
+
+<p><strong>原因：</strong>Visual SVN Server服务的执行权限不够，不能对指定目录做读写操作。</p>
+<p>**解决办法:**，修改Visual SVN Server 权限</p>
+<pre><code> 按 `win+R`快捷键，  在运行窗口中输入` services.msc`, 回车，在弹出的“服务”窗口中， 找到visual svn server 服务 ，右键属性 ，先停止服务之后，设置如下：
+</code></pre>
+<img src="/helloworld/images/201706/23/1/29192c5bCc.png" class="">
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://hefengbao.github.io/helloworld/windows-visualsvn-post-commit.html" data-id="ckpqdom63000i1r8j8krv1e2o" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/helloworld/tags/VisualSVN/" rel="tag">VisualSVN</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-WAMP-You-don&#39;t-have-permission-to-access-on-this-server." class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/helloworld/wamp-403.html" class="article-date">
+  <time datetime="2017-06-19T09:14:09.000Z" itemprop="datePublished">2017-06-19</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/helloworld/categories/Server/">Server</a>►<a class="article-category-link" href="/helloworld/categories/Server/WAMP/">WAMP</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/helloworld/wamp-403.html">WAMP： You don&#39;t have permission to access on this server.</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>新安装的 <code>WAMP</code> ,在其他电脑访问时，会出现 <code>403</code>错误：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Forbidden </span><br><span class="line">You don&#39;t have permission to access on this server.</span><br></pre></td></tr></table></figure>
+
+<p>解决办法：</p>
+<p>在安装目录 <code>盘符:\wamp64\bin\apache\apache2.4.23\conf\extra</code> 中找到 <code>httpd-vhosts.conf</code>文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">VirtualHost *:80&gt;</span><br><span class="line">	ServerName localhost</span><br><span class="line">	DocumentRoot d:&#x2F;wamp64&#x2F;www</span><br><span class="line">	&lt;Directory  &quot;d:&#x2F;wamp64&#x2F;www&#x2F;&quot;&gt;</span><br><span class="line">		Options +Indexes +Includes +FollowSymLinks +MultiViews</span><br><span class="line">		AllowOverride All</span><br><span class="line">		Require local</span><br><span class="line">	&lt;&#x2F;Directory&gt;</span><br><span class="line">&lt;&#x2F;VirtualHost&gt;</span><br></pre></td></tr></table></figure>
+
+<p>修改为：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">VirtualHost *:80&gt;</span><br><span class="line">	ServerName localhost</span><br><span class="line">	DocumentRoot d:&#x2F;wamp64&#x2F;www</span><br><span class="line">	&lt;Directory  &quot;d:&#x2F;wamp64&#x2F;www&#x2F;&quot;&gt;</span><br><span class="line">		Options +Indexes +Includes +FollowSymLinks +MultiViews</span><br><span class="line">		AllowOverride All</span><br><span class="line">		Require all granted</span><br><span class="line">	&lt;&#x2F;Directory&gt;</span><br><span class="line">&lt;&#x2F;VirtualHost&gt;</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://hefengbao.github.io/helloworld/wamp-403.html" data-id="ckpqdom60000c1r8ja2zxcjsp" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/helloworld/tags/WAMP/" rel="tag">WAMP</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Laravel-Homestead-安装配置" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/helloworld/laravel-homestead-installing.html" class="article-date">
+  <time datetime="2017-05-13T04:41:34.000Z" itemprop="datePublished">2017-05-13</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/helloworld/categories/PHP/">PHP</a>►<a class="article-category-link" href="/helloworld/categories/PHP/Laravel/">Laravel</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/helloworld/laravel-homestead-installing.html">Laravel Homestead 安装配置</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1、安装-VirtualBox-Vagrant-git"><a href="#1、安装-VirtualBox-Vagrant-git" class="headerlink" title="1、安装 VirtualBox, Vagrant,git"></a>1、安装 VirtualBox, Vagrant,git</h3><p>下载 <a target="_blank" rel="noopener" href="https://www.virtualbox.org/wiki/Downloads">VirtualBox</a>、 <a target="_blank" rel="noopener" href="https://www.vagrantup.com/downloads.html">Vagrant</a>、<a target="_blank" rel="noopener" href="https://git-scm.com/">git</a>，并安装。</p>
+<h3 id="2、安装-Homestead-Vagrant-Box"><a href="#2、安装-Homestead-Vagrant-Box" class="headerlink" title="2、安装 Homestead Vagrant Box"></a>2、安装 Homestead Vagrant Box</h3><p>用如下命令直接下载安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vagrant box add laravel/homestead</span><br></pre></td></tr></table></figure>
+
+<p>上述方法安装不成功，可在百度网盘（链接：<a target="_blank" rel="noopener" href="https://pan.baidu.com/s/1lA6TV2l9mwOIz2a1Yz5r3A">https://pan.baidu.com/s/1lA6TV2l9mwOIz2a1Yz5r3A</a><br>提取码：6irb )  获取已下载好的 Homestead Vagrant Box，安装方法看下面：</p>
+<h3 id="3、安装-Homestead"><a href="#3、安装-Homestead" class="headerlink" title="3、安装 Homestead"></a>3、安装 Homestead</h3><p>安装：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/laravel/homestead.git Homestead</span><br></pre></td></tr></table></figure>
+
+<p>由于 Homestead 的 <code>master</code> 分支并不是稳定分支，你应该检出已经标签过的稳定版本。你可以在  <a target="_blank" rel="noopener" href="https://github.com/laravel/homestead/releases">Github Release Page </a> 找到最新的稳定版本:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> Homestead</span><br><span class="line"></span><br><span class="line">git checkout -b v5.3.2</span><br></pre></td></tr></table></figure>
+
+<p>如果需要安装下载好的 box,在 <code>Homestead</code> 目录，新建 <code>metadata.json</code> 文件，内容如下： </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">    &quot;name&quot;: &quot;laravel&#x2F;homestead&quot;,</span><br><span class="line">    &quot;versions&quot;:</span><br><span class="line">    [</span><br><span class="line">        &#123;</span><br><span class="line">            &quot;version&quot;: &quot;2.0.0&quot;,</span><br><span class="line">            &quot;providers&quot;: [</span><br><span class="line">                &#123;</span><br><span class="line">                  &quot;name&quot;: &quot;virtualbox&quot;,</span><br><span class="line">                  &quot;url&quot;: &quot;E:&#x2F;homestead&#x2F;2.0&#x2F;virtualbox.box&quot;</span><br><span class="line">                &#125;</span><br><span class="line">            ]</span><br><span class="line">        &#125;</span><br><span class="line">    ]</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>url</code>根据自己的实际目录修改。</p>
+<p>然后用如下命令添加：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vagrant box add metadata.json</span><br></pre></td></tr></table></figure>
+
+<p>查看已安装的 box:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vagrant box list</span><br></pre></td></tr></table></figure>
+
+<p>初始化：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">// Mac / Linux...</span><br><span class="line">bash init.sh</span><br><span class="line"></span><br><span class="line">// Windows...</span><br><span class="line">init.bat</span><br></pre></td></tr></table></figure>
+
+<h3 id="4、配置"><a href="#4、配置" class="headerlink" title="4、配置"></a>4、配置</h3><ol>
+<li>生成SSH Key:</li>
+</ol>
+<p>用  <code>git bash</code>  运行命令生成：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#引号中的信息自行修改</span></span><br><span class="line">ssh-keygen -t rsa -C <span class="string">&quot;xxxx@xxxx&quot;</span> </span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li>配置共享文件夹</li>
+</ol>
+<p>打开  <code>Homestead.yaml</code> 文件（C:\Users\用户名\Homestead 或 C:\Users\用户名.homestead目录下）:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">folders:</span><br><span class="line">    - map: ~&#x2F;Code</span><br><span class="line">      to: &#x2F;home&#x2F;vagrant&#x2F;Code</span><br><span class="line">    - map: D:&#x2F;phpweb&#x2F;test</span><br><span class="line">      to: &#x2F;home&#x2F;vagrant&#x2F;Code&#x2F;test</span><br></pre></td></tr></table></figure>
+
+<p>复制原文件中的内容修改即可(注意对齐、空格等)</p>
+<ol start="3">
+<li>配置Nginx站点</li>
+</ol>
+<p>打开 <code>Homestead.yaml</code> 文件:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sites:</span><br><span class="line">    - map: homestead.app</span><br><span class="line">      to: &#x2F;home&#x2F;vagrant&#x2F;Code&#x2F;Laravel&#x2F;public</span><br><span class="line">    - map: test.app</span><br><span class="line">      to: &#x2F;home&#x2F;vagrant&#x2F;Code&#x2F;test&#x2F;public</span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>修改 <code>hosts</code> 文件：</li>
+</ol>
+<p>添加如下内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">192.168.10.10  test.app</span><br></pre></td></tr></table></figure>
+
+<ol start="5">
+<li>修改数据库配置：</li>
+</ol>
+<p>编修对应项目的 <code>.env</code> 文件：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">DB_DATABASE&#x3D;homestead</span><br><span class="line">DB_USERNAME&#x3D;homestead</span><br><span class="line">DB_PASSWORD&#x3D;secret</span><br></pre></td></tr></table></figure>
+
+<h3 id="5、测试、使用"><a href="#5、测试、使用" class="headerlink" title="5、测试、使用"></a>5、测试、使用</h3><ol>
+<li>启动 Vagrant Box</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"># 进入 Homestead 目录</span><br><span class="line">cd Homestead</span><br><span class="line">#启动</span><br><span class="line">vagrant up</span><br></pre></td></tr></table></figure>
+
+<ol start="2">
+<li><p>打开浏览器,访问 test.app, 若正常显示 Laravel 欢迎页，则配置成功。</p>
+</li>
+<li><p> 通过 SSH 连接虚拟主机</p>
+</li>
+</ol>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vagrant ssh</span><br></pre></td></tr></table></figure>
+
+<p>项目列表：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://hefengbao.github.io/helloworld/laravel-homestead-installing.html" data-id="ckpqdom5x00081r8j9slgcibh" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/helloworld/tags/homestead/" rel="tag">homestead</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/helloworld/tags/laravel/" rel="tag">laravel</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Nginx-服务器部署-php-项目" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/helloworld/nginx-deploy-php-project.html" class="article-date">
+  <time datetime="2017-04-19T06:48:57.000Z" itemprop="datePublished">2017-04-19</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/helloworld/categories/Server/">Server</a>►<a class="article-category-link" href="/helloworld/categories/Server/Nginx/">Nginx</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/helloworld/nginx-deploy-php-project.html">Nginx 服务器部署 php 项目</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>示例的服务器操作系统为 <code>ubuntu</code>。</p>
+<p>默认的网站根目录 <code>/var/www/html</code>，可以把项目拷贝到该目录下，也可在<code>/var/www</code>目录下建立目录。我们把项目放在 <code>/var/www/</code>目录下： <code>/var/www/project_name</code>. </p>
+<p>然后将 Nginx 的用户名和用户组 <code>www-data</code> 分配给它：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">#进入 /var/www 目录</span></span><br><span class="line"><span class="built_in">cd</span> /var/www</span><br><span class="line"></span><br><span class="line"><span class="comment">#分配用户名和用户组</span></span><br><span class="line">chown -R www-data:www-data project_name</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置-Nginx"><a href="#配置-Nginx" class="headerlink" title="配置 Nginx:"></a>配置 Nginx:</h2><p>nginx 的默认配置位于 <code>/etc/nginx/sites-available/default</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">server &#123;</span><br><span class="line">        listen 80 default_server;</span><br><span class="line">        listen [::]:80 default_server;</span><br><span class="line"></span><br><span class="line">        # SSL configuration</span><br><span class="line">        #</span><br><span class="line">        # listen 443 ssl default_server;</span><br><span class="line">        # listen [::]:443 ssl default_server;</span><br><span class="line">    </span><br><span class="line">		# 网站根目录，根据实际情况修改</span><br><span class="line">        root &#x2F;var&#x2F;www&#x2F;project_name;</span><br><span class="line"></span><br><span class="line">        # Add index.php to the list if you are using PHP</span><br><span class="line">        index index.php index.html index.htm index.nginx-debian.html;</span><br><span class="line"></span><br><span class="line">        server_name _;</span><br><span class="line"></span><br><span class="line">        location &#x2F; &#123;</span><br><span class="line">                try_files $uri $uri&#x2F; &#x3D;404;</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        location ~ \.php$ &#123;</span><br><span class="line">                include snippets&#x2F;fastcgi-php.conf;</span><br><span class="line">                fastcgi_pass unix:&#x2F;run&#x2F;php&#x2F;php7.1-fpm.sock;</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>如果配置一个站点，简单配置如上即可。</p>
+<h2 id="Nginx-配置多站点："><a href="#Nginx-配置多站点：" class="headerlink" title="Nginx 配置多站点："></a>Nginx 配置多站点：</h2><p>1、建立多个项目：</p>
+<p><code>/var/www/project1</code><br><code>/var/www/project2</code></p>
+<p>2、在 <code>/etc/nginx/sites-available/</code> 目录下新建配置 project1（或拷贝default，重命名为 project1）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">server&#123;</span><br><span class="line">        listen 80 default_server;</span><br><span class="line">        listen [::]:80 default_server ipv6only&#x3D;on;</span><br><span class="line">		</span><br><span class="line">		#网站域名，根据自己的域名修改，如果只是本机用来开发测试，可自定义</span><br><span class="line">        server_name www.project1.com;</span><br><span class="line">	</span><br><span class="line">		#项目目录地址</span><br><span class="line">        root &#x2F;var&#x2F;www&#x2F;project1;</span><br><span class="line">        index index.html index.php;</span><br><span class="line"></span><br><span class="line">        location &#x2F; &#123;</span><br><span class="line">                try_files $uri $uri&#x2F; &#x3D; 404;</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        location ~ \.php$ &#123;</span><br><span class="line">                include snippets&#x2F;fastcgi-php.conf;</span><br><span class="line">                fastcgi_pass unix:&#x2F;run&#x2F;php&#x2F;php7.1-fpm.sock;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<p>project2 配置类似 project1 ,修改相应的域名、项目目录即可。</p>
+<p>3、建立 <code>/etc/nginx/sites-available/</code> 到 <code>/etc/nginx/sites-enable</code> 的软连接</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">cd  &#x2F;etc&#x2F;nginx&#x2F;sites-available</span><br><span class="line"></span><br><span class="line">ln -s  project1 &#x2F;etc&#x2F;nginx&#x2F;sites-enable</span><br><span class="line">ln -s  project2 &#x2F;etc&#x2F;nginx&#x2F;sites-enable</span><br></pre></td></tr></table></figure>
+
+<p><code>/etc/nginx/sites-enable</code> 文件夹中的配置为当前可用的配置</p>
+<p>4、修改 <code>hosts</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi &#x2F;etc&#x2F;hosts</span><br></pre></td></tr></table></figure>
+
+<p>在 <code>hosts</code> 文件中添加：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1  www.project1.com</span><br><span class="line">127.0.0.1  www.project2.com</span><br></pre></td></tr></table></figure>
+
+<p>保存。</p>
+<p>5、重启 Nginx</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service nginx restart</span><br></pre></td></tr></table></figure>
+
+<p>在浏览器中访问 <a target="_blank" rel="noopener" href="http://www.project1.com/">www.project1.com</a> 、<a target="_blank" rel="noopener" href="http://www.project2.com/">www.project2.com</a>  测试是否配置成功。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://hefengbao.github.io/helloworld/nginx-deploy-php-project.html" data-id="ckpqdom5y00091r8j53hcbbdn" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/helloworld/tags/laravel/" rel="tag">laravel</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Ubuntu-服务器配置-LEMP-环境" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/helloworld/ubuntu-install-lemp.html" class="article-date">
+  <time datetime="2017-04-18T09:40:21.000Z" itemprop="datePublished">2017-04-18</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/helloworld/categories/Server/">Server</a>►<a class="article-category-link" href="/helloworld/categories/Server/LNMP/">LNMP</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/helloworld/ubuntu-install-lemp.html">Ubuntu 服务器配置 LEMP 环境</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="1、准备"><a href="#1、准备" class="headerlink" title="1、准备"></a>1、准备</h3><p>更新、安装下载源：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Update Package List</span></span><br><span class="line">apt update</span><br><span class="line"></span><br><span class="line"><span class="comment"># Update System Packages</span></span><br><span class="line">apt -y upgrade</span><br><span class="line"></span><br><span class="line"><span class="comment"># Install Some PPAs</span></span><br><span class="line"></span><br><span class="line">apt install -y software-properties-common curl</span><br><span class="line"></span><br><span class="line">apt-add-repository ppa:nginx/development -y</span><br><span class="line">apt-add-repository ppa:chris-lea/redis-server -y</span><br><span class="line">apt-add-repository ppa:ondrej/php -y</span><br><span class="line"></span><br><span class="line"><span class="comment"># Update Package Lists</span></span><br><span class="line">apt update</span><br></pre></td></tr></table></figure>
+
+<h3 id="2、安装-Nginx"><a href="#2、安装-Nginx" class="headerlink" title="2、安装 Nginx"></a>2、安装 Nginx</h3><h4 id="2-1-安装"><a href="#2-1-安装" class="headerlink" title="2.1 安装"></a>2.1 安装</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install  nginx</span><br></pre></td></tr></table></figure>
+
+<h4 id="2-2-配置"><a href="#2-2-配置" class="headerlink" title="2.2 配置"></a>2.2 配置</h4><h5 id="2-2-1-在-etc-nginx-nginx-conf-文件的第一行查看-Nginx-用户："><a href="#2-2-1-在-etc-nginx-nginx-conf-文件的第一行查看-Nginx-用户：" class="headerlink" title="2.2.1 在 /etc/nginx/nginx.conf 文件的第一行查看 Nginx 用户："></a>2.2.1 在 <code>/etc/nginx/nginx.conf</code> 文件的第一行查看 Nginx 用户：</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi &#x2F;etc&#x2F;nginx&#x2F;nginx.conf</span><br></pre></td></tr></table></figure>
+
+<h5 id="2-2-2-修改用户和组"><a href="#2-2-2-修改用户和组" class="headerlink" title="2.2.2 修改用户和组"></a>2.2.2 修改用户和组</h5><blockquote>
+<p>PHP7 默认的用户和组是 <code>www-data</code>;<br>如果 Nginx 的用户名也是 <code>www-data</code>， 则不用修改；<br>否则，修改为 <code>www-data</code>.</p>
+</blockquote>
+<h5 id="2-2-3-重启-Nginx"><a href="#2-2-3-重启-Nginx" class="headerlink" title="2.2.3 重启 Nginx"></a>2.2.3 重启 Nginx</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service nginx restart</span><br></pre></td></tr></table></figure>
+
+<h3 id="3、安装-Mysql"><a href="#3、安装-Mysql" class="headerlink" title="3、安装 Mysql"></a>3、安装 Mysql</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install mysql-server php7.4-mysql </span><br></pre></td></tr></table></figure>
+
+<p>安装过程中有提示设置 <code>root</code> 密码。</p>
+<h3 id="4、安装-php"><a href="#4、安装-php" class="headerlink" title="4、安装 php"></a>4、安装 php</h3><h4 id="4-1-安装-php"><a href="#4-1-安装-php" class="headerlink" title="4.1 安装 php"></a>4.1 安装 php</h4><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">apt install php7.4-fpm php7.4-cli php7.4-dev</span><br></pre></td></tr></table></figure>
+
+<h4 id="安装-php-扩展"><a href="#安装-php-扩展" class="headerlink" title="安装 php 扩展"></a>安装 php 扩展</h4><p> 根据需要添加 php 扩展</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">apt install php7.4-gd  php7.4-curl  php7.4-memcached  php7.4-imap php7.4-mbstring php7.4-xml</span><br><span class="line"></span><br><span class="line">#安装 redis</span><br><span class="line">apt install  redis-server</span><br><span class="line"></span><br><span class="line">sudo apt install php-libsodium</span><br><span class="line">sudo apt install php7.3-mcrypt &#x2F;&#x2F;暂时没有</span><br></pre></td></tr></table></figure>
+
+<p>查看安装的 php 扩展</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php -m</span><br></pre></td></tr></table></figure>
+
+<h4 id="4-2-配置-php"><a href="#4-2-配置-php" class="headerlink" title="4.2 配置 php"></a>4.2 配置 php</h4><p>打开 <code>php.ini</code> 配置文件：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vi /etc/php/7.4/fpm/php.ini</span><br></pre></td></tr></table></figure>
+
+<p>如下改动有待商榷？？？</p>
+<p>找到 <code>cgi.fix_pathinfo</code> 选项，去掉注释，然后将指设置为0：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cgi.fix_pathinfo &#x3D; 0;</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://www.php.net/manual/zh/install.unix.nginx.php">https://www.php.net/manual/zh/install.unix.nginx.php</a></p>
+<p><a target="_blank" rel="noopener" href="https://www.yuque.com/crazyzard/gp4crq/iecwo1">https://www.yuque.com/crazyzard/gp4crq/iecwo1</a></p>
+<p>重启 <code>php7.4-fpm</code>:</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">service php7.4-fpm restart</span><br></pre></td></tr></table></figure>
+
+<h3 id="php-版本切换"><a href="#php-版本切换" class="headerlink" title="php 版本切换"></a>php 版本切换</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">update-alternatives --config php</span><br></pre></td></tr></table></figure>
+
+<h4 id="参考："><a href="#参考：" class="headerlink" title="参考："></a>参考：</h4><p><a target="_blank" rel="noopener" href="http://https//github.com/laravel/settler/blob/master/scripts/provision.sh">https://github.com/laravel/settler/blob/master/scripts/provision.sh</a></p>
+<p><a target="_blank" rel="noopener" href="https://learnku.com/articles/44900">https://learnku.com/articles/44900</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://hefengbao.github.io/helloworld/ubuntu-install-lemp.html" data-id="ckpqdom4m00001r8jbkj79jg9" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/helloworld/tags/LNMP/" rel="tag">LNMP</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/helloworld/page/16/">&amp;laquo; Prev</a><a class="page-number" href="/helloworld/">1</a><span class="space">&hellip;</span><a class="page-number" href="/helloworld/page/15/">15</a><a class="page-number" href="/helloworld/page/16/">16</a><span class="page-number current">17</span>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Database/">Database</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Database/MySQL/">MySQL</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Database/Oracle/">Oracle</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Gradle/">Gradle</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Hexo/">Hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/JavaScript/">JavaScript</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Kotlin/">Kotlin</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Linux/">Linux</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Linux/Ubuntu/">Ubuntu</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/PHP/">PHP</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/PHP/Laravel/">Laravel</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Server/">Server</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Server/LNMP/">LNMP</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Server/MinIO/">MinIO</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Server/Nginx/">Nginx</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Server/Redis/">Redis</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Server/Supervisor/">Supervisor</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Server/WAMP/">WAMP</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Vue/">Vue</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Web/">Web</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Web/HTML/">HTML</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E5%B7%A5%E5%85%B7/Composer/">Composer</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E5%B7%A5%E5%85%B7/PhpStorm/">PhpStorm</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/">版本控制</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/Gitlab/">Gitlab</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/VisualSVN/">VisualSVN</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E8%B5%84%E6%96%99/">资料</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/LNMP/" rel="tag">LNMP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/Laravel/" rel="tag">Laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/MinIO/" rel="tag">MinIO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/OAuth-2-0/" rel="tag">OAuth 2.0</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/VisualSVN/" rel="tag">VisualSVN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/WAMP/" rel="tag">WAMP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/android/" rel="tag">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/android-studio/" rel="tag">android-studio</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/composer/" rel="tag">composer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/crontab/" rel="tag">crontab</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/database/" rel="tag">database</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/elasticsearch/" rel="tag">elasticsearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/ffmpeg/" rel="tag">ffmpeg</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/gitlab/" rel="tag">gitlab</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/gradle/" rel="tag">gradle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/homestead/" rel="tag">homestead</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/html/" rel="tag">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/iptables/" rel="tag">iptables</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/java/" rel="tag">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/josn-ld/" rel="tag">josn-ld</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/json/" rel="tag">json</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/kotlin/" rel="tag">kotlin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/laravel/" rel="tag">laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/mysql/" rel="tag">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/okhttp/" rel="tag">okhttp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/oracle/" rel="tag">oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/pdo-oci/" rel="tag">pdo_oci</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/php/" rel="tag">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/phpmyadmin/" rel="tag">phpmyadmin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/phpstorm/" rel="tag">phpstorm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/plsql/" rel="tag">plsql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/proguard/" rel="tag">proguard</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/redis/" rel="tag">redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/room/" rel="tag">room</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/server/" rel="tag">server</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/snowflake/" rel="tag">snowflake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/supervisor/" rel="tag">supervisor</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/vscode/" rel="tag">vscode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/vue/" rel="tag">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/vue-router/" rel="tag">vue-router</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/web/" rel="tag">web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/wsl/" rel="tag">wsl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/zmq/" rel="tag">zmq</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" rel="tag">微服务</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/" rel="tag">数据集</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E8%B5%84%E6%96%99/" rel="tag">资料</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/" rel="tag">项目部署</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/helloworld/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/helloworld/tags/LNMP/" style="font-size: 10px;">LNMP</a> <a href="/helloworld/tags/Laravel/" style="font-size: 10px;">Laravel</a> <a href="/helloworld/tags/MinIO/" style="font-size: 10px;">MinIO</a> <a href="/helloworld/tags/OAuth-2-0/" style="font-size: 10px;">OAuth 2.0</a> <a href="/helloworld/tags/VisualSVN/" style="font-size: 10px;">VisualSVN</a> <a href="/helloworld/tags/WAMP/" style="font-size: 13.33px;">WAMP</a> <a href="/helloworld/tags/android/" style="font-size: 18.33px;">android</a> <a href="/helloworld/tags/android-studio/" style="font-size: 10px;">android-studio</a> <a href="/helloworld/tags/composer/" style="font-size: 13.33px;">composer</a> <a href="/helloworld/tags/crontab/" style="font-size: 10px;">crontab</a> <a href="/helloworld/tags/database/" style="font-size: 10px;">database</a> <a href="/helloworld/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/helloworld/tags/ffmpeg/" style="font-size: 10px;">ffmpeg</a> <a href="/helloworld/tags/git/" style="font-size: 11.67px;">git</a> <a href="/helloworld/tags/gitlab/" style="font-size: 11.67px;">gitlab</a> <a href="/helloworld/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/helloworld/tags/hexo/" style="font-size: 11.67px;">hexo</a> <a href="/helloworld/tags/homestead/" style="font-size: 11.67px;">homestead</a> <a href="/helloworld/tags/html/" style="font-size: 10px;">html</a> <a href="/helloworld/tags/http/" style="font-size: 10px;">http</a> <a href="/helloworld/tags/iptables/" style="font-size: 10px;">iptables</a> <a href="/helloworld/tags/java/" style="font-size: 10px;">java</a> <a href="/helloworld/tags/josn-ld/" style="font-size: 10px;">josn-ld</a> <a href="/helloworld/tags/json/" style="font-size: 10px;">json</a> <a href="/helloworld/tags/kotlin/" style="font-size: 20px;">kotlin</a> <a href="/helloworld/tags/laravel/" style="font-size: 16.67px;">laravel</a> <a href="/helloworld/tags/linux/" style="font-size: 15px;">linux</a> <a href="/helloworld/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/helloworld/tags/nginx/" style="font-size: 11.67px;">nginx</a> <a href="/helloworld/tags/okhttp/" style="font-size: 11.67px;">okhttp</a> <a href="/helloworld/tags/oracle/" style="font-size: 13.33px;">oracle</a> <a href="/helloworld/tags/pdo-oci/" style="font-size: 10px;">pdo_oci</a> <a href="/helloworld/tags/php/" style="font-size: 13.33px;">php</a> <a href="/helloworld/tags/phpmyadmin/" style="font-size: 10px;">phpmyadmin</a> <a href="/helloworld/tags/phpstorm/" style="font-size: 10px;">phpstorm</a> <a href="/helloworld/tags/plsql/" style="font-size: 10px;">plsql</a> <a href="/helloworld/tags/proguard/" style="font-size: 10px;">proguard</a> <a href="/helloworld/tags/redis/" style="font-size: 11.67px;">redis</a> <a href="/helloworld/tags/room/" style="font-size: 10px;">room</a> <a href="/helloworld/tags/server/" style="font-size: 10px;">server</a> <a href="/helloworld/tags/snowflake/" style="font-size: 10px;">snowflake</a> <a href="/helloworld/tags/supervisor/" style="font-size: 10px;">supervisor</a> <a href="/helloworld/tags/ubuntu/" style="font-size: 13.33px;">ubuntu</a> <a href="/helloworld/tags/vscode/" style="font-size: 10px;">vscode</a> <a href="/helloworld/tags/vue/" style="font-size: 11.67px;">vue</a> <a href="/helloworld/tags/vue-router/" style="font-size: 10px;">vue-router</a> <a href="/helloworld/tags/web/" style="font-size: 10px;">web</a> <a href="/helloworld/tags/wsl/" style="font-size: 10px;">wsl</a> <a href="/helloworld/tags/zmq/" style="font-size: 10px;">zmq</a> <a href="/helloworld/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" style="font-size: 10px;">微服务</a> <a href="/helloworld/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/" style="font-size: 10px;">数据集</a> <a href="/helloworld/tags/%E8%B5%84%E6%96%99/" style="font-size: 13.33px;">资料</a> <a href="/helloworld/tags/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/" style="font-size: 10px;">项目部署</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2021/03/">三月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2021/02/">二月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/12/">十二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/11/">十一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/08/">八月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/06/">六月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/05/">五月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/04/">四月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/02/">二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/01/">一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/12/">十二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/10/">十月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/07/">七月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/06/">六月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/05/">五月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/03/">三月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/02/">二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/01/">一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/12/">十二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/11/">十一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/09/">九月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/08/">八月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/07/">七月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/06/">六月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/05/">五月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/04/">四月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/03/">三月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/10/">十月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/08/">八月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/07/">七月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/05/">五月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/04/">四月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/helloworld/android-webview.html">Android Webview</a>
+          </li>
+        
+          <li>
+            <a href="/helloworld/android-constraintlayout.html">Android ConstraintLayout</a>
+          </li>
+        
+          <li>
+            <a href="/helloworld/android-media.html">Android Media</a>
+          </li>
+        
+          <li>
+            <a href="/helloworld/android-fragment.html">Android Fragment</a>
+          </li>
+        
+          <li>
+            <a href="/helloworld/android-brodcastreceiver.html">Android BrodcastReceiver</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 He Fengbao<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/helloworld/" class="mobile-nav-link">Home</a>
+  
+    <a href="/helloworld/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/helloworld/about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/helloworld/fancybox/jquery.fancybox.css">
+
+  
+<script src="/helloworld/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/helloworld/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

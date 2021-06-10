@@ -1,0 +1,800 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>HelloWorld</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="好记性不如烂笔头，保存在收藏夹里的链接，过段时间后就可能打不开了，摘录是不错的保存方式。">
+<meta property="og:type" content="website">
+<meta property="og:title" content="HelloWorld">
+<meta property="og:url" content="https://hefengbao.github.io/helloworld/page/6/index.html">
+<meta property="og:site_name" content="HelloWorld">
+<meta property="og:description" content="好记性不如烂笔头，保存在收藏夹里的链接，过段时间后就可能打不开了，摘录是不错的保存方式。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:author" content="He Fengbao">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/helloworld/atom.xml" title="HelloWorld" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/helloworld/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/helloworld/" id="logo">HelloWorld</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/helloworld/">Home</a>
+        
+          <a class="main-nav-link" href="/helloworld/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/helloworld/about">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/helloworld/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://hefengbao.github.io/helloworld"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main">
+  
+    <article id="post-ErrorException-symlink-Input-output-error" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/helloworld/symlink-inputouput-error.html" class="article-date">
+  <time datetime="2020-01-15T05:31:24.000Z" itemprop="datePublished">2020-01-15</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/helloworld/categories/PHP/">PHP</a>►<a class="article-category-link" href="/helloworld/categories/PHP/Laravel/">Laravel</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/helloworld/symlink-inputouput-error.html">ErrorException  : symlink(): Input/output error</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>在 Windows 10 环境下， 项目中 <code>php artisan storage:link</code> 命令生成软连接，但是访问时总是提示 <code>404</code> 错误，于是远程到 homestead 环境创建软连接：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">vagrant up</span><br><span class="line"></span><br><span class="line">vagrant ssh</span><br><span class="line"></span><br><span class="line">cd 项目</span><br><span class="line"></span><br><span class="line">php artisan storage:link&#96;</span><br></pre></td></tr></table></figure>
+
+<p>出现如下错误：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">ErrorException  : symlink(): Input&#x2F;output error</span><br><span class="line"></span><br><span class="line">  at &#x2F;home&#x2F;vagrant&#x2F;code&#x2F;lsapp&#x2F;vendor&#x2F;laravel&#x2F;framework&#x2F;src&#x2F;Illuminate&#x2F;Filesystem&#x2F;Filesystem.php:228</span><br><span class="line">    224|      *&#x2F;</span><br><span class="line">    225|     public function link($target, $link)</span><br><span class="line">    226|     &#123;</span><br><span class="line">    227|         if (! windows_os()) &#123;</span><br><span class="line">  &gt; 228|             return symlink($target, $link);</span><br><span class="line">    229|         &#125;</span><br><span class="line">    230|</span><br><span class="line">    231|         $mode &#x3D; $this-&gt;isDirectory($target) ? &#39;J&#39; : &#39;H&#39;;</span><br><span class="line">    232|</span><br><span class="line"></span><br><span class="line">  Exception trace:</span><br><span class="line"></span><br><span class="line">  1   symlink(&quot;&#x2F;home&#x2F;vagrant&#x2F;code&#x2F;lsapp&#x2F;storage&#x2F;app&#x2F;public&quot;, &quot;&#x2F;home&#x2F;vagrant&#x2F;code&#x2F;lsapp&#x2F;public&#x2F;storage&quot;)</span><br><span class="line">      &#x2F;home&#x2F;vagrant&#x2F;code&#x2F;lsapp&#x2F;vendor&#x2F;laravel&#x2F;framework&#x2F;src&#x2F;Illuminate&#x2F;Filesystem&#x2F;Filesystem.php:228</span><br><span class="line"></span><br><span class="line">  2   Illuminate\Filesystem\Filesystem::link(&quot;&#x2F;home&#x2F;vagrant&#x2F;code&#x2F;lsapp&#x2F;storage&#x2F;app&#x2F;public&quot;, &quot;&#x2F;home&#x2F;vagrant&#x2F;code&#x2F;lsapp&#x2F;public&#x2F;storage&quot;)</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://laracasts.com/discuss/channels/laravel/symlink-inputouput-error">https://laracasts.com/discuss/channels/laravel/symlink-inputouput-error</a> 这里有讨论；用 <code>ln</code> 命令创建还是会报错，</p>
+<p>最终，解决方案参照  </p>
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/youji-relog/p/11551532.html">https://www.cnblogs.com/youji-relog/p/11551532.html</a>  </p>
+<p>亲测可行。</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://hefengbao.github.io/helloworld/symlink-inputouput-error.html" data-id="ckpqdom9l00br1r8j01eq60te" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/helloworld/tags/homestead/" rel="tag">homestead</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Linux-时间" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/helloworld/linux-date-time.html" class="article-date">
+  <time datetime="2020-01-06T06:46:30.000Z" itemprop="datePublished">2020-01-06</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/helloworld/categories/Linux/">Linux</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/helloworld/linux-date-time.html">Linux 时间</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>修改为 UTC 时间：  </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -sf &#x2F;usr&#x2F;share&#x2F;zoneinfo&#x2F;UTC &#x2F;etc&#x2F;localtime</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">timedatectl set-timezone Asia&#x2F;Shanghai</span><br></pre></td></tr></table></figure>
+
+
+
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/zhi-leaf/p/6282301.html">https://www.cnblogs.com/zhi-leaf/p/6282301.html</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://hefengbao.github.io/helloworld/linux-date-time.html" data-id="ckpqdom9k00bk1r8jf9fl0rtx" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/helloworld/tags/linux/" rel="tag">linux</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-The-following-exception-is-caused-by-a-lack-of-memory-or-swap-or-not-having-swap-configured" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/helloworld/the-following-exception-is-caused-by-a-lack-of-memory-or-swap-or-not-having-swap-configured.html" class="article-date">
+  <time datetime="2020-01-03T06:54:08.000Z" itemprop="datePublished">2020-01-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/helloworld/categories/%E5%B7%A5%E5%85%B7/">工具</a>►<a class="article-category-link" href="/helloworld/categories/%E5%B7%A5%E5%85%B7/Composer/">Composer</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/helloworld/the-following-exception-is-caused-by-a-lack-of-memory-or-swap-or-not-having-swap-configured.html">The following exception is caused by a lack of memory or swap, or not havingswap configured</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>执行 <code>composer update</code> 出现如下错误：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Updates: symfony&#x2F;service-contracts:v2.0.1, symfony&#x2F;mime:v5.0.2, symfony&#x2F;css-selector:v5.0.2, symfony&#x2F;translation-contracts:v2.0.1</span><br><span class="line">  - Updating symfony&#x2F;service-contracts (v1.1.8 &#x3D;&gt; v2.0.1): The following exception is caused by a lack of memory or swap, or not having swap configured</span><br><span class="line">Check https:&#x2F;&#x2F;getcomposer.org&#x2F;doc&#x2F;articles&#x2F;troubleshooting.md#proc-open-fork-failed-errors for details</span><br><span class="line"></span><br><span class="line">In Process.php line 344:</span><br><span class="line">                                                     </span><br><span class="line">  [ErrorException]                                   </span><br><span class="line">  proc_open(): fork failed - Cannot allocate memory</span><br></pre></td></tr></table></figure>
+
+<p>这一般是出现在低内存的虚拟主机上，解决如下，配置交换内存：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/bin/dd if=/dev/zero of=/var/swap.1 bs=1M count=1024</span><br><span class="line">/sbin/mkswap /var/swap.1</span><br><span class="line">/sbin/swapon /var/swap.1</span><br></pre></td></tr></table></figure>
+
+
+
+<p><a target="_blank" rel="noopener" href="https://getcomposer.org/doc/articles/troubleshooting.md#proc-open-fork-failed-errors">https://getcomposer.org/doc/articles/troubleshooting.md#proc-open-fork-failed-errors</a></p>
+<p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000012533758">https://segmentfault.com/a/1190000012533758</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://hefengbao.github.io/helloworld/the-following-exception-is-caused-by-a-lack-of-memory-or-swap-or-not-having-swap-configured.html" data-id="ckpqdom9h00b71r8j96d46c4f" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/helloworld/tags/composer/" rel="tag">composer</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Ubuntu-添加用户" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/helloworld/ubuntu-adduser.html" class="article-date">
+  <time datetime="2020-01-03T06:03:13.000Z" itemprop="datePublished">2020-01-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/helloworld/categories/Linux/">Linux</a>►<a class="article-category-link" href="/helloworld/categories/Linux/Ubuntu/">Ubuntu</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/helloworld/ubuntu-adduser.html">Ubuntu 添加用户</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo adduser bao</span><br></pre></td></tr></table></figure>
+
+<h2 id="添加sudo用户"><a href="#添加sudo用户" class="headerlink" title="添加sudo用户"></a>添加sudo用户</h2><p>命令如下：</p>
+<p>sudo usermod -aG 超级用户组名 用户名</p>
+<p>例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo usermod -aG sudo bao</span><br></pre></td></tr></table></figure>
+
+<p>其中a:表示添加，G：指定组名</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://hefengbao.github.io/helloworld/ubuntu-adduser.html" data-id="ckpqdom9i00bf1r8jh328cosr" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/helloworld/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/helloworld/tags/ubuntu/" rel="tag">ubuntu</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-composer-update-Discard-changes-y-n-v-d-s" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/helloworld/composer-update-discard-changes-ynvds.html" class="article-date">
+  <time datetime="2020-01-03T04:09:33.000Z" itemprop="datePublished">2020-01-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/helloworld/categories/%E5%B7%A5%E5%85%B7/">工具</a>►<a class="article-category-link" href="/helloworld/categories/%E5%B7%A5%E5%85%B7/Composer/">Composer</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/helloworld/composer-update-discard-changes-ynvds.html">composer update: Discard changes [y,n,v,d,s,?]? </a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><code>composer update</code> 出现如下错误： </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Package operations: 3 installs, 26 updates, 0 removals</span><br><span class="line">  - Updating nesbot/carbon (2.27.0 =&gt; 2.28.0):     The package has modified files:</span><br><span class="line">    M bin/carbon</span><br><span class="line">    Discard changes [y,n,v,d,s,?]? </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>y - discard changes and apply the update </p>
+<p>n - abort the update and let you manually clean things up </p>
+<p>v - view modified files d - view local modifications (diff) </p>
+<p>s - stash changes and try to reapply them after the update</p>
+<p>查看源码：<a target="_blank" rel="noopener" href="https://github.com/composer/composer/blob/master/src/Composer/Downloader/GitDownloader.php#L269-L310">https://github.com/composer/composer/blob/master/src/Composer/Downloader/GitDownloader.php#L269-L310</a></p>
+<p>可选择 <code>y</code>, 然后运行 <code>composer require nesbot/carbon --prefer-dist</code> 重新安装。</p>
+<p>来源：</p>
+<p><a target="_blank" rel="noopener" href="https://www.e-learn.cn/content/wangluowenzhang/604410">https://www.e-learn.cn/content/wangluowenzhang/604410</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://hefengbao.github.io/helloworld/composer-update-discard-changes-ynvds.html" data-id="ckpqdom9k00bn1r8j9j3dgcgh" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/helloworld/tags/composer/" rel="tag">composer</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-can-not-read-a-block-mapping-entry-a-multiline-key-may-not-be-an-implicit-key" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/helloworld/can-not-read-a-block-mapping-entry.html" class="article-date">
+  <time datetime="2020-01-01T09:17:55.000Z" itemprop="datePublished">2020-01-01</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/helloworld/categories/Hexo/">Hexo</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/helloworld/can-not-read-a-block-mapping-entry.html">can not read a block mapping entry; a multiline key may not be an implicit key</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">YAMLException: can not read a block mapping entry; a multiline key may not be an implicit key at line 2, column 5:</span><br><span class="line">    date: 2019-08-21 17:19:49</span><br><span class="line">        ^</span><br><span class="line">    at generateError (F:\Document\Blog\helloword\node_modules\js-yaml\lib\js-yaml\loader.js:167:10)</span><br><span class="line">    at throwError (F:\Document\Blog\helloword\node_modules\js-yaml\lib\js-yaml\loader.js:173:9)</span><br><span class="line">    at readBlockMapping (F:\Document\Blog\helloword\node_modules\js-yaml\lib\js-yaml\loader.js:1073:9)</span><br><span class="line">    at composeNode (F:\Document\Blog\helloword\node_modules\js-yaml\lib\js-yaml\loader.js:1359:12)</span><br><span class="line">    at readDocument (F:\Document\Blog\helloword\node_modules\js-yaml\lib\js-yaml\loader.js:1519:3)</span><br><span class="line">    at loadDocuments (F:\Document\Blog\helloword\node_modules\js-yaml\lib\js-yaml\loader.js:1575:5)</span><br><span class="line">    at Object.load (F:\Document\Blog\helloword\node_modules\js-yaml\lib\js-yaml\loader.js:1596:19)</span><br><span class="line">    at parseYAML (F:\Document\Blog\helloword\node_modules\hexo-front-matter\lib\front_matter.js:80:21)</span><br><span class="line">    at parse (F:\Document\Blog\helloword\node_modules\hexo-front-matter\lib\front_matter.js:56:12)</span><br><span class="line">    at Promise.all.spread (F:\Document\Blog\helloword\node_modules\hexo\lib\plugins\processor\post.js:48:20)</span><br><span class="line">    at tryCatcher (F:\Document\Blog\helloword\node_modules\bluebird\js\release\util.js:16:23)</span><br><span class="line">    at Promise._settlePromiseFromHandler (F:\Document\Blog\helloword\node_modules\bluebird\js\release\promise.js:509:35)</span><br><span class="line">    at Promise._settlePromise (F:\Document\Blog\helloword\node_modules\bluebird\js\release\promise.js:569:18)</span><br><span class="line">    at Promise._settlePromise0 (F:\Document\Blog\helloword\node_modules\bluebird\js\release\promise.js:614:10)</span><br><span class="line">    at Promise._settlePromises (F:\Document\Blog\helloword\node_modules\bluebird\js\release\promise.js:694:18)</span><br><span class="line">    at Promise._fulfill (F:\Document\Blog\helloword\node_modules\bluebird\js\release\promise.js:638:18)</span><br><span class="line">    at PromiseArray._resolve (F:\Document\Blog\helloword\node_modules\bluebird\js\release\promise_array.js:126:19)</span><br><span class="line">    at PromiseArray._promiseFulfilled (F:\Document\Blog\helloword\node_modules\bluebird\js\release\promise_array.js:144:14)</span><br><span class="line">    at PromiseArray._iterate (F:\Document\Blog\helloword\node_modules\bluebird\js\release\promise_array.js:114:31)</span><br><span class="line">    at PromiseArray.init [as _init] (F:\Document\Blog\helloword\node_modules\bluebird\js\release\promise_array.js:78:10)</span><br><span class="line">    at Promise._settlePromise (F:\Document\Blog\helloword\node_modules\bluebird\js\release\promise.js:566:21)</span><br><span class="line">    at Promise._settlePromise0 (F:\Document\Blog\helloword\node_modules\bluebird\js\release\promise.js:614:10)</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>原因： 标题中有方括号，本来想加 <code>[转载]</code> 几个字，居然编译不成功</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://hefengbao.github.io/helloworld/can-not-read-a-block-mapping-entry.html" data-id="ckpqdom9i00bc1r8j7vhr79f9" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/helloworld/tags/hexo/" rel="tag">hexo</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-vue-创建项目" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/helloworld/create-vue-project.html" class="article-date">
+  <time datetime="2019-12-19T01:21:59.000Z" itemprop="datePublished">2019-12-19</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/helloworld/categories/Vue/">Vue</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/helloworld/create-vue-project.html">vue 创建项目</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vue create &lt;Project Name&gt; //文件名 不支持驼峰（含大写字母）</span><br></pre></td></tr></table></figure>
+
+<p>如果使用 <code>Git Bash</code> ，则使用如下命令：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">winpty vue.cmd create &lt;Project Name&gt;</span><br></pre></td></tr></table></figure>
+
+
+
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">? Check the features needed for your project: (Press &lt;space&gt; to select, &lt;a&gt; to toggle all, &lt;i&gt; to invert selection)</span><br><span class="line"><span class="meta">&gt;</span><span class="bash">( ) Babel                           //转码器，可以将ES6代码转为ES5代码，从而在现有环境执行。</span>               </span><br><span class="line"> ( ) TypeScript                      // TypeScript是一个JavaScript（后缀.js）的超集（后缀.ts）包含并扩展了                                         JavaScript 的语法，需要被编译输出为 JavaScript在浏览器运行，</span><br><span class="line">                                        目前较少人再用</span><br><span class="line"> ( ) Progressive Web App (PWA) Support// 渐进式Web应用程序</span><br><span class="line"> ( ) Router                           // vue-router（vue路由）</span><br><span class="line"> ( ) Vuex                             // vuex（vue的状态管理模式）</span><br><span class="line"> ( ) CSS Pre-processors               // CSS 预处理器（如：less、sass）</span><br><span class="line"> ( ) Linter / Formatter               // 代码风格检查和格式化（如：ESlint）</span><br><span class="line"> ( ) Unit Testing                     // 单元测试（unit tests）</span><br><span class="line"> ( ) E2E Testing                      // e2e（end to end） 测试</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>①是否使用history router：</p>
+<p>Vue-Router 利用了浏览器自身的hash 模式和 history 模式的特性来实现前端路由（通过调用浏览器提供的接口）</p>
+<p><code>hash</code>： 浏览器url址栏 中的 # 符号（如这个 URL：<a target="_blank" rel="noopener" href="http://www.abc.com/#/hello%EF%BC%8Chash">http://www.abc.com/#/hello，hash</a> 的值为” #/hello”)，hash 不被包括在 HTTP 请求中（对后端完全没有影响），因此改变 hash 不会重新加载页面</p>
+<p><code>history</code>：利用了 HTML5 History Interface 中新增的 pushState( ) 和 replaceState( ) 方法（需要特定浏览器支持）。单页客户端应用，history mode 需要后台配置支持（详细参见：<a target="_blank" rel="noopener" href="https://router.vuejs.org/zh/guide/essentials/history-mode.html">https://router.vuejs.org/zh/guide/essentials/history-mode.html</a>)</p>
+<p>② css预处理器主要为css解决浏览器兼容、简化CSS代码 等问题（*Sass诞生于2007年，最早也是最成熟的一款CSS预处理器语言。）</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">? Please pick a preset: Manually select features</span><br><span class="line"></span><br><span class="line">? Check the features neededforyour project: Router, Vuex, CSS Pre-processors, Linter, Unit</span><br><span class="line"></span><br><span class="line">? Pick a CSS pre-processor (PostCSS, Autoprefixer and CSS Modules are supported bydefault):</span><br><span class="line"></span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> SCSS/SASS //Sass安装需要Ruby环境，是在服务端处理的，SCSS 是 Sass3新语法（完全兼容 CSS3且继承Sass功能）</span></span><br><span class="line">  LESS      //Less最终会通过编译处理输出css到浏览器，Less 既可以在客户端上运行，</span><br><span class="line">            //也可在服务端运行 (借助 Node.js)</span><br><span class="line">  Stylus    //Stylus主要用来给Node项目进行CSS预处理支持，Stylus功能上更为强壮，</span><br><span class="line">            //和js联系更加紧密，可创建健壮的、动态的的CSS。</span><br></pre></td></tr></table></figure>
+
+<p>③ ESLint：提供一个插件化的javascript代码检测工具</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">? Pick a linter / formatter config: (Use arrow keys)</span><br><span class="line"><span class="meta">&gt;</span><span class="bash"> ESLintwitherror prevention only</span></span><br><span class="line">  ESLint + Airbnb config </span><br><span class="line">  ESLint + Standard config </span><br><span class="line">  ESLint + Prettier //使用较多</span><br></pre></td></tr></table></figure>
+
+<p>④ 何时检测：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">? Pick additional lint features: (Press &lt;space&gt; to select, &lt;a&gt; to toggle all, &lt;i&gt; to invert selection)</span><br><span class="line">&gt;( ) Lint on save           &#x2F;&#x2F; 保存就检测</span><br><span class="line"> ( ) Lint and fix on commit &#x2F;&#x2F; fix和commit时候检查</span><br></pre></td></tr></table></figure>
+
+<p>⑤ 单元测试 ：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">? Pick a unit testing solution: (Use arrow keys)</span><br><span class="line">&gt; Mocha + Chai &#x2F;&#x2F;mocha灵活,只提供简单的测试结构，如果需要其他功能需要添加其他库&#x2F;插件完成。必须在全局环境中安装	   Jest         &#x2F;&#x2F;安装配置简单，容易上手。内置Istanbul，可以查看到测试覆盖率，相较于Mocha:配置简洁、测试代码简					洁、易于和babel集成、内置丰富的expect</span><br></pre></td></tr></table></figure>
+
+<p>⑥ 如何存放配置 ：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">? Wheredoyou prefer placing configforBabel, PostCSS, ESLint, etc.? (Use arrow keys)</span><br><span class="line">&gt; In dedicated config files &#x2F;&#x2F; 独立文件放置</span><br><span class="line">  In package.json           &#x2F;&#x2F; 放package.json里</span><br></pre></td></tr></table></figure>
+
+<p> ⑦ 是否保存本次配置（之后可以直接使用）：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">? Savethisasa presetforfuture projects? (Y/n)  // y:记录本次配置，然后需要你起个名; n：不记录本次配置</span><br></pre></td></tr></table></figure>
+
+<p>来源：</p>
+<p><a target="_blank" rel="noopener" href="https://my.oschina.net/u/4203303/blog/3144340">https://my.oschina.net/u/4203303/blog/3144340</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://hefengbao.github.io/helloworld/create-vue-project.html" data-id="ckpqdom9g00b41r8j6nb5d1l8" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/helloworld/tags/vue/" rel="tag">vue</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-vue-配置" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/helloworld/vue-conifg.html" class="article-date">
+  <time datetime="2019-12-14T04:27:49.000Z" itemprop="datePublished">2019-12-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/helloworld/categories/Vue/">Vue</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/helloworld/vue-conifg.html">vue 配置</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>1、在 <code>package.json</code> 中配置</p>
+<p>2、在根目录，新建 <code>vue.config.js</code></p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">modeule.exports = &#123;</span><br><span class="line">    devServer: &#123;</span><br><span class="line">        port: <span class="number">8888</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line">module.exports &#x3D; &#123;</span><br><span class="line">    baseUrl: &#39;&#x2F;&#39;,           &#x2F;&#x2F; 部署应用时的根路径(默认&#39;&#x2F;&#39;),也可用相对路径(存在使用限制)</span><br><span class="line">    outputDir: &#39;dist&#39;,      &#x2F;&#x2F; 运行时生成的生产环境构建文件的目录(默认&#39;&#39;dist&#39;&#39;，构建之前会被清除)</span><br><span class="line">    assetsDir: &#39;&#39;,          &#x2F;&#x2F;放置生成的静态资源(s、css、img、fonts)的(相对于 outputDir 的)目录(默认&#39;&#39;)</span><br><span class="line">    indexPath: &#39;index.html&#39;,&#x2F;&#x2F;指定生成的 index.html 的输出路径(相对于 outputDir)也可以是一个绝对路径。</span><br><span class="line">    pages: &#123;                &#x2F;&#x2F;pages 里配置的路径和文件名在你的文档目录必须存在 否则启动服务会报错</span><br><span class="line">        index: &#123;            &#x2F;&#x2F;除了 entry 之外都是可选的</span><br><span class="line">            entry: &#39;src&#x2F;index&#x2F;main.js&#39;,    &#x2F;&#x2F; page 的入口,每个“page”应该有一个对应的 JavaScript 入口文件</span><br><span class="line">            template: &#39;public&#x2F;index.html&#39;, &#x2F;&#x2F; 模板来源</span><br><span class="line">            filename: &#39;index.html&#39;,        &#x2F;&#x2F; 在 dist&#x2F;index.html 的输出</span><br><span class="line">            title: &#39;Index Page&#39;,           &#x2F;&#x2F; 当使用 title 选项时,在 template 中使用：&lt;title&gt;&lt;%&#x3D;                                                    &#x2F;&#x2F;htmlWebpackPlugin.options.title %&gt;&lt;&#x2F;title&gt;</span><br><span class="line">            chunks: [&#39;chunk-vendors&#39;, &#39;chunk-common&#39;, &#39;index&#39;] &#x2F;&#x2F; 在这个页面中包含的块，默认情况下会包含,提取出来的通用 chunk 和 vendor chunk</span><br><span class="line">        &#125;,</span><br><span class="line">        subpage: &#39;src&#x2F;subpage&#x2F;main.js&#39;&#x2F;&#x2F;官方解释：当使用只有入口的字符串格式时,模板会被推导为&#39;public&#x2F;subpage.html&#39;,若找不到就回退到&#39;public&#x2F;index.html&#39;,输出文件名会被推导为&#39;subpage.html&#39;</span><br><span class="line">    &#125;,</span><br><span class="line">    lintOnSave: true,&#x2F;&#x2F; 是否在保存的时候检查</span><br><span class="line">    productionSourceMap: true,&#x2F;&#x2F; 生产环境是否生成 sourceMap 文件</span><br><span class="line">    css: &#123;</span><br><span class="line">        extract: true,&#x2F;&#x2F; 是否使用css分离插件 ExtractTextPlugin</span><br><span class="line">        sourceMap: false,&#x2F;&#x2F; 开启 CSS source maps</span><br><span class="line">        loaderOptions: &#123;&#125;,&#x2F;&#x2F; css预设器配置项</span><br><span class="line">        modules: false&#x2F;&#x2F; 启用 CSS modules for all css &#x2F; pre-processor files.</span><br><span class="line">    &#125;,</span><br><span class="line">    devServer: &#123;&#x2F;&#x2F; 环境配置</span><br><span class="line">        host: &#39;localhost&#39;,</span><br><span class="line">        port: 8080,</span><br><span class="line">        https: false,</span><br><span class="line">        hotOnly: false,</span><br><span class="line">        open: true, &#x2F;&#x2F;配置自动启动浏览器</span><br><span class="line">        proxy: &#123;&#x2F;&#x2F; 配置多个代理(配置一个 proxy: &#39;http:&#x2F;&#x2F;localhost:4000&#39; )</span><br><span class="line">            &#39;&#x2F;api&#39;: &#123;</span><br><span class="line">                target: &#39;&lt;url&gt;&#39;,</span><br><span class="line">                ws: true,</span><br><span class="line">                changeOrigin: true</span><br><span class="line">            &#125;,</span><br><span class="line">            &#39;&#x2F;foo&#39;: &#123;</span><br><span class="line">                target: &#39;&lt;other_url&gt;&#39;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;,</span><br><span class="line">    pluginOptions: &#123;&#x2F;&#x2F; 第三方插件配置</span><br><span class="line">        &#x2F;&#x2F; ...</span><br><span class="line">    &#125;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>3、 <code>babel.config.js</code></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://hefengbao.github.io/helloworld/vue-conifg.html" data-id="ckpqdom9e00ax1r8j5epigf8k" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/helloworld/tags/vue/" rel="tag">vue</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Mysql-8-安装" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/helloworld/mysql-8-install.html" class="article-date">
+  <time datetime="2019-12-03T12:29:13.000Z" itemprop="datePublished">2019-12-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/helloworld/categories/Database/">Database</a>►<a class="article-category-link" href="/helloworld/categories/Database/MySQL/">MySQL</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/helloworld/mysql-8-install.html">Mysql 8 安装</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h2 id="下载："><a href="#下载：" class="headerlink" title="下载："></a>下载：</h2><p><a target="_blank" rel="noopener" href="https://dev.mysql.com/downloads/">https://dev.mysql.com/downloads/</a></p>
+<p><a target="_blank" rel="noopener" href="https://dev.mysql.com/downloads/mysql/">https://dev.mysql.com/downloads/mysql/</a></p>
+<h2 id="文档："><a href="#文档：" class="headerlink" title="文档："></a>文档：</h2><p><a target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/8.0/en/">https://dev.mysql.com/doc/refman/8.0/en/</a>  </p>
+<p><a target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/8.0/en/binary-installation.html">https://dev.mysql.com/doc/refman/8.0/en/binary-installation.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://dev.mysql.com/doc/mysql-apt-repo-quick-guide/en/">https://dev.mysql.com/doc/mysql-apt-repo-quick-guide/en/</a></p>
+<h2 id="安装（https-dev-mysql-com-doc-refman-8-0-en-binary-installation-html-binary-installation-layout）："><a href="#安装（https-dev-mysql-com-doc-refman-8-0-en-binary-installation-html-binary-installation-layout）：" class="headerlink" title="安装（https://dev.mysql.com/doc/refman/8.0/en/binary-installation.html#binary-installation-layout）："></a>安装（<a target="_blank" rel="noopener" href="https://dev.mysql.com/doc/refman/8.0/en/binary-installation.html#binary-installation-layout%EF%BC%89%EF%BC%9A">https://dev.mysql.com/doc/refman/8.0/en/binary-installation.html#binary-installation-layout）：</a></h2><p>推荐安装在 <code>/usr/local</code> 目录</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">tar -xvf  mysql_8.tar.xz &#x2F;&#x2F;解压 tar.xz 文件</span><br><span class="line"></span><br><span class="line">mv mysql_8 mysql &#x2F;&#x2F;重命名</span><br><span class="line"></span><br><span class="line">cd mysql</span><br><span class="line"></span><br><span class="line">mkdir data  &#x2F;&#x2F;数据目录</span><br><span class="line"></span><br><span class="line">groupadd mysql</span><br><span class="line">useradd mysql -g mysql</span><br><span class="line"></span><br><span class="line">chown mysql:mysql data</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">bin&#x2F;mysqld --initialize --user&#x3D;mysql --datadir &#x2F;usr&#x2F;local&#x2F;mysql&#x2F;data  &#x2F;&#x2F; 生成 root 用户的初始密码</span><br><span class="line"></span><br><span class="line">cp support-files&#x2F;mysql.server &#x2F;etc&#x2F;init.d&#x2F;</span><br><span class="line"></span><br><span class="line">vi .bash_profile &#x2F;&#x2F;编辑环境变量</span><br><span class="line">		:&#x2F;usr&#x2F;local&#x2F;mysql&#x2F;bin  &#x2F;&#x2F;在 PATH 后添加</span><br><span class="line"></span><br><span class="line">source .bash_profile</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">mysql -u root -p</span><br><span class="line"></span><br><span class="line">&#x2F;&#x2F;修改初始密码</span><br><span class="line">&#x2F;&#x2F;5.7 set password&#x3D;password(&#39;密码&#39;);</span><br><span class="line">alter user user() identified by &#39;密码&#39;;</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/keme/p/10288168.html">https://www.cnblogs.com/keme/p/10288168.html</a></p>
+<p>APT 安装：</p>
+<img src="/helloworld/images/configuring-mysql-community-server.jpg" class="">
+
+
+
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/wm609972715/article/details/83759266">https://blog.csdn.net/wm609972715/article/details/83759266</a></p>
+<p>Ubuntu中更改MySQL数据库文件目录:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">service mysql stop</span><br><span class="line"></span><br><span class="line">cd &#x2F;media&#x2F;data</span><br><span class="line">cp  -a &#x2F;var&#x2F;lib&#x2F;mysql &#x2F;mysql</span><br><span class="line"></span><br><span class="line"># 修改配置文件</span><br><span class="line">vi &#x2F;etc&#x2F;mysql&#x2F;mysql.conf.d&#x2F;mysqld.cnf</span><br><span class="line"># 修改 datadir</span><br><span class="line">datadir         &#x3D; &#x2F;media&#x2F;data&#x2F;mysql</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">vim &#x2F;etc&#x2F;apparmor.d&#x2F;usr.sbin.mysqld</span><br><span class="line"></span><br><span class="line"># &#x2F;var&#x2F;lib&#x2F;mysql r, 修改为</span><br><span class="line">&#x2F;media&#x2F;data&#x2F;mysql r,</span><br><span class="line"># &#x2F;var&#x2F;lib&#x2F;mysql&#x2F;** rwk, 修改为</span><br><span class="line">&#x2F;data&#x2F;media&#x2F;mysql&#x2F;** rwk,</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">service apparmor restart</span><br><span class="line">service mysql restart</span><br></pre></td></tr></table></figure>
+
+
+
+
+
+<p><a target="_blank" rel="noopener" href="https://www.jb51.net/article/150089.htm">https://www.jb51.net/article/150089.htm</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://hefengbao.github.io/helloworld/mysql-8-install.html" data-id="ckpqdom9d00au1r8jbzjj8t2w" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/helloworld/tags/mysql/" rel="tag">mysql</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-使用Supervisor管理进程" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/helloworld/supervisor.html" class="article-date">
+  <time datetime="2019-12-03T09:17:14.000Z" itemprop="datePublished">2019-12-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/helloworld/categories/Server/">Server</a>►<a class="article-category-link" href="/helloworld/categories/Server/Supervisor/">Supervisor</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/helloworld/supervisor.html">使用Supervisor管理进程</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a target="_blank" rel="noopener" href="http://supervisord.org/">Supervisor</a> 是一款使用 Python 开发的非常优秀的进程管理工具。它可以在类 UNIX 系统上让用户精确地监视与控制多组指定数量的服务进程。当监控的服务进程意外退出时，会尝试自动重启这些服务，以保持服务可用状态。</p>
+<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><p>Supervisor <a target="_blank" rel="noopener" href="http://www.supervisord.org/installing.html">官方</a> 提供的安装方式较多，这里采用 pip 方式安装。</p>
+<h3 id="安装pip"><a href="#安装pip" class="headerlink" title="安装pip"></a>安装pip</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ yum install python-pip# 升级pip$ pip install --upgrade pip$ pip -Vpip 9.0.1</span><br></pre></td></tr></table></figure>
+
+<h3 id="安装Supervisor"><a href="#安装Supervisor" class="headerlink" title="安装Supervisor"></a>安装Supervisor</h3><p>通过 pip 安装 Supervisor：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ pip install supervisorSuccessfully installed supervisor-3.3.3</span><br></pre></td></tr></table></figure>
+
+<p>安装 Supervisor 后，会出现 supervisorctl 和 supervisord 两个程序，其中 supervisorctl 为服务监控终端，而 supervisord 才是所有监控服务的大脑。查看 supervisord 是否安装成功：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ supervisord -v3.3.3</span><br></pre></td></tr></table></figure>
+
+<h3 id="开机启动"><a href="#开机启动" class="headerlink" title="开机启动"></a>开机启动</h3><p>将 supervisord 配置成开机启动服务，下载官方 <a target="_blank" rel="noopener" href="https://github.com/Supervisor/initscripts/blob/master/redhat-init-mingalevme">init 脚本</a>。</p>
+<p>修改关键路径配置：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">PIDFILE&#x3D;&#x2F;var&#x2F;run&#x2F;supervisord.pid</span><br><span class="line">LOCKFILE&#x3D;&#x2F;var&#x2F;lock&#x2F;subsys&#x2F;supervisord</span><br><span class="line">OPTIONS&#x3D;&quot;-c &#x2F;etc&#x2F;supervisord.conf&quot;</span><br></pre></td></tr></table></figure>
+
+<p>移到该文件到<code>/etc/init.d</code>目录下，并重命名为 supervisor，添加可执行权限：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ chmod 777 &#x2F;etc&#x2F;init.d&#x2F;supervisor</span><br></pre></td></tr></table></figure>
+
+<p>配置成开机启动服务：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ chkconfig --add supervisor</span><br><span class="line">$ chkconfig supervisor on</span><br><span class="line">$ chkconfig --list | grep &quot;supervisor&quot;</span><br><span class="line">supervisor  0:off 1:off 2:on 3:on 4:on 5:on 6:off</span><br></pre></td></tr></table></figure>
+
+<h2 id="配置"><a href="#配置" class="headerlink" title="配置"></a>配置</h2><h3 id="生成配置文件"><a href="#生成配置文件" class="headerlink" title="生成配置文件"></a>生成配置文件</h3><p>Supervisord 安装后，需要使用如下命令生成配置文件。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">$ mkdir &#x2F;etc&#x2F;supervisor</span><br><span class="line">$ echo_supervisord_conf &gt; &#x2F;etc&#x2F;supervisor&#x2F;supervisord.conf</span><br></pre></td></tr></table></figure>
+
+<h3 id="主配置部分"><a href="#主配置部分" class="headerlink" title="主配置部分"></a>主配置部分</h3><p><code>supervisord.conf</code>的主配置部分说明：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">[unix_http_server]</span><br><span class="line">file&#x3D;&#x2F;tmp&#x2F;supervisor.sock   ; socket文件的路径</span><br><span class="line">;chmod&#x3D;0700                 ; socket文件权限</span><br><span class="line">;chown&#x3D;nobody:nogroup       ; socket文件用户和用户组</span><br><span class="line">;username&#x3D;user              ; 连接时认证的用户名</span><br><span class="line">;password&#x3D;123               ; 连接时认证的密码</span><br><span class="line"></span><br><span class="line">[inet_http_server]          ; 监听TCP</span><br><span class="line">port&#x3D;127.0.0.1:9001         ; 监听ip和端口</span><br><span class="line">username&#x3D;user               ; 连接时认证的用户名</span><br><span class="line">password&#x3D;123                ; 连接时认证的密码</span><br><span class="line"></span><br><span class="line">[supervisord]</span><br><span class="line">logfile&#x3D;&#x2F;var&#x2F;log&#x2F;supervisord.log ; log目录</span><br><span class="line">logfile_maxbytes&#x3D;50MB        ; log文件最大空间</span><br><span class="line">logfile_backups&#x3D;10           ; log文件保持的数量</span><br><span class="line">loglevel&#x3D;info                ; log级别</span><br><span class="line">pidfile&#x3D;&#x2F;var&#x2F;run&#x2F;supervisord.pid</span><br><span class="line">nodaemon&#x3D;false               ; 是否非守护进程态运行</span><br><span class="line">minfds&#x3D;1024                  ; 系统空闲的最少文件描述符</span><br><span class="line">minprocs&#x3D;200                 ; 可用的最小进程描述符</span><br><span class="line">;umask&#x3D;022                   ; 进程创建文件的掩码</span><br><span class="line">;identifier&#x3D;supervisor       ; supervisord标识符</span><br><span class="line">;directory&#x3D;&#x2F;tmp              ; 启动前切换到的目录</span><br><span class="line">;nocleanup&#x3D;true              ; 启动前是否清除子进程的日志文件</span><br><span class="line">;childlogdir&#x3D;&#x2F;tmp            ; AUTO模式，子进程日志路径</span><br><span class="line">;environment&#x3D;KEY&#x3D;&quot;value&quot;     ; 设置环境变量</span><br><span class="line"></span><br><span class="line">[rpcinterface:supervisor]    ; XML_RPC配置</span><br><span class="line">supervisor.rpcinterface_factory &#x3D; supervisor.rpcinterface:make_main_rpcinterface</span><br><span class="line"></span><br><span class="line">[supervisorctl]</span><br><span class="line">serverurl&#x3D;unix:&#x2F;&#x2F;&#x2F;tmp&#x2F;supervisor.sock ; 连接的socket路径</span><br><span class="line">;username&#x3D;chris               ; 用户名</span><br><span class="line">;password&#x3D;123                 ; 密码</span><br><span class="line">prompt&#x3D;mysupervisor           ; 输入用户名和密码时的提示符</span><br><span class="line">;history_file&#x3D;~&#x2F;.sc_history   ; 历史操作记录存储路径</span><br><span class="line"></span><br><span class="line">[include]                     ; 包含文件，将每个进程配置为一个文件并包含</span><br><span class="line">files &#x3D; &#x2F;etc&#x2F;supervisor&#x2F;*.ini ; 多个进程的配置文件</span><br></pre></td></tr></table></figure>
+
+<p>这部分我们不需要做太多的配置修改，如果需要开启 WEB 终端监控，则需要配置并开启 inet_http_server 项。</p>
+<h3 id="进程配置部分"><a href="#进程配置部分" class="headerlink" title="进程配置部分"></a>进程配置部分</h3><p>Supervisor 需管理的进程服务配置，示例如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">[program:work]                      ; 服务名，例如work</span><br><span class="line">command&#x3D;php -r &quot;sleep(10);exit(1);&quot; ; 带有参数的可执行命令</span><br><span class="line">process_name&#x3D;%(process_num)s        ; 进程名，当numprocs&gt;1时，需包含%(process_num)s</span><br><span class="line">numprocs&#x3D;2                          ; 启动进程的数目数</span><br><span class="line">;directory&#x3D;&#x2F;tmp                     ; 运行前切换到该目录</span><br><span class="line">;umask&#x3D;022                          ; 进程掩码</span><br><span class="line">;priority&#x3D;999                       ; 子进程启动关闭优先级</span><br><span class="line">autostart&#x3D;true                      ; 子进程是否被自动启动</span><br><span class="line">startsecs&#x3D;1                         ; 成功启动几秒后则认为成功启动</span><br><span class="line">;startretries&#x3D;3                     ; 子进程启动失败后，最大尝试启动的次数</span><br><span class="line">autorestart&#x3D;unexpected            ; 子进程意外退出后自动重启的选项，false, unexpected, true。unexpected表示不在exitcodes列表时重启</span><br><span class="line">exitcodes&#x3D;0,2                     ; 期待的子程序退出码</span><br><span class="line">;stopsignal&#x3D;QUIT                  ; 进程停止信号，可以为TERM,HUP,INT,QUIT,KILL,USR1,or USR2等信号，默认为TERM</span><br><span class="line">;stopwaitsecs&#x3D;10                  ; 发送停止信号后等待的最大时间</span><br><span class="line">;stopasgroup&#x3D;false                ; 是否向子进程组发送停止信号</span><br><span class="line">;killasgroup&#x3D;false                ; 是否向子进程组发送kill信号</span><br><span class="line">;redirect_stderr&#x3D;true             ; 是否重定向日志到标准输出</span><br><span class="line">stdout_logfile&#x3D;&#x2F;data&#x2F;logs&#x2F;work.log ; 进程的stdout的日志路径</span><br><span class="line">;stdout_logfile_maxbytes&#x3D;1MB      ; 日志文件最大大小</span><br><span class="line">;stdout_logfile_backups&#x3D;10</span><br><span class="line">;stdout_capture_maxbytes&#x3D;1MB</span><br><span class="line">;stderr_logfile&#x3D;&#x2F;a&#x2F;path           ; stderr的日志路径</span><br><span class="line">;stderr_logfile_maxbytes&#x3D;1MB</span><br><span class="line">;stderr_logfile_backups&#x3D;10</span><br><span class="line">;stderr_capture_maxbytes&#x3D;1MB</span><br><span class="line">;environment&#x3D;A&#x3D;&quot;1&quot;,B&#x3D;&quot;2&quot;          ; 子进程的环境变量</span><br><span class="line">;serverurl&#x3D;AUTO                   ; 子进程的环境变量SUPERVISOR_SERVER_URL</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>通常将每个进程的配置信息配置成独立文件，并通过 include 模块包含，这样方便修改和管理配置文件。</p>
+</blockquote>
+<h2 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h2><p>配置完成后，启动 supervisord 守护服务：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ supervisord -c &#x2F;etc&#x2F;supervisor&#x2F;supervisord.conf</span><br></pre></td></tr></table></figure>
+
+<p>常用的命令参数说明：</p>
+<ul>
+<li>-c：指定配置文件路径</li>
+<li>-n：是否非守护态运行</li>
+<li>-l：日志文件目录</li>
+<li>-i：唯一标识</li>
+</ul>
+<p>查看 supervisord 启动情况：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ ps -ef | grep &quot;supervisor&quot;</span><br><span class="line">root  24901  1  0 Sep23 ? 00:00:30 &#x2F;usr&#x2F;bin&#x2F;python &#x2F;usr&#x2F;bin&#x2F;supervisord -c &#x2F;etc&#x2F;supervisor&#x2F;supervisord.conf</span><br><span class="line">$ netstat -tunpl</span><br><span class="line">tcp 0 0 127.0.0.1:9001  0.0.0.0:*  LISTEN  24901&#x2F;python</span><br></pre></td></tr></table></figure>
+
+<h2 id="监控进程"><a href="#监控进程" class="headerlink" title="监控进程"></a>监控进程</h2><p>Supervisor 提供了多种监控服务的方式，包括 supervisorctl 命令行终端、Web 端、XML_RPC 接口多种方式。</p>
+<h3 id="命令终端"><a href="#命令终端" class="headerlink" title="命令终端"></a>命令终端</h3><p>直接使用 supervisorctl 即可在命令行终端查看所有服务的情况，如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">$ supervisorctl </span><br><span class="line">work:0      RUNNING   pid 31313, uptime 0:00:07</span><br><span class="line">work:1      RUNNING   pid 31318, uptime 0:00:06</span><br><span class="line"># -u 用户名 -p 密码</span><br></pre></td></tr></table></figure>
+
+<p>supervisorctl 常用命令列表如下；</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.fanhaobai.com/2017/09/supervisor.html#">status</a>：查看服务状态</li>
+<li><a target="_blank" rel="noopener" href="https://www.fanhaobai.com/2017/09/supervisor.html#">update</a>：重新加载配置文件</li>
+<li><a target="_blank" rel="noopener" href="https://www.fanhaobai.com/2017/09/supervisor.html#">restart</a>：重新启动服务</li>
+<li><a target="_blank" rel="noopener" href="https://www.fanhaobai.com/2017/09/supervisor.html#">stop</a>：停止服务</li>
+<li><a target="_blank" rel="noopener" href="https://www.fanhaobai.com/2017/09/supervisor.html#">pid</a>：查看某服务的 pid</li>
+<li><a target="_blank" rel="noopener" href="https://www.fanhaobai.com/2017/09/supervisor.html#">tail</a>：输出最新的 log 信息</li>
+<li><a target="_blank" rel="noopener" href="https://www.fanhaobai.com/2017/09/supervisor.html#">shutdown</a>：关闭 supervisord 服务</li>
+</ul>
+<h3 id="Web"><a href="#Web" class="headerlink" title="Web"></a>Web</h3><p>在配置中开启 inet_http_server 后，即可通过 Web 界面便捷地监控进程服务了。</p>
+<p>来源：</p>
+<p><a target="_blank" rel="noopener" href="https://www.fanhaobai.com/2017/09/supervisor.html">https://www.fanhaobai.com/2017/09/supervisor.html</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://hefengbao.github.io/helloworld/supervisor.html" data-id="ckpqdom9e00b01r8j0s9oa66y" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/helloworld/tags/supervisor/" rel="tag">supervisor</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+
+
+  <nav id="page-nav">
+    
+    <a class="extend prev" rel="prev" href="/helloworld/page/5/">&amp;laquo; Prev</a><a class="page-number" href="/helloworld/">1</a><span class="space">&hellip;</span><a class="page-number" href="/helloworld/page/4/">4</a><a class="page-number" href="/helloworld/page/5/">5</a><span class="page-number current">6</span><a class="page-number" href="/helloworld/page/7/">7</a><a class="page-number" href="/helloworld/page/8/">8</a><span class="space">&hellip;</span><a class="page-number" href="/helloworld/page/17/">17</a><a class="extend next" rel="next" href="/helloworld/page/7/">Next &amp;raquo;</a>
+  </nav>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Database/">Database</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Database/MySQL/">MySQL</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Database/Oracle/">Oracle</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Gradle/">Gradle</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Hexo/">Hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/JavaScript/">JavaScript</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Kotlin/">Kotlin</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Linux/">Linux</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Linux/Ubuntu/">Ubuntu</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/PHP/">PHP</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/PHP/Laravel/">Laravel</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Server/">Server</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Server/LNMP/">LNMP</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Server/MinIO/">MinIO</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Server/Nginx/">Nginx</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Server/Redis/">Redis</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Server/Supervisor/">Supervisor</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Server/WAMP/">WAMP</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Vue/">Vue</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Web/">Web</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Web/HTML/">HTML</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E5%B7%A5%E5%85%B7/Composer/">Composer</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E5%B7%A5%E5%85%B7/PhpStorm/">PhpStorm</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/">版本控制</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/Gitlab/">Gitlab</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/VisualSVN/">VisualSVN</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E8%B5%84%E6%96%99/">资料</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/LNMP/" rel="tag">LNMP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/Laravel/" rel="tag">Laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/MinIO/" rel="tag">MinIO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/OAuth-2-0/" rel="tag">OAuth 2.0</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/VisualSVN/" rel="tag">VisualSVN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/WAMP/" rel="tag">WAMP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/android/" rel="tag">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/android-studio/" rel="tag">android-studio</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/composer/" rel="tag">composer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/crontab/" rel="tag">crontab</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/database/" rel="tag">database</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/elasticsearch/" rel="tag">elasticsearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/ffmpeg/" rel="tag">ffmpeg</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/gitlab/" rel="tag">gitlab</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/gradle/" rel="tag">gradle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/homestead/" rel="tag">homestead</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/html/" rel="tag">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/iptables/" rel="tag">iptables</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/java/" rel="tag">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/josn-ld/" rel="tag">josn-ld</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/json/" rel="tag">json</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/kotlin/" rel="tag">kotlin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/laravel/" rel="tag">laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/mysql/" rel="tag">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/okhttp/" rel="tag">okhttp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/oracle/" rel="tag">oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/pdo-oci/" rel="tag">pdo_oci</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/php/" rel="tag">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/phpmyadmin/" rel="tag">phpmyadmin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/phpstorm/" rel="tag">phpstorm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/plsql/" rel="tag">plsql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/proguard/" rel="tag">proguard</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/redis/" rel="tag">redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/room/" rel="tag">room</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/server/" rel="tag">server</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/snowflake/" rel="tag">snowflake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/supervisor/" rel="tag">supervisor</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/vscode/" rel="tag">vscode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/vue/" rel="tag">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/vue-router/" rel="tag">vue-router</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/web/" rel="tag">web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/wsl/" rel="tag">wsl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/zmq/" rel="tag">zmq</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" rel="tag">微服务</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/" rel="tag">数据集</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E8%B5%84%E6%96%99/" rel="tag">资料</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/" rel="tag">项目部署</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/helloworld/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/helloworld/tags/LNMP/" style="font-size: 10px;">LNMP</a> <a href="/helloworld/tags/Laravel/" style="font-size: 10px;">Laravel</a> <a href="/helloworld/tags/MinIO/" style="font-size: 10px;">MinIO</a> <a href="/helloworld/tags/OAuth-2-0/" style="font-size: 10px;">OAuth 2.0</a> <a href="/helloworld/tags/VisualSVN/" style="font-size: 10px;">VisualSVN</a> <a href="/helloworld/tags/WAMP/" style="font-size: 13.33px;">WAMP</a> <a href="/helloworld/tags/android/" style="font-size: 18.33px;">android</a> <a href="/helloworld/tags/android-studio/" style="font-size: 10px;">android-studio</a> <a href="/helloworld/tags/composer/" style="font-size: 13.33px;">composer</a> <a href="/helloworld/tags/crontab/" style="font-size: 10px;">crontab</a> <a href="/helloworld/tags/database/" style="font-size: 10px;">database</a> <a href="/helloworld/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/helloworld/tags/ffmpeg/" style="font-size: 10px;">ffmpeg</a> <a href="/helloworld/tags/git/" style="font-size: 11.67px;">git</a> <a href="/helloworld/tags/gitlab/" style="font-size: 11.67px;">gitlab</a> <a href="/helloworld/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/helloworld/tags/hexo/" style="font-size: 11.67px;">hexo</a> <a href="/helloworld/tags/homestead/" style="font-size: 11.67px;">homestead</a> <a href="/helloworld/tags/html/" style="font-size: 10px;">html</a> <a href="/helloworld/tags/http/" style="font-size: 10px;">http</a> <a href="/helloworld/tags/iptables/" style="font-size: 10px;">iptables</a> <a href="/helloworld/tags/java/" style="font-size: 10px;">java</a> <a href="/helloworld/tags/josn-ld/" style="font-size: 10px;">josn-ld</a> <a href="/helloworld/tags/json/" style="font-size: 10px;">json</a> <a href="/helloworld/tags/kotlin/" style="font-size: 20px;">kotlin</a> <a href="/helloworld/tags/laravel/" style="font-size: 16.67px;">laravel</a> <a href="/helloworld/tags/linux/" style="font-size: 15px;">linux</a> <a href="/helloworld/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/helloworld/tags/nginx/" style="font-size: 11.67px;">nginx</a> <a href="/helloworld/tags/okhttp/" style="font-size: 11.67px;">okhttp</a> <a href="/helloworld/tags/oracle/" style="font-size: 13.33px;">oracle</a> <a href="/helloworld/tags/pdo-oci/" style="font-size: 10px;">pdo_oci</a> <a href="/helloworld/tags/php/" style="font-size: 13.33px;">php</a> <a href="/helloworld/tags/phpmyadmin/" style="font-size: 10px;">phpmyadmin</a> <a href="/helloworld/tags/phpstorm/" style="font-size: 10px;">phpstorm</a> <a href="/helloworld/tags/plsql/" style="font-size: 10px;">plsql</a> <a href="/helloworld/tags/proguard/" style="font-size: 10px;">proguard</a> <a href="/helloworld/tags/redis/" style="font-size: 11.67px;">redis</a> <a href="/helloworld/tags/room/" style="font-size: 10px;">room</a> <a href="/helloworld/tags/server/" style="font-size: 10px;">server</a> <a href="/helloworld/tags/snowflake/" style="font-size: 10px;">snowflake</a> <a href="/helloworld/tags/supervisor/" style="font-size: 10px;">supervisor</a> <a href="/helloworld/tags/ubuntu/" style="font-size: 13.33px;">ubuntu</a> <a href="/helloworld/tags/vscode/" style="font-size: 10px;">vscode</a> <a href="/helloworld/tags/vue/" style="font-size: 11.67px;">vue</a> <a href="/helloworld/tags/vue-router/" style="font-size: 10px;">vue-router</a> <a href="/helloworld/tags/web/" style="font-size: 10px;">web</a> <a href="/helloworld/tags/wsl/" style="font-size: 10px;">wsl</a> <a href="/helloworld/tags/zmq/" style="font-size: 10px;">zmq</a> <a href="/helloworld/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" style="font-size: 10px;">微服务</a> <a href="/helloworld/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/" style="font-size: 10px;">数据集</a> <a href="/helloworld/tags/%E8%B5%84%E6%96%99/" style="font-size: 13.33px;">资料</a> <a href="/helloworld/tags/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/" style="font-size: 10px;">项目部署</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2021/03/">三月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2021/02/">二月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/12/">十二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/11/">十一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/08/">八月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/06/">六月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/05/">五月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/04/">四月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/02/">二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/01/">一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/12/">十二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/10/">十月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/07/">七月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/06/">六月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/05/">五月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/03/">三月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/02/">二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/01/">一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/12/">十二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/11/">十一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/09/">九月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/08/">八月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/07/">七月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/06/">六月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/05/">五月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/04/">四月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/03/">三月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/10/">十月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/08/">八月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/07/">七月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/05/">五月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/04/">四月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/helloworld/android-webview.html">Android Webview</a>
+          </li>
+        
+          <li>
+            <a href="/helloworld/android-constraintlayout.html">Android ConstraintLayout</a>
+          </li>
+        
+          <li>
+            <a href="/helloworld/android-media.html">Android Media</a>
+          </li>
+        
+          <li>
+            <a href="/helloworld/android-fragment.html">Android Fragment</a>
+          </li>
+        
+          <li>
+            <a href="/helloworld/android-brodcastreceiver.html">Android BrodcastReceiver</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 He Fengbao<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/helloworld/" class="mobile-nav-link">Home</a>
+  
+    <a href="/helloworld/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/helloworld/about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/helloworld/fancybox/jquery.fancybox.css">
+
+  
+<script src="/helloworld/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/helloworld/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

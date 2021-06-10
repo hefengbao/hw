@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Laravel 备份 | HelloWorld</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="laravel 版本： 5.6.*  安装  spatie&#x2F;laravel-backup: composer require spatie&#x2F;laravel-backup 发布配置： php artisan vendor:publish --provider&#x3D;&quot;Spatie\Backup\BackupServiceProvider&quot; 生成配置文件 config&#x2F;backup.p">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Laravel 备份">
+<meta property="og:url" content="https://hefengbao.github.io/helloworld/laravel-backup-7tFvqasi.html">
+<meta property="og:site_name" content="HelloWorld">
+<meta property="og:description" content="laravel 版本： 5.6.*  安装  spatie&#x2F;laravel-backup: composer require spatie&#x2F;laravel-backup 发布配置： php artisan vendor:publish --provider&#x3D;&quot;Spatie\Backup\BackupServiceProvider&quot; 生成配置文件 config&#x2F;backup.p">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2018-11-14T09:30:18.000Z">
+<meta property="article:modified_time" content="2019-03-29T07:33:22.000Z">
+<meta property="article:author" content="He Fengbao">
+<meta property="article:tag" content="laravel">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/helloworld/atom.xml" title="HelloWorld" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/helloworld/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/helloworld/" id="logo">HelloWorld</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/helloworld/">Home</a>
+        
+          <a class="main-nav-link" href="/helloworld/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/helloworld/about">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/helloworld/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://hefengbao.github.io/helloworld"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Laravel-备份" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/helloworld/laravel-backup-7tFvqasi.html" class="article-date">
+  <time datetime="2018-11-14T09:30:18.000Z" itemprop="datePublished">2018-11-14</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/helloworld/categories/PHP/">PHP</a>►<a class="article-category-link" href="/helloworld/categories/PHP/Laravel/">Laravel</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Laravel 备份
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>laravel 版本： 5.6.*</p>
+</blockquote>
+<p>安装 <code> spatie/laravel-backup</code>:</p>
+<p><code>composer require spatie/laravel-backup</code></p>
+<p>发布配置：</p>
+<p><code>php artisan vendor:publish --provider=&quot;Spatie\Backup\BackupServiceProvider&quot;</code></p>
+<p>生成配置文件 <code>config/backup.php</code>.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">&#39;source&#39; &#x3D;&gt; [</span><br><span class="line">		&#x2F;*</span><br><span class="line">		*设置要备份的文件</span><br><span class="line">		*&#x2F;</span><br><span class="line">		&#39;files&#39; &#x3D;&gt; [</span><br><span class="line"></span><br><span class="line">			&#x2F;*</span><br><span class="line">			 * 默认是备份整个项目文件，实际上是不必要的，一般只备份上传的文件、图片等。</span><br><span class="line">			 *&#x2F;</span><br><span class="line">			&#39;include&#39; &#x3D;&gt; [</span><br><span class="line">				base_path(),</span><br><span class="line">			],</span><br><span class="line"></span><br><span class="line">			&#x2F;*</span><br><span class="line">			* 配合上面的设置，去除不需要备份的目录或文件</span><br><span class="line">			 *&#x2F;</span><br><span class="line">			&#39;exclude&#39; &#x3D;&gt; [</span><br><span class="line">				base_path(&#39;vendor&#39;),</span><br><span class="line">				base_path(&#39;node_modules&#39;),</span><br><span class="line">			],</span><br><span class="line">		],</span><br><span class="line"></span><br><span class="line">		&#x2F;*</span><br><span class="line">		*要备份的数据库</span><br><span class="line">		*&#x2F;</span><br><span class="line">		&#39;databases&#39; &#x3D;&gt; [</span><br><span class="line">			&#39;mysql&#39;,</span><br><span class="line">		],</span><br><span class="line">	],</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&#39;mail&#39; &#x3D;&gt; [</span><br><span class="line">            &#39;to&#39; &#x3D;&gt; &#39;example@example.com&#39;,</span><br><span class="line">        ],</span><br></pre></td></tr></table></figure>
+<p>这里配置接受备份通知的邮箱地址，可以参考<a target="_blank" rel="noopener" href="https://www.hellocode.wang/article/laravel-mail-config-Fjydufmk">Laravel Mail 配置</a> 配置邮箱。</p>
+<p>接下来，在 <code>config/database.php</code> 配置数据库备份的相关信息，文档 <a target="_blank" rel="noopener" href="https://docs.spatie.be/laravel-backup/v5/installation-and-setup#dumping-the-database">https://docs.spatie.be/laravel-backup/v5/installation-and-setup#dumping-the-database</a>  ：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;config&#x2F;database.php</span><br><span class="line">&#39;connections&#39; &#x3D;&gt; [</span><br><span class="line">	&#39;mysql&#39; &#x3D;&gt; [</span><br><span class="line">		&#39;driver&#39;    &#x3D;&gt; &#39;mysql&#39;</span><br><span class="line">		...,</span><br><span class="line">		&#39;dump&#39; &#x3D;&gt; [</span><br><span class="line">		   &#39;dump_binary_path&#39; &#x3D;&gt; &#39;&#x2F;path&#x2F;to&#x2F;the&#x2F;binary&#39;, &#x2F;&#x2F; only the path, so without &#96;mysqldump&#96; or &#96;pg_dump&#96;</span><br><span class="line">		   &#39;use_single_transaction&#39;,</span><br><span class="line">		   &#39;timeout&#39; &#x3D;&gt; 60 * 5, &#x2F;&#x2F; 5 minute timeout</span><br><span class="line">		   &#39;exclude_tables&#39; &#x3D;&gt; [&#39;table1&#39;, &#39;table2&#39;],</span><br><span class="line">		   &#39;add_extra_option&#39; &#x3D;&gt; &#39;--optionname&#x3D;optionvalue&#39;, </span><br><span class="line">		]  </span><br><span class="line">	],</span><br></pre></td></tr></table></figure>
+
+<p>其中 <code> dump_binary_path</code>  指 <code>mysqldump</code> 等所在的目录，在 Linux 系统中，可以通过 <code>which mysqldump</code> 命令查看。</p>
+<p>示例：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&#39;connections&#39; &#x3D;&gt; [</span><br><span class="line">	&#39;mysql&#39; &#x3D;&gt; [</span><br><span class="line">		&#39;driver&#39;    &#x3D;&gt; &#39;mysql&#39;</span><br><span class="line">		...,</span><br><span class="line">		&#39;dump&#39; &#x3D;&gt; [</span><br><span class="line">		  &#39;dump_binary_path&#39; &#x3D;&gt; &#39;&#x2F;usr&#x2F;bin&#39;, </span><br><span class="line">                &#39;use_single_transaction&#39; &#x3D;&gt; true,</span><br><span class="line">                &#39;timeout&#39; &#x3D;&gt; 60 * 5, </span><br><span class="line">		]  </span><br><span class="line">	],</span><br></pre></td></tr></table></figure>
+
+<p>运行备份：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php artisan backup:run</span><br></pre></td></tr></table></figure>
+
+<p>生成的备份文件位于 <code>storage/app/Laravel</code> 目录下。</p>
+<p>参考：<br><a target="_blank" rel="noopener" href="https://docs.spatie.be/laravel-backup/v5/introduction">https://docs.spatie.be/laravel-backup/v5/introduction</a><br><a target="_blank" rel="noopener" href="https://www.jianshu.com/p/39457bc6ca22">https://www.jianshu.com/p/39457bc6ca22</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://hefengbao.github.io/helloworld/laravel-backup-7tFvqasi.html" data-id="ckpqdom6r002f1r8j7lsj6bas" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/helloworld/tags/laravel/" rel="tag">laravel</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/helloworld/laravel-cron-ljL02Yun.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Laravel 定时任务
+        
+      </div>
+    </a>
+  
+  
+    <a href="/helloworld/laravel-mail-config-Fjydufmk.html" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Laravel Mail 配置</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Database/">Database</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Database/MySQL/">MySQL</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Database/Oracle/">Oracle</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Gradle/">Gradle</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Hexo/">Hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/JavaScript/">JavaScript</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Kotlin/">Kotlin</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Linux/">Linux</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Linux/Ubuntu/">Ubuntu</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/PHP/">PHP</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/PHP/Laravel/">Laravel</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Server/">Server</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Server/LNMP/">LNMP</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Server/MinIO/">MinIO</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Server/Nginx/">Nginx</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Server/Redis/">Redis</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Server/Supervisor/">Supervisor</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Server/WAMP/">WAMP</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Vue/">Vue</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Web/">Web</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Web/HTML/">HTML</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E5%B7%A5%E5%85%B7/Composer/">Composer</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E5%B7%A5%E5%85%B7/PhpStorm/">PhpStorm</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/">版本控制</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/Gitlab/">Gitlab</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/VisualSVN/">VisualSVN</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E8%B5%84%E6%96%99/">资料</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/LNMP/" rel="tag">LNMP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/Laravel/" rel="tag">Laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/MinIO/" rel="tag">MinIO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/OAuth-2-0/" rel="tag">OAuth 2.0</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/VisualSVN/" rel="tag">VisualSVN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/WAMP/" rel="tag">WAMP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/android/" rel="tag">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/android-studio/" rel="tag">android-studio</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/composer/" rel="tag">composer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/crontab/" rel="tag">crontab</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/database/" rel="tag">database</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/elasticsearch/" rel="tag">elasticsearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/ffmpeg/" rel="tag">ffmpeg</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/gitlab/" rel="tag">gitlab</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/gradle/" rel="tag">gradle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/homestead/" rel="tag">homestead</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/html/" rel="tag">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/iptables/" rel="tag">iptables</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/java/" rel="tag">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/josn-ld/" rel="tag">josn-ld</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/json/" rel="tag">json</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/kotlin/" rel="tag">kotlin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/laravel/" rel="tag">laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/mysql/" rel="tag">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/okhttp/" rel="tag">okhttp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/oracle/" rel="tag">oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/pdo-oci/" rel="tag">pdo_oci</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/php/" rel="tag">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/phpmyadmin/" rel="tag">phpmyadmin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/phpstorm/" rel="tag">phpstorm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/plsql/" rel="tag">plsql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/proguard/" rel="tag">proguard</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/redis/" rel="tag">redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/room/" rel="tag">room</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/server/" rel="tag">server</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/snowflake/" rel="tag">snowflake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/supervisor/" rel="tag">supervisor</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/vscode/" rel="tag">vscode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/vue/" rel="tag">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/vue-router/" rel="tag">vue-router</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/web/" rel="tag">web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/wsl/" rel="tag">wsl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/zmq/" rel="tag">zmq</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" rel="tag">微服务</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/" rel="tag">数据集</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E8%B5%84%E6%96%99/" rel="tag">资料</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/" rel="tag">项目部署</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/helloworld/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/helloworld/tags/LNMP/" style="font-size: 10px;">LNMP</a> <a href="/helloworld/tags/Laravel/" style="font-size: 10px;">Laravel</a> <a href="/helloworld/tags/MinIO/" style="font-size: 10px;">MinIO</a> <a href="/helloworld/tags/OAuth-2-0/" style="font-size: 10px;">OAuth 2.0</a> <a href="/helloworld/tags/VisualSVN/" style="font-size: 10px;">VisualSVN</a> <a href="/helloworld/tags/WAMP/" style="font-size: 13.33px;">WAMP</a> <a href="/helloworld/tags/android/" style="font-size: 18.33px;">android</a> <a href="/helloworld/tags/android-studio/" style="font-size: 10px;">android-studio</a> <a href="/helloworld/tags/composer/" style="font-size: 13.33px;">composer</a> <a href="/helloworld/tags/crontab/" style="font-size: 10px;">crontab</a> <a href="/helloworld/tags/database/" style="font-size: 10px;">database</a> <a href="/helloworld/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/helloworld/tags/ffmpeg/" style="font-size: 10px;">ffmpeg</a> <a href="/helloworld/tags/git/" style="font-size: 11.67px;">git</a> <a href="/helloworld/tags/gitlab/" style="font-size: 11.67px;">gitlab</a> <a href="/helloworld/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/helloworld/tags/hexo/" style="font-size: 11.67px;">hexo</a> <a href="/helloworld/tags/homestead/" style="font-size: 11.67px;">homestead</a> <a href="/helloworld/tags/html/" style="font-size: 10px;">html</a> <a href="/helloworld/tags/http/" style="font-size: 10px;">http</a> <a href="/helloworld/tags/iptables/" style="font-size: 10px;">iptables</a> <a href="/helloworld/tags/java/" style="font-size: 10px;">java</a> <a href="/helloworld/tags/josn-ld/" style="font-size: 10px;">josn-ld</a> <a href="/helloworld/tags/json/" style="font-size: 10px;">json</a> <a href="/helloworld/tags/kotlin/" style="font-size: 20px;">kotlin</a> <a href="/helloworld/tags/laravel/" style="font-size: 16.67px;">laravel</a> <a href="/helloworld/tags/linux/" style="font-size: 15px;">linux</a> <a href="/helloworld/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/helloworld/tags/nginx/" style="font-size: 11.67px;">nginx</a> <a href="/helloworld/tags/okhttp/" style="font-size: 11.67px;">okhttp</a> <a href="/helloworld/tags/oracle/" style="font-size: 13.33px;">oracle</a> <a href="/helloworld/tags/pdo-oci/" style="font-size: 10px;">pdo_oci</a> <a href="/helloworld/tags/php/" style="font-size: 13.33px;">php</a> <a href="/helloworld/tags/phpmyadmin/" style="font-size: 10px;">phpmyadmin</a> <a href="/helloworld/tags/phpstorm/" style="font-size: 10px;">phpstorm</a> <a href="/helloworld/tags/plsql/" style="font-size: 10px;">plsql</a> <a href="/helloworld/tags/proguard/" style="font-size: 10px;">proguard</a> <a href="/helloworld/tags/redis/" style="font-size: 11.67px;">redis</a> <a href="/helloworld/tags/room/" style="font-size: 10px;">room</a> <a href="/helloworld/tags/server/" style="font-size: 10px;">server</a> <a href="/helloworld/tags/snowflake/" style="font-size: 10px;">snowflake</a> <a href="/helloworld/tags/supervisor/" style="font-size: 10px;">supervisor</a> <a href="/helloworld/tags/ubuntu/" style="font-size: 13.33px;">ubuntu</a> <a href="/helloworld/tags/vscode/" style="font-size: 10px;">vscode</a> <a href="/helloworld/tags/vue/" style="font-size: 11.67px;">vue</a> <a href="/helloworld/tags/vue-router/" style="font-size: 10px;">vue-router</a> <a href="/helloworld/tags/web/" style="font-size: 10px;">web</a> <a href="/helloworld/tags/wsl/" style="font-size: 10px;">wsl</a> <a href="/helloworld/tags/zmq/" style="font-size: 10px;">zmq</a> <a href="/helloworld/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" style="font-size: 10px;">微服务</a> <a href="/helloworld/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/" style="font-size: 10px;">数据集</a> <a href="/helloworld/tags/%E8%B5%84%E6%96%99/" style="font-size: 13.33px;">资料</a> <a href="/helloworld/tags/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/" style="font-size: 10px;">项目部署</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2021/03/">三月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2021/02/">二月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/12/">十二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/11/">十一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/08/">八月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/06/">六月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/05/">五月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/04/">四月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/02/">二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/01/">一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/12/">十二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/10/">十月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/07/">七月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/06/">六月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/05/">五月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/03/">三月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/02/">二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/01/">一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/12/">十二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/11/">十一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/09/">九月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/08/">八月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/07/">七月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/06/">六月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/05/">五月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/04/">四月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/03/">三月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/10/">十月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/08/">八月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/07/">七月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/05/">五月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/04/">四月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/helloworld/android-webview.html">Android Webview</a>
+          </li>
+        
+          <li>
+            <a href="/helloworld/android-constraintlayout.html">Android ConstraintLayout</a>
+          </li>
+        
+          <li>
+            <a href="/helloworld/android-media.html">Android Media</a>
+          </li>
+        
+          <li>
+            <a href="/helloworld/android-fragment.html">Android Fragment</a>
+          </li>
+        
+          <li>
+            <a href="/helloworld/android-brodcastreceiver.html">Android BrodcastReceiver</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 He Fengbao<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/helloworld/" class="mobile-nav-link">Home</a>
+  
+    <a href="/helloworld/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/helloworld/about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/helloworld/fancybox/jquery.fancybox.css">
+
+  
+<script src="/helloworld/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/helloworld/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

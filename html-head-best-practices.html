@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>【转】HTML 文档之 Head 最佳实践 | HelloWorld</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="每一个标准的 HTML 文档都包含一个 &lt;head&gt; 头部分，除了声明文档类型，编码方式和文档标题，引入外部资源这些基本功能外， 头还能做很多非常有用的事情，这篇文章整理了作者认可的一些最佳实践，写在这里与各位分享。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="【转】HTML 文档之 Head 最佳实践">
+<meta property="og:url" content="https://hefengbao.github.io/helloworld/html-head-best-practices.html">
+<meta property="og:site_name" content="HelloWorld">
+<meta property="og:description" content="每一个标准的 HTML 文档都包含一个 &lt;head&gt; 头部分，除了声明文档类型，编码方式和文档标题，引入外部资源这些基本功能外， 头还能做很多非常有用的事情，这篇文章整理了作者认可的一些最佳实践，写在这里与各位分享。">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-10-09T11:13:28.000Z">
+<meta property="article:modified_time" content="2019-10-09T11:13:28.000Z">
+<meta property="article:author" content="He Fengbao">
+<meta property="article:tag" content="html">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/helloworld/atom.xml" title="HelloWorld" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/helloworld/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/helloworld/" id="logo">HelloWorld</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/helloworld/">Home</a>
+        
+          <a class="main-nav-link" href="/helloworld/archives">Archives</a>
+        
+          <a class="main-nav-link" href="/helloworld/about">About</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/helloworld/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://hefengbao.github.io/helloworld"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-HTML-文档之-Head-最佳实践" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/helloworld/html-head-best-practices.html" class="article-date">
+  <time datetime="2019-10-09T11:13:28.000Z" itemprop="datePublished">2019-10-09</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/helloworld/categories/Web/">Web</a>►<a class="article-category-link" href="/helloworld/categories/Web/HTML/">HTML</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      【转】HTML 文档之 Head 最佳实践
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>每一个标准的 HTML 文档都包含一个 <code>&lt;head&gt;</code> 头部分，除了声明文档类型，编码方式和文档标题，引入外部资源这些基本功能外，<head> 头还能做很多非常有用的事情，这篇文章整理了作者认可的一些最佳实践，写在这里与各位分享。</p>
+<span id="more"></span>
+
+<h2 id="语言"><a href="#语言" class="headerlink" title="语言"></a>语言</h2><p>在 <code>html</code> 标签中通过 <code>lang</code> 属性进行明确的语言声明，将会有助于翻译，英文、简体中文和繁体中文网页所属性值如下：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;en&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;zh-Hans&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">&quot;zh-Hant&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="编码"><a href="#编码" class="headerlink" title="编码"></a>编码</h2><p>请在 <code>&lt;head&gt;</code> 中第一行统一使用 <code>utf-8</code> 编码声明。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">&quot;utf-8&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Base-元素"><a href="#Base-元素" class="headerlink" title="Base 元素"></a>Base 元素</h2><p>尽量不使用 <code>&lt;base&gt;</code> 元素，绝对地址和 URL 对于开发者和用户来说都更好。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Bad --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">base</span> <span class="attr">href</span>=<span class="string">&quot;/blog/&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">&quot;hello-world&quot;</span> <span class="attr">rel</span>=<span class="string">&quot;canonical&quot;</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- Good --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">&quot;/blog/hello-world&quot;</span> <span class="attr">rel</span>=<span class="string">&quot;canonical&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Viewport"><a href="#Viewport" class="headerlink" title="Viewport"></a>Viewport</h2><p>设置 <code>viewport</code> 的宽度为设备宽度，默认缩放比为 1（允许用户缩放），设置 <code>viewport-fit=cover</code> 以兼容 iPhone X 全面屏“刘海”的显示。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;viewport&quot;</span> <span class="attr">content</span>=<span class="string">&quot;width=device-width,initial-scale=1,viewport-fit=cover&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="DNS-预读取"><a href="#DNS-预读取" class="headerlink" title="DNS 预读取"></a>DNS 预读取</h2><p>DNS 预读取是一项使浏览器主动去执行域名解析的功能，其范围包括当前文档内的所有链接，这能够减少用户点击链接时的延迟。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;x-dns-prefetch-control&quot;</span> <span class="attr">content</span>=<span class="string">&quot;on&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;dns-prefetch&quot;</span> <span class="attr">href</span>=<span class="string">&quot;//www.google-analytics.com&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;dns-prefetch&quot;</span> <span class="attr">href</span>=<span class="string">&quot;//fonts.googleapis.com&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="预加载"><a href="#预加载" class="headerlink" title="预加载"></a>预加载</h2><p>指示浏览器预先请求当前页面所需要的关键性资源。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;preload&quot;</span> <span class="attr">href</span>=<span class="string">&quot;/css/main.css&quot;</span> <span class="attr">as</span>=<span class="string">&quot;style&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;preload&quot;</span> <span class="attr">href</span>=<span class="string">&quot;/js/main.js&quot;</span> <span class="attr">as</span>=<span class="string">&quot;script&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="预请求"><a href="#预请求" class="headerlink" title="预请求"></a>预请求</h2><p>指示浏览器预先请求用户即将浏览页面所需要的关键性资源。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;prefetch&quot;</span> <span class="attr">href</span>=<span class="string">&quot;/img/css-sprite.png&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;prefetch&quot;</span> <span class="attr">href</span>=<span class="string">&quot;/fonts/icons.woff2&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="渲染偏好"><a href="#渲染偏好" class="headerlink" title="渲染偏好"></a>渲染偏好</h2><p>对于国内各种双核浏览器，通过设置 <code>renderer</code> 头要求它们使用 webkit 内核；对于 IE 浏览器，通过设置 <code>IE=edge</code> 要求它使用最新的版本；对于百度搜索强制转码的流氓做法，通过 <code>no-transform</code> 禁止其自动转码；指示浏览器对类似电话、邮箱或地址的内容不要自作聪明的瞎识别（移动端）。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;renderer&quot;</span> <span class="attr">content</span>=<span class="string">&quot;webkit&quot;</span>&gt;</span> <span class="comment">&lt;!-- 用在360中 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;force-rendering&quot;</span> <span class="attr">content</span>=<span class="string">&quot;webkit&quot;</span>&gt;</span> <span class="comment">&lt;!-- 用在其它 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;X-UA-Compatible&quot;</span> <span class="attr">content</span>=<span class="string">&quot;IE=edge&quot;</span>&gt;</span> <span class="comment">&lt;!-- 针对 IE 浏览器 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">http-equiv</span>=<span class="string">&quot;Cache-Control&quot;</span> <span class="attr">content</span>=<span class="string">&quot;no-transform&quot;</span>&gt;</span> <span class="comment">&lt;!-- 针对百度搜索 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;format-detection&quot;</span> <span class="attr">content</span>=<span class="string">&quot;telephone=no,email=no,adress=no&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="文档信息"><a href="#文档信息" class="headerlink" title="文档信息"></a>文档信息</h2><p>HTML 文档的一些元数据，包括：作者、描述、关键词和生成工具；设置 <code>robots</code> 为 <code>index,follow</code> 指示搜索引擎爬虫该页面需要进入索引，并且页面内的所有链接都要继续跟踪；设置 <code>referrer</code> 为 <code>origin-when-cross-origin</code> 指示浏览器在进行跨域跳转时，其 <code>referrer</code> 值将统一为域名，而非具体的 URL 地址。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;author&quot;</span> <span class="attr">content</span>=<span class="string">&quot;米老朱&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;description&quot;</span> <span class="attr">content</span>=<span class="string">&quot;米老朱的个人博客&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;keywords&quot;</span> <span class="attr">content</span>=<span class="string">&quot;米老朱,极客,博客,WEB,开发,产品设计&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;generator&quot;</span> <span class="attr">content</span>=<span class="string">&quot;Hugo 0.32&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;robots&quot;</span> <span class="attr">content</span>=<span class="string">&quot;index,follow&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;referrer&quot;</span> <span class="attr">content</span>=<span class="string">&quot;origin-when-cross-origin&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Icons"><a href="#Icons" class="headerlink" title="Icons"></a>Icons</h2><p>虽说所有浏览器都还支持过时的 favicon.ico 格式，但在 HTML5 时代，我们应该使用更好的 PNG icon with sizes 方案。同时为了兼容老旧浏览器，我们可以将生成好的 favicon.ico 文件放在网站的根目录下面，通常浏览器会自动请求并加载它，并不需要额外通过 link 标签引入。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;theme-color&quot;</span> <span class="attr">content</span>=<span class="string">&quot;#db5945&quot;</span>&gt;</span> <span class="comment">&lt;!-- 主题颜色 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;application-name&quot;</span> <span class="attr">content</span>=<span class="string">&quot;米老朱的博客&quot;</span>&gt;</span> <span class="comment">&lt;!-- 应用名称 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;apple-mobile-web-app-capable&quot;</span> <span class="attr">content</span>=<span class="string">&quot;yes&quot;</span>&gt;</span> <span class="comment">&lt;!-- 隐藏状态栏 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;apple-mobile-web-app-status-bar-style&quot;</span> <span class="attr">content</span>=<span class="string">&quot;black&quot;</span>&gt;</span> <span class="comment">&lt;!-- 状态栏颜色 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;apple-mobile-web-app-title&quot;</span> <span class="attr">content</span>=<span class="string">&quot;米老朱的博客&quot;</span>&gt;</span> <span class="comment">&lt;!-- iOS 下的应用名称 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;msapplication-tooltip&quot;</span> <span class="attr">content</span>=<span class="string">&quot;米老朱的博客&quot;</span>&gt;</span> <span class="comment">&lt;!-- Hover 的提示信息 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;msapplication-TileColor&quot;</span> <span class="attr">content</span>=<span class="string">&quot;#db5945&quot;</span>&gt;</span> <span class="comment">&lt;!-- 磁贴背景颜色 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;msapplication-TileImage&quot;</span> <span class="attr">content</span>=<span class="string">&quot;/img/logo-144.png&quot;</span>&gt;</span> <span class="comment">&lt;!-- 磁贴图标 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;msapplication-config&quot;</span> <span class="attr">content</span>=<span class="string">&quot;/browserconfig.xml&quot;</span>&gt;</span> <span class="comment">&lt;!-- 磁贴配置文件 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;icon&quot;</span> <span class="attr">type</span>=<span class="string">&quot;image/png&quot;</span> <span class="attr">href</span>=<span class="string">&quot;/img/logo-16.png&quot;</span> <span class="attr">sizes</span>=<span class="string">&quot;16x16&quot;</span>&gt;</span> <span class="comment">&lt;!-- Browser Favicon --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;icon&quot;</span> <span class="attr">type</span>=<span class="string">&quot;image/png&quot;</span> <span class="attr">href</span>=<span class="string">&quot;/img/logo-32.png&quot;</span> <span class="attr">sizes</span>=<span class="string">&quot;32x32&quot;</span>&gt;</span> <span class="comment">&lt;!-- Taskbar Shortcut --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;icon&quot;</span> <span class="attr">type</span>=<span class="string">&quot;image/png&quot;</span> <span class="attr">href</span>=<span class="string">&quot;/img/logo-96.png&quot;</span> <span class="attr">sizes</span>=<span class="string">&quot;96x96&quot;</span>&gt;</span> <span class="comment">&lt;!-- Desktop Shortcut --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;icon&quot;</span> <span class="attr">type</span>=<span class="string">&quot;image/png&quot;</span> <span class="attr">href</span>=<span class="string">&quot;/img/logo-128.png&quot;</span> <span class="attr">sizes</span>=<span class="string">&quot;128x128&quot;</span>&gt;</span> <span class="comment">&lt;!-- Chrome Web Store --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;icon&quot;</span> <span class="attr">type</span>=<span class="string">&quot;image/png&quot;</span> <span class="attr">href</span>=<span class="string">&quot;/img/logo-196.png&quot;</span> <span class="attr">sizes</span>=<span class="string">&quot;196x196&quot;</span>&gt;</span> <span class="comment">&lt;!-- Chrome for Android Home Screen --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;icon&quot;</span> <span class="attr">type</span>=<span class="string">&quot;image/png&quot;</span> <span class="attr">href</span>=<span class="string">&quot;/img/logo-228.png&quot;</span> <span class="attr">sizes</span>=<span class="string">&quot;228x228&quot;</span>&gt;</span> <span class="comment">&lt;!-- Opera Coast Icon --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;apple-touch-icon&quot;</span> <span class="attr">href</span>=<span class="string">&quot;/img/logo-120.png&quot;</span>&gt;</span> <span class="comment">&lt;!-- iPhone --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;apple-touch-icon&quot;</span> <span class="attr">href</span>=<span class="string">&quot;/img/logo-152.png&quot;</span> <span class="attr">sizes</span>=<span class="string">&quot;152x152&quot;</span>&gt;</span> <span class="comment">&lt;!-- iPad --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;apple-touch-icon&quot;</span> <span class="attr">href</span>=<span class="string">&quot;/img/logo-180.png&quot;</span> <span class="attr">sizes</span>=<span class="string">&quot;180x180&quot;</span>&gt;</span> <span class="comment">&lt;!-- iPhone Plus --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;apple-touch-icon&quot;</span> <span class="attr">href</span>=<span class="string">&quot;/img/logo-167.png&quot;</span> <span class="attr">sizes</span>=<span class="string">&quot;167x167&quot;</span>&gt;</span> <span class="comment">&lt;!-- iPad Pro --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;mask-icon&quot;</span> <span class="attr">href</span>=<span class="string">&quot;/img/logo.svg&quot;</span> <span class="attr">color</span>=<span class="string">&quot;green&quot;</span>&gt;</span> <span class="comment">&lt;!-- Safari Pinned Tab Icon --&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>微软为了让 Metro UI 更好看，引入了 <code>browserconfig.xml</code> 文件，主要用于定制网站固定磁铁的图标和背景颜色，其格式如下所示：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">browserconfig</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;<span class="name">msapplication</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;<span class="name">tile</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">square70x70logo</span> <span class="attr">src</span>=<span class="string">&quot;/img/logo-70.png&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">square150x150logo</span> <span class="attr">src</span>=<span class="string">&quot;/img/logo-150.png&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">wide310x150logo</span> <span class="attr">src</span>=<span class="string">&quot;/img/logo-310x150.png&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">square310x310logo</span> <span class="attr">src</span>=<span class="string">&quot;/img/logo-310.png&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">TileImage</span> <span class="attr">src</span>=<span class="string">&quot;/img/logo-144.png&quot;</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">TileColor</span>&gt;</span>#db5945<span class="tag">&lt;/<span class="name">TileColor</span>&gt;</span></span><br><span class="line">     <span class="tag">&lt;/<span class="name">tile</span>&gt;</span></span><br><span class="line">   <span class="tag">&lt;/<span class="name">msapplication</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">browserconfig</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>favicon.ico 实际上是一个图片容器，里面至少应该包含 16x16，32x32，48x48 三个尺寸的 png 图片，我们可以使用 <a target="_blank" rel="noopener" href="https://github.com/ImageMagick/ImageMagick">ImageMagick</a> 工具在本地直接生成（生成之前需要对 png 图片进行压缩以减小尺寸）。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ convert favicon-16.png favicon-32.png favicon-48.png favicon.ico</span><br></pre></td></tr></table></figure>
+
+<p><em>注意：apple-mobile-web-app-status-bar-style 值默认状态栏为白色，可设置为 black（黑色） 或者 black-translucent（灰色半透明）；mask-icon 引入的 svg 文件必须只有一个图层，并且 <code>viewBox</code> 属性应该为 “0 0 16 16”。</em></p>
+<h2 id="Twitter-Cards"><a href="#Twitter-Cards" class="headerlink" title="Twitter Cards"></a>Twitter Cards</h2><p>Twitter 卡片用于将网站内容以更加优雅漂亮的方式分享到 <a target="_blank" rel="noopener" href="https://twitter.com/">twitter.com</a> 网站，从形式上说，分为：summary, summary_large_image, app, player 四种形式，通常我们的站点只需要 summary 这种形式。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;twitter:card&quot;</span> <span class="attr">content</span>=<span class="string">&quot;summary&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;twitter:site&quot;</span> <span class="attr">content</span>=<span class="string">&quot;@melaozhu&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;twitter:title&quot;</span> <span class="attr">content</span>=<span class="string">&quot;此处为分享标题&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;twitter:description&quot;</span> <span class="attr">content</span>=<span class="string">&quot;此处为分享描述&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">&quot;twitter:image&quot;</span> <span class="attr">content</span>=<span class="string">&quot;此处为分享配图&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>配置上线后，你可以通过这个 <a target="_blank" rel="noopener" href="https://cards-dev.twitter.com/validator">Card validator</a> 工具检查是否正确显示。</p>
+<h2 id="Facebook-Open-Graph"><a href="#Facebook-Open-Graph" class="headerlink" title="Facebook Open Graph"></a>Facebook Open Graph</h2><p><a target="_blank" rel="noopener" href="http://ogp.me/">Open Graph</a> 是一套开放的网页标注协议，通过 meta 标签标注网页的类型，主要由 Facebook 推动，已经成为社交分享领域的事实标准。如果你希望明确告诉社交网络或搜索引擎你的网页类型，你应该添加这些 meta 标签。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">property</span>=<span class="string">&quot;og:type&quot;</span> <span class="attr">content</span>=<span class="string">&quot;article&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">property</span>=<span class="string">&quot;og:title&quot;</span> <span class="attr">content</span>=<span class="string">&quot;此处为分享标题&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">property</span>=<span class="string">&quot;og:description&quot;</span> <span class="attr">content</span>=<span class="string">&quot;此处为分享描述&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">property</span>=<span class="string">&quot;og:image&quot;</span> <span class="attr">content</span>=<span class="string">&quot;此处为分享配图&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">meta</span> <span class="attr">property</span>=<span class="string">&quot;og:url&quot;</span> <span class="attr">content</span>=<span class="string">&quot;此处为分享的链接地址&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="固定链接"><a href="#固定链接" class="headerlink" title="固定链接"></a>固定链接</h2><p>对于一份文档存在多个 URL 的情况，通过 <code>rel=&quot;canonical&quot;</code> 指定唯一的固定链接。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;canonical&quot;</span> <span class="attr">href</span>=<span class="string">&quot;https://laozhu.me/&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="RSS-链接"><a href="#RSS-链接" class="headerlink" title="RSS 链接"></a>RSS 链接</h2><p>对于支持 RSS 订阅的页面，可针对 RSS 阅读器提供可订阅的源文件。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;alternative&quot;</span> <span class="attr">href</span>=<span class="string">&quot;/index.xml&quot;</span> <span class="attr">title</span>=<span class="string">&quot;米老朱的博客&quot;</span> <span class="attr">type</span>=<span class="string">&quot;application/atom+xml&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="Polyfill"><a href="#Polyfill" class="headerlink" title="Polyfill"></a>Polyfill</h2><p>可以专门为老旧的 IE 浏览器引入 Polyfill 方案，举个例子，为了让 IE6-IE8 浏览器能够使用 HTML5 标签和 Media Query 特性，我们需要引入 <a target="_blank" rel="noopener" href="https://github.com/aFarkas/html5shiv">html5shiv</a> 和 <a target="_blank" rel="noopener" href="https://github.com/scottjehl/Respond">response.js</a> 这两个库。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!--[if lt IE 9]&gt;</span></span><br><span class="line"><span class="comment">&lt;script src=&quot;//cdn.bootcss.com/html5shiv/3.7.3/html5shiv.min.js&quot;&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="comment">&lt;script src=&quot;//cdn.bootcss.com/respond.js/1.4.2/respond.min.js&quot;&gt;&lt;/script&gt;</span></span><br><span class="line"><span class="comment">&lt;![endif]--&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p>其他的 Polyfill 方案写法类似。</p>
+<h2 id="打印样式表"><a href="#打印样式表" class="headerlink" title="打印样式表"></a>打印样式表</h2><p>对于可打印的页面（如文章页面），可提供针对打印机的样式表，使得网站用户可以将文章打印下来阅读。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span> <span class="attr">href</span>=<span class="string">&quot;/css/print.css&quot;</span> <span class="attr">media</span>=<span class="string">&quot;print&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="交替样式表"><a href="#交替样式表" class="headerlink" title="交替样式表"></a>交替样式表</h2><p>定义交替样式表的时候，指定其 <code>title</code> 属性，以方便用户在浏览器中根据名称选择替代样式，交替样式表多用于多主题切换的站点。</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">&quot;default.css&quot;</span> <span class="attr">rel</span>=<span class="string">&quot;stylesheet&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">href</span>=<span class="string">&quot;high-contrast.css&quot;</span> <span class="attr">rel</span>=<span class="string">&quot;alternate stylesheet&quot;</span> <span class="attr">title</span>=<span class="string">&quot;High contrast&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><ol>
+<li><a target="_blank" rel="noopener" href="https://github.com/hail2u/html-best-practices">HTML Best Practices</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/audreyr/favicon-cheat-sheet">Favicon Cheatsheet</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/zh-CN/docs/Controlling_DNS_prefetching">DNS 预读取</a></li>
+<li><a target="_blank" rel="noopener" href="https://css-tricks.com/prefetching-preloading-prebrowsing/">Prefetching, preloading, prebrowsing</a></li>
+<li><a target="_blank" rel="noopener" href="https://css-tricks.com/favicon-quiz/">Favicons, Touch Icons, Tile Icons, etc. Which Do You Need?</a></li>
+<li><a target="_blank" rel="noopener" href="https://sympli.io/blog/2017/02/15/heres-everything-you-need-to-know-about-favicons-in-2017/">Here’s Everything You Need to Know About Favicons in 2017</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html">Configuring Web Applications</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariWebContent/pinnedTabs/pinnedTabs.html">Creating Pinned Tab Icons</a></li>
+<li><a target="_blank" rel="noopener" href="https://css-tricks.com/the-notch-and-css/">“The Notch” and CSS</a></li>
+<li><a target="_blank" rel="noopener" href="https://developer.mozilla.org/en-US/docs/Web/CSS/Alternative_style_sheets">Alternative style sheets</a></li>
+</ol>
+<h3 id="来源："><a href="#来源：" class="headerlink" title="来源："></a>来源：</h3><p><a target="_blank" rel="noopener" href="https://github.com/laozhu/my-blog/blob/master/content/post/html-head-best-practices.md">https://github.com/laozhu/my-blog/blob/master/content/post/html-head-best-practices.md</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://hefengbao.github.io/helloworld/html-head-best-practices.html" data-id="ckpqdom9900ae1r8j1tuw8meb" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/helloworld/tags/html/" rel="tag">html</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/helloworld/android-color-alpha.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          android 透明色
+        
+      </div>
+    </a>
+  
+  
+    <a href="/helloworld/bottom-navigation.html" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Bottom Navigation</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Database/">Database</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Database/MySQL/">MySQL</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Database/Oracle/">Oracle</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Gradle/">Gradle</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Hexo/">Hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/JavaScript/">JavaScript</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Kotlin/">Kotlin</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Linux/">Linux</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Linux/Ubuntu/">Ubuntu</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/PHP/">PHP</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/PHP/Laravel/">Laravel</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Server/">Server</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Server/LNMP/">LNMP</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Server/MinIO/">MinIO</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Server/Nginx/">Nginx</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Server/Redis/">Redis</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Server/Supervisor/">Supervisor</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Server/WAMP/">WAMP</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Vue/">Vue</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Web/">Web</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Web/HTML/">HTML</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E5%B7%A5%E5%85%B7/Composer/">Composer</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E5%B7%A5%E5%85%B7/PhpStorm/">PhpStorm</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/">版本控制</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/Gitlab/">Gitlab</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/VisualSVN/">VisualSVN</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E8%B5%84%E6%96%99/">资料</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/LNMP/" rel="tag">LNMP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/Laravel/" rel="tag">Laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/MinIO/" rel="tag">MinIO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/OAuth-2-0/" rel="tag">OAuth 2.0</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/VisualSVN/" rel="tag">VisualSVN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/WAMP/" rel="tag">WAMP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/android/" rel="tag">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/android-studio/" rel="tag">android-studio</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/composer/" rel="tag">composer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/crontab/" rel="tag">crontab</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/database/" rel="tag">database</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/elasticsearch/" rel="tag">elasticsearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/ffmpeg/" rel="tag">ffmpeg</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/gitlab/" rel="tag">gitlab</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/gradle/" rel="tag">gradle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/homestead/" rel="tag">homestead</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/html/" rel="tag">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/iptables/" rel="tag">iptables</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/java/" rel="tag">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/josn-ld/" rel="tag">josn-ld</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/json/" rel="tag">json</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/kotlin/" rel="tag">kotlin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/laravel/" rel="tag">laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/mysql/" rel="tag">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/okhttp/" rel="tag">okhttp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/oracle/" rel="tag">oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/pdo-oci/" rel="tag">pdo_oci</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/php/" rel="tag">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/phpmyadmin/" rel="tag">phpmyadmin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/phpstorm/" rel="tag">phpstorm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/plsql/" rel="tag">plsql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/proguard/" rel="tag">proguard</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/redis/" rel="tag">redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/room/" rel="tag">room</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/server/" rel="tag">server</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/snowflake/" rel="tag">snowflake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/supervisor/" rel="tag">supervisor</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/vscode/" rel="tag">vscode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/vue/" rel="tag">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/vue-router/" rel="tag">vue-router</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/web/" rel="tag">web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/wsl/" rel="tag">wsl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/zmq/" rel="tag">zmq</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" rel="tag">微服务</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/" rel="tag">数据集</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E8%B5%84%E6%96%99/" rel="tag">资料</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/" rel="tag">项目部署</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/helloworld/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/helloworld/tags/LNMP/" style="font-size: 10px;">LNMP</a> <a href="/helloworld/tags/Laravel/" style="font-size: 10px;">Laravel</a> <a href="/helloworld/tags/MinIO/" style="font-size: 10px;">MinIO</a> <a href="/helloworld/tags/OAuth-2-0/" style="font-size: 10px;">OAuth 2.0</a> <a href="/helloworld/tags/VisualSVN/" style="font-size: 10px;">VisualSVN</a> <a href="/helloworld/tags/WAMP/" style="font-size: 13.33px;">WAMP</a> <a href="/helloworld/tags/android/" style="font-size: 18.33px;">android</a> <a href="/helloworld/tags/android-studio/" style="font-size: 10px;">android-studio</a> <a href="/helloworld/tags/composer/" style="font-size: 13.33px;">composer</a> <a href="/helloworld/tags/crontab/" style="font-size: 10px;">crontab</a> <a href="/helloworld/tags/database/" style="font-size: 10px;">database</a> <a href="/helloworld/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/helloworld/tags/ffmpeg/" style="font-size: 10px;">ffmpeg</a> <a href="/helloworld/tags/git/" style="font-size: 11.67px;">git</a> <a href="/helloworld/tags/gitlab/" style="font-size: 11.67px;">gitlab</a> <a href="/helloworld/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/helloworld/tags/hexo/" style="font-size: 11.67px;">hexo</a> <a href="/helloworld/tags/homestead/" style="font-size: 11.67px;">homestead</a> <a href="/helloworld/tags/html/" style="font-size: 10px;">html</a> <a href="/helloworld/tags/http/" style="font-size: 10px;">http</a> <a href="/helloworld/tags/iptables/" style="font-size: 10px;">iptables</a> <a href="/helloworld/tags/java/" style="font-size: 10px;">java</a> <a href="/helloworld/tags/josn-ld/" style="font-size: 10px;">josn-ld</a> <a href="/helloworld/tags/json/" style="font-size: 10px;">json</a> <a href="/helloworld/tags/kotlin/" style="font-size: 20px;">kotlin</a> <a href="/helloworld/tags/laravel/" style="font-size: 16.67px;">laravel</a> <a href="/helloworld/tags/linux/" style="font-size: 15px;">linux</a> <a href="/helloworld/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/helloworld/tags/nginx/" style="font-size: 11.67px;">nginx</a> <a href="/helloworld/tags/okhttp/" style="font-size: 11.67px;">okhttp</a> <a href="/helloworld/tags/oracle/" style="font-size: 13.33px;">oracle</a> <a href="/helloworld/tags/pdo-oci/" style="font-size: 10px;">pdo_oci</a> <a href="/helloworld/tags/php/" style="font-size: 13.33px;">php</a> <a href="/helloworld/tags/phpmyadmin/" style="font-size: 10px;">phpmyadmin</a> <a href="/helloworld/tags/phpstorm/" style="font-size: 10px;">phpstorm</a> <a href="/helloworld/tags/plsql/" style="font-size: 10px;">plsql</a> <a href="/helloworld/tags/proguard/" style="font-size: 10px;">proguard</a> <a href="/helloworld/tags/redis/" style="font-size: 11.67px;">redis</a> <a href="/helloworld/tags/room/" style="font-size: 10px;">room</a> <a href="/helloworld/tags/server/" style="font-size: 10px;">server</a> <a href="/helloworld/tags/snowflake/" style="font-size: 10px;">snowflake</a> <a href="/helloworld/tags/supervisor/" style="font-size: 10px;">supervisor</a> <a href="/helloworld/tags/ubuntu/" style="font-size: 13.33px;">ubuntu</a> <a href="/helloworld/tags/vscode/" style="font-size: 10px;">vscode</a> <a href="/helloworld/tags/vue/" style="font-size: 11.67px;">vue</a> <a href="/helloworld/tags/vue-router/" style="font-size: 10px;">vue-router</a> <a href="/helloworld/tags/web/" style="font-size: 10px;">web</a> <a href="/helloworld/tags/wsl/" style="font-size: 10px;">wsl</a> <a href="/helloworld/tags/zmq/" style="font-size: 10px;">zmq</a> <a href="/helloworld/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" style="font-size: 10px;">微服务</a> <a href="/helloworld/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/" style="font-size: 10px;">数据集</a> <a href="/helloworld/tags/%E8%B5%84%E6%96%99/" style="font-size: 13.33px;">资料</a> <a href="/helloworld/tags/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/" style="font-size: 10px;">项目部署</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2021/03/">三月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2021/02/">二月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/12/">十二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/11/">十一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/08/">八月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/06/">六月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/05/">五月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/04/">四月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/02/">二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/01/">一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/12/">十二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/10/">十月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/07/">七月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/06/">六月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/05/">五月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/03/">三月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/02/">二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/01/">一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/12/">十二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/11/">十一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/09/">九月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/08/">八月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/07/">七月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/06/">六月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/05/">五月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/04/">四月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/03/">三月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/10/">十月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/08/">八月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/07/">七月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/05/">五月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/04/">四月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/helloworld/android-webview.html">Android Webview</a>
+          </li>
+        
+          <li>
+            <a href="/helloworld/android-constraintlayout.html">Android ConstraintLayout</a>
+          </li>
+        
+          <li>
+            <a href="/helloworld/android-media.html">Android Media</a>
+          </li>
+        
+          <li>
+            <a href="/helloworld/android-fragment.html">Android Fragment</a>
+          </li>
+        
+          <li>
+            <a href="/helloworld/android-brodcastreceiver.html">Android BrodcastReceiver</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 He Fengbao<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/helloworld/" class="mobile-nav-link">Home</a>
+  
+    <a href="/helloworld/archives" class="mobile-nav-link">Archives</a>
+  
+    <a href="/helloworld/about" class="mobile-nav-link">About</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/helloworld/fancybox/jquery.fancybox.css">
+
+  
+<script src="/helloworld/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/helloworld/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
