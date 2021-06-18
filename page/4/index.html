@@ -68,6 +68,51 @@
       <div class="outer">
         <section id="main">
   
+    <article id="post-Deployer-使用资料" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/helloworld/deployer-usage.html" class="article-date">
+  <time datetime="2020-05-22T11:31:56.000Z" itemprop="datePublished">2020-05-22</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/helloworld/categories/PHP/">PHP</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/helloworld/deployer-usage.html">Deployer 使用资料</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Deployer"><a href="#Deployer" class="headerlink" title="Deployer"></a>Deployer</h1><p>A deployment tool for PHP</p>
+<p><a target="_blank" rel="noopener" href="https://deployer.org/">https://deployer.org/</a></p>
+<p><a target="_blank" rel="noopener" href="https://learnku.com/articles/10985/deployer-real-experience-sharing">https://learnku.com/articles/10985/deployer-real-experience-sharing</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://hefengbao.github.io/helloworld/deployer-usage.html" data-id="ckpqdoma100de1r8jh9m90yrd" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/helloworld/tags/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/" rel="tag">项目部署</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
     <article id="post-Vagrant-Homestead-xDebug-PhpStorm配置Laravel开发环境" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
     <a href="/helloworld/php-larvavel-vagrant-xdebug-phpstorm.html" class="article-date">
@@ -1007,81 +1052,6 @@
 
 
   
-    <article id="post-JSON-LD" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/helloworld/json-ld.html" class="article-date">
-  <time datetime="2020-04-14T08:17:12.000Z" itemprop="datePublished">2020-04-14</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/helloworld/categories/%E8%B5%84%E6%96%99/">资料</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/helloworld/json-ld.html">JSON-LD</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h2 id="什么是JSON-LD？"><a href="#什么是JSON-LD？" class="headerlink" title="什么是JSON-LD？"></a>什么是JSON-LD？</h2><p><a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/JSON-LD">JSON-LD</a>是 JavaScript Object Notation for Linked Data的缩写，是一种基于JSON表示和传输互联数据（Linked Data）的方法。可用于实施<a target="_blank" rel="noopener" href="http://developers.google.com/structured-data/">结构化数据</a>。JSON-LD描述了如何通过JSON表示有向图，以及如何在一个文档中混合表示互联数据及非互联数据。JSON-LD的语法和JSON兼容。基于JSON-LD可以在基于Web的编程环境中使用互联数据，构造可互操作的互联数据Web服务（linked data web services），并向基于JSON的存储引擎中保存互联数据。</p>
-<p>JSON（JavaScript Object Notation）是一种轻量级的数据交换格式，适合于服务器与JavaScript之间交换数据。对于JSON我们非常熟悉，但对于互联数据这个词，可能部分人会既熟悉而又觉得陌生，因为单字面意思已经很清楚，但要表达出其完整含义也并不容易。</p>
-<p>互联数据可以说是语义网(Semantic Web)的一部分，但相较于1998年语义网概念的提出，互联数据这个一样显而易见的概念实际出现却要晚了数年。这些年我们一直在强调Web的语义，即便是HTML5那一堆新增标签也不外如是。语义并不是简单的将数据放到Web上，而是对于不仅仅是人，机器也必须都能识别并准确的处理以及高效的利用。而互联数据则更要求数据的指向性，当我们有部分数据时，即可找到对应的相关联的其他数据。当数据从数据库里被拼装成页面后，可能对于人而言找到数据可能轻而易举，但对于机器而言，很难将页面恢复到原始数据，也缺乏语义的判断。若无标准来统一语义和数据互联，对于机器来说整个Web其实是乱糟糟的。</p>
-<p>为了使机器可以准确理解，处理和整合数据，我们有了语义Web。而其组成部分RDF(Resource Description Framework)即是用于描述网络资源的W3C标准。它使得语义Web技术相关的技术更加简单、不复杂以及面向一般开发人员。另外，与JSON-LD相似的RDFa(通过属性嵌入RDF)，同样是提供上下文，但属性嵌入到方式注定RDFa只适合小范围的片段嵌入以代替Mircodata，而难以用作大量纯粹数据的定义方式。而添加RDFa的难度也往往大于JSON-LD，毕竟是需要去接受已经存在的内容的情况。<a target="_blank" rel="noopener" href="http://www.w3.org/2011/rdf-wg/wiki/Main_Page">RDF工作组</a>目前已经停止了活动，但通过艰苦的努力，已经将<a target="_blank" rel="noopener" href="http://www.w3.org/TR/2014/REC-json-ld-20140116/">JSON-LD 1.0</a>及<a target="_blank" rel="noopener" href="http://www.w3.org/TR/2014/REC-json-ld-api-20140116/">JSON-LD 1.0处理算法和API</a>推进到了W3C的标准状态。</p>
-<h2 id="怎样使用JSON-LD？"><a href="#怎样使用JSON-LD？" class="headerlink" title="怎样使用JSON-LD？"></a>怎样使用JSON-LD？</h2><p>JSON-LD处理算法和API（JSON-LD Processing Algorithms and API）描述了处理JSON-LD数据所需的算法及编程接口，通过这些接口可以在JavaScript, Python及Ruby等编程环境中直接对JSON-LD文档进行转换和处理。</p>
-<p>下面是一个直接选自<a target="_blank" rel="noopener" href="http://www.w3.org/TR/2014/REC-json-ld-20140116/">规范</a>的例子：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;Manu Sporny&quot;,</span><br><span class="line">  &quot;homepage&quot;: &quot;http:&#x2F;&#x2F;manu.sporny.org&#x2F;&quot;,</span><br><span class="line">  &quot;image&quot;: &quot;http:&#x2F;&#x2F;manu.sporny.org&#x2F;images&#x2F;manu.png&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p>这个JSON文档表示一个人。人们很容易推断这里的语义：“name”是人的名字，“homepage”是其主页，“image”是其某种照片。然而机器不理解“name”和“image”这样的术语。</p>
-<p>为解决该问题，我们可以使用链接数据。下面使用JSON-LD表示上面的例子：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;http:&#x2F;&#x2F;schema.org&#x2F;name&quot;: &quot;Manu Sporny&quot;,</span><br><span class="line">  &quot;http:&#x2F;&#x2F;schema.org&#x2F;url&quot;: &#123; &quot;@id&quot;: &quot;http:&#x2F;&#x2F;manu.sporny.org&#x2F;&quot; &#125;,</span><br><span class="line">  &quot;http:&#x2F;&#x2F;schema.org&#x2F;image&quot;: &#123; &quot;@id&quot;: &quot;http:&#x2F;&#x2F;manu.sporny.org&#x2F;images&#x2F;manu.png&quot; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p>通过链接到schema.org上的定义，我们可以教给机器如何理解“name”、“url”和“image”的语义。不过有点复杂了。通过JSON-LD所谓的“上下文（context）”，我们可以兼顾第一个例子的简洁性和第二个例子的语义理解。基于第一个例子，我们引入一个context：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;@context&quot;: &quot;http:&#x2F;&#x2F;json-ld.org&#x2F;contexts&#x2F;person.jsonld&quot;,</span><br><span class="line">  &quot;name&quot;: &quot;Manu Sporny&quot;,</span><br><span class="line">  &quot;homepage&quot;: &quot;http:&#x2F;&#x2F;manu.sporny.org&#x2F;&quot;,</span><br><span class="line">  &quot;image&quot;: &quot;http:&#x2F;&#x2F;manu.sporny.org&#x2F;images&#x2F;manu.png&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p>我们现在链接到了json-ld.org上的一个context。context文档看上去像下面这样：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;@context&quot;:</span><br><span class="line">  &#123;</span><br><span class="line">    &quot;name&quot;: &quot;http:&#x2F;&#x2F;schema.org&#x2F;name&quot;, </span><br><span class="line">    &quot;image&quot;: &#123;</span><br><span class="line">      &quot;@id&quot;: &quot;http:&#x2F;&#x2F;schema.org&#x2F;image&quot;</span><br><span class="line">      &quot;@type&quot;: &quot;@id&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;homepage&quot;: &#123;</span><br><span class="line">      &quot;@id&quot;: &quot;http:&#x2F;&#x2F;schema.org&#x2F;url&quot;,</span><br><span class="line">      &quot;@type&quot;: &quot;@id&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-
-
-<p>这种方法的另一个优点是，多个文档可以使用同一个context。</p>
-<p>参考资料：</p>
-<ul>
-<li><a target="_blank" rel="noopener" href="https://json-ld.org/">https://json-ld.org/</a></li>
-</ul>
-<p><a target="_blank" rel="noopener" href="https://www.biaodianfu.com/json-ld.html">https://www.biaodianfu.com/json-ld.html</a></p>
-<p><a target="_blank" rel="noopener" href="https://github.com/Webnuvola/laravel-json-ld">https://github.com/Webnuvola/laravel-json-ld</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://hefengbao.github.io/helloworld/json-ld.html" data-id="ckpqdom9v00ct1r8jdg2rdwgx" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/helloworld/tags/josn-ld/" rel="tag">josn-ld</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
 
 
   <nav id="page-nav">
@@ -1097,7 +1067,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Database/">Database</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Database/MySQL/">MySQL</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Database/Oracle/">Oracle</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Gradle/">Gradle</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Hexo/">Hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/JavaScript/">JavaScript</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Kotlin/">Kotlin</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Linux/">Linux</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Linux/Ubuntu/">Ubuntu</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/PHP/">PHP</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/PHP/Laravel/">Laravel</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Server/">Server</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Server/LNMP/">LNMP</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Server/MinIO/">MinIO</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Server/Nginx/">Nginx</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Server/Redis/">Redis</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Server/Supervisor/">Supervisor</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Server/WAMP/">WAMP</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Vue/">Vue</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Web/">Web</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Web/HTML/">HTML</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E5%B7%A5%E5%85%B7/Composer/">Composer</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E5%B7%A5%E5%85%B7/PhpStorm/">PhpStorm</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/">版本控制</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/Gitlab/">Gitlab</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/VisualSVN/">VisualSVN</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E8%B5%84%E6%96%99/">资料</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Database/">Database</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Database/MySQL/">MySQL</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Database/Oracle/">Oracle</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Gradle/">Gradle</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Hexo/">Hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/JavaScript/">JavaScript</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Kotlin/">Kotlin</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Linux/">Linux</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Linux/Ubuntu/">Ubuntu</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/PHP/">PHP</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/PHP/Laravel/">Laravel</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Server/">Server</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Server/LNMP/">LNMP</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Server/MinIO/">MinIO</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Server/Nginx/">Nginx</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Server/Redis/">Redis</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Server/Supervisor/">Supervisor</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Server/WAMP/">WAMP</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Vue/">Vue</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Web/">Web</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Web/HTML/">HTML</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Windows/">Windows</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E5%B7%A5%E5%85%B7/Composer/">Composer</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E5%B7%A5%E5%85%B7/PhpStorm/">PhpStorm</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/">版本控制</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/Gitlab/">Gitlab</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/VisualSVN/">VisualSVN</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E8%B5%84%E6%96%99/">资料</a></li></ul>
     </div>
   </div>
 
@@ -1117,7 +1087,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/helloworld/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/helloworld/tags/LNMP/" style="font-size: 10px;">LNMP</a> <a href="/helloworld/tags/Laravel/" style="font-size: 10px;">Laravel</a> <a href="/helloworld/tags/MinIO/" style="font-size: 10px;">MinIO</a> <a href="/helloworld/tags/OAuth-2-0/" style="font-size: 10px;">OAuth 2.0</a> <a href="/helloworld/tags/VisualSVN/" style="font-size: 10px;">VisualSVN</a> <a href="/helloworld/tags/WAMP/" style="font-size: 13.33px;">WAMP</a> <a href="/helloworld/tags/android/" style="font-size: 18.33px;">android</a> <a href="/helloworld/tags/android-studio/" style="font-size: 10px;">android-studio</a> <a href="/helloworld/tags/composer/" style="font-size: 13.33px;">composer</a> <a href="/helloworld/tags/crontab/" style="font-size: 10px;">crontab</a> <a href="/helloworld/tags/database/" style="font-size: 10px;">database</a> <a href="/helloworld/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/helloworld/tags/ffmpeg/" style="font-size: 10px;">ffmpeg</a> <a href="/helloworld/tags/git/" style="font-size: 11.67px;">git</a> <a href="/helloworld/tags/gitlab/" style="font-size: 11.67px;">gitlab</a> <a href="/helloworld/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/helloworld/tags/hexo/" style="font-size: 11.67px;">hexo</a> <a href="/helloworld/tags/homestead/" style="font-size: 11.67px;">homestead</a> <a href="/helloworld/tags/html/" style="font-size: 10px;">html</a> <a href="/helloworld/tags/http/" style="font-size: 10px;">http</a> <a href="/helloworld/tags/iptables/" style="font-size: 10px;">iptables</a> <a href="/helloworld/tags/java/" style="font-size: 10px;">java</a> <a href="/helloworld/tags/josn-ld/" style="font-size: 10px;">josn-ld</a> <a href="/helloworld/tags/json/" style="font-size: 10px;">json</a> <a href="/helloworld/tags/kotlin/" style="font-size: 20px;">kotlin</a> <a href="/helloworld/tags/laravel/" style="font-size: 16.67px;">laravel</a> <a href="/helloworld/tags/linux/" style="font-size: 15px;">linux</a> <a href="/helloworld/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/helloworld/tags/nginx/" style="font-size: 11.67px;">nginx</a> <a href="/helloworld/tags/okhttp/" style="font-size: 11.67px;">okhttp</a> <a href="/helloworld/tags/oracle/" style="font-size: 13.33px;">oracle</a> <a href="/helloworld/tags/pdo-oci/" style="font-size: 10px;">pdo_oci</a> <a href="/helloworld/tags/php/" style="font-size: 13.33px;">php</a> <a href="/helloworld/tags/phpmyadmin/" style="font-size: 10px;">phpmyadmin</a> <a href="/helloworld/tags/phpstorm/" style="font-size: 10px;">phpstorm</a> <a href="/helloworld/tags/plsql/" style="font-size: 10px;">plsql</a> <a href="/helloworld/tags/proguard/" style="font-size: 10px;">proguard</a> <a href="/helloworld/tags/redis/" style="font-size: 11.67px;">redis</a> <a href="/helloworld/tags/room/" style="font-size: 10px;">room</a> <a href="/helloworld/tags/server/" style="font-size: 10px;">server</a> <a href="/helloworld/tags/snowflake/" style="font-size: 10px;">snowflake</a> <a href="/helloworld/tags/supervisor/" style="font-size: 10px;">supervisor</a> <a href="/helloworld/tags/ubuntu/" style="font-size: 13.33px;">ubuntu</a> <a href="/helloworld/tags/vscode/" style="font-size: 10px;">vscode</a> <a href="/helloworld/tags/vue/" style="font-size: 11.67px;">vue</a> <a href="/helloworld/tags/vue-router/" style="font-size: 10px;">vue-router</a> <a href="/helloworld/tags/web/" style="font-size: 10px;">web</a> <a href="/helloworld/tags/wsl/" style="font-size: 10px;">wsl</a> <a href="/helloworld/tags/zmq/" style="font-size: 10px;">zmq</a> <a href="/helloworld/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" style="font-size: 10px;">微服务</a> <a href="/helloworld/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/" style="font-size: 10px;">数据集</a> <a href="/helloworld/tags/%E8%B5%84%E6%96%99/" style="font-size: 13.33px;">资料</a> <a href="/helloworld/tags/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/" style="font-size: 10px;">项目部署</a>
+      <a href="/helloworld/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/helloworld/tags/LNMP/" style="font-size: 10px;">LNMP</a> <a href="/helloworld/tags/Laravel/" style="font-size: 10px;">Laravel</a> <a href="/helloworld/tags/MinIO/" style="font-size: 10px;">MinIO</a> <a href="/helloworld/tags/OAuth-2-0/" style="font-size: 10px;">OAuth 2.0</a> <a href="/helloworld/tags/VisualSVN/" style="font-size: 10px;">VisualSVN</a> <a href="/helloworld/tags/WAMP/" style="font-size: 13.33px;">WAMP</a> <a href="/helloworld/tags/android/" style="font-size: 18.33px;">android</a> <a href="/helloworld/tags/android-studio/" style="font-size: 10px;">android-studio</a> <a href="/helloworld/tags/composer/" style="font-size: 13.33px;">composer</a> <a href="/helloworld/tags/crontab/" style="font-size: 10px;">crontab</a> <a href="/helloworld/tags/database/" style="font-size: 10px;">database</a> <a href="/helloworld/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/helloworld/tags/ffmpeg/" style="font-size: 10px;">ffmpeg</a> <a href="/helloworld/tags/git/" style="font-size: 11.67px;">git</a> <a href="/helloworld/tags/gitlab/" style="font-size: 11.67px;">gitlab</a> <a href="/helloworld/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/helloworld/tags/hexo/" style="font-size: 11.67px;">hexo</a> <a href="/helloworld/tags/homestead/" style="font-size: 11.67px;">homestead</a> <a href="/helloworld/tags/html/" style="font-size: 10px;">html</a> <a href="/helloworld/tags/http/" style="font-size: 10px;">http</a> <a href="/helloworld/tags/iptables/" style="font-size: 10px;">iptables</a> <a href="/helloworld/tags/java/" style="font-size: 10px;">java</a> <a href="/helloworld/tags/josn-ld/" style="font-size: 10px;">josn-ld</a> <a href="/helloworld/tags/json/" style="font-size: 10px;">json</a> <a href="/helloworld/tags/kotlin/" style="font-size: 20px;">kotlin</a> <a href="/helloworld/tags/laravel/" style="font-size: 16.67px;">laravel</a> <a href="/helloworld/tags/linux/" style="font-size: 15px;">linux</a> <a href="/helloworld/tags/mysql/" style="font-size: 13.33px;">mysql</a> <a href="/helloworld/tags/nginx/" style="font-size: 11.67px;">nginx</a> <a href="/helloworld/tags/okhttp/" style="font-size: 11.67px;">okhttp</a> <a href="/helloworld/tags/oracle/" style="font-size: 13.33px;">oracle</a> <a href="/helloworld/tags/pdo-oci/" style="font-size: 10px;">pdo_oci</a> <a href="/helloworld/tags/php/" style="font-size: 13.33px;">php</a> <a href="/helloworld/tags/phpmyadmin/" style="font-size: 10px;">phpmyadmin</a> <a href="/helloworld/tags/phpstorm/" style="font-size: 10px;">phpstorm</a> <a href="/helloworld/tags/plsql/" style="font-size: 10px;">plsql</a> <a href="/helloworld/tags/proguard/" style="font-size: 10px;">proguard</a> <a href="/helloworld/tags/redis/" style="font-size: 11.67px;">redis</a> <a href="/helloworld/tags/room/" style="font-size: 10px;">room</a> <a href="/helloworld/tags/server/" style="font-size: 10px;">server</a> <a href="/helloworld/tags/snowflake/" style="font-size: 10px;">snowflake</a> <a href="/helloworld/tags/supervisor/" style="font-size: 10px;">supervisor</a> <a href="/helloworld/tags/ubuntu/" style="font-size: 13.33px;">ubuntu</a> <a href="/helloworld/tags/vscode/" style="font-size: 10px;">vscode</a> <a href="/helloworld/tags/vue/" style="font-size: 11.67px;">vue</a> <a href="/helloworld/tags/vue-router/" style="font-size: 10px;">vue-router</a> <a href="/helloworld/tags/web/" style="font-size: 10px;">web</a> <a href="/helloworld/tags/wsl/" style="font-size: 11.67px;">wsl</a> <a href="/helloworld/tags/zmq/" style="font-size: 10px;">zmq</a> <a href="/helloworld/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" style="font-size: 10px;">微服务</a> <a href="/helloworld/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/" style="font-size: 10px;">数据集</a> <a href="/helloworld/tags/%E8%B5%84%E6%96%99/" style="font-size: 13.33px;">资料</a> <a href="/helloworld/tags/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/" style="font-size: 10px;">项目部署</a>
     </div>
   </div>
 
@@ -1126,7 +1096,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2021/03/">三月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2021/02/">二月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/12/">十二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/11/">十一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/08/">八月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/06/">六月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/05/">五月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/04/">四月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/02/">二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/01/">一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/12/">十二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/10/">十月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/07/">七月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/06/">六月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/05/">五月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/03/">三月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/02/">二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/01/">一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/12/">十二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/11/">十一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/09/">九月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/08/">八月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/07/">七月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/06/">六月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/05/">五月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/04/">四月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/03/">三月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/10/">十月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/08/">八月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/07/">七月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/05/">五月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/04/">四月 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2021/06/">六月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2021/03/">三月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2021/02/">二月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/12/">十二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/11/">十一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/08/">八月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/06/">六月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/05/">五月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/04/">四月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/02/">二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/01/">一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/12/">十二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/10/">十月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/07/">七月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/06/">六月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/05/">五月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/03/">三月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/02/">二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/01/">一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/12/">十二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/11/">十一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/09/">九月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/08/">八月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/07/">七月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/06/">六月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/05/">五月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/04/">四月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/03/">三月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/10/">十月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/08/">八月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/07/">七月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/05/">五月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/04/">四月 2017</a></li></ul>
     </div>
   </div>
 
@@ -1137,6 +1107,10 @@
     <h3 class="widget-title">Recent Posts</h3>
     <div class="widget">
       <ul>
+        
+          <li>
+            <a href="/helloworld/wsl.html">wsl</a>
+          </li>
         
           <li>
             <a href="/helloworld/android-webview.html">Android Webview</a>
@@ -1152,10 +1126,6 @@
         
           <li>
             <a href="/helloworld/android-fragment.html">Android Fragment</a>
-          </li>
-        
-          <li>
-            <a href="/helloworld/android-brodcastreceiver.html">Android BrodcastReceiver</a>
           </li>
         
       </ul>
