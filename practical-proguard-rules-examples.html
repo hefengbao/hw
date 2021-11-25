@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Practical ProGuard rules examples | HelloWorld</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="In my previous article I explained why everyone should use ProGuard for their Android apps, how to enable it and what kind of errors you might encounter when doing so. There was a lot of theory involv">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Practical ProGuard rules examples">
+<meta property="og:url" content="https://hefengbao.github.io/helloworld/practical-proguard-rules-examples.html">
+<meta property="og:site_name" content="HelloWorld">
+<meta property="og:description" content="In my previous article I explained why everyone should use ProGuard for their Android apps, how to enable it and what kind of errors you might encounter when doing so. There was a lot of theory involv">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2019-11-29T08:55:33.000Z">
+<meta property="article:modified_time" content="2019-11-29T08:55:33.000Z">
+<meta property="article:author" content="He Fengbao">
+<meta property="article:tag" content="proguard">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/helloworld/atom.xml" title="HelloWorld" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/helloworld/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/helloworld/" id="logo">HelloWorld</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/helloworld/">Home</a>
+        
+          <a class="main-nav-link" href="/helloworld/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/helloworld/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://hefengbao.github.io/helloworld"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Practical-ProGuard-rules-examples" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/helloworld/practical-proguard-rules-examples.html" class="article-date">
+  <time datetime="2019-11-29T08:55:33.000Z" itemprop="datePublished">2019-11-29</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/helloworld/categories/Android/">Android</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Practical ProGuard rules examples
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>In my previous article I explained <a target="_blank" rel="noopener" href="https://medium.com/google-developers/troubleshooting-proguard-issues-on-android-bce9de4f8a74">why everyone should use ProGuard for their Android apps</a>, how to enable it and what kind of errors you might encounter when doing so. There was a lot of theory involved, as I think it’s important to understand the underlying principles in order to be prepared to deal with any potential problems.</p>
+<p>I also talked in a separate article about the very specific problem of <a target="_blank" rel="noopener" href="https://medium.com/google-developers/enabling-proguard-in-an-android-instant-app-fbd4fc014518">configuring ProGuard for an Instant App </a>build.</p>
+<p>In this part, I’d like to talk about the practical examples of ProGuard rules on a medium sized sample app: <a target="_blank" rel="noopener" href="https://github.com/nickbutcher/plaid">Plaid</a> by <a target="_blank" rel="noopener" href="https://medium.com/u/22c02a30ae04?source=post_page-----5640a3907dc9----------------------">Nick Butcher</a>.</p>
+<h1 id="Lessons-learned-from-Plaid"><a href="#Lessons-learned-from-Plaid" class="headerlink" title="Lessons learned from Plaid"></a>Lessons learned from Plaid</h1><p>Plaid actually turned out to be a great subject for researching ProGuard problems, as it contains a mix of 3rd party libraries that use things like annotation processing and code generation, reflection, java resource loading and native code (JNI). I extracted and jotted down some practical advice that should apply to other apps in general:</p>
+<h1 id="Data-classes"><a href="#Data-classes" class="headerlink" title="Data classes"></a>Data classes</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">  String name;</span><br><span class="line">  <span class="keyword">int</span> age;</span><br><span class="line">  ...</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Probably every app has some kind of data class (also known as DMOs, models, etc. depending on context and where they sit in your app’s architecture). The thing about data objects is that usually at some point they will be loaded or saved (serialized) into some other medium, such as network (an HTTP request), a database (through an ORM), a JSON file on disk or in a Firebase data store.</p>
+<p>Many of the tools that simplify serializing and deserializing these fields rely on reflection. GSON, Retrofit, Firebase — they all inspect field names in data classes and turn them into another representation (for example: <code>&#123;“name”: “Sue”, “age”: 28&#125;</code>), either for transport or storage. The same thing happens when they read data into a Java object — they see a key-value pair <code>“name”:”John”</code> and try to apply it to a Java object by looking up a <code>String name </code>field.</p>
+<p><strong>Conclusion</strong>: We cannot let ProGuard rename or remove any fields on these data classes, as they have to match the serialized format. It’s a safe bet to add a <code>@Keep</code> annotation on the whole class or a wildcard rule on all your models:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-keep class io.plaidapp.data.api.dribbble.model.** &#123; *; &#125;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><em><strong>Warning*</strong></em>: It’s possible to make a mistake when testing if your app is susceptible to this issue. For example, if you serialize an object to JSON and save it to disk in version N of your app without the proper keep rules, the saved data might look like this:* <code>*&#123;“a”: “Sue”, “b”: 28&#125;*</code><em>. Because ProGuard renamed your fields to</em> <code>*a*</code> <em>and</em> <code>*b*</code><em>, everything will seem to work, data will be saved and loaded correctly.</em></p>
+<p><em>However, when you build your app again and release version</em> N+1 <em>of your app, ProGuard might decide to rename your fields to something different, such as</em> <code>*c*</code> <em>and</em> <code>*d*</code><em>. As a result, data saved previously will fail to load.</em></p>
+<p><em>You</em> *<strong>must*</strong> <em>ensure you have the proper keep rules in the first place.</em></p>
+</blockquote>
+<h1 id="Java-code-called-from-native-side-JNI"><a href="#Java-code-called-from-native-side-JNI" class="headerlink" title="Java code called from native side (JNI)"></a>Java code called from native side (JNI)</h1><p>Android’s <a target="_blank" rel="noopener" href="https://developer.android.com/studio/build/shrink-code.html#shrink-code">default ProGuard files</a> (you should always include them, they have some really useful rules) already contain a rule for methods that are <em>implemented</em> on the native side (<code>-keepclasseswithmembernames class * &#123; native ; &#125;</code>). Unfortunately there is no catch-all way to keep code invoked in the opposite direction: from JNI into Java.</p>
+<p>With JNI it’s entirely possible to construct a JVM object or find and call a method on a JVM handle from C/C++ code and in fact, <a target="_blank" rel="noopener" href="https://github.com/Uncodin/bypass/blob/master/platform/android/library/jni/bypass.cpp#L61">one of the libraries used in Plaid does that</a>.</p>
+<p><strong>Conclusion</strong>: Because ProGuard can only inspect Java classes, it will not know about any usages that happen in native code. We must explicitly retain such usages of classes and members via a <code>@Keep</code> annotation or <code>-keep</code> rule.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">-keep, includedescriptorclasses </span><br><span class="line">            class in.uncod.android.bypass.Document &#123; *; &#125;</span><br><span class="line">-keep, includedescriptorclasses </span><br><span class="line">            class in.uncod.android.bypass.Element &#123; *; &#125;</span><br></pre></td></tr></table></figure>
+
+<h1 id="Opening-resources-from-JAR-APK"><a href="#Opening-resources-from-JAR-APK" class="headerlink" title="Opening resources from JAR/APK"></a>Opening resources from JAR/APK</h1><p>Android has its own resources and assets system that normally shouldn’t be a problem for ProGuard. However, in plain Java there is another <a target="_blank" rel="noopener" href="https://docs.oracle.com/javase/8/docs/technotes/guides/lang/resources.html">mechanism for loading resources straight from a JAR file</a> and some third-party libraries might be using it even when compiled in Android apps (in that case they will try to load from the APK).</p>
+<p>The problem is that usually these classes will look for resources under their own package name (which translates to a file path in the JAR or APK). ProGuard can rename package names when obfuscating, so after compilation it might happen that the class and its resource file are no longer in the same package in the final APK.</p>
+<p>To identify loading resources in this way, you can look for calls to <code>Class.getResourceAsStream / getResource</code> and <code>ClassLoader.getResourceAsStream / getResource</code> in your code and in any third party libraries you depend on.</p>
+<p><strong>Conclusion</strong>: We should keep the name of any class that loads resources from the APK using this mechanism.</p>
+<p>In Plaid, there are actually two — one in the <em>OkHttp</em> library and one in <em>Jsoup</em>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">-keepnames class okhttp3.internal.publicsuffix.PublicSuffixDatabase</span><br><span class="line">-keepnames class org.jsoup.nodes.Entities</span><br></pre></td></tr></table></figure>
+
+<h1 id="How-to-come-up-with-rules-for-third-party-libraries"><a href="#How-to-come-up-with-rules-for-third-party-libraries" class="headerlink" title="How to come up with rules for third party libraries"></a>How to come up with rules for third party libraries</h1><p>In an ideal world, every dependency you use would supply their required ProGuard rules in the AAR. Sometimes they forget to do this or only publish JARs, which don’t have a standardized way to supply ProGuard rules.</p>
+<p>In that case, before you start debugging your app and coming up with rules, remember to check the documentation. Some library authors supply recommended ProGuard rules (such as Retrofit used in Plaid) which can save you a lot of time and frustration. Unfortunately, many libraries don’t (such as is the case with Jsoup and Bypass mentioned in this article). Also be aware that in some cases the config supplied with the library will only work with optimizations disabled, so if you are turning them on you might be in uncharted territory.</p>
+<p>So how to come up with rules when the library doesn’t supply them?<br>I can only give you some pointers:</p>
+<ol>
+<li>Read the build output and logcat!</li>
+<li>Build warnings will tell you which <code>-dontwarn</code> rules to add</li>
+<li><code>ClassNotFoundException</code>, <code>MethodNotFoundException</code> and <code>FieldNotFoundException</code> will tell you which <code>-keep</code> rules to add</li>
+</ol>
+<blockquote>
+<p>You should be glad when your app crashes with ProGuard enabled — you’ll have somewhere to start your investigation :)</p>
+<p>The worst class of problems to debug are when you app works, but for example doesn’t show a screen or doesn’t load data from the network.</p>
+<p>That’s where you need to consider some of the scenarios I described in this article and get your hands dirty, even diving into the third party code and understanding why it might fail, such as when it uses reflection, introspection or JNI.</p>
+</blockquote>
+<h1 id="Debugging-and-stack-traces"><a href="#Debugging-and-stack-traces" class="headerlink" title="Debugging and stack traces"></a>Debugging and stack traces</h1><p>ProGuard will by default remove many code attributes and hidden metadata that are not required for program execution . Some of those are actually useful to the developer — for example, you might want to retain source file names and line numbers for stack traces to make debugging easier:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-keepattributes SourceFile, LineNumberTable</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>You should also remember to <a target="_blank" rel="noopener" href="https://developer.android.com/studio/build/shrink-code.html#decode-stack-trace">save the ProGuard mappings files produced when you build a release version and upload them to Play</a> to get de-obfuscated stack traces from any crashes experienced by your users.</p>
+</blockquote>
+<p>If you are going to attach a debugger to step through method code in a ProGuarded build of your app, you should also keep the following attributes to retain some debug information about local variables (you only need this line in your <code>debug</code> build type):</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-keepattributes LocalVariableTable, LocalVariableTypeTable</span><br></pre></td></tr></table></figure>
+
+<h1 id="Minified-debug-build-type"><a href="#Minified-debug-build-type" class="headerlink" title="Minified debug build type"></a>Minified debug build type</h1><p>The default build types are configured such that <em>debug</em> doesn’t run ProGuard. That makes sense, because we want to iterate and compile fast when developing, but still want the release build to use ProGuard to be as small and optimized as possible.</p>
+<p>But in order to fully test and debug any ProGuard problems, it’s good to set up a separate, minified debug build like this:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">buildTypes &#123;</span><br><span class="line">  debugMini &#123;</span><br><span class="line">    initWith debug</span><br><span class="line">    minifyEnabled true</span><br><span class="line">    shrinkResources true</span><br><span class="line">    proguardFiles getDefaultProguardFile(&#39;proguard-android.txt&#39;), </span><br><span class="line">                  &#39;proguard-rules.pro&#39;</span><br><span class="line">    matchingFallbacks &#x3D; [&#39;debug&#39;]</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>With this build type, you’ll be able to <a target="_blank" rel="noopener" href="https://developer.android.com/studio/debug/index.html">connect the debugger</a>, <a target="_blank" rel="noopener" href="https://developer.android.com/training/testing/ui-testing/espresso-testing.html">run UI tests</a> (also on a CI server) or <a target="_blank" rel="noopener" href="https://developer.android.com/studio/test/monkey.html">monkey test</a> your app for possible problems on a build that’s as close to your release build as possible.</p>
+<p><strong>Conclusion</strong>: When you use ProGuard you should always QA your release builds thoroughly, either by having end-to-end tests or manually going through all screens in your app to see if anything is missing or crashing.</p>
+<h1 id="Runtime-annotations-type-introspection"><a href="#Runtime-annotations-type-introspection" class="headerlink" title="Runtime annotations, type introspection"></a>Runtime annotations, type introspection</h1><p>ProGuard will by default remove all annotations and even some surplus type information from your code. For some libraries that’s not a problem — those that process annotations and generate code at compile time (such as <em>Dagger 2</em> or <em>Glide</em> and many more) might not need these annotations later on when the program runs.</p>
+<p>There is another class of tools that actually inspect annotations or look at type information of parameters and exceptions at runtime. Retrofit for example does this by intercepting your method calls by using a <code>Proxy</code> object, then looking at annotations and type information to decide what to put or read from the HTTP request.</p>
+<p><strong>Conclusion</strong>: Sometimes it’s required to retain type information and annotations that are read at runtime, as opposed to compile time. You can check out the <a target="_blank" rel="noopener" href="https://www.guardsquare.com/en/proguard/manual/attributes">attributes list in the ProGuard manual</a>.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-keepattributes *Annotation*, Signature, Exception</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>If you’re using the default Android ProGuard configuration file (<code>*getDefaultProguardFile(&#39;proguard-android.txt&#39;)*</code>), the first two options — Annotations and Signature — are specified for you. If you’re not using the default you have to make sure to add them yourself (it also doesn’t hurt to just duplicate them if you know they’re a requirement for your app).</p>
+</blockquote>
+<h1 id="Moving-everything-to-the-default-package"><a href="#Moving-everything-to-the-default-package" class="headerlink" title="Moving everything to the default package"></a>Moving everything to the default package</h1><p>The <code>-repackageclasses</code> option is not added by default in the ProGuard config. If you are already obfuscating your code and have fixed any problems with proper keep rules, you can add this option to further reduce DEX size. It works by moving all classes to the default (root) package, essentially freeing up the space taken up by strings like “<em>com.example.myapp.somepackage</em>”.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-repackageclasses</span><br></pre></td></tr></table></figure>
+
+<h1 id="ProGuard-optimizations"><a href="#ProGuard-optimizations" class="headerlink" title="ProGuard optimizations"></a>ProGuard optimizations</h1><p>As I mentioned before, ProGuard can do 3 things for you:</p>
+<ol>
+<li>it gets rid of unused code,</li>
+<li>renames identifiers to make the code smaller,</li>
+<li>performs whole program optimizations.</li>
+</ol>
+<p>The way I see it, everyone should try and configure their build to get 1. and 2. working.</p>
+<p>To unlock 3. (additional optimizations), you have to use a different default ProGuard configuration file. Change the <code>proguard-android.txt</code> parameter to <code>proguard-android-optimize.txt</code> in your <code>build.gradle</code>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">release &#123;</span><br><span class="line">  minifyEnabled true</span><br><span class="line">  proguardFiles </span><br><span class="line">      getDefaultProguardFile(&#39;proguard-android-optimize.txt&#39;),</span><br><span class="line">      &#39;proguard-rules.pro&#39;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>This will make your release build slower, but will potentially make your app run faster and reduce code size even further, thanks to optimizations such as method inlining, class merging and more aggressive code removal. Be prepared however, that it might introduce new and difficult to diagnose bugs, so use it with caution and if anything isn’t working, be sure to disable certain optimizations or disable the use of the optimizing config altogether.</p>
+<p>In the case of Plaid, ProGuard optimizations interfered with how Retrofit uses Proxy objects without concrete implementations, and stripped away some method parameters that were actually required. I had to add this line to my config:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">-optimizations !method&#x2F;removal&#x2F;parameter</span><br></pre></td></tr></table></figure>
+
+<p>You can find a <a target="_blank" rel="noopener" href="https://www.guardsquare.com/en/proguard/manual/optimizations">list of possible optimizations and how to disable them in the ProGuard manual</a>.</p>
+<h1 id="When-to-use-Keep-and-keep"><a href="#When-to-use-Keep-and-keep" class="headerlink" title="When to use @Keep and -keep"></a>When to use <code>@Keep</code> and <code>-keep</code></h1><p><code>@Keep</code> support is actually implemented as a bunch of <code>-keep</code> rules in the default Android ProGuard rules file, so they’re essentially equivalent. Specifying <code>-keep</code> rules is more flexible as it offers wildcards, you can also use different variants which do slightly different things (<code>-keepnames</code>, <code>-keepclasseswithmembers</code> <a target="_blank" rel="noopener" href="https://www.guardsquare.com/en/proguard/manual/usage#keepoverview">and more</a>).</p>
+<p>Whenever a simple “keep this class” or “keep this method” rule is needed though, I actually prefer the simplicity of adding a<code>@Keep</code> annotation on the class or member, as it stays close to the code, almost like documentation.</p>
+<p>If some other developer coming after me wants to refactor the code, they will know immediately that a class/member marked with <code>@Keep</code> requires special handling, without having to remember to consult the ProGuard configuration and risking breaking something. Also most code refactorings in the IDE should retain the <code>@Keep</code> annotation with the class automatically.</p>
+<p>来源：</p>
+<p><a target="_blank" rel="noopener" href="https://medium.com/androiddevelopers/practical-proguard-rules-examples-5640a3907dc9">https://medium.com/androiddevelopers/practical-proguard-rules-examples-5640a3907dc9</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://hefengbao.github.io/helloworld/practical-proguard-rules-examples.html" data-id="ckweu3eya00a4a1vh1jo3eqxv" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/helloworld/tags/proguard/" rel="tag">proguard</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/helloworld/16-php-magic-methods.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          16 Magic Methods That PHP Developers Must Know
+        
+      </div>
+    </a>
+  
+  
+    <a href="/helloworld/7-pro-tips-for-room.html" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">7 Pro-tips for Room</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/AI/">AI</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/API/">API</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Algorithm/">Algorithm</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Auth/">Auth</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Database/">Database</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Database/MySQL/">MySQL</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Database/Oracle/">Oracle</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/DevOps/">DevOps</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/DevOps/MinIO/">MinIO</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/DevOps/Nginx/">Nginx</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/DevOps/Redis/">Redis</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/DevOps/Supervisor/">Supervisor</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/DevOps/WAMP/">WAMP</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Github/">Github</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Go/">Go</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Gradle/">Gradle</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Hexo/">Hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/JavaScript/">JavaScript</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Javascript/">Javascript</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Kotlin/">Kotlin</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Linux/">Linux</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Linux/Ubuntu/">Ubuntu</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/PHP/">PHP</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/PHP/Laravel/">Laravel</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Vue/">Vue</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Web/">Web</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Web/HTML/">HTML</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Windows/">Windows</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E5%89%8D%E7%AB%AF/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E5%B7%A5%E5%85%B7/Composer/">Composer</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E5%B7%A5%E5%85%B7/PhpStorm/">PhpStorm</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E5%B7%A5%E5%85%B7/%E8%B5%84%E6%96%99/">资料</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/">数据可视化</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E7%88%AC%E8%99%AB/">爬虫</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/">版本控制</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/Gitlab/">Gitlab</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/VisualSVN/">VisualSVN</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/">计算机</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E8%B5%84%E6%96%99/">资料</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/AI/" rel="tag">AI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/Axios/" rel="tag">Axios</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/Composer/" rel="tag">Composer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/Date/" rel="tag">Date</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/DevOps/" rel="tag">DevOps</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/Go/" rel="tag">Go</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/Laravel/" rel="tag">Laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/MinIO/" rel="tag">MinIO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/OAuth-2-0/" rel="tag">OAuth 2.0</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/Time/" rel="tag">Time</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/TimeZone/" rel="tag">TimeZone</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/VisualSVN/" rel="tag">VisualSVN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/WAMP/" rel="tag">WAMP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/Windows/" rel="tag">Windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/algorithm/" rel="tag">algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/android/" rel="tag">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/android-studio/" rel="tag">android-studio</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/api/" rel="tag">api</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/chrome/" rel="tag">chrome</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/color/" rel="tag">color</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/composer/" rel="tag">composer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/computer/" rel="tag">computer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/crontab/" rel="tag">crontab</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/cros/" rel="tag">cros</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/css/" rel="tag">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/database/" rel="tag">database</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/echarts/" rel="tag">echarts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/elasticsearch/" rel="tag">elasticsearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/emoji/" rel="tag">emoji</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/face-recognition/" rel="tag">face_recognition</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/ffmpeg/" rel="tag">ffmpeg</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/github/" rel="tag">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/gitlab/" rel="tag">gitlab</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/gradle/" rel="tag">gradle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/homestead/" rel="tag">homestead</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/html/" rel="tag">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/https/" rel="tag">https</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/icon/" rel="tag">icon</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/iptables/" rel="tag">iptables</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/java/" rel="tag">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/josn-ld/" rel="tag">josn-ld</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/json/" rel="tag">json</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/jwt/" rel="tag">jwt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/keyboard/" rel="tag">keyboard</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/kotlin/" rel="tag">kotlin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/laravel/" rel="tag">laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/lemp/" rel="tag">lemp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/markdown/" rel="tag">markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/math/" rel="tag">math</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/mysql/" rel="tag">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/okhttp/" rel="tag">okhttp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/opcache/" rel="tag">opcache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/oracle/" rel="tag">oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/pdf/" rel="tag">pdf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/pdo-oci/" rel="tag">pdo_oci</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/php/" rel="tag">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/phpmyadmin/" rel="tag">phpmyadmin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/phpstorm/" rel="tag">phpstorm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/player/" rel="tag">player</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/proguard/" rel="tag">proguard</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/redis/" rel="tag">redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/regex/" rel="tag">regex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/room/" rel="tag">room</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/snowflake/" rel="tag">snowflake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/startup/" rel="tag">startup</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/supervisor/" rel="tag">supervisor</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/vscode/" rel="tag">vscode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/vue/" rel="tag">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/vue-router/" rel="tag">vue-router</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/web/" rel="tag">web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/wsl/" rel="tag">wsl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/zmq/" rel="tag">zmq</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E4%BA%8C%E7%BB%B4%E7%A0%81/" rel="tag">二维码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B/" rel="tag">大学课程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag">大数据</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" rel="tag">微服务</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E6%89%93%E5%8D%B0/" rel="tag">打印</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/" rel="tag">数据可视化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/" rel="tag">数据集</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E6%9E%B6%E6%9E%84/" rel="tag">架构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E6%B0%B4%E5%8D%B0/" rel="tag">水印</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" rel="tag">科学上网</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E7%BD%91%E5%AE%89/" rel="tag">网安</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E8%B5%84%E6%96%99/" rel="tag">资料</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/" rel="tag">项目管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/" rel="tag">项目部署</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/helloworld/tags/AI/" style="font-size: 10px;">AI</a> <a href="/helloworld/tags/Axios/" style="font-size: 10px;">Axios</a> <a href="/helloworld/tags/Composer/" style="font-size: 10px;">Composer</a> <a href="/helloworld/tags/Date/" style="font-size: 10px;">Date</a> <a href="/helloworld/tags/DevOps/" style="font-size: 10px;">DevOps</a> <a href="/helloworld/tags/Go/" style="font-size: 10px;">Go</a> <a href="/helloworld/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/helloworld/tags/Laravel/" style="font-size: 10px;">Laravel</a> <a href="/helloworld/tags/MinIO/" style="font-size: 10px;">MinIO</a> <a href="/helloworld/tags/OAuth-2-0/" style="font-size: 10px;">OAuth 2.0</a> <a href="/helloworld/tags/Time/" style="font-size: 10px;">Time</a> <a href="/helloworld/tags/TimeZone/" style="font-size: 10px;">TimeZone</a> <a href="/helloworld/tags/VisualSVN/" style="font-size: 10px;">VisualSVN</a> <a href="/helloworld/tags/WAMP/" style="font-size: 12.5px;">WAMP</a> <a href="/helloworld/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/helloworld/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/helloworld/tags/android/" style="font-size: 18.75px;">android</a> <a href="/helloworld/tags/android-studio/" style="font-size: 10px;">android-studio</a> <a href="/helloworld/tags/api/" style="font-size: 10px;">api</a> <a href="/helloworld/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/helloworld/tags/color/" style="font-size: 10px;">color</a> <a href="/helloworld/tags/composer/" style="font-size: 12.5px;">composer</a> <a href="/helloworld/tags/computer/" style="font-size: 10px;">computer</a> <a href="/helloworld/tags/crontab/" style="font-size: 10px;">crontab</a> <a href="/helloworld/tags/cros/" style="font-size: 10px;">cros</a> <a href="/helloworld/tags/css/" style="font-size: 10px;">css</a> <a href="/helloworld/tags/database/" style="font-size: 10px;">database</a> <a href="/helloworld/tags/echarts/" style="font-size: 10px;">echarts</a> <a href="/helloworld/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/helloworld/tags/emoji/" style="font-size: 10px;">emoji</a> <a href="/helloworld/tags/face-recognition/" style="font-size: 10px;">face_recognition</a> <a href="/helloworld/tags/ffmpeg/" style="font-size: 10px;">ffmpeg</a> <a href="/helloworld/tags/git/" style="font-size: 12.5px;">git</a> <a href="/helloworld/tags/github/" style="font-size: 11.25px;">github</a> <a href="/helloworld/tags/gitlab/" style="font-size: 11.25px;">gitlab</a> <a href="/helloworld/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/helloworld/tags/hexo/" style="font-size: 11.25px;">hexo</a> <a href="/helloworld/tags/homestead/" style="font-size: 12.5px;">homestead</a> <a href="/helloworld/tags/html/" style="font-size: 10px;">html</a> <a href="/helloworld/tags/http/" style="font-size: 11.25px;">http</a> <a href="/helloworld/tags/https/" style="font-size: 10px;">https</a> <a href="/helloworld/tags/icon/" style="font-size: 10px;">icon</a> <a href="/helloworld/tags/iptables/" style="font-size: 10px;">iptables</a> <a href="/helloworld/tags/java/" style="font-size: 11.25px;">java</a> <a href="/helloworld/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/helloworld/tags/josn-ld/" style="font-size: 10px;">josn-ld</a> <a href="/helloworld/tags/json/" style="font-size: 11.25px;">json</a> <a href="/helloworld/tags/jwt/" style="font-size: 10px;">jwt</a> <a href="/helloworld/tags/keyboard/" style="font-size: 10px;">keyboard</a> <a href="/helloworld/tags/kotlin/" style="font-size: 20px;">kotlin</a> <a href="/helloworld/tags/laravel/" style="font-size: 17.5px;">laravel</a> <a href="/helloworld/tags/lemp/" style="font-size: 10px;">lemp</a> <a href="/helloworld/tags/linux/" style="font-size: 16.25px;">linux</a> <a href="/helloworld/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/helloworld/tags/math/" style="font-size: 10px;">math</a> <a href="/helloworld/tags/mysql/" style="font-size: 12.5px;">mysql</a> <a href="/helloworld/tags/nginx/" style="font-size: 12.5px;">nginx</a> <a href="/helloworld/tags/okhttp/" style="font-size: 11.25px;">okhttp</a> <a href="/helloworld/tags/opcache/" style="font-size: 10px;">opcache</a> <a href="/helloworld/tags/oracle/" style="font-size: 12.5px;">oracle</a> <a href="/helloworld/tags/pdf/" style="font-size: 10px;">pdf</a> <a href="/helloworld/tags/pdo-oci/" style="font-size: 10px;">pdo_oci</a> <a href="/helloworld/tags/php/" style="font-size: 15px;">php</a> <a href="/helloworld/tags/phpmyadmin/" style="font-size: 10px;">phpmyadmin</a> <a href="/helloworld/tags/phpstorm/" style="font-size: 10px;">phpstorm</a> <a href="/helloworld/tags/player/" style="font-size: 10px;">player</a> <a href="/helloworld/tags/proguard/" style="font-size: 10px;">proguard</a> <a href="/helloworld/tags/redis/" style="font-size: 11.25px;">redis</a> <a href="/helloworld/tags/regex/" style="font-size: 10px;">regex</a> <a href="/helloworld/tags/room/" style="font-size: 10px;">room</a> <a href="/helloworld/tags/snowflake/" style="font-size: 10px;">snowflake</a> <a href="/helloworld/tags/startup/" style="font-size: 10px;">startup</a> <a href="/helloworld/tags/supervisor/" style="font-size: 10px;">supervisor</a> <a href="/helloworld/tags/ubuntu/" style="font-size: 12.5px;">ubuntu</a> <a href="/helloworld/tags/vscode/" style="font-size: 11.25px;">vscode</a> <a href="/helloworld/tags/vue/" style="font-size: 11.25px;">vue</a> <a href="/helloworld/tags/vue-router/" style="font-size: 10px;">vue-router</a> <a href="/helloworld/tags/web/" style="font-size: 10px;">web</a> <a href="/helloworld/tags/wsl/" style="font-size: 12.5px;">wsl</a> <a href="/helloworld/tags/zmq/" style="font-size: 10px;">zmq</a> <a href="/helloworld/tags/%E4%BA%8C%E7%BB%B4%E7%A0%81/" style="font-size: 10px;">二维码</a> <a href="/helloworld/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 10px;">前端</a> <a href="/helloworld/tags/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B/" style="font-size: 10px;">大学课程</a> <a href="/helloworld/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" style="font-size: 10px;">大数据</a> <a href="/helloworld/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" style="font-size: 10px;">微服务</a> <a href="/helloworld/tags/%E6%89%93%E5%8D%B0/" style="font-size: 10px;">打印</a> <a href="/helloworld/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/" style="font-size: 11.25px;">数据可视化</a> <a href="/helloworld/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/" style="font-size: 10px;">数据集</a> <a href="/helloworld/tags/%E6%9E%B6%E6%9E%84/" style="font-size: 10px;">架构</a> <a href="/helloworld/tags/%E6%B0%B4%E5%8D%B0/" style="font-size: 10px;">水印</a> <a href="/helloworld/tags/%E7%88%AC%E8%99%AB/" style="font-size: 10px;">爬虫</a> <a href="/helloworld/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 10px;">科学上网</a> <a href="/helloworld/tags/%E7%BD%91%E5%AE%89/" style="font-size: 10px;">网安</a> <a href="/helloworld/tags/%E8%B5%84%E6%96%99/" style="font-size: 13.75px;">资料</a> <a href="/helloworld/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/" style="font-size: 10px;">项目管理</a> <a href="/helloworld/tags/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/" style="font-size: 10px;">项目部署</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2021/10/">十月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2021/09/">九月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2021/08/">八月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2021/07/">七月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2021/06/">六月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2021/03/">三月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2021/02/">二月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/12/">十二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/11/">十一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/08/">八月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/06/">六月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/05/">五月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/04/">四月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/02/">二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/01/">一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/12/">十二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/10/">十月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/07/">七月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/06/">六月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/05/">五月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/03/">三月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/02/">二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/01/">一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/12/">十二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/11/">十一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/09/">九月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/08/">八月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/07/">七月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/06/">六月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/05/">五月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/04/">四月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/03/">三月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/10/">十月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/08/">八月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/07/">七月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/05/">五月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/04/">四月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/helloworld/php-opcache-20211013.html">PHP Opcache</a>
+          </li>
+        
+          <li>
+            <a href="/helloworld/homestead-wsl2-20210901.html">Homestead &amp; WSL 2 - Windows 10</a>
+          </li>
+        
+          <li>
+            <a href="/helloworld/devops-resource-20210812.html">服务器管理学习资料</a>
+          </li>
+        
+          <li>
+            <a href="/helloworld/some-resource-20210810.html">程序员要了解的一些知识</a>
+          </li>
+        
+          <li>
+            <a href="/helloworld/bigdata-resource-20210809.html">大数据学习资料</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 He Fengbao<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/helloworld/" class="mobile-nav-link">Home</a>
+  
+    <a href="/helloworld/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/helloworld/fancybox/jquery.fancybox.css">
+
+  
+<script src="/helloworld/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/helloworld/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

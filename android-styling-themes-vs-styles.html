@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Android Styling: Themes vs Styles | HelloWorld</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="The Android styling system offers a powerful way to specify your app’s visual design, but it can be easy to misuse. Proper use of it can make themes and styles easier to maintain, make branding update">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Android Styling: Themes vs Styles">
+<meta property="og:url" content="https://hefengbao.github.io/helloworld/android-styling-themes-vs-styles.html">
+<meta property="og:site_name" content="HelloWorld">
+<meta property="og:description" content="The Android styling system offers a powerful way to specify your app’s visual design, but it can be easy to misuse. Proper use of it can make themes and styles easier to maintain, make branding update">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://hefengbao.github.io/helloworld/images/2020080201.png">
+<meta property="article:published_time" content="2020-08-02T06:56:10.000Z">
+<meta property="article:modified_time" content="2020-08-02T06:56:10.000Z">
+<meta property="article:author" content="He Fengbao">
+<meta property="article:tag" content="android">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://hefengbao.github.io/helloworld/images/2020080201.png">
+  
+    <link rel="alternate" href="/helloworld/atom.xml" title="HelloWorld" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/helloworld/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/helloworld/" id="logo">HelloWorld</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/helloworld/">Home</a>
+        
+          <a class="main-nav-link" href="/helloworld/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/helloworld/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://hefengbao.github.io/helloworld"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Android-Styling-Themes-vs-Styles" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/helloworld/android-styling-themes-vs-styles.html" class="article-date">
+  <time datetime="2020-08-02T06:56:10.000Z" itemprop="datePublished">2020-08-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/helloworld/categories/Android/">Android</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Android Styling: Themes vs Styles
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>The <a target="_blank" rel="noopener" href="https://developer.android.com/guide/topics/ui/look-and-feel/themes">Android styling system</a> offers a powerful way to specify your app’s visual design, but it can be easy to misuse. Proper use of it can make themes and styles easier to maintain, make branding updates less scary and make it straightforward to support dark modes. This is the first in a series of articles where <a target="_blank" rel="noopener" href="https://medium.com/u/9303277cb6db?source=post_page-----ebe05f917578----------------------">Chris Banes</a> and I will set out to demystify Android styling so that you can make stylish apps without pulling your hair out.</p>
+<p>In this first article, I’ll take a look at the building blocks of the styling system: themes and styles.</p>
+<h1 id="Theme-Style"><a href="#Theme-Style" class="headerlink" title="Theme != Style"></a>Theme != Style</h1><p>Both themes and styles use the same <code>&lt;style&gt;</code> syntax but serve very different purposes. You can think of both as key-value stores where the keys are attributes and the values are resources. Let’s take a look at each.</p>
+<h1 id="What’s-in-a-style"><a href="#What’s-in-a-style" class="headerlink" title="What’s in a style?"></a>What’s in a style?</h1><p>A style is a collection of view attribute values. You can think of a style as a <code>Map&lt;**view** attribute, resource&gt;</code>. That is the keys are all view attributes i.e. attributes that a widget declares and you might set in a layout file. Styles are specific to a single type of widget because different widgets support different sets of attributes:</p>
+<blockquote>
+<p>Styles are a collection of view attributes; specific to a single type of widget</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Copyright 2019 Google LLC.	</span></span><br><span class="line"><span class="comment">   SPDX-License-Identifier: Apache-2.0 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">&quot;Widget.Plaid.Button.InlineAction&quot;</span> <span class="attr">parent</span>=<span class="string">&quot;…&quot;</span>&gt;</span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">&quot;android:gravity&quot;</span>&gt;</span>center_horizontal<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">&quot;android:textAppearance&quot;</span>&gt;</span>@style/TextAppearance.CommentAuthor<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">&quot;android:drawablePadding&quot;</span>&gt;</span>@dimen/spacing_micro<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://gist.github.com/nickbutcher/209ed867f74ac5cd251f68dba7e0da18#file-themes_vs_styles_style-xml">themes_vs_styles_style.xml</a> hosted with ❤ by <a target="_blank" rel="noopener" href="https://github.com/">GitHub</a></p>
+<p>As you can see, each of the keys in the style are things you <em>could</em> set in a layout:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Copyright 2019 Google LLC.	</span></span><br><span class="line"><span class="comment">   SPDX-License-Identifier: Apache-2.0 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Button</span> …</span></span><br><span class="line"><span class="tag">  <span class="attr">android:gravity</span>=<span class="string">&quot;center_horizontal&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:textAppearance</span>=<span class="string">&quot;@style/TextAppearance.CommentAuthor&quot;</span></span></span><br><span class="line"><span class="tag">  <span class="attr">android:drawablePadding</span>=<span class="string">&quot;@dimen/spacing_micro&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://gist.github.com/nickbutcher/e904e2e3008de4285f56540539332bf8#file-themes_vs_styles_view_attrs-xml">themes_vs_styles_view_attrs.xml</a> hosted with ❤ by <a target="_blank" rel="noopener" href="https://github.com/">GitHub</a></p>
+<p>Extracting them to a style makes it easy to reuse across multiple views and maintain.</p>
+<h1 id="Usage"><a href="#Usage" class="headerlink" title="Usage"></a>Usage</h1><p>Styles are used by individual views from a layout:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Copyright 2019 Google LLC.	</span></span><br><span class="line"><span class="comment">   SPDX-License-Identifier: Apache-2.0 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">Button</span> …</span></span><br><span class="line"><span class="tag">  <span class="attr">style</span>=<span class="string">&quot;@style/Widget.Plaid.Button.InlineAction&quot;</span>/&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://gist.github.com/nickbutcher/e111751dc60c0a72c2550bee28ced9b3#file-themes_vs_styles_style_usage-xml">themes_vs_styles_style_usage.xml</a> hosted with ❤ by <a target="_blank" rel="noopener" href="https://github.com/">GitHub</a></p>
+<p>Views can only apply a single style — contrast this to other styling systems such as css on the web where components can set multiple css classes.</p>
+<h1 id="Scope"><a href="#Scope" class="headerlink" title="Scope"></a>Scope</h1><p>A style applied to a view <strong>only</strong> applies to <em>that</em> view, not to any of its children. For example, if you have a <code>ViewGroup</code> with three buttons, setting the <code>InlineAction</code> style on the <code>ViewGroup</code> will not apply that style to the buttons. The values provided by the style are combined with those set directly in the layout (resolved using the <a target="_blank" rel="noopener" href="https://medium.com/androiddevelopers/whats-your-text-s-appearance-f3a1729192d">styling precedence order</a>).</p>
+<h1 id="What’s-a-theme"><a href="#What’s-a-theme" class="headerlink" title="What’s a theme?"></a>What’s a theme?</h1><p>A theme is a collection of named resources which can be referenced later by styles, layouts etc. They provide semantic names to Android resources so you can refer to them later e.g. <code>colorPrimary</code> is a semantic name for a given color:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Copyright 2019 Google LLC.	</span></span><br><span class="line"><span class="comment">   SPDX-License-Identifier: Apache-2.0 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">style</span> <span class="attr">name</span>=<span class="string">&quot;Theme.Plaid&quot;</span> <span class="attr">parent</span>=<span class="string">&quot;…&quot;</span>&gt;</span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">&quot;colorPrimary&quot;</span>&gt;</span>@color/teal_500<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">&quot;colorSecondary&quot;</span>&gt;</span>@color/pink_200<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="xml">  <span class="tag">&lt;<span class="name">item</span> <span class="attr">name</span>=<span class="string">&quot;android:windowBackground&quot;</span>&gt;</span>@color/white<span class="tag">&lt;/<span class="name">item</span>&gt;</span></span></span><br><span class="line"><span class="tag">&lt;/<span class="name">style</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://gist.github.com/nickbutcher/09471e60710519ad78b50df783601497#file-themes_vs_styles_theme-xml">themes_vs_styles_theme.xml</a> hosted with ❤ by <a target="_blank" rel="noopener" href="https://github.com/">GitHub</a></p>
+<p>These named resources are known as theme attributes, so a theme is <code>Map&lt;**theme** attribute, resource&gt;</code>. Theme attributes are different from view attributes because they’re not properties specific to an individual view type but <em>semantically named</em> pointers to values which are applicable more broadly in an app. A theme provides concrete values for these named resources. In the example above the <code>colorPrimary</code> attribute specifies that the primary color for this theme is teal. By abstracting the resource with a theme, we can provide different concrete values (such as <code>colorPrimary</code>=orange) in different themes.</p>
+<blockquote>
+<p>Themes are a collection of named resources, useful broadly across an app</p>
+</blockquote>
+<p>A theme is similar to an interface. Programming to an interface allows you to decouple the public contract from the implementation allowing you to provide <em>different</em> implementations. Themes play a similar role; by writing our layouts and styles against theme attributes, we can use them under different themes, providing different concrete resources.</p>
+<p>Roughly equivalent pseudo-code:</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Copyright 2019 Google LLC.	</span></span><br><span class="line"><span class="comment">   SPDX-License-Identifier: Apache-2.0 */</span></span><br><span class="line"><span class="class"><span class="keyword">interface</span> <span class="title">ColorPalette</span> </span>&#123;</span><br><span class="line">  <span class="meta">@ColorInt</span> <span class="keyword">val</span> colorPrimary</span><br><span class="line">  <span class="meta">@ColorInt</span> <span class="keyword">val</span> colorSecondary</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MyView</span></span>(colors: ColorPalette) &#123;</span><br><span class="line">  fab.backgroundTint = colors.colorPrimary</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://gist.github.com/nickbutcher/60b03553e278ed6f4c35d26cc2c59a39#file-themes_vs_styles_theme_psuedo_interface-kt">themes_vs_styles_theme_psuedo_interface.kt</a> hosted with ❤ by <a target="_blank" rel="noopener" href="https://github.com/">GitHub</a></p>
+<p>Which allows you to vary the way that <code>MyView</code> is rendered, without having to create variants of it:</p>
+<figure class="highlight kotlin"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* Copyright 2019 Google LLC.	</span></span><br><span class="line"><span class="comment">   SPDX-License-Identifier: Apache-2.0 */</span></span><br><span class="line"><span class="keyword">val</span> lightPalette = <span class="keyword">object</span> : ColorPalette &#123; … &#125;</span><br><span class="line"><span class="keyword">val</span> darkPalette = <span class="keyword">object</span> : ColorPalette &#123; … &#125;</span><br><span class="line"><span class="keyword">val</span> view = MyView(<span class="keyword">if</span> (isDarkTheme) darkPalette <span class="keyword">else</span> lightPalette)</span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://gist.github.com/nickbutcher/e491315b05af92c8bb0816ae6848364e#file-themes_vs_styles_theme_psuedo_interface_usage-kt">themes_vs_styles_theme_psuedo_interface_usage.kt</a> hosted with ❤ by <a target="_blank" rel="noopener" href="https://github.com/">GitHub</a></p>
+<h1 id="Usage-1"><a href="#Usage-1" class="headerlink" title="Usage"></a>Usage</h1><p>You can specify a theme on components which have (or are) a <code>Context</code> e.g. <code>Activity</code> or <code>Views</code>/<code>ViewGroup</code>s:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Copyright 2019 Google LLC.	</span></span><br><span class="line"><span class="comment">   SPDX-License-Identifier: Apache-2.0 --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- AndroidManifest.xml --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">application</span> …</span></span><br><span class="line"><span class="tag">  <span class="attr">android:theme</span>=<span class="string">&quot;@style/Theme.Plaid&quot;</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">activity</span> …</span></span><br><span class="line"><span class="tag">  <span class="attr">android:theme</span>=<span class="string">&quot;@style/Theme.Plaid.About&quot;</span>/&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- layout/foo.xml --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ConstraintLayout</span> …</span></span><br><span class="line"><span class="tag">  <span class="attr">android:theme</span>=<span class="string">&quot;@style/Theme.Plaid.Foo&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://gist.github.com/nickbutcher/d5db6c5329c390999739fa9c352cb4a0#file-themes_vs_styles_theme_usage-xml">themes_vs_styles_theme_usage.xml</a> hosted with ❤ by <a target="_blank" rel="noopener" href="https://github.com/">GitHub</a></p>
+<p>You can also set a theme in code by wrapping an existing <code>Context</code> with a <code>ContextThemeWrapper</code> which you could then use to <a target="_blank" rel="noopener" href="https://developer.android.com/reference/android/view/LayoutInflater.html#from(android.content.Context)">inflate</a> a layout etc.</p>
+<p>The power of themes really comes from how you use them; you can build more flexible widgets by referencing theme attributes. Different themes provide concrete values at a later time. For example, you might wish to set a background color on a section of your view hierarchy:</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="comment">&lt;!-- Copyright 2019 Google LLC.	</span></span><br><span class="line"><span class="comment">   SPDX-License-Identifier: Apache-2.0 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ViewGroup</span> …</span></span><br><span class="line"><span class="tag">  <span class="attr">android:background</span>=<span class="string">&quot;?attr/colorSurface&quot;</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://gist.github.com/nickbutcher/b5bc28be5c8cdd297b5ae59de1780fc5#file-themes_vs_styles_theme_attr_usage-xml">themes_vs_styles_theme_attr_usage.xml</a> hosted with ❤ by <a target="_blank" rel="noopener" href="https://github.com/">GitHub</a></p>
+<p>Rather than setting a static color (<code>#ffffff</code> or a <code>@color</code> resource) we can delegate to the theme by using the <code>?attr/themeAttributeName</code> syntax. This syntax means: query the theme for the value of this semantic attribute. This level of indirection allows us to provide different behavior (e.g. providing a different background color in light and dark themes) without having to create multiple layouts or styles which are mostly identical but for a few color variations. It isolates the elements that are changing within the theme.</p>
+<blockquote>
+<p>Use the <code>?attr/themeAttributeName</code> syntax to query the theme for the value of this semantic attribute</p>
+</blockquote>
+<h1 id="Scope-1"><a href="#Scope-1" class="headerlink" title="Scope"></a>Scope</h1><p>A <code>Theme</code> is accessed as a property of a <code>Context</code> and can be obtained from any object which is or has a <code>Context</code> e.g. <code>Activity</code>, <code>View</code> or <code>ViewGroup</code>. These objects exist in a tree, where an <code>Activity</code> contains <code>ViewGroup</code>s which contain <code>View</code>s etc. Specifying a theme at any level of this tree cascades to descendent nodes e.g. setting a theme on a <code>ViewGroup</code> applies to all the <code>View</code>s within it (in contrast to styles which only apply to a single view).</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">&lt;!-- Copyright 2019 Google LLC.	</span></span><br><span class="line"><span class="comment">   SPDX-License-Identifier: Apache-2.0 --&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">ViewGroup</span> …</span></span><br><span class="line"><span class="tag">  <span class="attr">android:theme</span>=<span class="string">&quot;@style/Theme.App.SomeTheme&quot;</span>&gt;</span></span><br><span class="line">  &lt;! - SomeTheme also applies to all child views. --&gt;</span><br><span class="line"><span class="tag">&lt;/<span class="name">ViewGroup</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<p><a target="_blank" rel="noopener" href="https://gist.github.com/nickbutcher/20860aef17375f16a86ee0ac2ca5e729#file-themes_vs_styles_theme_cascade-xml">themes_vs_styles_theme_cascade.xml</a> hosted with ❤ by <a target="_blank" rel="noopener" href="https://github.com/">GitHub</a></p>
+<p>This can be extremely useful, say if you want a dark themed section of an otherwise light screen. Read more about this behavior <a target="_blank" rel="noopener" href="https://medium.com/androiddevelopers/android-styling-themes-overlay-1ffd57745207">here</a>.</p>
+<p>Note that this behavior only applies at layout inflation time. While <code>Context</code> offers a <code>setTheme</code> method, or <code>Theme</code> offers an <code>applyStyle</code> method, these need to be called <em>before</em> inflation. Setting a new theme or applying a style after inflation will not update existing views.</p>
+<h1 id="Separate-Concerns"><a href="#Separate-Concerns" class="headerlink" title="Separate Concerns"></a>Separate Concerns</h1><p>Understanding the different responsibilities and the interaction of styles and themes, helps to keep your styling resources more manageable.</p>
+<p>For example, say you have a blue theme for your app, but some Pro screens get a fancy purple look <strong>and</strong> you want to provide <a target="_blank" rel="noopener" href="https://developer.android.com/guide/topics/ui/look-and-feel/darktheme">dark themes</a> with tweaked colors. If you tried to achieve this using only styles, you would have to create 4 styles for the permutations of Pro/non-Pro and light/dark. As styles are specific to a type of view (<code>Button</code>, <code>Switch</code> etc) you’d need to create these permutations for each view type in your app.</p>
+<img src="/helloworld/images/2020080201.png" class="" title="Exploding permutations of widgets&#x2F;styles without theming">
+
+<p>Exploding permutations of widgets/styles without theming</p>
+<p>If instead we use styles <strong>and</strong> themes we can isolate the parts which alter by theme as theme attributes so we only need to define a single style per view type. For the above example we might define 4 themes which each provide different values for the <code>colorPrimary</code> theme attribute, which these styles then refer to and automatically reflect the correct value from the theme.</p>
+<p>This approach might seem more complicated as you need to consider the interaction of styles and themes, but it has the benefit of isolating the parts that change per theme. So if your app rebrands from blue to orange, you only need to change this in a single place, not scattered throughout your styling. It also helps fight a proliferation of styles. Ideally you only have a small number of styles per view type. If you don’t take advantage of theming, it’s easy for your <code>styles.xml</code> file to get out of hand and explode with different variations of similar styles, which becomes a maintenance headache.</p>
+<p>Join us in the next article where we explore some common theme attributes and how to create your own:</p>
+<p><a target="_blank" rel="noopener" href="https://medium.com/androiddevelopers/android-styling-common-theme-attributes-8f7c50c9eaba">Android Styling: Common Theme AttributesIn the previous article in this series on Android styling, we looked at the difference between themes and styles and…medium.com
+  </a></p>
+<p><a target="_blank" rel="noopener" href="https://medium.com/androiddevelopers/android-styling-themes-vs-styles-ebe05f917578">https://medium.com/androiddevelopers/android-styling-themes-vs-styles-ebe05f917578</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://hefengbao.github.io/helloworld/android-styling-themes-vs-styles.html" data-id="ckweu3ezg00eqa1vheu71ek7r" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/helloworld/tags/android/" rel="tag">android</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/helloworld/android-styling-common-theme-attributes.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Android Styling: Common Theme Attributes
+        
+      </div>
+    </a>
+  
+  
+    <a href="/helloworld/gradle.html" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Gradle</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/AI/">AI</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/API/">API</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Algorithm/">Algorithm</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Auth/">Auth</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Database/">Database</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Database/MySQL/">MySQL</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Database/Oracle/">Oracle</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/DevOps/">DevOps</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/DevOps/MinIO/">MinIO</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/DevOps/Nginx/">Nginx</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/DevOps/Redis/">Redis</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/DevOps/Supervisor/">Supervisor</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/DevOps/WAMP/">WAMP</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Github/">Github</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Go/">Go</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Gradle/">Gradle</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Hexo/">Hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/JavaScript/">JavaScript</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Javascript/">Javascript</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Kotlin/">Kotlin</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Linux/">Linux</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Linux/Ubuntu/">Ubuntu</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/PHP/">PHP</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/PHP/Laravel/">Laravel</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Vue/">Vue</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Web/">Web</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Web/HTML/">HTML</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Windows/">Windows</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E5%89%8D%E7%AB%AF/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E5%B7%A5%E5%85%B7/Composer/">Composer</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E5%B7%A5%E5%85%B7/PhpStorm/">PhpStorm</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E5%B7%A5%E5%85%B7/%E8%B5%84%E6%96%99/">资料</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/">数据可视化</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E7%88%AC%E8%99%AB/">爬虫</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/">版本控制</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/Gitlab/">Gitlab</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/VisualSVN/">VisualSVN</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/">计算机</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E8%B5%84%E6%96%99/">资料</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/AI/" rel="tag">AI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/Axios/" rel="tag">Axios</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/Composer/" rel="tag">Composer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/Date/" rel="tag">Date</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/DevOps/" rel="tag">DevOps</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/Go/" rel="tag">Go</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/Laravel/" rel="tag">Laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/MinIO/" rel="tag">MinIO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/OAuth-2-0/" rel="tag">OAuth 2.0</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/Time/" rel="tag">Time</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/TimeZone/" rel="tag">TimeZone</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/VisualSVN/" rel="tag">VisualSVN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/WAMP/" rel="tag">WAMP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/Windows/" rel="tag">Windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/algorithm/" rel="tag">algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/android/" rel="tag">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/android-studio/" rel="tag">android-studio</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/api/" rel="tag">api</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/chrome/" rel="tag">chrome</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/color/" rel="tag">color</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/composer/" rel="tag">composer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/computer/" rel="tag">computer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/crontab/" rel="tag">crontab</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/cros/" rel="tag">cros</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/css/" rel="tag">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/database/" rel="tag">database</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/echarts/" rel="tag">echarts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/elasticsearch/" rel="tag">elasticsearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/emoji/" rel="tag">emoji</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/face-recognition/" rel="tag">face_recognition</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/ffmpeg/" rel="tag">ffmpeg</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/github/" rel="tag">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/gitlab/" rel="tag">gitlab</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/gradle/" rel="tag">gradle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/homestead/" rel="tag">homestead</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/html/" rel="tag">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/https/" rel="tag">https</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/icon/" rel="tag">icon</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/iptables/" rel="tag">iptables</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/java/" rel="tag">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/josn-ld/" rel="tag">josn-ld</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/json/" rel="tag">json</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/jwt/" rel="tag">jwt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/keyboard/" rel="tag">keyboard</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/kotlin/" rel="tag">kotlin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/laravel/" rel="tag">laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/lemp/" rel="tag">lemp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/markdown/" rel="tag">markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/math/" rel="tag">math</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/mysql/" rel="tag">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/okhttp/" rel="tag">okhttp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/opcache/" rel="tag">opcache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/oracle/" rel="tag">oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/pdf/" rel="tag">pdf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/pdo-oci/" rel="tag">pdo_oci</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/php/" rel="tag">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/phpmyadmin/" rel="tag">phpmyadmin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/phpstorm/" rel="tag">phpstorm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/player/" rel="tag">player</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/proguard/" rel="tag">proguard</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/redis/" rel="tag">redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/regex/" rel="tag">regex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/room/" rel="tag">room</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/snowflake/" rel="tag">snowflake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/startup/" rel="tag">startup</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/supervisor/" rel="tag">supervisor</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/vscode/" rel="tag">vscode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/vue/" rel="tag">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/vue-router/" rel="tag">vue-router</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/web/" rel="tag">web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/wsl/" rel="tag">wsl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/zmq/" rel="tag">zmq</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E4%BA%8C%E7%BB%B4%E7%A0%81/" rel="tag">二维码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B/" rel="tag">大学课程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag">大数据</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" rel="tag">微服务</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E6%89%93%E5%8D%B0/" rel="tag">打印</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/" rel="tag">数据可视化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/" rel="tag">数据集</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E6%9E%B6%E6%9E%84/" rel="tag">架构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E6%B0%B4%E5%8D%B0/" rel="tag">水印</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" rel="tag">科学上网</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E7%BD%91%E5%AE%89/" rel="tag">网安</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E8%B5%84%E6%96%99/" rel="tag">资料</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/" rel="tag">项目管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/" rel="tag">项目部署</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/helloworld/tags/AI/" style="font-size: 10px;">AI</a> <a href="/helloworld/tags/Axios/" style="font-size: 10px;">Axios</a> <a href="/helloworld/tags/Composer/" style="font-size: 10px;">Composer</a> <a href="/helloworld/tags/Date/" style="font-size: 10px;">Date</a> <a href="/helloworld/tags/DevOps/" style="font-size: 10px;">DevOps</a> <a href="/helloworld/tags/Go/" style="font-size: 10px;">Go</a> <a href="/helloworld/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/helloworld/tags/Laravel/" style="font-size: 10px;">Laravel</a> <a href="/helloworld/tags/MinIO/" style="font-size: 10px;">MinIO</a> <a href="/helloworld/tags/OAuth-2-0/" style="font-size: 10px;">OAuth 2.0</a> <a href="/helloworld/tags/Time/" style="font-size: 10px;">Time</a> <a href="/helloworld/tags/TimeZone/" style="font-size: 10px;">TimeZone</a> <a href="/helloworld/tags/VisualSVN/" style="font-size: 10px;">VisualSVN</a> <a href="/helloworld/tags/WAMP/" style="font-size: 12.5px;">WAMP</a> <a href="/helloworld/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/helloworld/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/helloworld/tags/android/" style="font-size: 18.75px;">android</a> <a href="/helloworld/tags/android-studio/" style="font-size: 10px;">android-studio</a> <a href="/helloworld/tags/api/" style="font-size: 10px;">api</a> <a href="/helloworld/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/helloworld/tags/color/" style="font-size: 10px;">color</a> <a href="/helloworld/tags/composer/" style="font-size: 12.5px;">composer</a> <a href="/helloworld/tags/computer/" style="font-size: 10px;">computer</a> <a href="/helloworld/tags/crontab/" style="font-size: 10px;">crontab</a> <a href="/helloworld/tags/cros/" style="font-size: 10px;">cros</a> <a href="/helloworld/tags/css/" style="font-size: 10px;">css</a> <a href="/helloworld/tags/database/" style="font-size: 10px;">database</a> <a href="/helloworld/tags/echarts/" style="font-size: 10px;">echarts</a> <a href="/helloworld/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/helloworld/tags/emoji/" style="font-size: 10px;">emoji</a> <a href="/helloworld/tags/face-recognition/" style="font-size: 10px;">face_recognition</a> <a href="/helloworld/tags/ffmpeg/" style="font-size: 10px;">ffmpeg</a> <a href="/helloworld/tags/git/" style="font-size: 12.5px;">git</a> <a href="/helloworld/tags/github/" style="font-size: 11.25px;">github</a> <a href="/helloworld/tags/gitlab/" style="font-size: 11.25px;">gitlab</a> <a href="/helloworld/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/helloworld/tags/hexo/" style="font-size: 11.25px;">hexo</a> <a href="/helloworld/tags/homestead/" style="font-size: 12.5px;">homestead</a> <a href="/helloworld/tags/html/" style="font-size: 10px;">html</a> <a href="/helloworld/tags/http/" style="font-size: 11.25px;">http</a> <a href="/helloworld/tags/https/" style="font-size: 10px;">https</a> <a href="/helloworld/tags/icon/" style="font-size: 10px;">icon</a> <a href="/helloworld/tags/iptables/" style="font-size: 10px;">iptables</a> <a href="/helloworld/tags/java/" style="font-size: 11.25px;">java</a> <a href="/helloworld/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/helloworld/tags/josn-ld/" style="font-size: 10px;">josn-ld</a> <a href="/helloworld/tags/json/" style="font-size: 11.25px;">json</a> <a href="/helloworld/tags/jwt/" style="font-size: 10px;">jwt</a> <a href="/helloworld/tags/keyboard/" style="font-size: 10px;">keyboard</a> <a href="/helloworld/tags/kotlin/" style="font-size: 20px;">kotlin</a> <a href="/helloworld/tags/laravel/" style="font-size: 17.5px;">laravel</a> <a href="/helloworld/tags/lemp/" style="font-size: 10px;">lemp</a> <a href="/helloworld/tags/linux/" style="font-size: 16.25px;">linux</a> <a href="/helloworld/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/helloworld/tags/math/" style="font-size: 10px;">math</a> <a href="/helloworld/tags/mysql/" style="font-size: 12.5px;">mysql</a> <a href="/helloworld/tags/nginx/" style="font-size: 12.5px;">nginx</a> <a href="/helloworld/tags/okhttp/" style="font-size: 11.25px;">okhttp</a> <a href="/helloworld/tags/opcache/" style="font-size: 10px;">opcache</a> <a href="/helloworld/tags/oracle/" style="font-size: 12.5px;">oracle</a> <a href="/helloworld/tags/pdf/" style="font-size: 10px;">pdf</a> <a href="/helloworld/tags/pdo-oci/" style="font-size: 10px;">pdo_oci</a> <a href="/helloworld/tags/php/" style="font-size: 15px;">php</a> <a href="/helloworld/tags/phpmyadmin/" style="font-size: 10px;">phpmyadmin</a> <a href="/helloworld/tags/phpstorm/" style="font-size: 10px;">phpstorm</a> <a href="/helloworld/tags/player/" style="font-size: 10px;">player</a> <a href="/helloworld/tags/proguard/" style="font-size: 10px;">proguard</a> <a href="/helloworld/tags/redis/" style="font-size: 11.25px;">redis</a> <a href="/helloworld/tags/regex/" style="font-size: 10px;">regex</a> <a href="/helloworld/tags/room/" style="font-size: 10px;">room</a> <a href="/helloworld/tags/snowflake/" style="font-size: 10px;">snowflake</a> <a href="/helloworld/tags/startup/" style="font-size: 10px;">startup</a> <a href="/helloworld/tags/supervisor/" style="font-size: 10px;">supervisor</a> <a href="/helloworld/tags/ubuntu/" style="font-size: 12.5px;">ubuntu</a> <a href="/helloworld/tags/vscode/" style="font-size: 11.25px;">vscode</a> <a href="/helloworld/tags/vue/" style="font-size: 11.25px;">vue</a> <a href="/helloworld/tags/vue-router/" style="font-size: 10px;">vue-router</a> <a href="/helloworld/tags/web/" style="font-size: 10px;">web</a> <a href="/helloworld/tags/wsl/" style="font-size: 12.5px;">wsl</a> <a href="/helloworld/tags/zmq/" style="font-size: 10px;">zmq</a> <a href="/helloworld/tags/%E4%BA%8C%E7%BB%B4%E7%A0%81/" style="font-size: 10px;">二维码</a> <a href="/helloworld/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 10px;">前端</a> <a href="/helloworld/tags/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B/" style="font-size: 10px;">大学课程</a> <a href="/helloworld/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" style="font-size: 10px;">大数据</a> <a href="/helloworld/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" style="font-size: 10px;">微服务</a> <a href="/helloworld/tags/%E6%89%93%E5%8D%B0/" style="font-size: 10px;">打印</a> <a href="/helloworld/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/" style="font-size: 11.25px;">数据可视化</a> <a href="/helloworld/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/" style="font-size: 10px;">数据集</a> <a href="/helloworld/tags/%E6%9E%B6%E6%9E%84/" style="font-size: 10px;">架构</a> <a href="/helloworld/tags/%E6%B0%B4%E5%8D%B0/" style="font-size: 10px;">水印</a> <a href="/helloworld/tags/%E7%88%AC%E8%99%AB/" style="font-size: 10px;">爬虫</a> <a href="/helloworld/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 10px;">科学上网</a> <a href="/helloworld/tags/%E7%BD%91%E5%AE%89/" style="font-size: 10px;">网安</a> <a href="/helloworld/tags/%E8%B5%84%E6%96%99/" style="font-size: 13.75px;">资料</a> <a href="/helloworld/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/" style="font-size: 10px;">项目管理</a> <a href="/helloworld/tags/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/" style="font-size: 10px;">项目部署</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2021/10/">十月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2021/09/">九月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2021/08/">八月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2021/07/">七月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2021/06/">六月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2021/03/">三月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2021/02/">二月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/12/">十二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/11/">十一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/08/">八月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/06/">六月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/05/">五月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/04/">四月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/02/">二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/01/">一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/12/">十二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/10/">十月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/07/">七月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/06/">六月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/05/">五月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/03/">三月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/02/">二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/01/">一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/12/">十二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/11/">十一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/09/">九月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/08/">八月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/07/">七月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/06/">六月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/05/">五月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/04/">四月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/03/">三月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/10/">十月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/08/">八月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/07/">七月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/05/">五月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/04/">四月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/helloworld/php-opcache-20211013.html">PHP Opcache</a>
+          </li>
+        
+          <li>
+            <a href="/helloworld/homestead-wsl2-20210901.html">Homestead &amp; WSL 2 - Windows 10</a>
+          </li>
+        
+          <li>
+            <a href="/helloworld/devops-resource-20210812.html">服务器管理学习资料</a>
+          </li>
+        
+          <li>
+            <a href="/helloworld/some-resource-20210810.html">程序员要了解的一些知识</a>
+          </li>
+        
+          <li>
+            <a href="/helloworld/bigdata-resource-20210809.html">大数据学习资料</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 He Fengbao<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/helloworld/" class="mobile-nav-link">Home</a>
+  
+    <a href="/helloworld/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/helloworld/fancybox/jquery.fancybox.css">
+
+  
+<script src="/helloworld/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/helloworld/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>

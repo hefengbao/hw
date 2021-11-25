@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="utf-8">
+  
+
+  
+  <title>Coroutines on Android (part II): Getting started | HelloWorld</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="来源： https:&#x2F;&#x2F;medium.com&#x2F;androiddevelopers&#x2F;coroutines-on-android-part-ii-getting-started-3bff117176dd Keeping track of coroutinesIn part one, we explored the problems that coroutines are great at solvin">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Coroutines on Android (part II): Getting started">
+<meta property="og:url" content="https://hefengbao.github.io/helloworld/coroutines-on-android-part2-getting-startted.html">
+<meta property="og:site_name" content="HelloWorld">
+<meta property="og:description" content="来源： https:&#x2F;&#x2F;medium.com&#x2F;androiddevelopers&#x2F;coroutines-on-android-part-ii-getting-started-3bff117176dd Keeping track of coroutinesIn part one, we explored the problems that coroutines are great at solvin">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://hefengbao.github.io/helloworld/images/2019051001.gif">
+<meta property="article:published_time" content="2019-05-10T01:48:53.000Z">
+<meta property="article:modified_time" content="2019-05-10T01:48:53.000Z">
+<meta property="article:author" content="He Fengbao">
+<meta property="article:tag" content="kotlin">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://hefengbao.github.io/helloworld/images/2019051001.gif">
+  
+    <link rel="alternate" href="/helloworld/atom.xml" title="HelloWorld" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  
+<link rel="stylesheet" href="/helloworld/css/style.css">
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/helloworld/" id="logo">HelloWorld</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/helloworld/">Home</a>
+        
+          <a class="main-nav-link" href="/helloworld/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/helloworld/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://hefengbao.github.io/helloworld"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Coroutines-on-Android-part-II-Getting-started" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/helloworld/coroutines-on-android-part2-getting-startted.html" class="article-date">
+  <time datetime="2019-05-10T01:48:53.000Z" itemprop="datePublished">2019-05-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/helloworld/categories/Kotlin/">Kotlin</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Coroutines on Android (part II): Getting started
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>来源：</p>
+<p><a target="_blank" rel="noopener" href="https://medium.com/androiddevelopers/coroutines-on-android-part-ii-getting-started-3bff117176dd">https://medium.com/androiddevelopers/coroutines-on-android-part-ii-getting-started-3bff117176dd</a></p>
+<h3 id="Keeping-track-of-coroutines"><a href="#Keeping-track-of-coroutines" class="headerlink" title="Keeping track of coroutines"></a>Keeping track of coroutines</h3><p>In part one, we explored the problems that coroutines are great at solving. As a recap, coroutines are a great solution to two common programming problems:</p>
+<ol>
+<li><strong>Long running tasks</strong> are tasks that take too long to block the main thread.</li>
+<li><strong>Main-safety</strong> allows you to ensure that any suspend function can be called from the main thread.</li>
+</ol>
+<p>To solve these problems, coroutines build upon regular functions by adding <strong>suspend</strong> and <strong>resume</strong>. When all coroutines on a particular thread are suspended, the thread is free to do other work.</p>
+<p>However, coroutines by themselves don’t help you keep track of the work that’s being done. It’s perfectly fine to have a large number of coroutines — hundreds or even thousands — and have all of them suspended at the same time. And, while coroutines are cheap, the work they perform is often expensive, like reading files or making network requests.</p>
+<p>It’s quite difficult to keep track of one thousand coroutines manually using code. You <em>could</em> try to track all of them and manually ensure they complete or cancel, but code like this is tedious and error prone. If the code is not perfect, it will lose track of a coroutine, which is what I call a <em>work leak</em>.</p>
+<p>A <em>work leak</em> is like a memory leak, but worse. It’s a coroutine that’s been lost. In addition to using memory, a work leak can resume itself to use CPU, disk, or even launch a network request.</p>
+<blockquote>
+<p>A leaked coroutine can waste memory, CPU, disk, or even launch a network request that’s not needed.</p>
+</blockquote>
+<p>To help avoid leaking coroutines, Kotlin introduced <a target="_blank" rel="noopener" href="https://kotlinlang.org/docs/reference/coroutines/basics.html#structured-concurrency"><strong>structured concurrency</strong></a>. Structured concurrency is a combination of language features and best practices that, when followed, help you keep track of all work running in coroutines.</p>
+<p>On Android, we can use structured concurrency to do three things:</p>
+<ol>
+<li><strong>Cancel work</strong> when it is no longer needed.</li>
+<li><strong>Keep track</strong> of work while it’s running.</li>
+<li><strong>Signal errors</strong> when a coroutine fails.</li>
+</ol>
+<p>Lets dive into each of these and see how structured concurrency helps us make sure we never lose track of a coroutine and leak work.</p>
+<h3 id="Cancel-work-with-scopes"><a href="#Cancel-work-with-scopes" class="headerlink" title="Cancel work with scopes"></a>Cancel work with scopes</h3><p>In Kotlin, coroutines must run in something called a <code>CoroutineScope</code>. A <code>CoroutineScope</code> keeps track of your coroutines, even coroutines that are suspended. Unlike the <code>Dispatchers</code> we talked about in part one, it doesn’t actually execute your coroutines — it just makes sure you don’t lose track of them.</p>
+<p>To ensure that all coroutines are tracked, Kotlin does not allow you to start a new coroutine without a <code>CoroutineScope</code>. You can think of a <code>CoroutineScope</code>as sort of like lightweight version of an <code>ExecutorService</code> with superpowers. It grants you the ability to start new coroutines which come with all that suspend and resume goodness we explored in part one.</p>
+<p>A <code>CoroutineScope</code> keeps track of all your coroutines, and it can cancel all of the coroutines started in it. This fits well with Android development where you want to ensure that you clean up everything that was started by a screen when the user leaves.</p>
+<blockquote>
+<p>A CoroutineScope keeps track of all your coroutines, and it can cancel all of the coroutines started in it.</p>
+</blockquote>
+<h4 id="Starting-new-coroutines"><a href="#Starting-new-coroutines" class="headerlink" title="Starting new coroutines"></a>Starting new coroutines</h4><p>It’s important to note that you can’t just call a <code>suspend</code> function from anywhere. The suspend and resume mechanism requires that you switch from normal functions to a coroutine.</p>
+<p>There are two ways to start coroutines, and they have different uses:</p>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/launch.html"><strong>launch</strong></a> builder will start a new coroutine that is “fire and forget” — that means it won’t return the result to the caller.</li>
+<li><a target="_blank" rel="noopener" href="https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/async.html"><strong>async</strong></a> builder will start a new coroutine, and it allows you to return a result with a suspend function called <code>await</code>.</li>
+</ol>
+<p>In almost all cases, the right answer for how to start a coroutine from a regular function is to use <code>launch</code>. Since the regular function has no way to call <code>await</code> (remember, it can’t call suspend functions directly) it doesn’t make much sense to use <code>async</code> as your main entry to coroutines. We’ll talk later about when it makes sense to use <code>async</code>.</p>
+<p>You should instead use a coroutine scope to start a coroutine by calling <code>launch</code>.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">scope.launch &#123;</span><br><span class="line">    &#x2F;&#x2F; This block starts a new coroutine </span><br><span class="line">    &#x2F;&#x2F; &quot;in&quot; the scope.</span><br><span class="line">    &#x2F;&#x2F; </span><br><span class="line">    &#x2F;&#x2F; It can call suspend functions</span><br><span class="line">   fetchDocs()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>You can think of <code>launch</code> as a bridge that takes your code from regular functions into a coroutines world. Inside of the <code>launch</code> body, you can call suspend functions and create main safety like we covered in the last post.</p>
+<blockquote>
+<p>Launch is a bridge from regular functions into coroutines.</p>
+</blockquote>
+<p><em>Warning:</em> A big difference between <code>launch</code> and <code>async</code> is how they handle exceptions. <code>async</code> expects that you will eventually call <code>await</code> to get a result (or exception) so it won’t throw exceptions by default. That means if you use<code>async</code> to start a new coroutine it will silently drop exceptions.</p>
+<p>Since <code>launch</code> and <code>async</code> are only available on a <code>CoroutineScope</code>, you know that any coroutine you create will always be tracked by a scope. Kotlin just doesn’t let you create an untracked coroutine, which goes a long way to avoid work leaks.</p>
+<h4 id="Start-in-the-ViewModel"><a href="#Start-in-the-ViewModel" class="headerlink" title="Start in the ViewModel"></a>Start in the ViewModel</h4><p>So if a <code>CoroutineScope</code> keeps track of all coroutines that are launched in it, and <code>launch</code> creates a new coroutine, where exactly should you call <code>launch</code>and put your scopes? And, when does it make sense to cancel all the coroutines started in a scope?</p>
+<p>On Android, it often makes sense to associate a <code>CoroutineScope</code> with a user screen. This lets you avoid leaking coroutines or doing extra work for <code>Activities</code> or <code>Fragments</code> that are no longer relevant to the user. When the user navigates away from the screen, the <code>CoroutineScope</code> associated with the screen can <code>cancel</code> all work.</p>
+<blockquote>
+<p>Structured concurrency guarantees when a <strong>scope</strong> <strong>cancels</strong>, all of its <strong>coroutines</strong> <strong>cancel</strong>.</p>
+</blockquote>
+<p>When integrating coroutines with Android Architecture Components, you typically want to <code>launch</code> coroutines in the <code>ViewModel</code>. This is a natural place since that’s where most serious work starts — and you won’t have to worry about rotation killing all your coroutines.</p>
+<p>To use coroutines in a <code>ViewModel</code>, you can use the <code>viewModelScope</code> <a target="_blank" rel="noopener" href="https://kotlinlang.org/docs/tutorials/kotlin-for-py/extension-functionsproperties.html">extension property</a> from <code>lifecycle-viewmodel-ktx:2.1.0-alpha04</code>.<code>viewModelScope</code> is on-track to be released in <a target="_blank" rel="noopener" href="https://developer.android.com/jetpack/androidx/releases/lifecycle">AndroidX Lifecycle (v2.1.0)</a> and is currently in alpha. You can read more about how it works in <a target="_blank" rel="noopener" href="http://manuelvicnt/">@manuelvicnt</a>’s <a target="_blank" rel="noopener" href="https://medium.com/androiddevelopers/easy-coroutines-in-android-viewmodelscope-25bffb605471">blog post</a>. As the library is currently in alpha, there may be bugs, and the APIs could change before the final release. If find any bugs, you can file them <a target="_blank" rel="noopener" href="https://issuetracker.google.com/issues?q=componentid:413132">here</a>.</p>
+<p>Take a look at this example:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class MyViewModel(): ViewModel() &#123;</span><br><span class="line">    fun userNeedsDocs() &#123;</span><br><span class="line">        &#x2F;&#x2F; Start a new coroutine in a ViewModel</span><br><span class="line">        viewModelScope.launch &#123;</span><br><span class="line">            fetchDocs()</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p><code>viewModelScope</code> will automatically cancel any coroutine that is started by this <code>ViewModel</code> when it is cleared (when the <code>onCleared()</code> callback is called). This is typically the right behavior — if we haven’t fetched the docs, and the user has closed the app, we’re probably just wasting their battery completing the request.</p>
+<p>And for more safety, a <code>CoroutineScope</code> will propagate itself. So, if a coroutine you start goes on to start another coroutine, they’ll both end up in the same scope. That means even when libraries that you depend on start a coroutine from your <code>viewModelScope</code>, you’ll have a way to cancel them!</p>
+<p><em>Warning:</em> Coroutines are <a target="_blank" rel="noopener" href="https://kotlinlang.org/docs/reference/coroutines/cancellation-and-timeouts.html#cancellation-and-timeouts">cancelled cooperatively</a> by throwing a <code>CancellationException</code> when the coroutine is suspended. Exception handlers that catch a top-level exception like <code>Throwable</code> will catch this exception. If you consume the exception in an exception handler, or never suspend, the coroutine will linger in a semi-canceled state.</p>
+<p>So, when you need a coroutine to run as long as a <code>ViewModel</code>, use <code>viewModelScope</code> to switch from regular functions to coroutines. Then, since <code>viewModelScope</code> will automatically <code>cancel</code> coroutines for you, it’s totally fine to write an infinite loop here without creating leaks.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">fun runForever() &#123;</span><br><span class="line">    &#x2F;&#x2F; start a new coroutine in the ViewModel</span><br><span class="line">    viewModelScope.launch &#123;</span><br><span class="line">        &#x2F;&#x2F; cancelled when the ViewModel is cleared</span><br><span class="line">        while(true) &#123;</span><br><span class="line">            delay(1_000)</span><br><span class="line">            &#x2F;&#x2F; do something every second</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>By using <code>viewModelScope</code> you’re able to ensure that all work, even this infinite loop, is cancelled when it is no longer needed.</p>
+<h3 id="Keep-track-of-work"><a href="#Keep-track-of-work" class="headerlink" title="Keep track of work"></a>Keep track of work</h3><p>Launching one coroutine is good — and for a lot of code that’s really all you’ll ever need to do. Launch a coroutine, make a network request, and write the result to the database.</p>
+<p>Sometimes, though, you need a bit more complexity. Say you wanted to do two network requests simultaneously (or at the same time) in a coroutine — to do that you’ll need to start more coroutines!</p>
+<p>To make more coroutines, any suspend functions can start more coroutines by using another builder called <a target="_blank" rel="noopener" href="https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/coroutine-scope.html">coroutineScope</a> or its cousin <a target="_blank" rel="noopener" href="https://kotlin.github.io/kotlinx.coroutines/kotlinx-coroutines-core/kotlinx.coroutines/supervisor-scope.html">supervisorScope</a>. This API is, honestly, a bit confusing. The <code>coroutineScope</code> builder and a <code>CoroutineScope</code> are different things despite only having one character difference in their name.</p>
+<p>Launching new coroutines everywhere is one way to create potential work leaks. The caller may not know about the new coroutines, and if it doesn’t how could it keep track of the work?</p>
+<p>To fix this, structured concurrency helps us out. Namely, it provides a guarantee that when a <code>suspend</code> function returns, all of its work is done.</p>
+<blockquote>
+<p>Structured concurrency guarantees that when a suspend function returns, all of its work is done.</p>
+</blockquote>
+<p>Here’s an example of using <code>coroutineScope</code> to fetch two documents:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">suspend fun fetchTwoDocs() &#123;</span><br><span class="line">    coroutineScope &#123;</span><br><span class="line">        launch &#123; fetchDoc(1) &#125;</span><br><span class="line">        async &#123; fetchDoc(2) &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>In this example, two documents are fetched from the network simultaneously. The first one is fetched in a coroutine started with <code>launch</code> which is “fire and forget” — that means it won’t return the result to the caller.</p>
+<p>The second document is fetched with <code>async</code>, so the document can be returned to the caller. This example is a little weird, since typically you would use <code>async</code> for both documents — but I wanted to show that you can mix and match <code>launch</code> and <code>async</code> depending on what you need.</p>
+<blockquote>
+<p>coroutineScope and supervisorScope let you safely launch coroutines from suspend functions.</p>
+</blockquote>
+<p>Note, though, that this code never explicitly waits for either of the new coroutines! It seems like <code>fetchTwoDocs</code> will return while the coroutines are running!</p>
+<p>To make structured concurrency and avoid work leaks, we want to ensure that when a suspend function like <code>fetchTwoDocs</code> returns, all of its work is done. That means both of the coroutines it launches must complete before <code>fetchTwoDocs</code> returns.</p>
+<p>Kotlin ensures that the work does not leak from <code>fetchTwoDocs</code> with the <code>coroutineScope</code> builder. The <code>coroutineScope</code> builder will suspend itself until all coroutines started inside of it are complete. Because of this, there’s no way to return from <code>fetchTwoDocs</code> until all coroutines started in the <code>coroutineScope</code> builder are complete.</p>
+<h4 id="Lots-and-lots-of-work"><a href="#Lots-and-lots-of-work" class="headerlink" title="Lots and lots of work"></a>Lots and lots of work</h4><p>Now that we’ve explored keeping track of one and two coroutines, it’s time to go all-in and try to keep track of one thousand coroutines!</p>
+<p>Take a look at the following animation:</p>
+<img src="/helloworld/images/2019051001.gif" class="">
+
+<p>Animation showing how a coroutineScope can keep track of one thousand coroutines.</p>
+<p><em>This example shows making one thousand network request simultaneously. This is not recommend in real Android code — your app will use lots of resources.</em></p>
+<p>In this code, we launch one thousand coroutines with <code>launch</code> inside a <code>coroutineScope</code> builder. You can see how things get wired up. Since we’re in a <code>suspend</code> function, some code somewhere must have used a <code>CoroutineScope</code>to create a coroutine. We don’t know anything about that <code>CoroutineScope</code>, it could be a <code>viewModelScope</code> or some other <code>CoroutineScope</code> defined somewhere else. No matter what calling scope it is, the <code>coroutineScope</code>builder will use it as the parent to the new scope it creates.</p>
+<p>Then, inside the <code>coroutineScope</code> block, <code>launch</code> will start coroutines “in” the new scope. As the coroutines started by launch complete, the new scope will keep track of them. Finally, once all of the coroutines started inside the <code>coroutineScope</code> are complete, <code>loadLots</code> is free to return.</p>
+<p><em>Note:</em> the parent-child relationship between scopes and coroutines is created using <code>Job</code> objects. But you can often think of the relationship between coroutines and scopes without diving into that level.</p>
+<blockquote>
+<p>coroutineScope and supervisorScope will wait for child coroutines to complete.</p>
+</blockquote>
+<p>There’s a lot going on here under the hood — but what’s important is that using <code>coroutineScope</code> or <code>supervisorScope</code> you can <code>launch</code> a coroutine safely from any suspend function. Even though it will start a new coroutine, you won’t accidentally leak work because you’ll always suspend the caller until the new coroutine completes.</p>
+<p>What’s really cool is <code>coroutineScope</code> will create a child scope. So if the parent scope gets cancelled, it will pass the cancellation down to all the new coroutines. If the caller was the <code>viewModelScope</code>, all one thousand coroutines would be automatically cancelled when the user navigated away from the screen. Pretty neat!</p>
+<p>Before we move on to errors, it’s worth taking a moment to talk about <code>supervisorScope</code> vs. <code>coroutineScope</code>. The main difference is that a <code>coroutineScope</code> will <code>cancel</code> whenever any of its children fail. So, if one network request fails, all of the other requests are cancelled immediately. If instead you want to continue the other requests even when one fails, you can use a <code>supervisorScope</code>. A <code>supervisorScope</code> won’t cancel other children when one of them fails.</p>
+<h3 id="Signal-errors-when-a-coroutine-fails"><a href="#Signal-errors-when-a-coroutine-fails" class="headerlink" title="Signal errors when a coroutine fails"></a>Signal errors when a coroutine fails</h3><p>In coroutines, errors are signaled by throwing exceptions, just like regular functions. Exceptions from a <code>suspend</code> function will be re-thrown to the caller by resume. Just like with regular functions, you’re not limited to try/catch to handle errors and you can build abstractions to perform error handling with other styles if you prefer.</p>
+<p>However, there are situations where errors can get lost in coroutines.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">val unrelatedScope &#x3D; MainScope()</span><br><span class="line">&#x2F;&#x2F; example of a lost error</span><br><span class="line">suspend fun lostError() &#123;</span><br><span class="line">    &#x2F;&#x2F; async without structured concurrency</span><br><span class="line">    unrelatedScope.async &#123;</span><br><span class="line">        throw InAsyncNoOneCanHearYou(&quot;except&quot;)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Note this code is declaring an unrelated coroutine scope that will launch a new coroutine without structured concurrency. Remember at the beginning I said that structured concurrency is a combination of types and programming practices, and introducing unrelated coroutine scopes in suspend functions is not following the programming practices of structured concurrency.</p>
+<p>The error is lost in this code because <code>async</code> assumes that you will eventually call <code>await</code> where it will rethrow the exception. However, if you never do call <code>await</code>, the exception will be stored forever waiting patiently waiting to be raised.</p>
+<blockquote>
+<p>Structured concurrency guarantees that when a coroutine errors, its caller or scope is notified.</p>
+</blockquote>
+<p>If you do use structured concurrency for the above code, the error will correctly be thrown to the caller.</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">suspend fun foundError() &#123;</span><br><span class="line">    coroutineScope &#123;</span><br><span class="line">        async &#123; </span><br><span class="line">            throw StructuredConcurrencyWill(&quot;throw&quot;)</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>Since the <code>coroutineScope</code> will wait for all children to complete, it can also get notified when they fail. If a coroutine started by <code>coroutineScope</code> throws an exception, <code>coroutineScope</code> can throw it to the caller. Since we’re using <code>coroutineScope</code> instead of <code>supervisorScope</code>, it would also immediately cancel all other children when the exception is thrown.</p>
+<h3 id="Using-structured-concurrency"><a href="#Using-structured-concurrency" class="headerlink" title="Using structured concurrency"></a>Using structured concurrency</h3><p>In this post, I introduced structured concurrency and showed how it makes our code fit well with Android <code>ViewModel</code> to avoid work leaks.</p>
+<p>I also talked about how it makes suspend functions easier to reason about. Both by ensuring they complete work before they return, as well as ensuring they signal errors by surfacing exceptions.</p>
+<p>If instead we used unstructured concurrency, it would be easy for coroutines to accidentally leak work that the caller didn’t know about. The work would not be cancellable, and it would not be guaranteed that exceptions would be rethrown. This would make our code more surprising, and possibly create obscure bugs.</p>
+<p>You <em>can</em> create unstructured concurrency by introducing a new unrelated <code>CoroutineScope</code> (note the capital <code>C</code>), or by using a global scope called <code>GlobalScope</code>, but you should only consider unstructured concurrency in rare cases when you need the coroutine to live longer than the calling scope. It’s a good idea to then add structure yourself to ensure you keep track of the unstructured coroutines, handle errors, and have a good cancellation story.</p>
+<p>Structured concurrency does take some getting used to if you have experience with unstructured concurrency. The structure and guarantees do it make it safer and easier to interact with <code>suspend</code> functions. It’s a good idea to work with structured concurrency as much as possible, because it helps make code easier to read and much less surprising.</p>
+<p>At the start of this post I listed three things that structured concurrency solves for us</p>
+<ol>
+<li><strong>Cancel work</strong> when it is no longer needed.</li>
+<li><strong>Keep track</strong> of work while it’s running.</li>
+<li><strong>Signal errors</strong> when a coroutine fails.</li>
+</ol>
+<p>To accomplish this structured concurrency gives us some guarantees about our code. Here are the guarantees of structured concurrency.</p>
+<ol>
+<li>When a <strong>scope</strong> <strong>cancels</strong>, all of its <strong>coroutines</strong> <strong>cancel</strong>.</li>
+<li>When a <strong>suspend fun</strong> <strong>returns</strong>, all of its <strong>work is done</strong>.</li>
+<li>When a <strong>coroutine</strong> <strong>errors</strong>, its <strong>caller or scope is notified</strong>.</li>
+</ol>
+<p>Put together, the guarantees of structured concurrency make our code safer, easier to reason about, and allow us to avoid leaking work!</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://hefengbao.github.io/helloworld/coroutines-on-android-part2-getting-startted.html" data-id="ckweu3exr0084a1vh6ms1aow4" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/helloworld/tags/kotlin/" rel="tag">kotlin</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/helloworld/kotlin-let-with-run-apply-also.html" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          Learning Kotlin：let、with、run、apply、also函数的使用
+        
+      </div>
+    </a>
+  
+  
+    <a href="/helloworld/coroutines-on-android-part1-getting-the-background.html" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">Coroutines on Android (part I): Getting the background</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/AI/">AI</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/API/">API</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Algorithm/">Algorithm</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Auth/">Auth</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Database/">Database</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Database/MySQL/">MySQL</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Database/Oracle/">Oracle</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/DevOps/">DevOps</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/DevOps/MinIO/">MinIO</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/DevOps/Nginx/">Nginx</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/DevOps/Redis/">Redis</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/DevOps/Supervisor/">Supervisor</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/DevOps/WAMP/">WAMP</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Github/">Github</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Go/">Go</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Gradle/">Gradle</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Hexo/">Hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/JavaScript/">JavaScript</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Javascript/">Javascript</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Kotlin/">Kotlin</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Linux/">Linux</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Linux/Ubuntu/">Ubuntu</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/PHP/">PHP</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/PHP/Laravel/">Laravel</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Vue/">Vue</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Web/">Web</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Web/HTML/">HTML</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Windows/">Windows</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E5%89%8D%E7%AB%AF/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E5%B7%A5%E5%85%B7/Composer/">Composer</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E5%B7%A5%E5%85%B7/PhpStorm/">PhpStorm</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E5%B7%A5%E5%85%B7/%E8%B5%84%E6%96%99/">资料</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/">数据可视化</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E7%88%AC%E8%99%AB/">爬虫</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/">版本控制</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/Gitlab/">Gitlab</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/VisualSVN/">VisualSVN</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/">计算机</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E8%B5%84%E6%96%99/">资料</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/AI/" rel="tag">AI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/Axios/" rel="tag">Axios</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/Composer/" rel="tag">Composer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/Date/" rel="tag">Date</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/DevOps/" rel="tag">DevOps</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/Go/" rel="tag">Go</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/Laravel/" rel="tag">Laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/MinIO/" rel="tag">MinIO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/OAuth-2-0/" rel="tag">OAuth 2.0</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/Time/" rel="tag">Time</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/TimeZone/" rel="tag">TimeZone</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/VisualSVN/" rel="tag">VisualSVN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/WAMP/" rel="tag">WAMP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/Windows/" rel="tag">Windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/algorithm/" rel="tag">algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/android/" rel="tag">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/android-studio/" rel="tag">android-studio</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/api/" rel="tag">api</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/chrome/" rel="tag">chrome</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/color/" rel="tag">color</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/composer/" rel="tag">composer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/computer/" rel="tag">computer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/crontab/" rel="tag">crontab</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/cros/" rel="tag">cros</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/css/" rel="tag">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/database/" rel="tag">database</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/echarts/" rel="tag">echarts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/elasticsearch/" rel="tag">elasticsearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/emoji/" rel="tag">emoji</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/face-recognition/" rel="tag">face_recognition</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/ffmpeg/" rel="tag">ffmpeg</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/github/" rel="tag">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/gitlab/" rel="tag">gitlab</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/gradle/" rel="tag">gradle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/homestead/" rel="tag">homestead</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/html/" rel="tag">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/https/" rel="tag">https</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/icon/" rel="tag">icon</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/iptables/" rel="tag">iptables</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/java/" rel="tag">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/josn-ld/" rel="tag">josn-ld</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/json/" rel="tag">json</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/jwt/" rel="tag">jwt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/keyboard/" rel="tag">keyboard</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/kotlin/" rel="tag">kotlin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/laravel/" rel="tag">laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/lemp/" rel="tag">lemp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/markdown/" rel="tag">markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/math/" rel="tag">math</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/mysql/" rel="tag">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/okhttp/" rel="tag">okhttp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/opcache/" rel="tag">opcache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/oracle/" rel="tag">oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/pdf/" rel="tag">pdf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/pdo-oci/" rel="tag">pdo_oci</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/php/" rel="tag">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/phpmyadmin/" rel="tag">phpmyadmin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/phpstorm/" rel="tag">phpstorm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/player/" rel="tag">player</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/proguard/" rel="tag">proguard</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/redis/" rel="tag">redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/regex/" rel="tag">regex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/room/" rel="tag">room</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/snowflake/" rel="tag">snowflake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/startup/" rel="tag">startup</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/supervisor/" rel="tag">supervisor</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/vscode/" rel="tag">vscode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/vue/" rel="tag">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/vue-router/" rel="tag">vue-router</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/web/" rel="tag">web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/wsl/" rel="tag">wsl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/zmq/" rel="tag">zmq</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E4%BA%8C%E7%BB%B4%E7%A0%81/" rel="tag">二维码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B/" rel="tag">大学课程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag">大数据</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" rel="tag">微服务</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E6%89%93%E5%8D%B0/" rel="tag">打印</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/" rel="tag">数据可视化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/" rel="tag">数据集</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E6%9E%B6%E6%9E%84/" rel="tag">架构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E6%B0%B4%E5%8D%B0/" rel="tag">水印</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" rel="tag">科学上网</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E7%BD%91%E5%AE%89/" rel="tag">网安</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E8%B5%84%E6%96%99/" rel="tag">资料</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/" rel="tag">项目管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/" rel="tag">项目部署</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/helloworld/tags/AI/" style="font-size: 10px;">AI</a> <a href="/helloworld/tags/Axios/" style="font-size: 10px;">Axios</a> <a href="/helloworld/tags/Composer/" style="font-size: 10px;">Composer</a> <a href="/helloworld/tags/Date/" style="font-size: 10px;">Date</a> <a href="/helloworld/tags/DevOps/" style="font-size: 10px;">DevOps</a> <a href="/helloworld/tags/Go/" style="font-size: 10px;">Go</a> <a href="/helloworld/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/helloworld/tags/Laravel/" style="font-size: 10px;">Laravel</a> <a href="/helloworld/tags/MinIO/" style="font-size: 10px;">MinIO</a> <a href="/helloworld/tags/OAuth-2-0/" style="font-size: 10px;">OAuth 2.0</a> <a href="/helloworld/tags/Time/" style="font-size: 10px;">Time</a> <a href="/helloworld/tags/TimeZone/" style="font-size: 10px;">TimeZone</a> <a href="/helloworld/tags/VisualSVN/" style="font-size: 10px;">VisualSVN</a> <a href="/helloworld/tags/WAMP/" style="font-size: 12.5px;">WAMP</a> <a href="/helloworld/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/helloworld/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/helloworld/tags/android/" style="font-size: 18.75px;">android</a> <a href="/helloworld/tags/android-studio/" style="font-size: 10px;">android-studio</a> <a href="/helloworld/tags/api/" style="font-size: 10px;">api</a> <a href="/helloworld/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/helloworld/tags/color/" style="font-size: 10px;">color</a> <a href="/helloworld/tags/composer/" style="font-size: 12.5px;">composer</a> <a href="/helloworld/tags/computer/" style="font-size: 10px;">computer</a> <a href="/helloworld/tags/crontab/" style="font-size: 10px;">crontab</a> <a href="/helloworld/tags/cros/" style="font-size: 10px;">cros</a> <a href="/helloworld/tags/css/" style="font-size: 10px;">css</a> <a href="/helloworld/tags/database/" style="font-size: 10px;">database</a> <a href="/helloworld/tags/echarts/" style="font-size: 10px;">echarts</a> <a href="/helloworld/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/helloworld/tags/emoji/" style="font-size: 10px;">emoji</a> <a href="/helloworld/tags/face-recognition/" style="font-size: 10px;">face_recognition</a> <a href="/helloworld/tags/ffmpeg/" style="font-size: 10px;">ffmpeg</a> <a href="/helloworld/tags/git/" style="font-size: 12.5px;">git</a> <a href="/helloworld/tags/github/" style="font-size: 11.25px;">github</a> <a href="/helloworld/tags/gitlab/" style="font-size: 11.25px;">gitlab</a> <a href="/helloworld/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/helloworld/tags/hexo/" style="font-size: 11.25px;">hexo</a> <a href="/helloworld/tags/homestead/" style="font-size: 12.5px;">homestead</a> <a href="/helloworld/tags/html/" style="font-size: 10px;">html</a> <a href="/helloworld/tags/http/" style="font-size: 11.25px;">http</a> <a href="/helloworld/tags/https/" style="font-size: 10px;">https</a> <a href="/helloworld/tags/icon/" style="font-size: 10px;">icon</a> <a href="/helloworld/tags/iptables/" style="font-size: 10px;">iptables</a> <a href="/helloworld/tags/java/" style="font-size: 11.25px;">java</a> <a href="/helloworld/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/helloworld/tags/josn-ld/" style="font-size: 10px;">josn-ld</a> <a href="/helloworld/tags/json/" style="font-size: 11.25px;">json</a> <a href="/helloworld/tags/jwt/" style="font-size: 10px;">jwt</a> <a href="/helloworld/tags/keyboard/" style="font-size: 10px;">keyboard</a> <a href="/helloworld/tags/kotlin/" style="font-size: 20px;">kotlin</a> <a href="/helloworld/tags/laravel/" style="font-size: 17.5px;">laravel</a> <a href="/helloworld/tags/lemp/" style="font-size: 10px;">lemp</a> <a href="/helloworld/tags/linux/" style="font-size: 16.25px;">linux</a> <a href="/helloworld/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/helloworld/tags/math/" style="font-size: 10px;">math</a> <a href="/helloworld/tags/mysql/" style="font-size: 12.5px;">mysql</a> <a href="/helloworld/tags/nginx/" style="font-size: 12.5px;">nginx</a> <a href="/helloworld/tags/okhttp/" style="font-size: 11.25px;">okhttp</a> <a href="/helloworld/tags/opcache/" style="font-size: 10px;">opcache</a> <a href="/helloworld/tags/oracle/" style="font-size: 12.5px;">oracle</a> <a href="/helloworld/tags/pdf/" style="font-size: 10px;">pdf</a> <a href="/helloworld/tags/pdo-oci/" style="font-size: 10px;">pdo_oci</a> <a href="/helloworld/tags/php/" style="font-size: 15px;">php</a> <a href="/helloworld/tags/phpmyadmin/" style="font-size: 10px;">phpmyadmin</a> <a href="/helloworld/tags/phpstorm/" style="font-size: 10px;">phpstorm</a> <a href="/helloworld/tags/player/" style="font-size: 10px;">player</a> <a href="/helloworld/tags/proguard/" style="font-size: 10px;">proguard</a> <a href="/helloworld/tags/redis/" style="font-size: 11.25px;">redis</a> <a href="/helloworld/tags/regex/" style="font-size: 10px;">regex</a> <a href="/helloworld/tags/room/" style="font-size: 10px;">room</a> <a href="/helloworld/tags/snowflake/" style="font-size: 10px;">snowflake</a> <a href="/helloworld/tags/startup/" style="font-size: 10px;">startup</a> <a href="/helloworld/tags/supervisor/" style="font-size: 10px;">supervisor</a> <a href="/helloworld/tags/ubuntu/" style="font-size: 12.5px;">ubuntu</a> <a href="/helloworld/tags/vscode/" style="font-size: 11.25px;">vscode</a> <a href="/helloworld/tags/vue/" style="font-size: 11.25px;">vue</a> <a href="/helloworld/tags/vue-router/" style="font-size: 10px;">vue-router</a> <a href="/helloworld/tags/web/" style="font-size: 10px;">web</a> <a href="/helloworld/tags/wsl/" style="font-size: 12.5px;">wsl</a> <a href="/helloworld/tags/zmq/" style="font-size: 10px;">zmq</a> <a href="/helloworld/tags/%E4%BA%8C%E7%BB%B4%E7%A0%81/" style="font-size: 10px;">二维码</a> <a href="/helloworld/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 10px;">前端</a> <a href="/helloworld/tags/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B/" style="font-size: 10px;">大学课程</a> <a href="/helloworld/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" style="font-size: 10px;">大数据</a> <a href="/helloworld/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" style="font-size: 10px;">微服务</a> <a href="/helloworld/tags/%E6%89%93%E5%8D%B0/" style="font-size: 10px;">打印</a> <a href="/helloworld/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/" style="font-size: 11.25px;">数据可视化</a> <a href="/helloworld/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/" style="font-size: 10px;">数据集</a> <a href="/helloworld/tags/%E6%9E%B6%E6%9E%84/" style="font-size: 10px;">架构</a> <a href="/helloworld/tags/%E6%B0%B4%E5%8D%B0/" style="font-size: 10px;">水印</a> <a href="/helloworld/tags/%E7%88%AC%E8%99%AB/" style="font-size: 10px;">爬虫</a> <a href="/helloworld/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 10px;">科学上网</a> <a href="/helloworld/tags/%E7%BD%91%E5%AE%89/" style="font-size: 10px;">网安</a> <a href="/helloworld/tags/%E8%B5%84%E6%96%99/" style="font-size: 13.75px;">资料</a> <a href="/helloworld/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/" style="font-size: 10px;">项目管理</a> <a href="/helloworld/tags/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/" style="font-size: 10px;">项目部署</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2021/10/">十月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2021/09/">九月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2021/08/">八月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2021/07/">七月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2021/06/">六月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2021/03/">三月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2021/02/">二月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/12/">十二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/11/">十一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/08/">八月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/06/">六月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/05/">五月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/04/">四月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/02/">二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/01/">一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/12/">十二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/10/">十月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/07/">七月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/06/">六月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/05/">五月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/03/">三月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/02/">二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/01/">一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/12/">十二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/11/">十一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/09/">九月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/08/">八月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/07/">七月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/06/">六月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/05/">五月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/04/">四月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/03/">三月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/10/">十月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/08/">八月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/07/">七月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/05/">五月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/04/">四月 2017</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/helloworld/php-opcache-20211013.html">PHP Opcache</a>
+          </li>
+        
+          <li>
+            <a href="/helloworld/homestead-wsl2-20210901.html">Homestead &amp; WSL 2 - Windows 10</a>
+          </li>
+        
+          <li>
+            <a href="/helloworld/devops-resource-20210812.html">服务器管理学习资料</a>
+          </li>
+        
+          <li>
+            <a href="/helloworld/some-resource-20210810.html">程序员要了解的一些知识</a>
+          </li>
+        
+          <li>
+            <a href="/helloworld/bigdata-resource-20210809.html">大数据学习资料</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2021 He Fengbao<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/helloworld/" class="mobile-nav-link">Home</a>
+  
+    <a href="/helloworld/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  
+<link rel="stylesheet" href="/helloworld/fancybox/jquery.fancybox.css">
+
+  
+<script src="/helloworld/fancybox/jquery.fancybox.pack.js"></script>
+
+
+
+
+<script src="/helloworld/js/script.js"></script>
+
+
+
+
+  </div>
+</body>
+</html>
