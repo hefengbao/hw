@@ -66,14 +66,14 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-How-to-enable-logging-in-OkHttp" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Open-Images-V4" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/helloworld/how-to-enable-logging-in-okhttp.html" class="article-date">
-  <time datetime="2020-04-02T03:56:56.000Z" itemprop="datePublished">2020-04-02</time>
+    <a href="/helloworld/open-images-v4.html" class="article-date">
+  <time datetime="2020-05-22T06:45:52.000Z" itemprop="datePublished">2020-05-22</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/helloworld/categories/Android/">Android</a>
+    <a class="article-category-link" href="/helloworld/categories/%E8%B5%84%E6%96%99/">资料</a>
   </div>
 
   </div>
@@ -84,7 +84,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/helloworld/how-to-enable-logging-in-okhttp.html">How to enable logging in OkHttp ?</a>
+      <a class="article-title" href="/helloworld/open-images-v4.html">Open Images V4</a>
     </h1>
   
 
@@ -92,219 +92,131 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>Ever had some bad issues, while doing an API call in your android application? Or may be got some error which was making your API call unsuccessful.</p>
-<h4 id="What-did-you-try"><a href="#What-did-you-try" class="headerlink" title="What did you try?"></a>What did you try?</h4><p>First resort would have been to try API calls through some client that what was the error. Or may be something else you would have tried.</p>
-<p>What if I told you that you could have chosen something else as well and that would have not required you to test APIs via some client.</p>
-<p>You can use Interceptors in your android code to gets the logs their itself while getting an error. This sounds a better solution right?</p>
-<p>Let’s understand more about logging in Android. So, in this, we will discuss about <a target="_blank" rel="noopener" href="https://github.com/square/okhttp/tree/master/okhttp-logging-interceptor">okhttp logging interceptor</a> and how we can leverage it log our API calls.</p>
-<h4 id="What-is-OkHttp"><a href="#What-is-OkHttp" class="headerlink" title="What is OkHttp?"></a>What is OkHttp?</h4><p>OkHttp is an interceptor which helps you to log your API calls. So, here an interceptor is more like a manager for an API call which helps you to monitor or perform certain action on your API calls.</p>
-<p>Let us start by including it in our project, we will add the following in the build.gradle file:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">implementation <span class="string">&quot;com.squareup.okhttp3:logging-interceptor:4.0.1&quot;</span></span><br></pre></td></tr></table></figure>
+        <h2 id="Open-Images-V4"><a href="#Open-Images-V4" class="headerlink" title="Open Images V4"></a>Open Images V4</h2><p><a target="_blank" rel="noopener" href="https://research.googleblog.com/2016/09/introducing-open-images-dataset.html">Open Images</a> 包含大约9百万张图片，带有 <code>image-level</code> 的标签和 <code>object-level</code> 的矩形框标注信息。</p>
+<p><a target="_blank" rel="noopener" href="https://storage.googleapis.com/openimages/web/index.html">V4</a> 的训练集包含174万张图片、1460万个矩形框和600个类别，是世界上最大的带有目标位置标注的数据集。矩形框由专业的标注人员标注，以确保准确性和一致性。而且图片种类多种多样、场景复杂，平均每张图片包含8.4个物体。同时， <code>image-level</code> 的标注分类为数千，详情如下表：</p>
+<p> <code>image-level</code> 标注信息：</p>
+<table>
+<thead>
+<tr>
+<th>Train</th>
+<th>Validation</th>
+<th>Test</th>
+<th># Classes</th>
+<th># Trainable Classes</th>
+<th></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Images</td>
+<td>9,011,219</td>
+<td>41,620</td>
+<td>125,436</td>
+<td>-</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Machine-Generated Labels</td>
+<td>78,977,695</td>
+<td>512,093</td>
+<td>1,545,835</td>
+<td>7,870</td>
+<td>4,764</td>
+</tr>
+<tr>
+<td>Human-Verified Labels</td>
+<td>27,894,289 pos: 13,444,569 neg: 14,449,720</td>
+<td>551,390 pos: 365,772 neg: 185,618</td>
+<td>1,667,399 pos: 1,105,052 neg: 562,347</td>
+<td>19,794</td>
+<td>7,186</td>
+</tr>
+</tbody></table>
+<p><code>object-level</code> 标注信息：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Train</th>
+<th>Validation</th>
+<th>Test</th>
+<th># Classes</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Images</td>
+<td>1,743,042</td>
+<td>41,620</td>
+<td>125,436</td>
+<td>-</td>
+</tr>
+<tr>
+<td>Boxes</td>
+<td>14,610,229</td>
+<td>204,621</td>
+<td>625,282</td>
+<td>600</td>
+</tr>
+</tbody></table>
+<p>更多详细信息可以参考：<a target="_blank" rel="noopener" href="https://storage.googleapis.com/openimages/web/factsfigures.html">https://storage.googleapis.com/openimages/web/factsfigures.html</a> 。</p>
+<h3 id="Object-level"><a href="#Object-level" class="headerlink" title="Object level"></a>Object level</h3><p>每一行定义一个矩形框：</p>
+<figure class="highlight txt"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">CopyImageID,Source,LabelName,Confidence,XMin,XMax,YMin,YMax,IsOccluded,IsTruncated,IsGroupOf,IsDepiction,IsInside</span><br><span class="line">000026e7ee790996,freeform,/m/07j7r,1,0.071905,0.145346,0.206591,0.391306,0,1,1,0,0</span><br><span class="line">000026e7ee790996,freeform,/m/07j7r,1,0.439756,0.572466,0.264153,0.435122,0,1,1,0,0</span><br><span class="line">000026e7ee790996,freeform,/m/07j7r,1,0.668455,1.000000,0.000000,0.552825,0,1,1,0,0</span><br><span class="line">000062a39995e348,freeform,/m/015p6,1,0.205719,0.849912,0.154144,1.000000,0,0,0,0,0</span><br><span class="line">000062a39995e348,freeform,/m/05s2s,1,0.137133,0.377634,0.000000,0.884185,1,1,0,0,0</span><br><span class="line">0000c64e1253d68f,freeform,/m/07yv9,1,0.000000,0.973850,0.000000,0.043342,0,1,1,0,0</span><br><span class="line">0000c64e1253d68f,freeform,/m/0k4j,1,0.000000,0.513534,0.321356,0.689661,0,1,0,0,0</span><br><span class="line">0000c64e1253d68f,freeform,/m/0k4j,1,0.016515,0.268228,0.299368,0.462906,1,0,0,0,0</span><br><span class="line">0000c64e1253d68f,freeform,/m/0k4j,1,0.481498,0.904376,0.232029,0.489017,1,0,0,0,0</span><br></pre></td></tr></table></figure>
 
-<p>and to start logging your API calls, we need to first make an API call,</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">val client = OkHttpClient.Builder()</span><br><span class="line"><span class="keyword">var</span> request = Request.Builder()</span><br><span class="line">        .url(<span class="comment">/** YOUR API URL **/</span>)</span><br><span class="line">        .build()</span><br></pre></td></tr></table></figure>
-
-<p>Here, we create object for request and declared a variable client of OkHttpClient. Now, to perform API call, we will use the following to do it,</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">client.newCall(request).enqueue(object :Callback&#123;</span><br><span class="line">    <span class="function">override fun <span class="title">onFailure</span><span class="params">(request: Request?, e: IOException?)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//API Call fails</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function">override fun <span class="title">onResponse</span><span class="params">(response: Response?)</span> </span>&#123;</span><br><span class="line">        <span class="comment">//Do something with response</span></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>Now, we have performed the first API call. But here we would not see any logs coming up because we have not added any specific interceptor to log the calls. So, how can we log the response the call.</p>
-<p>To, start logging we need to add interceptors in the above OkHttpClient.</p>
-<p>And as we mentioned , interceptors are used to monitor the API call and it will print the logs which would get generated, in the Logcat of the console.</p>
-<p>To add a Interceptor,</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">val logging = HttpLoggingInterceptor()</span><br><span class="line">logging.level = (HttpLoggingInterceptor.Level.BASIC)</span><br></pre></td></tr></table></figure>
-
-<p>we create and variable called logging of HttpLoggingInterceptor and set the level of logging to *<strong>Basic.*</strong> Basic is the initial level in which you can just log reqest and the response of the API. We can also have <em><strong>NONE, HEADERS</strong> and <strong>BODY.</strong></em></p>
-<blockquote>
-<p>*<strong>NONE : Logs Nothing.*</strong></p>
-</blockquote>
-<blockquote>
-<p>*<strong>HEADERS : Logs Request and Response along with Header.*</strong></p>
-</blockquote>
-<blockquote>
-<p>*<strong>BODY : Logs Request and Response along with header and if body present in the API call.*</strong></p>
-</blockquote>
-<p>And, to add this interceptor to the client we use,</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">val client = OkHttpClient.Builder()</span><br><span class="line">client.addInterceptor(logging)</span><br></pre></td></tr></table></figure>
-
-<p>and, now when we call the API again we would start seeing the logs getting logged in the Logcat like the following,</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">--&gt; POST /greeting http/<span class="number">1.1</span> (<span class="number">3</span>-<span class="keyword">byte</span> body)</span><br><span class="line"></span><br><span class="line">&lt;-- <span class="number">200</span> OK (22ms, <span class="number">6</span>-<span class="keyword">byte</span> body)</span><br></pre></td></tr></table></figure>
-
-<h4 id="NOTE"><a href="#NOTE" class="headerlink" title="NOTE :"></a><strong>NOTE :</strong></h4><p>\1. To add a custom TAG for your or logs to get generated, just add the following,</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">val logging = HttpLoggingInterceptor(object : Logger() &#123;</span><br><span class="line">    <span class="function">fun <span class="title">log</span><span class="params">(message: String)</span> </span>&#123;</span><br><span class="line">        Log.d(<span class="string">&quot;YOUR TAG&quot;</span>, message)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;)</span><br></pre></td></tr></table></figure>
-
-<p>and you will see the logs getting generated with the TAG you added.</p>
-<p>\2. You can also create a custom Interceptor by extending the Interceptor class.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">class CustomInterceptor : Interceptor &#123;</span><br><span class="line">    <span class="function">override fun <span class="title">intercept</span><span class="params">(chain: Interceptor.Chain)</span>: Response </span>&#123;</span><br><span class="line">        <span class="keyword">var</span> request = chain.request()</span><br><span class="line">        request = request.newBuilder()</span><br><span class="line">                .build()</span><br><span class="line">        <span class="keyword">return</span> chain.proceed(request)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>and add it to the client using,</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">val client = OkHttpClient.Builder()</span><br><span class="line">client.addInterceptor(CustomInterceptor())</span><br></pre></td></tr></table></figure>
-
-<p>\3. To hide sensative information from the Logcat of Android we can use,</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">logging.redactHeader(<span class="string">&quot;Authorization&quot;</span>)</span><br><span class="line">logging.redactHeader(<span class="string">&quot;Cookie&quot;</span>)</span><br></pre></td></tr></table></figure>
-
-<p>Here, in above snippet <em>redactHeader</em> hides the sensitive information of Authorization and Cookie key.</p>
-<p>These gets generated only in <strong>HEADERS</strong> and <strong>BODY</strong> level.</p>
-<p>This is how we can log API calls being made in your Android application.</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://hefengbao.github.io/helloworld/how-to-enable-logging-in-okhttp.html" data-id="ckweu3eyq00bza1vhepqv8dpd" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/helloworld/tags/okhttp/" rel="tag">okhttp</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-OkHttp-Interceptor-Making-the-most-of-it" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/helloworld/okhttp-interceptor-making-the-most-of-it.html" class="article-date">
-  <time datetime="2020-04-02T02:43:50.000Z" itemprop="datePublished">2020-04-02</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/helloworld/categories/Android/">Android</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/helloworld/okhttp-interceptor-making-the-most-of-it.html">OkHttp Interceptor - Making the most of it</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>In this blog, we will learn how to work with the OkHttp Interceptors. We will also see the real use cases where we can use it and how we can use it to get the most of it. In Android, we have so many use-cases that can be done using the OkHttp Interceptors.</p>
-<p>Today, we will cover the following sections to master it:</p>
 <ol>
-<li>What are Interceptors?</li>
-<li>Types of Interceptors.</li>
-<li>How to add Interceptors in OkHttpClient?</li>
-<li>Creating the Interceptor.</li>
-<li>Real use-cases using the Interceptors.</li>
+<li><strong>ImageID</strong>：图片 ID</li>
+<li><strong>Source</strong>：标注来源。<ul>
+<li><code>freeform</code> 和 <code>xclick</code> 为手工标注。</li>
+<li><code>activemil</code> 使用方法<a target="_blank" rel="noopener" href="https://xblog.lufficc.com/blog/open-images-v4#fn:1">1</a>标注，并且人工验证保证 IoU&gt;0.7。</li>
+</ul>
+</li>
+<li><strong>LabelName</strong>：标签ID。</li>
+<li><strong>Confidence</strong>：置信度，总是为1。</li>
+<li>**<code>XMin</code>, <code>XMax</code>, <code>YMin</code>, <code>YMax</code>**：矩形框坐标，已经归一化，范围为[0,1]。</li>
+<li><strong>IsOccluded</strong>: 物体是否被其他物体遮挡。</li>
+<li><strong>IsTruncated</strong>: 物体是否被截断（超出图像范围）。</li>
+<li><strong>IsGroupOf</strong>: 物体是否属于一组。 (如一群人)，包含5个以上物体，且彼此接触、互相遮挡。</li>
+<li><strong>IsDepiction</strong>: 物体是否为虚拟对象，如卡通人，不是现实世界物体。</li>
+<li><strong>IsInside</strong>: 图片是否从物体内部拍摄， 如从汽车或者建筑内部拍摄。</li>
 </ol>
-<h4 id="What-are-Interceptors"><a href="#What-are-Interceptors" class="headerlink" title="What are Interceptors?"></a>What are Interceptors?</h4><blockquote>
-<p>According to documentation, Interceptors are a powerful mechanism that can monitor, rewrite, and retry the API call. So basically, when we do some API call, we can monitor the call or perform some tasks.</p>
-</blockquote>
-<p>In simple words, Interceptors are like the security personnel in the security check process at the Airport. They check our boarding pass, put a stamp on it and then would allow us to pass.</p>
-<img src="/helloworld/images/okhttp-interceptor-explain.jpg" class="">
+<h3 id="Image-level"><a href="#Image-level" class="headerlink" title="Image level"></a>Image level</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">CopyImageID,Source,LabelName,Confidence</span><br><span class="line">000026e7ee790996,verification,&#x2F;m&#x2F;04hgtk,0</span><br><span class="line">000026e7ee790996,verification,&#x2F;m&#x2F;07j7r,1</span><br><span class="line">000026e7ee790996,crowdsource-verification,&#x2F;m&#x2F;01bqvp,1</span><br><span class="line">000026e7ee790996,crowdsource-verification,&#x2F;m&#x2F;0csby,1</span><br><span class="line">000026e7ee790996,verification,&#x2F;m&#x2F;01_m7,0</span><br><span class="line">000026e7ee790996,verification,&#x2F;m&#x2F;01cbzq,1</span><br><span class="line">000026e7ee790996,verification,&#x2F;m&#x2F;01czv3,0</span><br><span class="line">000026e7ee790996,verification,&#x2F;m&#x2F;01v4jb,0</span><br><span class="line">000026e7ee790996,verification,&#x2F;m&#x2F;03d1rd,0</span><br></pre></td></tr></table></figure>
 
-<p>We can use the interceptors to do so many things, for example, monitor the API calls centrally. Generally, we need to add the logger for each network call, but by using the interceptor, we can add one logger centrally and that will work for all the network calls. Another use-case can be caching the response of network calls to build the offline-first app, we will learn it later in this blog in detail.</p>
-<h4 id="Types-of-Interceptors"><a href="#Types-of-Interceptors" class="headerlink" title="Types of Interceptors"></a>Types of Interceptors</h4><p>We have two types of interceptors as follows:</p>
-<ul>
-<li><strong>Application Interceptors</strong>: These are interceptors that are added between the Application Code(our written code) and the OkHttp Core Library. These are the ones that we add using <strong>addInterceptor().</strong></li>
-<li><strong>Network Interceptors:</strong> These are interceptors that are added between the OkHttp Core Library and the Server. These can be added to OkHttpClient using <strong>addNetworkInterceptor().</strong></li>
+<ol>
+<li><strong>Source</strong>： 表明标签如何生成：<ul>
+<li><code>verification</code> Google 标注人员验证。</li>
+<li><code>crowdsource-verification</code> Crowdsource App 验证。</li>
+<li><code>machine</code> 机器生成的标签。</li>
 </ul>
-<h4 id="How-to-add-interceptors-in-OkHttpClient"><a href="#How-to-add-interceptors-in-OkHttpClient" class="headerlink" title="How to add interceptors in OkHttpClient?"></a>How to add interceptors in OkHttpClient?</h4><p>While building the <strong>OkHttpClient</strong> object, we can add the interceptor like below:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">fun <span class="title">myHttpClient</span><span class="params">()</span>: OkHttpClient </span>&#123;</span><br><span class="line">    val builder = OkHttpClient().newBuilder()</span><br><span class="line">        .addInterceptor(<span class="comment">/*our interceptor*/</span>)</span><br><span class="line">    <span class="keyword">return</span> builder.build()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+</li>
+<li><strong>Confidence</strong>：人工验证的正样本为1，负样本为0，机器生成的为分数，通常 &gt;= 0.5，其值越大，越不可能为 Fase Positive。</li>
+<li><strong>Class Names</strong>：标签ID。</li>
+<li><strong>ImageID</strong>：图片ID。</li>
+</ol>
+<h2 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h2><p>可以再在<a target="_blank" rel="noopener" href="https://storage.googleapis.com/openimages/web/download.html">这里</a>找到详细的下载列表，如下图：</p>
+<img src="/helloworld/images/zHGPDc2Jxdv3yAEvVXqP5pmbIDTVsmSSjOqWs1sv.png" class="">
 
-<p>Here, in <strong>addInterceptor</strong> we pass the interceptor that we have created. Now, let’s see how to create the Interceptor.</p>
-<h4 id="Creating-the-Interceptor"><a href="#Creating-the-Interceptor" class="headerlink" title="Creating the Interceptor"></a>Creating the Interceptor</h4><p>To create the interceptor, we need to create a class by implementing the Interceptor interface like below:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">class MyInterceptor : Interceptor &#123;</span><br><span class="line">    <span class="function">override fun <span class="title">intercept</span><span class="params">(chain: Interceptor.Chain)</span>: Response </span>&#123;</span><br><span class="line">        <span class="comment">/**</span></span><br><span class="line"><span class="comment">         * Our API Call will be intercepted here</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>下载列表</p>
+<p>而图片可以从<a target="_blank" rel="noopener" href="https://www.figure-eight.com/dataset/open-images-annotated-with-bounding-boxes/">Figure Eight</a>或<a target="_blank" rel="noopener" href="https://github.com/cvdfoundation/open-images-dataset#download-images-with-bounding-boxes-annotations">CVDF</a>下载：</p>
+<img src="/helloworld/images/QX1SrlV57Gqvw3Ar1I9YywpLPW3ApHng7dNOdw7E.png" class="">  
 
-<p>Here, in the <strong>intercept()</strong>, we can perform any action which we want inside it.</p>
-<p>And to use the interceptor, we can use like below:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">fun <span class="title">myHttpClient</span><span class="params">()</span>: OkHttpClient </span>&#123;</span><br><span class="line">    val builder = OkHttpClient().newBuilder()</span><br><span class="line">        .addInterceptor(MyInterceptor())</span><br><span class="line">    <span class="keyword">return</span> builder.build()</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<img src="/helloworld/images/fsRDKR1Faa1jmJBMb884kWLEU9o3OrycUkBx7h9Z.png" class="">  
 
-<p>We can add the MyInterceptor in <strong>addInterceptor().</strong></p>
-<p>Now, let’s discuss more real use-cases where we can use the Interceptors.</p>
-<h4 id="Real-use-cases-using-the-Interceptors"><a href="#Real-use-cases-using-the-Interceptors" class="headerlink" title="Real use-cases using the Interceptors"></a>Real use-cases using the Interceptors</h4><p>The following are the common use-cases in Android:</p>
-<h4 id="Logging-the-errors-centrally"><a href="#Logging-the-errors-centrally" class="headerlink" title="Logging the errors centrally"></a><strong>Logging the errors centrally</strong></h4><p>First, we need to create the <strong>ErrorInterceptor</strong> like below:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">class ErrorInterceptor : Interceptor &#123;</span><br><span class="line">    <span class="function">override fun <span class="title">intercept</span><span class="params">(chain: Interceptor.Chain)</span>: Response </span>&#123;</span><br><span class="line"></span><br><span class="line">        val request: Request = chain.request()</span><br><span class="line">        val response = chain.proceed(request)</span><br><span class="line">        when (response.code()) &#123;</span><br><span class="line">            <span class="number">400</span> -&gt; &#123;</span><br><span class="line">                <span class="comment">//Show Bad Request Error Message</span></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="number">401</span> -&gt; &#123;</span><br><span class="line">                <span class="comment">//Show UnauthorizedError Message</span></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="number">403</span> -&gt; &#123;</span><br><span class="line">                <span class="comment">//Show Forbidden Message</span></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="number">404</span> -&gt; &#123;</span><br><span class="line">                <span class="comment">//Show NotFound Message</span></span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="comment">// ... and so on</span></span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> response</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>First, we get the request from <strong>chain.request()</strong></li>
-<li>Then, we get the response returned from the server, by passing the request in <strong>chain.proceed(request)</strong></li>
-<li>Now, we can check for the response code and perform an action.</li>
-<li>We can pass the error to the view using via the interfaces or by using something like RxJava, EventBus, and etc.</li>
-<li>Let’s say if we get a <strong>401 error</strong> i.e. <strong>Unauthorized</strong> then we can perform an action to clear the app data/log out the user or any action which we want to perform.</li>
-</ul>
-<p>Now, to use this ErrorInterceptor in our OkHttpClient, we can add like below:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.addInterceptor(ErrorInterceptor())</span><br></pre></td></tr></table></figure>
-
-<p>This is how we can create a centralized Error Logger using the Interceptor.</p>
-<p>OkHttp has a built-in logger which is very useful for debugging.</p>
-<p><a target="_blank" rel="noopener" href="https://blog.mindorks.com/how-to-enable-logging-in-okhttp">To learn more about the built-in logger, click here</a>.</p>
-<p><strong>Note:</strong> If we want to log the details for the redirection of URL, consider using the interceptor at the network layer using the <strong>addNetworkInterceptor()</strong>.</p>
-<h4 id="Caching-the-response"><a href="#Caching-the-response" class="headerlink" title="Caching the response"></a><strong>Caching the response</strong></h4><p>If we want to cache the response of the API call so that if we call the API again, the response comes out from Cache.</p>
-<p>Let’s say we have the API call from Client to Server and <em>Cache-Control</em> header is enabled from the server, then OkHttp Core will respect that header and cache the response for a certain time being which was sent from the server.</p>
-<p>But what if the Cache-Control is not enabled from the server. We still can cache the response from OkHttp Client using Interceptor.</p>
-<img src="/helloworld/images/okhttp-cache-control-explain.jpg" class="">
-
-<p>Just see the above image. Here, what we have to do is that we have to intercept the Response before going inside the OkHttp Core and add the header (Cache-Control), so it will be treated as if the response(with the Cache-Control header) has come from the server, and OkHttp Core will respect that and cache the response.</p>
-<p>We will create an interceptor like below:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">class CacheInterceptor : Interceptor &#123;</span><br><span class="line">    <span class="function">override fun <span class="title">intercept</span><span class="params">(chain: Interceptor.Chain)</span>: Response </span>&#123;</span><br><span class="line">        val response: Response = chain.proceed(chain.request())</span><br><span class="line">        val cacheControl = CacheControl.Builder()</span><br><span class="line">            .maxAge(<span class="number">10</span>, TimeUnit.DAYS)</span><br><span class="line">            .build()</span><br><span class="line">        <span class="keyword">return</span> response.newBuilder()</span><br><span class="line">            .header(<span class="string">&quot;Cache-Control&quot;</span>, cacheControl.toString())</span><br><span class="line">            .build()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>Here, we have a CacheControl which is used to provide the header for Cache-Control.</p>
-<p>Finally, we can add like below:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.addNetworkInterceptor(CacheInterceptor())</span><br></pre></td></tr></table></figure>
-
-<p>Here, if we see, we are not using the <strong>addInterceptor()</strong> but using <strong>addNetworkInterceptor()</strong> for the use case. This is because in this case, the operation is happening at the network layer.</p>
-<p><strong>But, there is something important, we need to consider while building the offline-first app.</strong></p>
-<p>The cached response will be returned only when the Internet is available as OkHttp is designed like that.</p>
-<ul>
-<li>When the Internet is available and data is cached, it returns the data from the cache.</li>
-<li><strong>Even when the data is cached</strong> and the Internet is not available, it returns with the error “<em>no internet available</em>“.</li>
-</ul>
-<p><strong>What to do now?</strong></p>
-<p>We can use the following <strong>ForceCacheInterceptor</strong> at the Application layer in addition to the above one <strong>(CacheInterceptor, only if not enabled from the server)</strong>. To implement in the code, we will create a ForceCacheInterceptor like below:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class ForceCacheInterceptor : Interceptor &#123;</span><br><span class="line">    <span class="function">override fun <span class="title">intercept</span><span class="params">(chain: Interceptor.Chain)</span>: Response </span>&#123;</span><br><span class="line">        val builder: Request.Builder = chain.request().newBuilder()</span><br><span class="line">        <span class="keyword">if</span> (!IsInternetAvailable()) &#123;</span><br><span class="line">            builder.cacheControl(CacheControl.FORCE_CACHE);</span><br><span class="line"></span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> chain.proceed(builder.build());</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>We can add the Interceptor in OkHttpClient like below:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">.addNetworkInterceptor(CacheInterceptor()) <span class="comment">// only if not enabled from the server</span></span><br><span class="line">.addInterceptor(ForceCacheInterceptor())</span><br></pre></td></tr></table></figure>
-
-<p>Here, we are adding the ForceCacheInterceptor to OkHttpClient using addInterceptor() and not addNetworkInterceptor() as we want it to work on the Application layer.</p>
-<h4 id="Adding-the-Header-like-Access-Token-centrally"><a href="#Adding-the-Header-like-Access-Token-centrally" class="headerlink" title="Adding the Header like Access Token centrally"></a><strong>Adding the Header like Access Token centrally</strong></h4><p>Let’s say that we have to make the API calls and we have to add Authorization Header in all the API calls. Either we can use it individually or we can centralize that using the Interceptor.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class AuthTokenInterceptor : Interceptor &#123;</span><br><span class="line">    <span class="function">override fun <span class="title">intercept</span><span class="params">(chain: Interceptor.Chain)</span>: Response </span>&#123;</span><br><span class="line"></span><br><span class="line">        val originalRequest = chain.request()</span><br><span class="line">        val requestBuilder = originalRequest.newBuilder()</span><br><span class="line">            .header(<span class="string">&quot;Authorization&quot;</span>, <span class="string">&quot;AuthToken&quot;</span>)</span><br><span class="line">        val request = requestBuilder.build()</span><br><span class="line">        <span class="keyword">return</span> chain.proceed(request)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>First, we get the token for the header from our local storage like a SharedPreference.</li>
-<li>Here, we intercept the original request which we triggered from the application using <strong>chain.reques</strong>t() and set it to <strong>originalRequest.</strong></li>
-<li>Then, we build the request again by adding the <strong>Header</strong> with the key and value which is required to make the network call.</li>
-<li>Then, we will build the request again and return the response using <strong>chain.proceed(request)</strong> by passing the new request which is having the Authorization header.</li>
-</ul>
-<p>This is how we can centralize the Header which is common in all the API Calls. Now to use it in the OkHttpClient, we will do like below:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.addInterceptor(AuthTokenInterceptor())</span><br></pre></td></tr></table></figure>
-
-<p>Let’s go to another use-case.</p>
-<h4 id="Refreshing-the-Access-Token-at-Single-Place"><a href="#Refreshing-the-Access-Token-at-Single-Place" class="headerlink" title="Refreshing the Access Token at Single Place"></a><strong>Refreshing the Access Token at Single Place</strong></h4><p>Let us say we have a use-case that when we get a <strong>401 error</strong> in the Error Interceptor and we need to refresh the auth token as we have an Unauthorized error. We can do that using the below:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="function">override fun <span class="title">intercept</span><span class="params">(chain: Interceptor.Chain)</span>: Response </span>&#123;</span><br><span class="line"></span><br><span class="line">    val accessToken = <span class="comment">//our access Token</span></span><br><span class="line">    val request = chain.request().newBuilder()</span><br><span class="line">        .addHeader(<span class="string">&quot;Authorization&quot;</span>, accessToken)</span><br><span class="line">        .build()</span><br><span class="line">    val response = chain.proceed(request)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">if</span> (response.code() == <span class="number">401</span>) &#123;</span><br><span class="line">            val newToken: String = <span class="comment">//fetch from some other source</span></span><br><span class="line">            <span class="keyword">if</span> (newToken != <span class="keyword">null</span>) &#123;</span><br><span class="line">               val newRequest =  chain.request().newBuilder()</span><br><span class="line">                    .addHeader(<span class="string">&quot;Authorization&quot;</span>, newToken)</span><br><span class="line">                    .build()</span><br><span class="line">                <span class="keyword">return</span> chain.proceed(newRequest)</span><br><span class="line">            &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> response</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>If we get the response.code() as <strong>401</strong> i.e. <strong>Unauthorized,</strong> we will refresh the token here, then modify the request by adding the new header and make the new request to the server.</li>
-</ul>
-<p><strong>Note:</strong> Another way that is more flexible when it comes to refreshing the Access Token is to use the Authenticator interface of OkHttp.</p>
-<p>Now, let’s move to another use-case.</p>
-<h4 id="Enabling-Gzip-at-Android-End"><a href="#Enabling-Gzip-at-Android-End" class="headerlink" title="Enabling Gzip at Android End"></a><strong>Enabling Gzip at Android End</strong></h4><p>Gzip is used for data compression. In Android as well, we can use the Gzip for the compression using the interceptor.</p>
-<p>So, while getting a response, OkHttp automatically respects the header (<strong>content encoding</strong>) and decompresses the data and returns, but let’s say when we have to send compressed data to a server, then we have to write our own interceptor.</p>
-<p>We can find the <strong>GzipRequestInterceptor</strong> class <strong><a target="_blank" rel="noopener" href="https://github.com/amitshekhariitbhu/Fast-Android-Networking/blob/master/android-networking/src/main/java/com/androidnetworking/interceptors/GzipRequestInterceptor.java">here</a></strong>.</p>
-<p>To use the interceptor we can use like below:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.addInterceptor(GzipRequestInterceptor())</span><br></pre></td></tr></table></figure>
-
-<p>So, these are the real use-cases, how can we use the interceptors in our Android App. We can do a lot of things with interceptors. Let’s start making the most of it.</p>
+<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ol>
+<li><a target="_blank" rel="noopener" href="https://storage.googleapis.com/openimages/web/factsfigures.html">https://storage.googleapis.com/openimages/web/factsfigures.html</a></li>
+<li><a target="_blank" rel="noopener" href="https://ai.googleblog.com/2018/04/announcing-open-images-v4-and-eccv-2018.html">https://ai.googleblog.com/2018/04/announcing-open-images-v4-and-eccv-2018.html</a></li>
+</ol>
+<hr>
+<ol>
+<li><a target="_blank" rel="noopener" href="https://arxiv.org/abs/1602.08405">We don’t need no bounding-boxes: Training object class detectors using only human verification</a>, Papadopolous et al., CVPR 2016. <a target="_blank" rel="noopener" href="https://xblog.lufficc.com/blog/open-images-v4#fnref1:1">↩</a></li>
+</ol>
 <p>来源：</p>
-<p><a target="_blank" rel="noopener" href="https://blog.mindorks.com/okhttp-interceptor-making-the-most-of-it">https://blog.mindorks.com/okhttp-interceptor-making-the-most-of-it</a></p>
+<p><a target="_blank" rel="noopener" href="https://xblog.lufficc.com/blog/open-images-v4">https://xblog.lufficc.com/blog/open-images-v4</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://hefengbao.github.io/helloworld/okhttp-interceptor-making-the-most-of-it.html" data-id="ckweu3eyo00bra1vhaj2vhzi5" class="article-share-link">Share</a>
+      <a data-url="https://hefengbao.github.io/helloworld/open-images-v4.html" data-id="ckweu3ez500dma1vh2eczcjsc" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/helloworld/tags/okhttp/" rel="tag">okhttp</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/helloworld/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/" rel="tag">数据集</a></li></ul>
 
     </footer>
   </div>
@@ -313,181 +225,10 @@
 
 
   
-    <article id="post-windows-搭建-php-环境" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Laravel-Package" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/helloworld/windows-10-php-env.html" class="article-date">
-  <time datetime="2020-02-06T07:44:56.000Z" itemprop="datePublished">2020-02-06</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/helloworld/categories/PHP/">PHP</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/helloworld/windows-10-php-env.html">windows10 搭建 php 环境</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Windows 10 操作系统</p>
-<h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><p><a target="_blank" rel="noopener" href="https://windows.php.net/download#php-7.3">https://windows.php.net/download#php-7.3</a></p>
-<p>下载 Non Thread Safe 版本</p>
-<h3 id="安装："><a href="#安装：" class="headerlink" title="安装："></a>安装：</h3><p>比如解压到  <code>D:/php</code>, 在环境变量 <code>Path</code> 中添加 <code>D:/php</code></p>
-<p>进入安装目录，复制 <code>php.ini-development</code>文件， 修改为 <code>php.ini</code></p>
-<p>在 <code>php.ini</code> 中修改：</p>
-<img src="/helloworld/images/20200206161608.png" class="">
-
-<p>新打开 <code>cmd</code> 或 <code>Windows PowerShell</code> 等， 输入 <code>php -v</code> 测试是否成功</p>
-<h3 id="开启-Oracel-Oci"><a href="#开启-Oracel-Oci" class="headerlink" title="开启 Oracel  Oci"></a>开启 Oracel  Oci</h3><p>下载 instant-client：</p>
-<p><a target="_blank" rel="noopener" href="https://www.oracle.com/cn/database/technologies/instant-client/downloads.html">https://www.oracle.com/cn/database/technologies/instant-client/downloads.html</a></p>
-<p>解压到 <code>D:/OracleClient</code>, 在环境变量 <code>Path</code> 中添加 <code>D:/OracleClient</code>, 在环境变量中添加：</p>
-<img src="/helloworld/images/20200206160233.png" class="">
-
-<p>在 <code>php.ini</code> 中去掉 <code>extension=oci8_12c</code> 前面的分号，</p>
-<p>新打开 <code>cmd</code> 或 <code>Windows PowerShell</code> 等， 输入 <code>php -m</code> 测试是否成功</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://hefengbao.github.io/helloworld/windows-10-php-env.html" data-id="ckweu3eyo00bna1vhf4fj81yd" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/helloworld/tags/php/" rel="tag">php</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Git-新建项目初始化" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/helloworld/github-new-project-init.html" class="article-date">
-  <time datetime="2020-02-06T06:53:22.000Z" itemprop="datePublished">2020-02-06</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/helloworld/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/">版本控制</a>►<a class="article-category-link" href="/helloworld/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/Git/">Git</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/helloworld/github-new-project-init.html">Git 新建项目初始化</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="Command-line-instructions"><a href="#Command-line-instructions" class="headerlink" title="Command line instructions"></a>Command line instructions</h3><p>You can also upload existing files from your computer using the instructions below.</p>
-<h5 id="Git-global-setup"><a href="#Git-global-setup" class="headerlink" title="Git global setup"></a>Git global setup</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;&quot;</span><br><span class="line">git config --global user.email &quot;&quot;</span><br></pre></td></tr></table></figure>
-
-
-
-<h5 id="Create-a-new-repository"><a href="#Create-a-new-repository" class="headerlink" title="Create a new repository"></a>Create a new repository</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">git clone http:&#x2F;&#x2F;127.0.0.1&#x2F;bao&#x2F;test.git</span><br><span class="line">cd meeting</span><br><span class="line">touch README.md</span><br><span class="line">git add README.md</span><br><span class="line">git commit -m &quot;add README&quot;</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
-
-
-
-<h5 id="Push-an-existing-folder"><a href="#Push-an-existing-folder" class="headerlink" title="Push an existing folder"></a>Push an existing folder</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd existing_folder</span><br><span class="line">git init</span><br><span class="line">git remote add origin http:&#x2F;&#x2F;127.0.0.1&#x2F;bao&#x2F;test.git</span><br><span class="line">git add .</span><br><span class="line">git commit -m &quot;Initial commit&quot;</span><br><span class="line">git push -u origin master</span><br></pre></td></tr></table></figure>
-
-
-
-<h5 id="Push-an-existing-Git-repository"><a href="#Push-an-existing-Git-repository" class="headerlink" title="Push an existing Git repository"></a>Push an existing Git repository</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">cd existing_repo</span><br><span class="line">git remote rename origin old-origin</span><br><span class="line">git remote add origin http:&#x2F;&#x2F;127.0.0.1&#x2F;bao&#x2F;test.git</span><br><span class="line">git push -u origin --all</span><br><span class="line">git push -u origin --tags</span><br></pre></td></tr></table></figure>
-
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://hefengbao.github.io/helloworld/github-new-project-init.html" data-id="ckweu3eym00bfa1vh5omofwiu" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/helloworld/tags/git/" rel="tag">git</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-Oracle-查看某个账户下的表、视图" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/helloworld/oracle-user-table-view.html" class="article-date">
-  <time datetime="2020-02-06T06:25:35.000Z" itemprop="datePublished">2020-02-06</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/helloworld/categories/Database/">Database</a>►<a class="article-category-link" href="/helloworld/categories/Database/Oracle/">Oracle</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/helloworld/oracle-user-table-view.html">Oracle 查看某个账户下的表、视图</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>select * from all_tab_comments – 查询所有用户的表,视图等。</p>
-<p>select * from <a target="_blank" rel="noopener" href="https://www.baidu.com/s?wd=user&tn=SE_PcZhidaonwhc_ngpagmjz&rsv_dl=gh_pc_zhidao">user</a>_tab_comments – 查询本用户的表,视图等。</p>
-<p>select * from all_col_comments –查询所有用户的表的列名和注释。</p>
-<p>select * from <a target="_blank" rel="noopener" href="https://www.baidu.com/s?wd=user&tn=SE_PcZhidaonwhc_ngpagmjz&rsv_dl=gh_pc_zhidao">user</a>_col_comments – 查询本用户的表的列名和注释。</p>
-<p>select * from all_tab_columns –查询所有用户的表的列名等信息。</p>
-<p>select * from <a target="_blank" rel="noopener" href="https://www.baidu.com/s?wd=user&tn=SE_PcZhidaonwhc_ngpagmjz&rsv_dl=gh_pc_zhidao">user</a>_tab_columns –查询本用户的表的列名等信息。</p>
-<p><strong>扩展资料</strong></p>
-<p><a target="_blank" rel="noopener" href="https://www.baidu.com/s?wd=ORACLE&tn=SE_PcZhidaonwhc_ngpagmjz&rsv_dl=gh_pc_zhidao">ORACLE</a>下有三个视图</p>
-<p><a target="_blank" rel="noopener" href="https://www.baidu.com/s?wd=DBA&tn=SE_PcZhidaonwhc_ngpagmjz&rsv_dl=gh_pc_zhidao">DBA</a>_TABLES 拥有<a target="_blank" rel="noopener" href="https://www.baidu.com/s?wd=DBA&tn=SE_PcZhidaonwhc_ngpagmjz&rsv_dl=gh_pc_zhidao">DBA</a>角色的用户可以查看系统中的所有表</p>
-<p>USER_TABLES 登录数据库的当前用户拥有的所有表</p>
-<p>ALL_TABLES 登录数据库的当前用户有权限查看的所有表</p>
-<p>参考资料：<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E7%94%B2%E9%AA%A8%E6%96%87%E5%85%AC%E5%8F%B8/430115?fromtitle=Oracle&fromid=301207&fr=aladdin">百度百科-Oracle</a> </p>
-<p>来源：</p>
-<p><a target="_blank" rel="noopener" href="https://zhidao.baidu.com/question/2011096311632088908.html">https://zhidao.baidu.com/question/2011096311632088908.html</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://hefengbao.github.io/helloworld/oracle-user-table-view.html" data-id="ckweu3eym00bja1vh9py71m84" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/helloworld/tags/oracle/" rel="tag">oracle</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
-
-
-  
-    <article id="post-ErrorException-symlink-Input-output-error" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/helloworld/symlink-inputouput-error.html" class="article-date">
-  <time datetime="2020-01-15T05:31:24.000Z" itemprop="datePublished">2020-01-15</time>
+    <a href="/helloworld/laravel-package.html" class="article-date">
+  <time datetime="2020-05-22T02:02:03.000Z" itemprop="datePublished">2020-05-22</time>
 </a>
     
   <div class="article-category">
@@ -502,7 +243,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/helloworld/symlink-inputouput-error.html">ErrorException  : symlink(): Input/output error</a>
+      <a class="article-title" href="/helloworld/laravel-package.html">Laravel Package</a>
     </h1>
   
 
@@ -510,24 +251,237 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>在 Windows 10 环境下， 项目中 <code>php artisan storage:link</code> 命令生成软连接，但是访问时总是提示 <code>404</code> 错误，于是远程到 homestead 环境创建软连接：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">vagrant up</span><br><span class="line"></span><br><span class="line">vagrant ssh</span><br><span class="line"></span><br><span class="line">cd 项目</span><br><span class="line"></span><br><span class="line">php artisan storage:link&#96;</span><br></pre></td></tr></table></figure>
-
-<p>出现如下错误：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">ErrorException  : symlink(): Input&#x2F;output error</span><br><span class="line"></span><br><span class="line">  at &#x2F;home&#x2F;vagrant&#x2F;code&#x2F;lsapp&#x2F;vendor&#x2F;laravel&#x2F;framework&#x2F;src&#x2F;Illuminate&#x2F;Filesystem&#x2F;Filesystem.php:228</span><br><span class="line">    224|      *&#x2F;</span><br><span class="line">    225|     public function link($target, $link)</span><br><span class="line">    226|     &#123;</span><br><span class="line">    227|         if (! windows_os()) &#123;</span><br><span class="line">  &gt; 228|             return symlink($target, $link);</span><br><span class="line">    229|         &#125;</span><br><span class="line">    230|</span><br><span class="line">    231|         $mode &#x3D; $this-&gt;isDirectory($target) ? &#39;J&#39; : &#39;H&#39;;</span><br><span class="line">    232|</span><br><span class="line"></span><br><span class="line">  Exception trace:</span><br><span class="line"></span><br><span class="line">  1   symlink(&quot;&#x2F;home&#x2F;vagrant&#x2F;code&#x2F;lsapp&#x2F;storage&#x2F;app&#x2F;public&quot;, &quot;&#x2F;home&#x2F;vagrant&#x2F;code&#x2F;lsapp&#x2F;public&#x2F;storage&quot;)</span><br><span class="line">      &#x2F;home&#x2F;vagrant&#x2F;code&#x2F;lsapp&#x2F;vendor&#x2F;laravel&#x2F;framework&#x2F;src&#x2F;Illuminate&#x2F;Filesystem&#x2F;Filesystem.php:228</span><br><span class="line"></span><br><span class="line">  2   Illuminate\Filesystem\Filesystem::link(&quot;&#x2F;home&#x2F;vagrant&#x2F;code&#x2F;lsapp&#x2F;storage&#x2F;app&#x2F;public&quot;, &quot;&#x2F;home&#x2F;vagrant&#x2F;code&#x2F;lsapp&#x2F;public&#x2F;storage&quot;)</span><br></pre></td></tr></table></figure>
-
-<p><a target="_blank" rel="noopener" href="https://laracasts.com/discuss/channels/laravel/symlink-inputouput-error">https://laracasts.com/discuss/channels/laravel/symlink-inputouput-error</a> 这里有讨论；用 <code>ln</code> 命令创建还是会报错，</p>
-<p>最终，解决方案参照  </p>
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/youji-relog/p/11551532.html">https://www.cnblogs.com/youji-relog/p/11551532.html</a>  </p>
-<p>亲测可行。</p>
+        <blockquote>
+<p>Laravel 项目中一些常用的包</p>
+</blockquote>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Package</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>开发调试</td>
+<td><a target="_blank" rel="noopener" href="https://learnku.com/docs/laravel/7.x/telescope/7518">Telescope</a></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><a target="_blank" rel="noopener" href="https://github.com/barryvdh">barryvdh</a>/<strong><a target="_blank" rel="noopener" href="https://github.com/barryvdh/laravel-ide-helper">laravel-ide-helper</a></strong></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><a target="_blank" rel="noopener" href="https://github.com/barryvdh">barryvdh</a>/<strong><a target="_blank" rel="noopener" href="https://github.com/barryvdh/laravel-debugbar">laravel-debugbar</a></strong></td>
+<td></td>
+</tr>
+<tr>
+<td>权限</td>
+<td><a target="_blank" rel="noopener" href="https://docs.spatie.be/laravel-permission/v3/introduction/">laravel-permission</a></td>
+<td><a target="_blank" rel="noopener" href="https://docs.spatie.be/">https://docs.spatie.be/</a>  <br /><a target="_blank" rel="noopener" href="https://learnku.com/laravel/t/8018/extension-recommendation-role-and-authority-control-in-spatielaravel-permission-laravel-applications">spatie/Laravel-permission Laravel 应用中的角色和权限控制</a></td>
+</tr>
+<tr>
+<td>日期</td>
+<td><a target="_blank" rel="noopener" href="https://carbon.nesbot.com/docs/">Carbon</a></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><a target="_blank" rel="noopener" href="https://github.com/rashidlaasri/travel">Travel</a></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>图像</td>
+<td><a target="_blank" rel="noopener" href="https://glide.thephpleague.com/">Glide</a></td>
+<td><a target="_blank" rel="noopener" href="https://docs.spatie.be/image/v1/introduction/">https://docs.spatie.be/image/v1/introduction/</a></td>
+</tr>
+<tr>
+<td></td>
+<td><a target="_blank" rel="noopener" href="http://image.intervention.io/getting_started/introduction">Intervention Image</a></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><a target="_blank" rel="noopener" href="https://github.com/qcod">qcod</a>/<strong><a target="_blank" rel="noopener" href="https://github.com/qcod/laravel-imageup">laravel-imageup</a></strong></td>
+<td>图像上传</td>
+</tr>
+<tr>
+<td>数据库</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/yajra/laravel-oci8">laravel-oci8</a></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><a target="_blank" rel="noopener" href="https://docs.spatie.be/laravel-backup">laravel-backup</a></td>
+<td></td>
+</tr>
+<tr>
+<td>表格</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/yajra/laravel-datatables">laravel-datatables</a></td>
+<td></td>
+</tr>
+<tr>
+<td>菜单</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/letrunghieu">letrunghieu</a>/<strong><a target="_blank" rel="noopener" href="https://github.com/letrunghieu/active">active</a></strong></td>
+<td>菜单高亮</td>
+</tr>
+<tr>
+<td></td>
+<td><a target="_blank" rel="noopener" href="https://github.com/awes-io">awes-io</a>/<strong><a target="_blank" rel="noopener" href="https://github.com/awes-io/navigator">navigator</a></strong></td>
+<td></td>
+</tr>
+<tr>
+<td>Avatar</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/laravolt">laravolt</a>/<strong><a target="_blank" rel="noopener" href="https://github.com/laravolt/avatar">avatar</a></strong></td>
+<td></td>
+</tr>
+<tr>
+<td>编辑器</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/VanOns">VanOns</a>/<strong><a target="_blank" rel="noopener" href="https://github.com/VanOns/laraberg">laraberg</a></strong></td>
+<td>A Gutenberg(Wordpress 编辑器) implementation for Laravel</td>
+</tr>
+<tr>
+<td>表单验证</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/Propaganistas">Propaganistas</a>/<strong><a target="_blank" rel="noopener" href="https://github.com/Propaganistas/Laravel-Phone">Laravel-Phone</a></strong></td>
+<td></td>
+</tr>
+<tr>
+<td>Notifications</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/laracasts">laracasts</a>/<strong><a target="_blank" rel="noopener" href="https://github.com/laracasts/flash">flash</a></strong></td>
+<td></td>
+</tr>
+<tr>
+<td>日志</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/ARCANEDEV">ARCANEDEV</a>/<strong><a target="_blank" rel="noopener" href="https://github.com/ARCANEDEV/LogViewer">LogViewer</a></strong></td>
+<td></td>
+</tr>
+<tr>
+<td>认证</td>
+<td><a target="_blank" rel="noopener" href="https://jwt-auth.readthedocs.io/en/develop/">jwt</a></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><a target="_blank" rel="noopener" href="https://github.com/thephpleague">thephpleague</a>/<strong><a target="_blank" rel="noopener" href="https://github.com/thephpleague/oauth2-server">oauth2-server</a></strong></td>
+<td></td>
+</tr>
+<tr>
+<td>三方登录</td>
+<td><a target="_blank" rel="noopener" href="https://learnku.com/docs/laravel/7.x/socialite/7517">Socialite</a></td>
+<td><a target="_blank" rel="noopener" href="https://socialiteproviders.netlify.app/">https://socialiteproviders.netlify.app/</a></td>
+</tr>
+<tr>
+<td>Markdown</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/GrahamCampbell/Laravel-Markdown">Laravel-Markdown</a></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><a target="_blank" rel="noopener" href="https://github.com/thephpleague/html-to-markdown">html-to-markdown</a></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><a target="_blank" rel="noopener" href="https://github.com/mewebstudio">mewebstudio</a>/<strong><a target="_blank" rel="noopener" href="https://github.com/mewebstudio/Purifier">Purifier</a></strong></td>
+<td></td>
+</tr>
+<tr>
+<td>中文转拼音</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/overtrue">overtrue</a>/<strong><a target="_blank" rel="noopener" href="https://github.com/overtrue/pinyin">pinyin</a></strong></td>
+<td></td>
+</tr>
+<tr>
+<td>Captcha</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/mewebstudio">mewebstudio</a>/<strong><a target="_blank" rel="noopener" href="https://github.com/mewebstudio/captcha">captcha</a></strong></td>
+<td></td>
+</tr>
+<tr>
+<td>邮件</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/Qoraiche">Qoraiche</a>/<strong><a target="_blank" rel="noopener" href="https://github.com/Qoraiche/laravel-mail-editor">laravel-mail-editor</a></strong></td>
+<td></td>
+</tr>
+<tr>
+<td>二维码</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/SimpleSoftwareIO/simple-qrcode/blob/develop/docs/zh/README.md"><strong>Simple QrCode</strong></a></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><a target="_blank" rel="noopener" href="https://github.com/endroid/qr-code">endroid/qr-code: QR Code Generator (github.com)</a></td>
+<td></td>
+</tr>
+<tr>
+<td>短信</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/overtrue">overtrue</a>/<strong><a target="_blank" rel="noopener" href="https://github.com/overtrue/easy-sms">easy-sms</a></strong></td>
+<td></td>
+</tr>
+<tr>
+<td>Location</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/ichtrojan">ichtrojan</a>/<strong><a target="_blank" rel="noopener" href="https://github.com/ichtrojan/laravel-location">laravel-location</a></strong></td>
+<td></td>
+</tr>
+<tr>
+<td>Office</td>
+<td><a target="_blank" rel="noopener" href="https://laravel-excel.com/">Laravel Excel</a></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td><a target="_blank" rel="noopener" href="https://github.com/PHPOffice">PHPOffice</a>/<strong><a target="_blank" rel="noopener" href="https://github.com/PHPOffice/PHPWord">PHPWord</a></strong></td>
+<td><a target="_blank" rel="noopener" href="https://phpword.readthedocs.io/en/latest/">文档</a></td>
+</tr>
+<tr>
+<td></td>
+<td><a target="_blank" rel="noopener" href="https://github.com/PHPOffice">PHPOffice</a>/<strong><a target="_blank" rel="noopener" href="https://github.com/PHPOffice/PhpSpreadsheet">PhpSpreadsheet</a></strong></td>
+<td></td>
+</tr>
+<tr>
+<td>UID</td>
+<td><a target="_blank" rel="noopener" href="https://uuid.ramsey.dev/en/latest/">ramsey/uuid</a></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td>symfony/polyfill-uuid</td>
+<td><a target="_blank" rel="noopener" href="https://symfony.com/blog/introducing-the-new-symfony-uuid-polyfill">https://symfony.com/blog/introducing-the-new-symfony-uuid-polyfill</a></td>
+</tr>
+<tr>
+<td>后台</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/tuandm">tuandm</a>/<strong><a target="_blank" rel="noopener" href="https://github.com/tuandm/laravue">laravue</a></strong></td>
+<td></td>
+</tr>
+<tr>
+<td>浏览器</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/hisorange/browser-detect">hisorange/browser-detect: Browser Detection for Laravel by hisorange! (github.com)</a></td>
+<td></td>
+</tr>
+<tr>
+<td>IP</td>
+<td><a target="_blank" rel="noopener" href="https://github.com/Torann/laravel-geoip">https://github.com/Torann/laravel-geoip</a></td>
+<td></td>
+</tr>
+<tr>
+<td>其他</td>
+<td><a target="_blank" rel="noopener" href="https://laravel-json-api.readthedocs.io/en/latest/">https://laravel-json-api.readthedocs.io/en/latest/</a></td>
+<td></td>
+</tr>
+</tbody></table>
+<p><a target="_blank" rel="noopener" href="https://packalyst.com/">https://packalyst.com/</a>  <strong>Packalyst</strong> is a directory of Packages for your Laravel projects</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://hefengbao.github.io/helloworld/symlink-inputouput-error.html" data-id="ckweu3eyk00bca1vh7igo5p4r" class="article-share-link">Share</a>
+      <a data-url="https://hefengbao.github.io/helloworld/laravel-package.html" data-id="ckweu3ez300dea1vh3ubj5705" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/helloworld/tags/homestead/" rel="tag">homestead</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/helloworld/tags/Laravel/" rel="tag">Laravel</a></li></ul>
 
     </footer>
   </div>
@@ -536,14 +490,14 @@
 
 
   
-    <article id="post-Linux-时间" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-Oracle对where条件中有null值字段的处理" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/helloworld/linux-date-time.html" class="article-date">
-  <time datetime="2020-01-06T06:46:30.000Z" itemprop="datePublished">2020-01-06</time>
+    <a href="/helloworld/oracle-where-null.html" class="article-date">
+  <time datetime="2020-05-18T03:22:04.000Z" itemprop="datePublished">2020-05-18</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/helloworld/categories/Linux/">Linux</a>
+    <a class="article-category-link" href="/helloworld/categories/Database/">Database</a>►<a class="article-category-link" href="/helloworld/categories/Database/Oracle/">Oracle</a>
   </div>
 
   </div>
@@ -554,7 +508,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/helloworld/linux-date-time.html">Linux 时间</a>
+      <a class="article-title" href="/helloworld/oracle-where-null.html">Oracle对where条件中有null值字段的处理</a>
     </h1>
   
 
@@ -562,24 +516,52 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>修改为 UTC 时间：  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -sf &#x2F;usr&#x2F;share&#x2F;zoneinfo&#x2F;UTC &#x2F;etc&#x2F;localtime</span><br></pre></td></tr></table></figure>
+        <p>假如有如下数据（Users）：</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>NAME</th>
+<th>IS_ADMIN</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>10000</td>
+<td>贺一</td>
+<td>是</td>
+</tr>
+<tr>
+<td>10001</td>
+<td>贺二</td>
+<td></td>
+</tr>
+<tr>
+<td>10002</td>
+<td>贺三</td>
+<td></td>
+</tr>
+</tbody></table>
+<p>查询 <code>admin</code>:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from users where is_admin &#x3D; &#39;是&#39;;</span><br></pre></td></tr></table></figure>
+
+<p>查询不是 <code>admin</code>:</p>
+<p>如果使用下面的 sql, 查不到任何数据</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from users where is_admin !&#x3D; &#39;是&#39;;</span><br></pre></td></tr></table></figure>
+
+<p>可使用如下 sql:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">select * from users where is_admin is null;</span><br></pre></td></tr></table></figure>
 
 
 
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">timedatectl set-timezone Asia&#x2F;Shanghai</span><br></pre></td></tr></table></figure>
-
-
-
-<p><a target="_blank" rel="noopener" href="https://www.cnblogs.com/zhi-leaf/p/6282301.html">https://www.cnblogs.com/zhi-leaf/p/6282301.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_33666602/article/details/80280122">https://blog.csdn.net/qq_33666602/article/details/80280122</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://hefengbao.github.io/helloworld/linux-date-time.html" data-id="ckweu3eyj00b7a1vhasgnaj2e" class="article-share-link">Share</a>
+      <a data-url="https://hefengbao.github.io/helloworld/oracle-where-null.html" data-id="ckweu3ez000d3a1vh4r601htz" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/helloworld/tags/linux/" rel="tag">linux</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/helloworld/tags/database/" rel="tag">database</a></li></ul>
 
     </footer>
   </div>
@@ -588,14 +570,14 @@
 
 
   
-    <article id="post-The-following-exception-is-caused-by-a-lack-of-memory-or-swap-or-not-having-swap-configured" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-PL-SQL-Developer-配置" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/helloworld/the-following-exception-is-caused-by-a-lack-of-memory-or-swap-or-not-having-swap-configured.html" class="article-date">
-  <time datetime="2020-01-03T06:54:08.000Z" itemprop="datePublished">2020-01-03</time>
+    <a href="/helloworld/pl-sql-developer-config.html" class="article-date">
+  <time datetime="2020-05-16T06:13:22.000Z" itemprop="datePublished">2020-05-16</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/helloworld/categories/%E5%B7%A5%E5%85%B7/">工具</a>►<a class="article-category-link" href="/helloworld/categories/%E5%B7%A5%E5%85%B7/Composer/">Composer</a>
+    <a class="article-category-link" href="/helloworld/categories/Database/">Database</a>►<a class="article-category-link" href="/helloworld/categories/Database/Oracle/">Oracle</a>
   </div>
 
   </div>
@@ -606,7 +588,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/helloworld/the-following-exception-is-caused-by-a-lack-of-memory-or-swap-or-not-having-swap-configured.html">The following exception is caused by a lack of memory or swap, or not havingswap configured</a>
+      <a class="article-title" href="/helloworld/pl-sql-developer-config.html">PL/SQL Developer 配置</a>
     </h1>
   
 
@@ -614,24 +596,55 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>执行 <code>composer update</code> 出现如下错误：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">Updates: symfony&#x2F;service-contracts:v2.0.1, symfony&#x2F;mime:v5.0.2, symfony&#x2F;css-selector:v5.0.2, symfony&#x2F;translation-contracts:v2.0.1</span><br><span class="line">  - Updating symfony&#x2F;service-contracts (v1.1.8 &#x3D;&gt; v2.0.1): The following exception is caused by a lack of memory or swap, or not having swap configured</span><br><span class="line">Check https:&#x2F;&#x2F;getcomposer.org&#x2F;doc&#x2F;articles&#x2F;troubleshooting.md#proc-open-fork-failed-errors for details</span><br><span class="line"></span><br><span class="line">In Process.php line 344:</span><br><span class="line">                                                     </span><br><span class="line">  [ErrorException]                                   </span><br><span class="line">  proc_open(): fork failed - Cannot allocate memory</span><br></pre></td></tr></table></figure>
+        <blockquote>
+<p>操作系统： Windows 10</p>
+</blockquote>
+<h3 id="语言设置："><a href="#语言设置：" class="headerlink" title="语言设置："></a>语言设置：</h3><p>在环境变量中加入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">变量名：NLS_LANG</span><br><span class="line">变量值：SIMPLIFIED CHINESE_CHINA.ZHS16GBK</span><br></pre></td></tr></table></figure>
 
-<p>这一般是出现在低内存的虚拟主机上，解决如下，配置交换内存：</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">/bin/dd if=/dev/zero of=/var/swap.1 bs=1M count=1024</span><br><span class="line">/sbin/mkswap /var/swap.1</span><br><span class="line">/sbin/swapon /var/swap.1</span><br></pre></td></tr></table></figure>
+<p>参考：</p>
+<p>1、<a target="_blank" rel="noopener" href="https://blog.csdn.net/stevendbaguo/article/details/54971914">https://blog.csdn.net/stevendbaguo/article/details/54971914</a>  </p>
+<p>2、<a target="_blank" rel="noopener" href="https://wenku.baidu.com/view/2297e9bc3968011ca2009130.html">https://wenku.baidu.com/view/2297e9bc3968011ca2009130.html</a>  </p>
+<h3 id="日期格式设置："><a href="#日期格式设置：" class="headerlink" title="日期格式设置："></a>日期格式设置：</h3><p>在环境变量中加入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">变量名：NLS_DATE_FORMAT</span><br><span class="line">变量值：YYYY-MM-DD HH24:MI:SS</span><br><span class="line"></span><br><span class="line">变量名：NLS_TIMESTAMP_FORMAT</span><br><span class="line">变量值：YYYY-MM-DD HH24:MI:SS</span><br></pre></td></tr></table></figure>
 
 
 
-<p><a target="_blank" rel="noopener" href="https://getcomposer.org/doc/articles/troubleshooting.md#proc-open-fork-failed-errors">https://getcomposer.org/doc/articles/troubleshooting.md#proc-open-fork-failed-errors</a></p>
-<p><a target="_blank" rel="noopener" href="https://segmentfault.com/a/1190000012533758">https://segmentfault.com/a/1190000012533758</a></p>
+<p>参考：<a target="_blank" rel="noopener" href="https://www.cnblogs.com/stono/p/5533492.html">https://www.cnblogs.com/stono/p/5533492.html</a></p>
+<p>环境变量-&gt;系统变量 -&gt; 新建：</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>变量名</th>
+<th>变量值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>时间</td>
+<td>NLS_DATE_FORMAT</td>
+<td>YYYY-MM-DD HH24:MI:SS</td>
+</tr>
+<tr>
+<td></td>
+<td>NLS_TIMESTAMP_FORMAT</td>
+<td>YYYY-MM-DD HH24:MI:SS</td>
+</tr>
+<tr>
+<td>语言</td>
+<td>NLS_LANG</td>
+<td>SIMPLIFIED CHINESE_CHINA.ZHS16GBK</td>
+</tr>
+</tbody></table>
+<p>重新启动 PL/SQL。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://hefengbao.github.io/helloworld/the-following-exception-is-caused-by-a-lack-of-memory-or-swap-or-not-having-swap-configured.html" data-id="ckweu3f0000gpa1vh2l08480q" class="article-share-link">Share</a>
+      <a data-url="https://hefengbao.github.io/helloworld/pl-sql-developer-config.html" data-id="ckweu3eyz00cya1vh1xmef4v0" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/helloworld/tags/composer/" rel="tag">composer</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/helloworld/tags/oracle/" rel="tag">oracle</a></li></ul>
 
     </footer>
   </div>
@@ -640,10 +653,58 @@
 
 
   
-    <article id="post-Ubuntu-添加用户" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-ffmpeg" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/helloworld/ubuntu-adduser.html" class="article-date">
-  <time datetime="2020-01-03T06:03:13.000Z" itemprop="datePublished">2020-01-03</time>
+    <a href="/helloworld/ffmpeg.html" class="article-date">
+  <time datetime="2020-05-12T07:04:26.000Z" itemprop="datePublished">2020-05-12</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/helloworld/categories/%E8%B5%84%E6%96%99/">资料</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/helloworld/ffmpeg.html">ffmpeg</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a target="_blank" rel="noopener" href="https://learnku.com/laravel/t/327/using-ffmpeg-to-deal-with-multimedia-files-under-laravel">https://learnku.com/laravel/t/327/using-ffmpeg-to-deal-with-multimedia-files-under-laravel</a><br><a target="_blank" rel="noopener" href="https://learnku.com/laravel/t/7329/processing-multimedia-files-using-ffmpeg-under-laravel-ubuntu-1604-lts">https://learnku.com/laravel/t/7329/processing-multimedia-files-using-ffmpeg-under-laravel-ubuntu-1604-lts</a>  </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">​```shell script</span><br><span class="line">sudo add-apt-repository ppa:jonathonf/ffmpeg-4</span><br><span class="line">sudo apt-get update</span><br><span class="line">sudo apt-get install ffmpeg</span><br><span class="line">​```</span><br></pre></td></tr></table></figure>
+
+
+
+<p><a target="_blank" rel="noopener" href="https://github.com/PHP-FFMpeg/PHP-FFMpeg">https://github.com/PHP-FFMpeg/PHP-FFMpeg</a>    </p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">```shell script</span><br><span class="line">composer require php-ffmpeg/php-ffmpeg</span><br><span class="line">```</span><br></pre></td></tr></table></figure>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://hefengbao.github.io/helloworld/ffmpeg.html" data-id="ckweu3eyy00cva1vhdv1lfe2y" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/helloworld/tags/ffmpeg/" rel="tag">ffmpeg</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/helloworld/tags/laravel/" rel="tag">laravel</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Ubuntu-iptables" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/helloworld/ubuntu-iptables.html" class="article-date">
+  <time datetime="2020-04-30T03:09:23.000Z" itemprop="datePublished">2020-04-30</time>
 </a>
     
   <div class="article-category">
@@ -658,7 +719,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/helloworld/ubuntu-adduser.html">Ubuntu 添加用户</a>
+      <a class="article-title" href="/helloworld/ubuntu-iptables.html">Ubuntu iptables</a>
     </h1>
   
 
@@ -666,19 +727,120 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo adduser bao</span><br></pre></td></tr></table></figure>
+        <p>Ubuntu 编写的 iptables 规则，在重启后会失效；使用 <code>iptables-persistent</code> 持久化保存。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo apt install iptables-persistent</span><br></pre></td></tr></table></figure>
 
-<h2 id="添加sudo用户"><a href="#添加sudo用户" class="headerlink" title="添加sudo用户"></a>添加sudo用户</h2><p>命令如下：</p>
-<p>sudo usermod -aG 超级用户组名 用户名</p>
-<p>例子：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sudo usermod -aG sudo bao</span><br></pre></td></tr></table></figure>
+<p>编写完规则后，执行：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo netfilter-persistent save</span><br><span class="line"> </span><br><span class="line">sudo netfilter-persistent reload</span><br></pre></td></tr></table></figure>
 
-<p>其中a:表示添加，G：指定组名</p>
+
+
+<p>参考 ：</p>
+<p>1、<a target="_blank" rel="noopener" href="https://zorz.cc/post/ubuntu-debian-iptables-persistent.html">ubuntu/debian iptables规则持久化，iptables-persistent</a> </p>
+<p>2、 <a target="_blank" rel="noopener" href="https://help.ubuntu.com/community/IptablesHowTo#Solution_.233_iptables-persistent">https://help.ubuntu.com/community/IptablesHowTo#Solution_.233_iptables-persistent</a></p>
+<p>添加防火墙过滤规则步骤如下;</p>
+<p>1、查看现有防火墙过滤规则：</p>
+<pre><code>iptables -nvL --line-number
+</code></pre>
+<p>2、添加防火墙过滤规则（设置白名单）：</p>
+<pre><code>   1）添加白名单
+
+        iptables -I INPUT 3 -s 136.6.231.163 -p tcp --dport 1521 -j ACCEPT
+
+        命令详解：
+
+            -I：添加规则的参数  
+
+                INPUT：表示外部主机访问内部资源
+
+                3：表示添加到第三行（可以任意修改）
+
+            -s：指定作为源地址匹配，这里不能指定主机名称，必须是IP；
+
+            -p: 用于匹配协议的（这里的协议通常有3种，TCP/UDP/ICMP）
+
+                --dport: 用于匹配端口号
+
+            -j: 用于匹配处理方式：
+
+                常用的ACTION：
+
+
+             DROP：悄悄丢弃
+            一般我们多用DROP来隐藏我们的身份，以及隐藏我们的链表
+             REJECT：明示拒绝
+             ACCEPT：接受
+    2）查看添加结果
+
+        iptables -nvL --line-number
+</code></pre>
+<p>原文链接：<a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_37837701/java/article/details/80578807">https://blog.csdn.net/qq_37837701/java/article/details/80578807</a></p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/sanve/article/details/80881380">https://blog.csdn.net/sanve/article/details/80881380</a></p>
+<p>IP地址网段表示法](<a target="_blank" rel="noopener" href="https://www.cnblogs.com/amyzhu/p/11396136.html">https://www.cnblogs.com/amyzhu/p/11396136.html</a>)</p>
+<p>172.12.34.0/25</p>
+<ol>
+<li>子网掩码：用于表示IP地址中的多少位用来做主机号。因为”其中值为1的比特留给网络号和子网号，为0的比特留给主机号”（TCP/IP V1）。</li>
+<li>172.12.34.0/25含义：<ol>
+<li>172.12.34.0——表示一个子网号</li>
+<li>25——表示采用子网掩码中国呢的前25位为有效未，即用 32-25=7big 来表示主机号，该子网可以容纳 2^7-2=126台主机。</li>
+<li>因此172.12.34.0/25 表示IP范围为 172.12.34.1～172.12.34.126</li>
+</ol>
+</li>
+</ol>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/csfreebird/article/details/8132362">https://blog.csdn.net/csfreebird/article/details/8132362</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://hefengbao.github.io/helloworld/ubuntu-adduser.html" data-id="ckweu3eyg00aza1vh15dt6auz" class="article-share-link">Share</a>
+      <a data-url="https://hefengbao.github.io/helloworld/ubuntu-iptables.html" data-id="ckweu3eyx00cra1vhb9nr53uw" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/helloworld/tags/iptables/" rel="tag">iptables</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Ubuntu-挂载硬盘" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/helloworld/ubuntu-disk.html" class="article-date">
+  <time datetime="2020-04-17T02:06:24.000Z" itemprop="datePublished">2020-04-17</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/helloworld/categories/Linux/">Linux</a>►<a class="article-category-link" href="/helloworld/categories/Linux/Ubuntu/">Ubuntu</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/helloworld/ubuntu-disk.html">Ubuntu 挂载硬盘</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p><a target="_blank" rel="noopener" href="https://blog.csdn.net/u014447845/article/details/80866275">https://blog.csdn.net/u014447845/article/details/80866275</a></p>
+<p>最后的永久挂载，按文章中的做法没成功，最后直接编辑 <code>/etc/fstab</code>:</p>
+<img src="/helloworld/images/2020041701.png" class="">
+
+<p>参考：</p>
+<p><a target="_blank" rel="noopener" href="https://docs.ucloud.cn/uhost/guide/disk">https://docs.ucloud.cn/uhost/guide/disk</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://hefengbao.github.io/helloworld/ubuntu-disk.html" data-id="ckweu3eyw00cna1vhhjj48j3s" class="article-share-link">Share</a>
       
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/helloworld/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/helloworld/tags/ubuntu/" rel="tag">ubuntu</a></li></ul>
@@ -690,14 +852,14 @@
 
 
   
-    <article id="post-composer-update-Discard-changes-y-n-v-d-s" class="article article-type-post" itemscope itemprop="blogPost">
+    <article id="post-JSON-LD" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
-    <a href="/helloworld/composer-update-discard-changes-ynvds.html" class="article-date">
-  <time datetime="2020-01-03T04:09:33.000Z" itemprop="datePublished">2020-01-03</time>
+    <a href="/helloworld/json-ld.html" class="article-date">
+  <time datetime="2020-04-14T08:17:12.000Z" itemprop="datePublished">2020-04-14</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/helloworld/categories/%E5%B7%A5%E5%85%B7/">工具</a>►<a class="article-category-link" href="/helloworld/categories/%E5%B7%A5%E5%85%B7/Composer/">Composer</a>
+    <a class="article-category-link" href="/helloworld/categories/%E8%B5%84%E6%96%99/">资料</a>
   </div>
 
   </div>
@@ -708,7 +870,7 @@
         
   
     <h1 itemprop="name">
-      <a class="article-title" href="/helloworld/composer-update-discard-changes-ynvds.html">composer update: Discard changes [y,n,v,d,s,?]? </a>
+      <a class="article-title" href="/helloworld/json-ld.html">JSON-LD</a>
     </h1>
   
 
@@ -716,25 +878,181 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><code>composer update</code> 出现如下错误： </p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Package operations: 3 installs, 26 updates, 0 removals</span><br><span class="line">  - Updating nesbot/carbon (2.27.0 =&gt; 2.28.0):     The package has modified files:</span><br><span class="line">    M bin/carbon</span><br><span class="line">    Discard changes [y,n,v,d,s,?]? </span><br><span class="line"></span><br></pre></td></tr></table></figure>
+        <h2 id="什么是JSON-LD？"><a href="#什么是JSON-LD？" class="headerlink" title="什么是JSON-LD？"></a>什么是JSON-LD？</h2><p><a target="_blank" rel="noopener" href="http://en.wikipedia.org/wiki/JSON-LD">JSON-LD</a>是 JavaScript Object Notation for Linked Data的缩写，是一种基于JSON表示和传输互联数据（Linked Data）的方法。可用于实施<a target="_blank" rel="noopener" href="http://developers.google.com/structured-data/">结构化数据</a>。JSON-LD描述了如何通过JSON表示有向图，以及如何在一个文档中混合表示互联数据及非互联数据。JSON-LD的语法和JSON兼容。基于JSON-LD可以在基于Web的编程环境中使用互联数据，构造可互操作的互联数据Web服务（linked data web services），并向基于JSON的存储引擎中保存互联数据。</p>
+<p>JSON（JavaScript Object Notation）是一种轻量级的数据交换格式，适合于服务器与JavaScript之间交换数据。对于JSON我们非常熟悉，但对于互联数据这个词，可能部分人会既熟悉而又觉得陌生，因为单字面意思已经很清楚，但要表达出其完整含义也并不容易。</p>
+<p>互联数据可以说是语义网(Semantic Web)的一部分，但相较于1998年语义网概念的提出，互联数据这个一样显而易见的概念实际出现却要晚了数年。这些年我们一直在强调Web的语义，即便是HTML5那一堆新增标签也不外如是。语义并不是简单的将数据放到Web上，而是对于不仅仅是人，机器也必须都能识别并准确的处理以及高效的利用。而互联数据则更要求数据的指向性，当我们有部分数据时，即可找到对应的相关联的其他数据。当数据从数据库里被拼装成页面后，可能对于人而言找到数据可能轻而易举，但对于机器而言，很难将页面恢复到原始数据，也缺乏语义的判断。若无标准来统一语义和数据互联，对于机器来说整个Web其实是乱糟糟的。</p>
+<p>为了使机器可以准确理解，处理和整合数据，我们有了语义Web。而其组成部分RDF(Resource Description Framework)即是用于描述网络资源的W3C标准。它使得语义Web技术相关的技术更加简单、不复杂以及面向一般开发人员。另外，与JSON-LD相似的RDFa(通过属性嵌入RDF)，同样是提供上下文，但属性嵌入到方式注定RDFa只适合小范围的片段嵌入以代替Mircodata，而难以用作大量纯粹数据的定义方式。而添加RDFa的难度也往往大于JSON-LD，毕竟是需要去接受已经存在的内容的情况。<a target="_blank" rel="noopener" href="http://www.w3.org/2011/rdf-wg/wiki/Main_Page">RDF工作组</a>目前已经停止了活动，但通过艰苦的努力，已经将<a target="_blank" rel="noopener" href="http://www.w3.org/TR/2014/REC-json-ld-20140116/">JSON-LD 1.0</a>及<a target="_blank" rel="noopener" href="http://www.w3.org/TR/2014/REC-json-ld-api-20140116/">JSON-LD 1.0处理算法和API</a>推进到了W3C的标准状态。</p>
+<h2 id="怎样使用JSON-LD？"><a href="#怎样使用JSON-LD？" class="headerlink" title="怎样使用JSON-LD？"></a>怎样使用JSON-LD？</h2><p>JSON-LD处理算法和API（JSON-LD Processing Algorithms and API）描述了处理JSON-LD数据所需的算法及编程接口，通过这些接口可以在JavaScript, Python及Ruby等编程环境中直接对JSON-LD文档进行转换和处理。</p>
+<p>下面是一个直接选自<a target="_blank" rel="noopener" href="http://www.w3.org/TR/2014/REC-json-ld-20140116/">规范</a>的例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;name&quot;: &quot;Manu Sporny&quot;,</span><br><span class="line">  &quot;homepage&quot;: &quot;http:&#x2F;&#x2F;manu.sporny.org&#x2F;&quot;,</span><br><span class="line">  &quot;image&quot;: &quot;http:&#x2F;&#x2F;manu.sporny.org&#x2F;images&#x2F;manu.png&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
-<p>y - discard changes and apply the update </p>
-<p>n - abort the update and let you manually clean things up </p>
-<p>v - view modified files d - view local modifications (diff) </p>
-<p>s - stash changes and try to reapply them after the update</p>
-<p>查看源码：<a target="_blank" rel="noopener" href="https://github.com/composer/composer/blob/master/src/Composer/Downloader/GitDownloader.php#L269-L310">https://github.com/composer/composer/blob/master/src/Composer/Downloader/GitDownloader.php#L269-L310</a></p>
-<p>可选择 <code>y</code>, 然后运行 <code>composer require nesbot/carbon --prefer-dist</code> 重新安装。</p>
-<p>来源：</p>
-<p><a target="_blank" rel="noopener" href="https://www.e-learn.cn/content/wangluowenzhang/604410">https://www.e-learn.cn/content/wangluowenzhang/604410</a></p>
+
+
+<p>这个JSON文档表示一个人。人们很容易推断这里的语义：“name”是人的名字，“homepage”是其主页，“image”是其某种照片。然而机器不理解“name”和“image”这样的术语。</p>
+<p>为解决该问题，我们可以使用链接数据。下面使用JSON-LD表示上面的例子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;http:&#x2F;&#x2F;schema.org&#x2F;name&quot;: &quot;Manu Sporny&quot;,</span><br><span class="line">  &quot;http:&#x2F;&#x2F;schema.org&#x2F;url&quot;: &#123; &quot;@id&quot;: &quot;http:&#x2F;&#x2F;manu.sporny.org&#x2F;&quot; &#125;,</span><br><span class="line">  &quot;http:&#x2F;&#x2F;schema.org&#x2F;image&quot;: &#123; &quot;@id&quot;: &quot;http:&#x2F;&#x2F;manu.sporny.org&#x2F;images&#x2F;manu.png&quot; &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>通过链接到schema.org上的定义，我们可以教给机器如何理解“name”、“url”和“image”的语义。不过有点复杂了。通过JSON-LD所谓的“上下文（context）”，我们可以兼顾第一个例子的简洁性和第二个例子的语义理解。基于第一个例子，我们引入一个context：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;@context&quot;: &quot;http:&#x2F;&#x2F;json-ld.org&#x2F;contexts&#x2F;person.jsonld&quot;,</span><br><span class="line">  &quot;name&quot;: &quot;Manu Sporny&quot;,</span><br><span class="line">  &quot;homepage&quot;: &quot;http:&#x2F;&#x2F;manu.sporny.org&#x2F;&quot;,</span><br><span class="line">  &quot;image&quot;: &quot;http:&#x2F;&#x2F;manu.sporny.org&#x2F;images&#x2F;manu.png&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>我们现在链接到了json-ld.org上的一个context。context文档看上去像下面这样：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;@context&quot;:</span><br><span class="line">  &#123;</span><br><span class="line">    &quot;name&quot;: &quot;http:&#x2F;&#x2F;schema.org&#x2F;name&quot;, </span><br><span class="line">    &quot;image&quot;: &#123;</span><br><span class="line">      &quot;@id&quot;: &quot;http:&#x2F;&#x2F;schema.org&#x2F;image&quot;</span><br><span class="line">      &quot;@type&quot;: &quot;@id&quot;</span><br><span class="line">    &#125;,</span><br><span class="line">    &quot;homepage&quot;: &#123;</span><br><span class="line">      &quot;@id&quot;: &quot;http:&#x2F;&#x2F;schema.org&#x2F;url&quot;,</span><br><span class="line">      &quot;@type&quot;: &quot;@id&quot;</span><br><span class="line">    &#125;</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>这种方法的另一个优点是，多个文档可以使用同一个context。</p>
+<p>参考资料：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://json-ld.org/">https://json-ld.org/</a></li>
+</ul>
+<p><a target="_blank" rel="noopener" href="https://www.biaodianfu.com/json-ld.html">https://www.biaodianfu.com/json-ld.html</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/Webnuvola/laravel-json-ld">https://github.com/Webnuvola/laravel-json-ld</a></p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://hefengbao.github.io/helloworld/composer-update-discard-changes-ynvds.html" data-id="ckweu3eyi00b4a1vh0roib1n7" class="article-share-link">Share</a>
+      <a data-url="https://hefengbao.github.io/helloworld/json-ld.html" data-id="ckweu3eyv00cja1vhazla0oqi" class="article-share-link">Share</a>
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/helloworld/tags/composer/" rel="tag">composer</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/helloworld/tags/josn-ld/" rel="tag">josn-ld</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-MinIO" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/helloworld/minio.html" class="article-date">
+  <time datetime="2020-04-11T09:03:56.000Z" itemprop="datePublished">2020-04-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/helloworld/categories/DevOps/">DevOps</a>►<a class="article-category-link" href="/helloworld/categories/DevOps/MinIO/">MinIO</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/helloworld/minio.html">MinIO</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>参考：<a target="_blank" rel="noopener" href="https://www.bookstack.cn/read/MinioCookbookZH/1.md">官方文档</a></p>
+<h3 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h3><p>Ubuntu 可以直接下载执行文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">sudo wget https:&#x2F;&#x2F;dl.minio.io&#x2F;server&#x2F;minio&#x2F;release&#x2F;linux-amd64&#x2F;minio -O &#x2F;opt&#x2F;minio</span><br><span class="line">sudo chmod +x &#x2F;opt&#x2F;minio</span><br><span class="line">sudo ln -s &#x2F;opt&#x2F;minio &#x2F;usr&#x2F;bin&#x2F;</span><br><span class="line"></span><br><span class="line">minio --help</span><br></pre></td></tr></table></figure>
+
+
+
+<h3 id="创建文件夹"><a href="#创建文件夹" class="headerlink" title="创建文件夹"></a>创建文件夹</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#配置文件</span><br><span class="line">sudo mkdir &#x2F;etc&#x2F;minio</span><br><span class="line">#存放文件</span><br><span class="line">sudo mkdir &#x2F;var&#x2F;www&#x2F;minio</span><br></pre></td></tr></table></figure>
+
+<p>使用下面的命令运行，使用输出的 AccessKey / SecretKey 登录，配置文件是 <code>/etc/minio/config.json</code>， AccessKey / SecretKey 会在里面保存，上传的文件会保存在 <code>/var/www/minio</code> 里。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;usr&#x2F;bin&#x2F;minio --config-dir &#x2F;etc&#x2F;minio&#x2F; server &#x2F;var&#x2F;www&#x2F;minio</span><br></pre></td></tr></table></figure>
+
+<p>这时可以访问 <code>网站 IP:9000</code> 打开 Minio 的网页管理。</p>
+<h3 id="设置-Nginx"><a href="#设置-Nginx" class="headerlink" title="设置 Nginx"></a>设置 Nginx</h3><p>使用域名进行访问，可以在 Nginx 的配置文件中加入下面的内容：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">location &#x2F; &#123;</span><br><span class="line">    proxy_set_header Host $http_host;</span><br><span class="line">    proxy_pass http:&#x2F;&#x2F;localhost:9000;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+
+
+<p>这时访问网站就会直接访问 Minio 的网页了。可以在 Minio 执行命令中加入 <code>--address &quot;127.0.0.1:9000&quot;</code>， 这样只会 Minio 只会监听本机地址。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;usr&#x2F;bin&#x2F;minio --config-dir &#x2F;etc&#x2F;minio&#x2F; server --address &quot;127.0.0.1:9000&quot; &#x2F;var&#x2F;www&#x2F;minio</span><br></pre></td></tr></table></figure>
+
+<h3 id="设置-Systemd-服务"><a href="#设置-Systemd-服务" class="headerlink" title="设置 Systemd 服务"></a>设置 Systemd 服务</h3><p>处理文件夹权限</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">sudo chown -R www-data:www-data &#x2F;etc&#x2F;minio</span><br><span class="line">sudo chown -R www-data:www-data &#x2F;var&#x2F;www&#x2F;minio</span><br></pre></td></tr></table></figure>
+
+
+
+<p>创建 <code>/etc/systemd/system/minio.service</code> 文件</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">[Unit]</span><br><span class="line">Description&#x3D;minio_backend</span><br><span class="line">After&#x3D;network.target</span><br><span class="line">[Service]</span><br><span class="line">User&#x3D;www-data</span><br><span class="line">ExecStart&#x3D;&#x2F;usr&#x2F;bin&#x2F;minio --config-dir &#x2F;etc&#x2F;minio&#x2F; server --address &quot;127.0.0.1:9000&quot; &#x2F;var&#x2F;www&#x2F;minio</span><br><span class="line">[Install]</span><br><span class="line">WantedBy&#x3D;multi-user.target</span><br></pre></td></tr></table></figure>
+
+<p>载入并启动服务</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">sudo systemctl daemon-reload</span><br><span class="line"># 启动</span><br><span class="line">sudo systemctl start minio</span><br><span class="line"># 查看状态</span><br><span class="line">sudo systemctl status minio</span><br><span class="line"># 开机启动</span><br><span class="line">sudo systemctl enable minio</span><br><span class="line"></span><br><span class="line"># 查看输出</span><br><span class="line">sudo journalctl -u minio</span><br></pre></td></tr></table></figure>
+
+
+
+<p><a target="_blank" rel="noopener" href="https://homulilly.com/post/use-minio.html">https://homulilly.com/post/use-minio.html</a></p>
+<p>使用：</p>
+<p><a target="_blank" rel="noopener" href="https://blog.csdn.net/qq_39159076/article/details/100578724">https://blog.csdn.net/qq_39159076/article/details/100578724</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://hefengbao.github.io/helloworld/minio.html" data-id="ckweu3eyt00cba1vh1o9922vr" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/helloworld/tags/MinIO/" rel="tag">MinIO</a></li></ul>
+
+    </footer>
+  </div>
+  
+</article>
+
+
+  
+    <article id="post-Ubuntu-安装-PHP-的-PDO-OCI-扩展" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/helloworld/intall-php-pdo-oci-extension-on-ubuntu.html" class="article-date">
+  <time datetime="2020-04-10T05:35:01.000Z" itemprop="datePublished">2020-04-10</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/helloworld/categories/Database/">Database</a>►<a class="article-category-link" href="/helloworld/categories/Database/Oracle/">Oracle</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/helloworld/intall-php-pdo-oci-extension-on-ubuntu.html">Ubuntu 安装 PHP 的 PDO_OCI 扩展</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>已经用 <code>apt</code> 安装了 <code>php7.3-cli</code>,<code>php7.3-fpm</code>,<code>php7.3-dev</code> 等。<br>安装了 Oracle 的 <code>Instant Client</code>（可参考：<a href="https://hefengbao.github.io/helloword/ubuntu-install-oracle-instant-client-and-oci-20180511/">https://hefengbao.github.io/helloword/ubuntu-install-oracle-instant-client-and-oci-20180511/</a> ），现在安装 <code>pdo_oci</code>, 貌似只能通过源码安装：</p>
+<h3 id="下载-php-源码"><a href="#下载-php-源码" class="headerlink" title="下载 php 源码"></a>下载 php 源码</h3><p>wget <a target="_blank" rel="noopener" href="https://www.php.net/distributions/php-7.3.16.tar.xz">https://www.php.net/distributions/php-7.3.16.tar.xz</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">tar -xvf php-7.3.16.tar.xz</span><br><span class="line"></span><br><span class="line">cd php-7.3.16&#x2F;ext&#x2F;pdo_oci&#x2F;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p><code>phpize</code> </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x2F;usr&#x2F;bin&#x2F;phpize7.3</span><br></pre></td></tr></table></figure>
+<p>结果如下：<br>Configuring for:<br>PHP Api Version:         20180731<br>Zend Module Api No:      20180731<br>Zend Extension Api No:   320180731</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">.&#x2F;configure --with-pdo-oci&#x3D;instantclient,&#x2F;usr&#x2F;lib&#x2F;oracle&#x2F;19.5&#x2F;client64&#x2F;lib --with-oci8&#x3D;instantclient,&#x2F;usr&#x2F;lib&#x2F;oracle&#x2F;19.5&#x2F;client64&#x2F;lib -with-php-config&#x3D;&#x2F;usr&#x2F;bin&#x2F;php-config7.3</span><br></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">sudo make</span><br><span class="line"></span><br><span class="line">sudo make install</span><br></pre></td></tr></table></figure>
+<p>结果如下：<br>Installing shared extensions:     /usr/lib/php/20180731/</p>
+<p>把 <code>extension=pdo_oci</code> 添加到 <code>/etc/php/7.3/cli/php.ini</code>、<code>/etc/php/7.3/fpm/php.ini</code></p>
+<p><code>php -m</code> 查看。</p>
+<p>参考：</p>
+<p><a target="_blank" rel="noopener" href="https://www.fujieace.com/php/php-extensions/config-m4.html">https://www.fujieace.com/php/php-extensions/config-m4.html</a><br><a target="_blank" rel="noopener" href="https://blog.csdn.net/Zhang_Ying_Jie/article/details/79315022">https://blog.csdn.net/Zhang_Ying_Jie/article/details/79315022</a><br><a target="_blank" rel="noopener" href="https://blogs.oracle.com/opal/updated-php-72-pdo_oci-install-configure-syntax">https://blogs.oracle.com/opal/updated-php-72-pdo_oci-install-configure-syntax</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://hefengbao.github.io/helloworld/intall-php-pdo-oci-extension-on-ubuntu.html" data-id="ckweu3eys00c7a1vh4y9c6sl8" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/helloworld/tags/pdo-oci/" rel="tag">pdo_oci</a></li></ul>
 
     </footer>
   </div>
@@ -747,7 +1065,7 @@
 
   <nav id="page-nav">
     
-    <a class="extend prev" rel="prev" href="/helloworld/page/10/">&amp;laquo; Prev</a><a class="page-number" href="/helloworld/">1</a><span class="space">&hellip;</span><a class="page-number" href="/helloworld/page/9/">9</a><a class="page-number" href="/helloworld/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/helloworld/page/12/">12</a><a class="page-number" href="/helloworld/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/helloworld/page/23/">23</a><a class="extend next" rel="next" href="/helloworld/page/12/">Next &amp;raquo;</a>
+    <a class="extend prev" rel="prev" href="/helloworld/page/10/">&amp;laquo; Prev</a><a class="page-number" href="/helloworld/">1</a><span class="space">&hellip;</span><a class="page-number" href="/helloworld/page/9/">9</a><a class="page-number" href="/helloworld/page/10/">10</a><span class="page-number current">11</span><a class="page-number" href="/helloworld/page/12/">12</a><a class="page-number" href="/helloworld/page/13/">13</a><span class="space">&hellip;</span><a class="page-number" href="/helloworld/page/24/">24</a><a class="extend next" rel="next" href="/helloworld/page/12/">Next &amp;raquo;</a>
   </nav>
 
 </section>
@@ -758,7 +1076,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/AI/">AI</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/API/">API</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Algorithm/">Algorithm</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Auth/">Auth</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Database/">Database</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Database/MySQL/">MySQL</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Database/Oracle/">Oracle</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/DevOps/">DevOps</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/DevOps/MinIO/">MinIO</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/DevOps/Nginx/">Nginx</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/DevOps/Redis/">Redis</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/DevOps/Supervisor/">Supervisor</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/DevOps/WAMP/">WAMP</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Github/">Github</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Go/">Go</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Gradle/">Gradle</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Hexo/">Hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/JavaScript/">JavaScript</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Javascript/">Javascript</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Kotlin/">Kotlin</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Linux/">Linux</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Linux/Ubuntu/">Ubuntu</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/PHP/">PHP</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/PHP/Laravel/">Laravel</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Vue/">Vue</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Web/">Web</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Web/HTML/">HTML</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Windows/">Windows</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E5%89%8D%E7%AB%AF/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E5%B7%A5%E5%85%B7/Composer/">Composer</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E5%B7%A5%E5%85%B7/PhpStorm/">PhpStorm</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E5%B7%A5%E5%85%B7/%E8%B5%84%E6%96%99/">资料</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/">数据可视化</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E7%88%AC%E8%99%AB/">爬虫</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/">版本控制</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/Gitlab/">Gitlab</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/VisualSVN/">VisualSVN</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/">计算机</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E8%B5%84%E6%96%99/">资料</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/AI/">AI</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/API/">API</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Algorithm/">Algorithm</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Android/">Android</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Auth/">Auth</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Database/">Database</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Database/MySQL/">MySQL</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Database/Oracle/">Oracle</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/DevOps/">DevOps</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/DevOps/MinIO/">MinIO</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/DevOps/Nginx/">Nginx</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/DevOps/Redis/">Redis</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/DevOps/Supervisor/">Supervisor</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/DevOps/WAMP/">WAMP</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Github/">Github</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Go/">Go</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Gradle/">Gradle</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Hexo/">Hexo</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Java/">Java</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/JavaScript/">JavaScript</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Javascript/">Javascript</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Javascript/jQuery/">jQuery</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Javscript/">Javscript</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Kotlin/">Kotlin</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Linux/">Linux</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Linux/Ubuntu/">Ubuntu</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/PHP/">PHP</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/PHP/Laravel/">Laravel</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Vue/">Vue</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Web/">Web</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Web/HTML/">HTML</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/Windows/">Windows</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E5%89%8D%E7%AB%AF/">前端</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E5%B7%A5%E5%85%B7/">工具</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E5%B7%A5%E5%85%B7/Composer/">Composer</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E5%B7%A5%E5%85%B7/PhpStorm/">PhpStorm</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E5%B7%A5%E5%85%B7/%E8%B5%84%E6%96%99/">资料</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/">数据可视化</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E7%88%AC%E8%99%AB/">爬虫</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/">版本控制</a><ul class="category-list-child"><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/Git/">Git</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/Gitlab/">Gitlab</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6/VisualSVN/">VisualSVN</a></li></ul></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA/">计算机</a></li><li class="category-list-item"><a class="category-list-link" href="/helloworld/categories/%E8%B5%84%E6%96%99/">资料</a></li></ul>
     </div>
   </div>
 
@@ -768,7 +1086,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tags</h3>
     <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/AI/" rel="tag">AI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/Axios/" rel="tag">Axios</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/Composer/" rel="tag">Composer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/Date/" rel="tag">Date</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/DevOps/" rel="tag">DevOps</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/Go/" rel="tag">Go</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/Laravel/" rel="tag">Laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/MinIO/" rel="tag">MinIO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/OAuth-2-0/" rel="tag">OAuth 2.0</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/Time/" rel="tag">Time</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/TimeZone/" rel="tag">TimeZone</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/VisualSVN/" rel="tag">VisualSVN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/WAMP/" rel="tag">WAMP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/Windows/" rel="tag">Windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/algorithm/" rel="tag">algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/android/" rel="tag">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/android-studio/" rel="tag">android-studio</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/api/" rel="tag">api</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/chrome/" rel="tag">chrome</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/color/" rel="tag">color</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/composer/" rel="tag">composer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/computer/" rel="tag">computer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/crontab/" rel="tag">crontab</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/cros/" rel="tag">cros</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/css/" rel="tag">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/database/" rel="tag">database</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/echarts/" rel="tag">echarts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/elasticsearch/" rel="tag">elasticsearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/emoji/" rel="tag">emoji</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/face-recognition/" rel="tag">face_recognition</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/ffmpeg/" rel="tag">ffmpeg</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/github/" rel="tag">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/gitlab/" rel="tag">gitlab</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/gradle/" rel="tag">gradle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/homestead/" rel="tag">homestead</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/html/" rel="tag">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/https/" rel="tag">https</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/icon/" rel="tag">icon</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/iptables/" rel="tag">iptables</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/java/" rel="tag">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/josn-ld/" rel="tag">josn-ld</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/json/" rel="tag">json</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/jwt/" rel="tag">jwt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/keyboard/" rel="tag">keyboard</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/kotlin/" rel="tag">kotlin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/laravel/" rel="tag">laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/lemp/" rel="tag">lemp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/markdown/" rel="tag">markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/math/" rel="tag">math</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/mysql/" rel="tag">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/okhttp/" rel="tag">okhttp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/opcache/" rel="tag">opcache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/oracle/" rel="tag">oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/pdf/" rel="tag">pdf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/pdo-oci/" rel="tag">pdo_oci</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/php/" rel="tag">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/phpmyadmin/" rel="tag">phpmyadmin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/phpstorm/" rel="tag">phpstorm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/player/" rel="tag">player</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/proguard/" rel="tag">proguard</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/redis/" rel="tag">redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/regex/" rel="tag">regex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/room/" rel="tag">room</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/snowflake/" rel="tag">snowflake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/startup/" rel="tag">startup</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/supervisor/" rel="tag">supervisor</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/vscode/" rel="tag">vscode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/vue/" rel="tag">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/vue-router/" rel="tag">vue-router</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/web/" rel="tag">web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/wsl/" rel="tag">wsl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/zmq/" rel="tag">zmq</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E4%BA%8C%E7%BB%B4%E7%A0%81/" rel="tag">二维码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B/" rel="tag">大学课程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag">大数据</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" rel="tag">微服务</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E6%89%93%E5%8D%B0/" rel="tag">打印</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/" rel="tag">数据可视化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/" rel="tag">数据集</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E6%9E%B6%E6%9E%84/" rel="tag">架构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E6%B0%B4%E5%8D%B0/" rel="tag">水印</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" rel="tag">科学上网</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E7%BD%91%E5%AE%89/" rel="tag">网安</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E8%B5%84%E6%96%99/" rel="tag">资料</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/" rel="tag">项目管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/" rel="tag">项目部署</a></li></ul>
+      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/AI/" rel="tag">AI</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/AST/" rel="tag">AST</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/Axios/" rel="tag">Axios</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/Composer/" rel="tag">Composer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/Date/" rel="tag">Date</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/DevOps/" rel="tag">DevOps</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/Go/" rel="tag">Go</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/JavaScript/" rel="tag">JavaScript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/Laravel/" rel="tag">Laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/MinIO/" rel="tag">MinIO</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/OAuth-2-0/" rel="tag">OAuth 2.0</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/Time/" rel="tag">Time</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/TimeZone/" rel="tag">TimeZone</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/VisualSVN/" rel="tag">VisualSVN</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/WAMP/" rel="tag">WAMP</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/Windows/" rel="tag">Windows</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/ajax/" rel="tag">ajax</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/algorithm/" rel="tag">algorithm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/android/" rel="tag">android</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/android-studio/" rel="tag">android-studio</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/api/" rel="tag">api</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/auth/" rel="tag">auth</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/color/" rel="tag">color</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/composer/" rel="tag">composer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/computer/" rel="tag">computer</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/crontab/" rel="tag">crontab</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/cros/" rel="tag">cros</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/css/" rel="tag">css</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/database/" rel="tag">database</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/echarts/" rel="tag">echarts</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/editor/" rel="tag">editor</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/elasticsearch/" rel="tag">elasticsearch</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/emoji/" rel="tag">emoji</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/face-recognition/" rel="tag">face_recognition</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/ffmpeg/" rel="tag">ffmpeg</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/git/" rel="tag">git</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/github/" rel="tag">github</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/gitlab/" rel="tag">gitlab</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/gradle/" rel="tag">gradle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/hexo/" rel="tag">hexo</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/homestead/" rel="tag">homestead</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/html/" rel="tag">html</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/http/" rel="tag">http</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/https/" rel="tag">https</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/icon/" rel="tag">icon</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/iptables/" rel="tag">iptables</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/jQuery/" rel="tag">jQuery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/java/" rel="tag">java</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/javascript/" rel="tag">javascript</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/josn-ld/" rel="tag">josn-ld</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/jquery/" rel="tag">jquery</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/json/" rel="tag">json</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/jwt/" rel="tag">jwt</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/keyboard/" rel="tag">keyboard</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/kotlin/" rel="tag">kotlin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/laravel/" rel="tag">laravel</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/lemp/" rel="tag">lemp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/linux/" rel="tag">linux</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/markdown/" rel="tag">markdown</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/math/" rel="tag">math</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/mysql/" rel="tag">mysql</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/nginx/" rel="tag">nginx</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/okhttp/" rel="tag">okhttp</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/opcache/" rel="tag">opcache</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/oracle/" rel="tag">oracle</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/pdf/" rel="tag">pdf</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/pdo-oci/" rel="tag">pdo_oci</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/php/" rel="tag">php</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/phpmyadmin/" rel="tag">phpmyadmin</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/phpstorm/" rel="tag">phpstorm</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/player/" rel="tag">player</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/proguard/" rel="tag">proguard</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/redis/" rel="tag">redis</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/regex/" rel="tag">regex</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/room/" rel="tag">room</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/snowflake/" rel="tag">snowflake</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/startup/" rel="tag">startup</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/supervisor/" rel="tag">supervisor</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/ubuntu/" rel="tag">ubuntu</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/ui/" rel="tag">ui</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/vscode/" rel="tag">vscode</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/vue/" rel="tag">vue</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/vue-router/" rel="tag">vue-router</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/web/" rel="tag">web</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/wsl/" rel="tag">wsl</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/zmq/" rel="tag">zmq</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E4%BA%8C%E7%BB%B4%E7%A0%81/" rel="tag">二维码</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E5%89%8D%E7%AB%AF/" rel="tag">前端</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B/" rel="tag">大学课程</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" rel="tag">大数据</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" rel="tag">微服务</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E6%89%93%E5%8D%B0/" rel="tag">打印</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/" rel="tag">数据可视化</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/" rel="tag">数据集</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E6%9E%B6%E6%9E%84/" rel="tag">架构</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E6%B0%B4%E5%8D%B0/" rel="tag">水印</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" rel="tag">浏览器</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E7%88%AC%E8%99%AB/" rel="tag">爬虫</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" rel="tag">科学上网</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E7%BD%91%E5%AE%89/" rel="tag">网安</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E8%B5%84%E6%96%99/" rel="tag">资料</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/" rel="tag">项目管理</a></li><li class="tag-list-item"><a class="tag-list-link" href="/helloworld/tags/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/" rel="tag">项目部署</a></li></ul>
     </div>
   </div>
 
@@ -778,7 +1096,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Tag Cloud</h3>
     <div class="widget tagcloud">
-      <a href="/helloworld/tags/AI/" style="font-size: 10px;">AI</a> <a href="/helloworld/tags/Axios/" style="font-size: 10px;">Axios</a> <a href="/helloworld/tags/Composer/" style="font-size: 10px;">Composer</a> <a href="/helloworld/tags/Date/" style="font-size: 10px;">Date</a> <a href="/helloworld/tags/DevOps/" style="font-size: 10px;">DevOps</a> <a href="/helloworld/tags/Go/" style="font-size: 10px;">Go</a> <a href="/helloworld/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/helloworld/tags/Laravel/" style="font-size: 10px;">Laravel</a> <a href="/helloworld/tags/MinIO/" style="font-size: 10px;">MinIO</a> <a href="/helloworld/tags/OAuth-2-0/" style="font-size: 10px;">OAuth 2.0</a> <a href="/helloworld/tags/Time/" style="font-size: 10px;">Time</a> <a href="/helloworld/tags/TimeZone/" style="font-size: 10px;">TimeZone</a> <a href="/helloworld/tags/VisualSVN/" style="font-size: 10px;">VisualSVN</a> <a href="/helloworld/tags/WAMP/" style="font-size: 12.5px;">WAMP</a> <a href="/helloworld/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/helloworld/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/helloworld/tags/android/" style="font-size: 18.75px;">android</a> <a href="/helloworld/tags/android-studio/" style="font-size: 10px;">android-studio</a> <a href="/helloworld/tags/api/" style="font-size: 10px;">api</a> <a href="/helloworld/tags/chrome/" style="font-size: 10px;">chrome</a> <a href="/helloworld/tags/color/" style="font-size: 10px;">color</a> <a href="/helloworld/tags/composer/" style="font-size: 12.5px;">composer</a> <a href="/helloworld/tags/computer/" style="font-size: 10px;">computer</a> <a href="/helloworld/tags/crontab/" style="font-size: 10px;">crontab</a> <a href="/helloworld/tags/cros/" style="font-size: 10px;">cros</a> <a href="/helloworld/tags/css/" style="font-size: 10px;">css</a> <a href="/helloworld/tags/database/" style="font-size: 10px;">database</a> <a href="/helloworld/tags/echarts/" style="font-size: 10px;">echarts</a> <a href="/helloworld/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/helloworld/tags/emoji/" style="font-size: 10px;">emoji</a> <a href="/helloworld/tags/face-recognition/" style="font-size: 10px;">face_recognition</a> <a href="/helloworld/tags/ffmpeg/" style="font-size: 10px;">ffmpeg</a> <a href="/helloworld/tags/git/" style="font-size: 12.5px;">git</a> <a href="/helloworld/tags/github/" style="font-size: 11.25px;">github</a> <a href="/helloworld/tags/gitlab/" style="font-size: 11.25px;">gitlab</a> <a href="/helloworld/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/helloworld/tags/hexo/" style="font-size: 11.25px;">hexo</a> <a href="/helloworld/tags/homestead/" style="font-size: 12.5px;">homestead</a> <a href="/helloworld/tags/html/" style="font-size: 10px;">html</a> <a href="/helloworld/tags/http/" style="font-size: 11.25px;">http</a> <a href="/helloworld/tags/https/" style="font-size: 10px;">https</a> <a href="/helloworld/tags/icon/" style="font-size: 10px;">icon</a> <a href="/helloworld/tags/iptables/" style="font-size: 10px;">iptables</a> <a href="/helloworld/tags/java/" style="font-size: 11.25px;">java</a> <a href="/helloworld/tags/javascript/" style="font-size: 10px;">javascript</a> <a href="/helloworld/tags/josn-ld/" style="font-size: 10px;">josn-ld</a> <a href="/helloworld/tags/json/" style="font-size: 11.25px;">json</a> <a href="/helloworld/tags/jwt/" style="font-size: 10px;">jwt</a> <a href="/helloworld/tags/keyboard/" style="font-size: 10px;">keyboard</a> <a href="/helloworld/tags/kotlin/" style="font-size: 20px;">kotlin</a> <a href="/helloworld/tags/laravel/" style="font-size: 17.5px;">laravel</a> <a href="/helloworld/tags/lemp/" style="font-size: 10px;">lemp</a> <a href="/helloworld/tags/linux/" style="font-size: 16.25px;">linux</a> <a href="/helloworld/tags/markdown/" style="font-size: 10px;">markdown</a> <a href="/helloworld/tags/math/" style="font-size: 10px;">math</a> <a href="/helloworld/tags/mysql/" style="font-size: 12.5px;">mysql</a> <a href="/helloworld/tags/nginx/" style="font-size: 12.5px;">nginx</a> <a href="/helloworld/tags/okhttp/" style="font-size: 11.25px;">okhttp</a> <a href="/helloworld/tags/opcache/" style="font-size: 10px;">opcache</a> <a href="/helloworld/tags/oracle/" style="font-size: 12.5px;">oracle</a> <a href="/helloworld/tags/pdf/" style="font-size: 10px;">pdf</a> <a href="/helloworld/tags/pdo-oci/" style="font-size: 10px;">pdo_oci</a> <a href="/helloworld/tags/php/" style="font-size: 15px;">php</a> <a href="/helloworld/tags/phpmyadmin/" style="font-size: 10px;">phpmyadmin</a> <a href="/helloworld/tags/phpstorm/" style="font-size: 10px;">phpstorm</a> <a href="/helloworld/tags/player/" style="font-size: 10px;">player</a> <a href="/helloworld/tags/proguard/" style="font-size: 10px;">proguard</a> <a href="/helloworld/tags/redis/" style="font-size: 11.25px;">redis</a> <a href="/helloworld/tags/regex/" style="font-size: 10px;">regex</a> <a href="/helloworld/tags/room/" style="font-size: 10px;">room</a> <a href="/helloworld/tags/snowflake/" style="font-size: 10px;">snowflake</a> <a href="/helloworld/tags/startup/" style="font-size: 10px;">startup</a> <a href="/helloworld/tags/supervisor/" style="font-size: 10px;">supervisor</a> <a href="/helloworld/tags/ubuntu/" style="font-size: 12.5px;">ubuntu</a> <a href="/helloworld/tags/vscode/" style="font-size: 11.25px;">vscode</a> <a href="/helloworld/tags/vue/" style="font-size: 11.25px;">vue</a> <a href="/helloworld/tags/vue-router/" style="font-size: 10px;">vue-router</a> <a href="/helloworld/tags/web/" style="font-size: 10px;">web</a> <a href="/helloworld/tags/wsl/" style="font-size: 12.5px;">wsl</a> <a href="/helloworld/tags/zmq/" style="font-size: 10px;">zmq</a> <a href="/helloworld/tags/%E4%BA%8C%E7%BB%B4%E7%A0%81/" style="font-size: 10px;">二维码</a> <a href="/helloworld/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 10px;">前端</a> <a href="/helloworld/tags/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B/" style="font-size: 10px;">大学课程</a> <a href="/helloworld/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" style="font-size: 10px;">大数据</a> <a href="/helloworld/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" style="font-size: 10px;">微服务</a> <a href="/helloworld/tags/%E6%89%93%E5%8D%B0/" style="font-size: 10px;">打印</a> <a href="/helloworld/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/" style="font-size: 11.25px;">数据可视化</a> <a href="/helloworld/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/" style="font-size: 10px;">数据集</a> <a href="/helloworld/tags/%E6%9E%B6%E6%9E%84/" style="font-size: 10px;">架构</a> <a href="/helloworld/tags/%E6%B0%B4%E5%8D%B0/" style="font-size: 10px;">水印</a> <a href="/helloworld/tags/%E7%88%AC%E8%99%AB/" style="font-size: 10px;">爬虫</a> <a href="/helloworld/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 10px;">科学上网</a> <a href="/helloworld/tags/%E7%BD%91%E5%AE%89/" style="font-size: 10px;">网安</a> <a href="/helloworld/tags/%E8%B5%84%E6%96%99/" style="font-size: 13.75px;">资料</a> <a href="/helloworld/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/" style="font-size: 10px;">项目管理</a> <a href="/helloworld/tags/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/" style="font-size: 10px;">项目部署</a>
+      <a href="/helloworld/tags/AI/" style="font-size: 10px;">AI</a> <a href="/helloworld/tags/AST/" style="font-size: 10px;">AST</a> <a href="/helloworld/tags/Axios/" style="font-size: 10px;">Axios</a> <a href="/helloworld/tags/Composer/" style="font-size: 10px;">Composer</a> <a href="/helloworld/tags/Date/" style="font-size: 10px;">Date</a> <a href="/helloworld/tags/DevOps/" style="font-size: 10px;">DevOps</a> <a href="/helloworld/tags/Go/" style="font-size: 10px;">Go</a> <a href="/helloworld/tags/JavaScript/" style="font-size: 10px;">JavaScript</a> <a href="/helloworld/tags/Laravel/" style="font-size: 10px;">Laravel</a> <a href="/helloworld/tags/MinIO/" style="font-size: 10px;">MinIO</a> <a href="/helloworld/tags/OAuth-2-0/" style="font-size: 10px;">OAuth 2.0</a> <a href="/helloworld/tags/Time/" style="font-size: 10px;">Time</a> <a href="/helloworld/tags/TimeZone/" style="font-size: 10px;">TimeZone</a> <a href="/helloworld/tags/VisualSVN/" style="font-size: 10px;">VisualSVN</a> <a href="/helloworld/tags/WAMP/" style="font-size: 12.5px;">WAMP</a> <a href="/helloworld/tags/Windows/" style="font-size: 10px;">Windows</a> <a href="/helloworld/tags/ajax/" style="font-size: 10px;">ajax</a> <a href="/helloworld/tags/algorithm/" style="font-size: 10px;">algorithm</a> <a href="/helloworld/tags/android/" style="font-size: 18.75px;">android</a> <a href="/helloworld/tags/android-studio/" style="font-size: 10px;">android-studio</a> <a href="/helloworld/tags/api/" style="font-size: 10px;">api</a> <a href="/helloworld/tags/auth/" style="font-size: 10px;">auth</a> <a href="/helloworld/tags/color/" style="font-size: 10px;">color</a> <a href="/helloworld/tags/composer/" style="font-size: 12.5px;">composer</a> <a href="/helloworld/tags/computer/" style="font-size: 10px;">computer</a> <a href="/helloworld/tags/crontab/" style="font-size: 10px;">crontab</a> <a href="/helloworld/tags/cros/" style="font-size: 10px;">cros</a> <a href="/helloworld/tags/css/" style="font-size: 10px;">css</a> <a href="/helloworld/tags/database/" style="font-size: 10px;">database</a> <a href="/helloworld/tags/echarts/" style="font-size: 10px;">echarts</a> <a href="/helloworld/tags/editor/" style="font-size: 10px;">editor</a> <a href="/helloworld/tags/elasticsearch/" style="font-size: 10px;">elasticsearch</a> <a href="/helloworld/tags/emoji/" style="font-size: 10px;">emoji</a> <a href="/helloworld/tags/face-recognition/" style="font-size: 10px;">face_recognition</a> <a href="/helloworld/tags/ffmpeg/" style="font-size: 10px;">ffmpeg</a> <a href="/helloworld/tags/git/" style="font-size: 12.5px;">git</a> <a href="/helloworld/tags/github/" style="font-size: 11.25px;">github</a> <a href="/helloworld/tags/gitlab/" style="font-size: 11.25px;">gitlab</a> <a href="/helloworld/tags/gradle/" style="font-size: 10px;">gradle</a> <a href="/helloworld/tags/hexo/" style="font-size: 11.25px;">hexo</a> <a href="/helloworld/tags/homestead/" style="font-size: 12.5px;">homestead</a> <a href="/helloworld/tags/html/" style="font-size: 10px;">html</a> <a href="/helloworld/tags/http/" style="font-size: 11.25px;">http</a> <a href="/helloworld/tags/https/" style="font-size: 10px;">https</a> <a href="/helloworld/tags/icon/" style="font-size: 10px;">icon</a> <a href="/helloworld/tags/iptables/" style="font-size: 10px;">iptables</a> <a href="/helloworld/tags/jQuery/" style="font-size: 11.25px;">jQuery</a> <a href="/helloworld/tags/java/" style="font-size: 11.25px;">java</a> <a href="/helloworld/tags/javascript/" style="font-size: 16.25px;">javascript</a> <a href="/helloworld/tags/josn-ld/" style="font-size: 10px;">josn-ld</a> <a href="/helloworld/tags/jquery/" style="font-size: 10px;">jquery</a> <a href="/helloworld/tags/json/" style="font-size: 11.25px;">json</a> <a href="/helloworld/tags/jwt/" style="font-size: 10px;">jwt</a> <a href="/helloworld/tags/keyboard/" style="font-size: 10px;">keyboard</a> <a href="/helloworld/tags/kotlin/" style="font-size: 20px;">kotlin</a> <a href="/helloworld/tags/laravel/" style="font-size: 17.5px;">laravel</a> <a href="/helloworld/tags/lemp/" style="font-size: 10px;">lemp</a> <a href="/helloworld/tags/linux/" style="font-size: 16.25px;">linux</a> <a href="/helloworld/tags/markdown/" style="font-size: 11.25px;">markdown</a> <a href="/helloworld/tags/math/" style="font-size: 10px;">math</a> <a href="/helloworld/tags/mysql/" style="font-size: 12.5px;">mysql</a> <a href="/helloworld/tags/nginx/" style="font-size: 12.5px;">nginx</a> <a href="/helloworld/tags/okhttp/" style="font-size: 11.25px;">okhttp</a> <a href="/helloworld/tags/opcache/" style="font-size: 10px;">opcache</a> <a href="/helloworld/tags/oracle/" style="font-size: 12.5px;">oracle</a> <a href="/helloworld/tags/pdf/" style="font-size: 10px;">pdf</a> <a href="/helloworld/tags/pdo-oci/" style="font-size: 10px;">pdo_oci</a> <a href="/helloworld/tags/php/" style="font-size: 15px;">php</a> <a href="/helloworld/tags/phpmyadmin/" style="font-size: 10px;">phpmyadmin</a> <a href="/helloworld/tags/phpstorm/" style="font-size: 10px;">phpstorm</a> <a href="/helloworld/tags/player/" style="font-size: 10px;">player</a> <a href="/helloworld/tags/proguard/" style="font-size: 10px;">proguard</a> <a href="/helloworld/tags/redis/" style="font-size: 12.5px;">redis</a> <a href="/helloworld/tags/regex/" style="font-size: 10px;">regex</a> <a href="/helloworld/tags/room/" style="font-size: 10px;">room</a> <a href="/helloworld/tags/snowflake/" style="font-size: 10px;">snowflake</a> <a href="/helloworld/tags/startup/" style="font-size: 10px;">startup</a> <a href="/helloworld/tags/supervisor/" style="font-size: 10px;">supervisor</a> <a href="/helloworld/tags/ubuntu/" style="font-size: 11.25px;">ubuntu</a> <a href="/helloworld/tags/ui/" style="font-size: 10px;">ui</a> <a href="/helloworld/tags/vscode/" style="font-size: 11.25px;">vscode</a> <a href="/helloworld/tags/vue/" style="font-size: 11.25px;">vue</a> <a href="/helloworld/tags/vue-router/" style="font-size: 10px;">vue-router</a> <a href="/helloworld/tags/web/" style="font-size: 10px;">web</a> <a href="/helloworld/tags/wsl/" style="font-size: 12.5px;">wsl</a> <a href="/helloworld/tags/zmq/" style="font-size: 10px;">zmq</a> <a href="/helloworld/tags/%E4%BA%8C%E7%BB%B4%E7%A0%81/" style="font-size: 10px;">二维码</a> <a href="/helloworld/tags/%E5%89%8D%E7%AB%AF/" style="font-size: 10px;">前端</a> <a href="/helloworld/tags/%E5%A4%A7%E5%AD%A6%E8%AF%BE%E7%A8%8B/" style="font-size: 10px;">大学课程</a> <a href="/helloworld/tags/%E5%A4%A7%E6%95%B0%E6%8D%AE/" style="font-size: 10px;">大数据</a> <a href="/helloworld/tags/%E5%BE%AE%E6%9C%8D%E5%8A%A1/" style="font-size: 10px;">微服务</a> <a href="/helloworld/tags/%E6%89%93%E5%8D%B0/" style="font-size: 10px;">打印</a> <a href="/helloworld/tags/%E6%95%B0%E6%8D%AE%E5%8F%AF%E8%A7%86%E5%8C%96/" style="font-size: 11.25px;">数据可视化</a> <a href="/helloworld/tags/%E6%95%B0%E6%8D%AE%E9%9B%86/" style="font-size: 10px;">数据集</a> <a href="/helloworld/tags/%E6%9E%B6%E6%9E%84/" style="font-size: 10px;">架构</a> <a href="/helloworld/tags/%E6%B0%B4%E5%8D%B0/" style="font-size: 10px;">水印</a> <a href="/helloworld/tags/%E6%B5%8F%E8%A7%88%E5%99%A8/" style="font-size: 10px;">浏览器</a> <a href="/helloworld/tags/%E7%88%AC%E8%99%AB/" style="font-size: 10px;">爬虫</a> <a href="/helloworld/tags/%E7%A7%91%E5%AD%A6%E4%B8%8A%E7%BD%91/" style="font-size: 10px;">科学上网</a> <a href="/helloworld/tags/%E7%BD%91%E5%AE%89/" style="font-size: 10px;">网安</a> <a href="/helloworld/tags/%E8%B5%84%E6%96%99/" style="font-size: 13.75px;">资料</a> <a href="/helloworld/tags/%E9%A1%B9%E7%9B%AE%E7%AE%A1%E7%90%86/" style="font-size: 10px;">项目管理</a> <a href="/helloworld/tags/%E9%A1%B9%E7%9B%AE%E9%83%A8%E7%BD%B2/" style="font-size: 10px;">项目部署</a>
     </div>
   </div>
 
@@ -787,7 +1105,7 @@
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2021/10/">十月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2021/09/">九月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2021/08/">八月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2021/07/">七月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2021/06/">六月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2021/03/">三月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2021/02/">二月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/12/">十二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/11/">十一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/08/">八月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/06/">六月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/05/">五月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/04/">四月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/02/">二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/01/">一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/12/">十二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/10/">十月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/07/">七月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/06/">六月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/05/">五月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/03/">三月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/02/">二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/01/">一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/12/">十二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/11/">十一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/09/">九月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/08/">八月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/07/">七月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/06/">六月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/05/">五月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/04/">四月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/03/">三月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/10/">十月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/08/">八月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/07/">七月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/05/">五月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/04/">四月 2017</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2022/05/">五月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2022/04/">四月 2022</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2021/12/">十二月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2021/10/">十月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2021/09/">九月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2021/08/">八月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2021/07/">七月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2021/06/">六月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2021/03/">三月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2021/02/">二月 2021</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/12/">十二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/11/">十一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/08/">八月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/06/">六月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/05/">五月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/04/">四月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/02/">二月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2020/01/">一月 2020</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/12/">十二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/11/">十一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/10/">十月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/08/">八月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/07/">七月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/06/">六月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/05/">五月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/03/">三月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/02/">二月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2019/01/">一月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/12/">十二月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/11/">十一月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/09/">九月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/08/">八月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/07/">七月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/06/">六月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/05/">五月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/04/">四月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2018/03/">三月 2018</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/11/">十一月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/10/">十月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/08/">八月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/07/">七月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/06/">六月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/05/">五月 2017</a></li><li class="archive-list-item"><a class="archive-list-link" href="/helloworld/archives/2017/04/">四月 2017</a></li></ul>
     </div>
   </div>
 
@@ -800,23 +1118,23 @@
       <ul>
         
           <li>
-            <a href="/helloworld/php-opcache-20211013.html">PHP Opcache</a>
+            <a href="/helloworld/ui-20220528.html">UI</a>
           </li>
         
           <li>
-            <a href="/helloworld/homestead-wsl2-20210901.html">Homestead &amp; WSL 2 - Windows 10</a>
+            <a href="/helloworld/android-materailbutton-20220509.html">Android MaterialButton</a>
           </li>
         
           <li>
-            <a href="/helloworld/devops-resource-20210812.html">服务器管理学习资料</a>
+            <a href="/helloworld/laravel-redis-20220423.html">Laravel 使用 Redis</a>
           </li>
         
           <li>
-            <a href="/helloworld/some-resource-20210810.html">程序员要了解的一些知识</a>
+            <a href="/helloworld/editor-20220420.html">编辑器</a>
           </li>
         
           <li>
-            <a href="/helloworld/bigdata-resource-20210809.html">大数据学习资料</a>
+            <a href="/helloworld/jquery-event-20220409.html">jQuery 事件</a>
           </li>
         
       </ul>
@@ -831,7 +1149,7 @@
   
   <div class="outer">
     <div id="footer-info" class="inner">
-      &copy; 2021 He Fengbao<br>
+      &copy; 2022 He Fengbao<br>
       Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
     </div>
   </div>
