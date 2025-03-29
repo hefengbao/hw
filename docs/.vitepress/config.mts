@@ -2,9 +2,10 @@ import { defineConfig } from 'vitepress'
 
 // https://vitepress.dev/reference/site-config
 export default defineConfig({
+  lang: 'zh-Hans',
   title: "HelloWorld",
-  base: '/helloworld/'
-  description: "A VitePress Site",
+  base: '/helloworld/',
+  description: "一个程序员的笔记",
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     nav: [
