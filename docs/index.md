@@ -4,15 +4,9 @@ layout: home
 
 hero:
   name: "HelloWorld"
-  text: "A VitePress Site"
-  tagline: My great project tagline
+  text: "一个程序员的笔记"
+  tagline: "纸上得来终觉浅，绝知此事要躬行。"
   actions:
-    - theme: brand
-      text: Markdown Examples
-      link: /markdown-examples
-    - theme: alt
-      text: API Examples
-      link: /api-examples
 
 features:
   - title: Feature A
