@@ -16,7 +16,7 @@ https://windows.php.net/download#php-7.3
 
 在 `php.ini` 中修改：
 
-{% img /images/20200206161608.png %}
+![](./src/20200206161608.png)
 
 新打开 `cmd` 或 `Windows PowerShell` 等， 输入 `php -v` 测试是否成功
 
@@ -28,7 +28,7 @@ https://www.oracle.com/cn/database/technologies/instant-client/downloads.html
 
 解压到 `D:/OracleClient`, 在环境变量 `Path` 中添加 `D:/OracleClient`, 在环境变量中添加：
 
-{% img  /images/20200206160233.png %}
+![](./src/20200206160233.png)
 
 在 `php.ini` 中去掉 `extension=oci8_12c` 前面的分号，
 

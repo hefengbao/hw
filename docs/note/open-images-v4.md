@@ -88,7 +88,7 @@ CopyImageID,Source,LabelName,Confidence
 
 可以再在[这里](https://storage.googleapis.com/openimages/web/download.html)找到详细的下载列表，如下图：
 
-{% img /images/zHGPDc2Jxdv3yAEvVXqP5pmbIDTVsmSSjOqWs1sv.png %}
+![](./src/zHGPDc2Jxdv3yAEvVXqP5pmbIDTVsmSSjOqWs1sv.png)
 
 下载列表
 
@@ -96,9 +96,9 @@ CopyImageID,Source,LabelName,Confidence
 
 而图片可以从[Figure Eight](https://www.figure-eight.com/dataset/open-images-annotated-with-bounding-boxes/)或[CVDF](https://github.com/cvdfoundation/open-images-dataset#download-images-with-bounding-boxes-annotations)下载：
 
-{% img /images/QX1SrlV57Gqvw3Ar1I9YywpLPW3ApHng7dNOdw7E.png %}  
+![](./src/QX1SrlV57Gqvw3Ar1I9YywpLPW3ApHng7dNOdw7E.png)
 
-{% img /images/fsRDKR1Faa1jmJBMb884kWLEU9o3OrycUkBx7h9Z.png %}  
+![](./src/fsRDKR1Faa1jmJBMb884kWLEU9o3OrycUkBx7h9Z.png)
 
 ## 参考链接
 

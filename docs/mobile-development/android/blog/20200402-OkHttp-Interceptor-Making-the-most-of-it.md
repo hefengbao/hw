@@ -16,7 +16,7 @@ Today, we will cover the following sections to master it:
 
 In simple words, Interceptors are like the security personnel in the security check process at the Airport. They check our boarding pass, put a stamp on it and then would allow us to pass.
 
-{% img /images/okhttp-interceptor-explain.jpg %}
+![](../src/okhttp-interceptor-explain.jpg)
 
 We can use the interceptors to do so many things, for example, monitor the API calls centrally. Generally, we need to add the logger for each network call, but by using the interceptor, we can add one logger centrally and that will work for all the network calls. Another use-case can be caching the response of network calls to build the offline-first app, we will learn it later in this blog in detail.
 
@@ -137,7 +137,7 @@ Let's say we have the API call from Client to Server and *Cache-Control* header 
 
 But what if the Cache-Control is not enabled from the server. We still can cache the response from OkHttp Client using Interceptor.
 
-{% img /images/okhttp-cache-control-explain.jpg %}
+![](../src/okhttp-cache-control-explain.jpg)
 
 Just see the above image. Here, what we have to do is that we have to intercept the Response before going inside the OkHttp Core and add the header (Cache-Control), so it will be treated as if the response(with the Cache-Control header) has come from the server, and OkHttp Core will respect that and cache the response.
 

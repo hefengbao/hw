@@ -42,7 +42,7 @@ apt-get install php7.4-dev  //为了得到 phpize 这个程序
 
 运行 `sudo pecl install oci8-2.2.0` 命令,
 
-{% img /images/201805/11/1/e2vIPWrMtb.png %}
+![](./src/e2vIPWrMtb.png)
 
 出现如上界面，按提示输入：
 
@@ -52,7 +52,7 @@ instantclient,/opt/oracle/
 
 回车，不出意外，会安装成功。
 
-{% img /images/201805/11/1/e39NyR8ksO.png %}
+![](./src/e39NyR8ksO.png)
 
 按提示，把 `extension=oci8.so` 添加到 `/etc/php/7.4/fpm/php.ini ` 和 `/etc/php/7.4/cli/php.ini ` 中，可通过 `php -m` 或 `echo phpinfo()` 查看。
 

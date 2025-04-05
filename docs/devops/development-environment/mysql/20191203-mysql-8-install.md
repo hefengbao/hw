@@ -65,7 +65,7 @@ https://www.cnblogs.com/keme/p/10288168.html
 
 APT 安装：
 
-{% img  /images/configuring-mysql-community-server.jpg %}
+![](./src/configuring-mysql-community-server.jpg)
 
 
 

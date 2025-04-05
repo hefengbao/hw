@@ -135,7 +135,7 @@ android.applicationVariants.all { variant ->
 
 Something interesting offered in GitHub is the possibility to create a Release in GitHub itself, which we can later use to distribute our artifacts. For instance, see how the Release page for [the version 1.4.2](https://github.com/Kotlin/kotlinx.coroutines/releases/tag/1.4.2) of the Kotlin coroutines looks like:
 
-{% img /images/2021030201.png %}
+![](./src/2021030201.png)
 
 Each of those releases can contain a number of artifacts, source code, documentation, etc. It is also possible to publish some CHANGELOG or notes for a particular release (more on creating this automatically later). It is certainly useful to have this automatically created with the entire process. This is the relevant section that will create the release in GitHub.
 
