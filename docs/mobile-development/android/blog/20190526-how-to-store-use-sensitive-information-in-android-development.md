@@ -1,11 +1,4 @@
----
-title: How To Store Use Sensitive Information In Android Development
-date: 2019-05-26 09:23:01
-updated: 2019-05-26 09:23:01
-tags: android
-categories: Android
-permalink: how-to-store-use-sensitive-information-in-android-development.html
----
+# 【转】How To Store Use Sensitive Information In Android Development
 
 ### Step 1 : Consolidate sensitive information in file(s) and ignore from the repo
 

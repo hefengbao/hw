@@ -1,12 +1,4 @@
----
-title: PHP Opcache
-date: 2021-10-13 09:30:35
-updated: 2021-10-13 09:30:35
-tags: opcache
-categories: PHP
-permalink: php-opcache-20211013.html
----
-
+# PHP Opcache
 ## Ocache 配置项：
 
 ```

@@ -1,11 +1,4 @@
----
-title: OkHttp Interceptor - Making the most of it
-date: 2020-04-02 10:43:50
-updated: 2020-04-02 10:43:50
-tags: okhttp
-categories: Android
-permalink: okhttp-interceptor-making-the-most-of-it.html
----
+# OkHttp Interceptor - Making the most of it
 
 In this blog, we will learn how to work with the OkHttp Interceptors. We will also see the real use cases where we can use it and how we can use it to get the most of it. In Android, we have so many use-cases that can be done using the OkHttp Interceptors.
 

@@ -1,14 +1,5 @@
----
-title: GItlab Upgrade
-date: 2018-09-25 11:11:31
-updated: 2019-03-29 11:23:01
-tags: gitlab
-categories: 
-- 版本控制
-- Gitlab
-permalink: gitlab-upgrade-Mb9qRn4N.html
----
-> 系统：Ubuntu 16.0.4
+# GItlab Upgrade
+
 
 错误：
 

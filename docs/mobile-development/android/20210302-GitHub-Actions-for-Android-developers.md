@@ -1,11 +1,4 @@
----
-title: GitHub Actions for Android developers
-date: 2021-03-02 10:49:41
-updated: 2021-03-02 10:49:41
-tags: github
-categories: 版本控制
-permalink: github-actions-for-android-developers.html
----
+# 【转】GitHub Actions for Android developers
 
 If you are developing Android apps, chances are you have confronted any sort of CI at some point in your career. If you thought Android fragmentation was a thing, the wide availability of CI systems will be familiar to you.
 

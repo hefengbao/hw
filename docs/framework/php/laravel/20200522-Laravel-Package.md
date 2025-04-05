@@ -1,13 +1,4 @@
----
-title: Laravel Package
-date: 2020-05-22 10:02:03
-updated: 2020-05-22 10:02:03
-tags: Laravel
-categories: 
-- PHP
-- Laravel
-permalink: laravel-package.html
----
+# Laravel Package
 
 > Laravel 项目中一些常用的包
 

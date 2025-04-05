@@ -1,11 +1,4 @@
----
-title: Practical ProGuard rules examples
-date: 2019-11-29 16:55:33
-updated: 2019-11-29 16:55:33
-tags: proguard
-categories: Android
-permalink: practical-proguard-rules-examples.html
----
+# Practical ProGuard rules examples
 
 In my previous article I explained [why everyone should use ProGuard for their Android apps](https://medium.com/google-developers/troubleshooting-proguard-issues-on-android-bce9de4f8a74), how to enable it and what kind of errors you might encounter when doing so. There was a lot of theory involved, as I think it’s important to understand the underlying principles in order to be prepared to deal with any potential problems.
 

@@ -1,12 +1,4 @@
----
-title: Vue Router
-date: 2019-07-28 16:18:55
-updated: 2019-07-28 16:18:55
-tags: vue-router
-categories: Vue
-permalink: vue-router.html
----
-
+# Vue Router
 ## Query parameters
 
 `https://something.com/user/456?locale=en`

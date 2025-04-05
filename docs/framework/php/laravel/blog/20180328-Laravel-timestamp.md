@@ -1,13 +1,5 @@
----
-title: Laravel timestamp
-date: 2019-03-28 22:44:35
-updated: 2019-03-28 22:44:35
-tags: laravel
-categories: 
-- PHP
-- Laravel
-permalink: laravel-timestamp.html
----
+# Laravel timestamp
+
 博客数据库中有个 `published_at` 字段，主要是为了实现延迟发布的功能，但发现每次查看博文时，`published_at` 都会自动更新，打开博文时，唯一做的更新操作是为了统计浏览量： ` $post->increment('view_count',1);`， SQL 如下：
 
 ```shell
