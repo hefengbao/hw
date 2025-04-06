@@ -171,21 +171,21 @@ SCARD like:{消息 ID}
 
 [Weiwf/redis-mindmap: 通过思维导图整理redis的重要知识点 (github.com)](https://github.com/Weiwf/redis-mindmap)
 
-![](../src/redis持久化.png)
+![](./src/redis持久化.png)
 
 
-![](../src/redis复制.png)
+![](./src/redis复制.png)
 
-![](../src/redis缓存设计.png)
-
-
-![](../src/redis内存.png)
+![](./src/redis缓存设计.png)
 
 
-![](../src/redis内存优化.png)
+![](./src/redis内存.png)
 
 
-![](../src/redis哨兵.png)
+![](./src/redis内存优化.png)
 
 
-![](../src/redis阻塞.png)
+![](.src/redis哨兵.png)
+
+
+![](redis阻塞.png)

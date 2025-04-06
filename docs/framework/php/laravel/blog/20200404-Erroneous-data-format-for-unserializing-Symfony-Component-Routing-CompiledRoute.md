@@ -7,7 +7,7 @@ ErrorException
 Erroneous data format for unserializing 'Symfony\Component\Routing\CompiledRoute'
 ```
 
-![](../src/2020040401.jpg)
+![](./src/2020040401.jpg)
 
 运行其他一些命令也会出现如上错误，
 

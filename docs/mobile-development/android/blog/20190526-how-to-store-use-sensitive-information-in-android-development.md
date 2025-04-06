@@ -101,7 +101,7 @@ The gradle sync on CI/CD server would fail because it cannot find `keys.properti
 
 You might have guessed : here comes good old environment variables. Every CI/CD system has an entry for environment variables. This screen is from Circle CI for example.
 
-![](../src/2019052601.png)
+![](./src/2019052601.png)
 
 Environment Variables Screen for Circle CI
 

@@ -87,7 +87,7 @@ private fun performLetOperation() {
 
 This can be very helpful if we have nested let blocks, and since all let blocks refer to the context of their respective objects as “it”, it might be difficult for the compiler which objects we are referring to:
 
-![](../src/using-scoped-functions-let-overlap-error.png)
+![](./src/using-scoped-functions-let-overlap-error.png)
 
 - The second advantage is it easily helps in providing null checks. Let’s say we make the “**name**” parameter of the “**Person**” class nullable and we want to print the name of the person only if it is a not null value, then we can write a clean, simple and concise code as follows:
 
@@ -148,7 +148,7 @@ output:
 
 So if **run** is similar to **let** in terms of accepting any return value, what’s the difference? The difference is run refers to the context of the object as “**this**” and not “**it**”. That is the reason we did not use “${this.name}” as it would be redundant here since the block of code understands that “**name**” is used here concerning the **Person** object.
 
-![](../src/using-scoped-functions-run-redundant-this.png)
+![](./src/using-scoped-functions-run-redundant-this.png)
 
 One point here is that since the context is referred to as “**this**”, it cannot be renamed to a readable lambda parameter. So depending on the use case and requirement we have to choose between the let and the run operator. The “**run**” operator also helps in easy null checks similar to the “**let**” operator
 
@@ -183,7 +183,7 @@ The name of the Person is: Abcd
 
 So, if “**with”** is the same as “**run**”, what’s the difference? How should we choose between these two? Now, this is an interesting case. Let’s consider a case where a Person object can be nullable.
 
-![](../src/using-scoped-functions-with-nullable-value.png)
+![](./src/using-scoped-functions-with-nullable-value.png)
 
 we can see that the context of the object referred to as “**this**” is a nullable type of Person. And hence, to correct this, we need to change the code as:
 
@@ -258,7 +258,7 @@ The improved approach from the above code snippet helps in avoiding variable nam
 
 So let’s see the difference between **apply** and **run** functions.
 
-![](../src/using-scoped-functions-apply-vs-run.png)
+![](./src/using-scoped-functions-apply-vs-run.png)
 
 We can see that **run** accepts a return statement whereas **“**apply” does not accept a return statement(we can see the error thrown by the IDE in the image) and always returns the same object which it is referring to.
 
@@ -313,17 +313,17 @@ This way we can execute the intermediate result within the execution chain witho
 
 So let’s see the difference between **also** and **let** functions.
 
-![](../src/using-scoped-functions-also-vs-let.png)
+![](./src/using-scoped-functions-also-vs-let.png)
 
 We can see that **let** accepts a return statement whereas **“also**” does not accept a return statement(we can see the error thrown by the IDE in the image) and always returns the same object which it is referring to.
 
 #### **Summary**
 
-![](../src/using-scoped-functions-summary.png)
+![](./src/using-scoped-functions-summary.png)
 
 We can also represent the summary of choosing between the scoped functions as a flowchart.
 
-![](../src/using-scoped-functions-summary-treediagram.png)
+![](./src/using-scoped-functions-summary-treediagram.png)
 
 That’s all about the Scoped functions in Kotlin. Although we might be using this in our code, we hope that our article has given you a clearer way of understanding and implementing the right scoped function in the right place.  
 

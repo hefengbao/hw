@@ -185,4 +185,4 @@ I hope this article helps you get up-to-speed with Moshi if you are considering 
 
 来源：
 
-<https://proandroiddev.com/getting-started-using-moshi-for-json-parsing-with-kotlin-5a460bf3935a>
+https://proandroiddev.com/getting-started-using-moshi-for-json-parsing-with-kotlin-5a460bf3935a

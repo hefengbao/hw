@@ -29,11 +29,11 @@ QQ 邮箱的设置：
 
 开启 smtp:
 
-![](../src/dy4XZ1CM2r.jpg)
+![](./src/dy4XZ1CM2r.jpg)
 
 如下图，复制左侧生成的授权码作为密码：
 
-![](../src/AJsuZvTwuE.jpg)
+![](AJsuZvTwuE.jpg)
 
 如果要保存已发送的邮箱到服务器，在收取选项中勾选 `SMTP 发信后保存到服务器`。
 

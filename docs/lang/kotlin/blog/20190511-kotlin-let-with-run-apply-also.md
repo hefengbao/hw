@@ -415,7 +415,7 @@ If we need to code something like `if (long...expression.predicate())`, we may n
 
 [作用域函数：let、apply、with、run、also](https://clmirror.storage.googleapis.com/codelabs/java-to-kotlin-zh/index.html#10)
 
-![](../src/Kotlin-Standard-Functions-v1.png)
+![](./src/Kotlin-Standard-Functions-v1.png)
 
 
 

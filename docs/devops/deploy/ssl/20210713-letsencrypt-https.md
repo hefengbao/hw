@@ -6,7 +6,7 @@
 
 使用 [Certbot (eff.org)](https://certbot.eff.org/)，先选择 HTTP 服务器和操作系统，我的是运行在 Ubuntu 上的 nginx:
 
-![](../src/20210713113527.png)
+![](./src/20210713113527.png)
 
 ### 查看是否安装了 `snap`:
 
