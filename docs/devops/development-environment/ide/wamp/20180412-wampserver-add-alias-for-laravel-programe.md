@@ -7,7 +7,7 @@ WAMPSever 可以方便的搭建 PHP 运行环境，当我们运行 Laravel 项�
 配置 alias :
 方法1、如下图：
 
-![](../src/01rV7UQCfS.png)
+![](./src/01rV7UQCfS.png)
 
 一步一步操作。
 

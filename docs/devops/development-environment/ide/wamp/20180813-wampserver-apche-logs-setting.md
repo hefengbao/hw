@@ -2,7 +2,7 @@
 
 WAMPServer 服务器访问出错，想看看访问日志，但是累积的日志文件过大（1.4G），文本编辑器没法打开，便打算做日志分割，在网上找到了办法，并能正确设置，现在记录一下：
 
-![httpd.conf ](../src/YVYYF01Yg8.png)
+![httpd.conf ](./src/YVYYF01Yg8.png)
 
 打开 `httpd.conf ` 文件，查找 `ErrorLog` ,作如下修改：
 
