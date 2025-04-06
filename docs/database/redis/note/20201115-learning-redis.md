@@ -185,7 +185,7 @@ SCARD like:{消息 ID}
 ![](./src/redis内存优化.png)
 
 
-![](.src/redis哨兵.png)
+![](./src/redis哨兵.png)
 
 
 ![](redis阻塞.png)
