@@ -188,4 +188,4 @@ SCARD like:{消息 ID}
 ![](./src/redis哨兵.png)
 
 
-![](redis阻塞.png)
+![](./src/redis阻塞.png)
