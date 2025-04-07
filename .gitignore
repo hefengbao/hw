@@ -6,3 +6,5 @@ node_modules/
 public/
 .deploy*/
 .obsidian/
+docs/.vitepress/cache/
+docs/.vitepress/dist/

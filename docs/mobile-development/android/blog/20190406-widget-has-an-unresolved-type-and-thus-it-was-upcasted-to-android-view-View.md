@@ -14,7 +14,7 @@ permalink: widget-has-an-unresolved-type-and-thus-it-was-upcasted-to-android.vie
 
 `xx.xml`
 
-```android
+```xml
 <com.example.customText
 	adnroid:id='@+id/custom_text'
 	...
@@ -41,7 +41,7 @@ widget has an unresolved type 'com.example.customText',and thus it was upcasted 
 
 需要先做类型转换：
 
-```android
+```kotlin
 val customtext as customText
 customtext.text = 'Hello'
 ```
