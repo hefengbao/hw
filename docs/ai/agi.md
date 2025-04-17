@@ -1,0 +1,1 @@
+通用人工智能(Artificial General Intelligence, AGI)，它指的是能够像人类一样执行任何认知任务的智能系统，具备自主学习、适应和推理的能力。

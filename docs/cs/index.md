@@ -1,4 +1,9 @@
 
+
+[TOML: 简体中文 v1.0.0](https://toml.io/cn/v1.0.0)
+
+
+
 [计算机科学速成课（视频） · 语雀 (yuque.com)](https://www.yuque.com/computer/crush-course)
 
 [【翻译】如何自学现代计算机科学 · 语雀 (yuque.com)](https://www.yuque.com/docs/share/97bb24b7-fe20-49aa-96bf-36033cfebe6c)

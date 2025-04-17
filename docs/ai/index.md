@@ -14,6 +14,11 @@
 
 [Agents.json](https://docs.wild-card.ai/agentsjson/introduction)
 
+
+[Xorbits Inference (Xinference) 是一个开源平台，用于简化各种 AI 模型的运行和集成。](https://inference.readthedocs.io/zh-cn/latest/index.html)
+
+
+
 ## 论文
 
 [Open Deep Search: Democratizing Search with Open-source Reasoning Agents](https://arxiv.org/html/2503.20201v1)

@@ -1,4 +1,7 @@
-## WSL
+## 安装
+
+官方文档 [安装 WSL | Microsoft Learn](https://learn.microsoft.com/zh-cn/windows/wsl/install)
+## 遇到的错误
 
 
 ![](./src/20210615102952.png)
@@ -23,5 +26,4 @@ netsh winsock reset
 
 参考：
 
-[WSL2-参考的对象类型不支持尝试的操作。 - SpringCore - 博客园 (cnblogs.com)](https://www.cnblogs.com/fanqisoft/p/13028976.html)
-
+[🔗](https://www.cnblogs.com/fanqisoft/p/13028976.html)
