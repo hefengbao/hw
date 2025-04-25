@@ -2,7 +2,7 @@
 
 ### OSI
 
-OSI 模型，全称为开放系统互连参考模型（Open System Interconnect），是由国际标准化组织（ISO）和国际电报电话咨询委员会（CCITT）联合制定
+OSI 模型，全称为开放系统互连参考模型（Open System Interconnect），是由国际标准化组织（ISO）和国际电报电话咨询委员会（CCITT）联合制定。
 
 ::: info 网络互连的七层框架
 - 物理层（Physical Layer）
@@ -49,6 +49,7 @@ TCP/IP 模型是一种网络通信协议模型，由传输控制协议（TCP）�
 :::
 
 ### UDP
+
 用户数据报协议（User Datagram Protocol），是 [TCP/IP模型](#tcp-ip) 中的传输层协议之一
 
 ::: info 关于UDP
@@ -56,6 +57,7 @@ TCP/IP 模型是一种网络通信协议模型，由传输控制协议（TCP）�
 - 优劣：虽然效率高，但是稳定性并不强
 - 场景：常用于音频、视频、实时游戏等
 :::
+
 ### HTTP
 
 超文本传输协议(Hypertext Transfer Protocol)，缩写：HTTP
@@ -126,20 +128,21 @@ mKCP是一个基于 UDP 的流式传输协议，由 KCP 协议修改而来，可
 mKCP 同样也是牺牲带宽来降低延迟，传输同样的内容，mKCP 一般比 TCP 消耗更多的流量
 :::
 
-### KCPTUN[​](https://yiov.top/gfw/protocol.html#kcptun)
+### KCPTUN
 
 Kcptun 基于 KCP 协议的 UDP 隧道，它可以将 TCP 流转换为 KCP+UDP 流
 
 仓库：[https://github.com/xtaci/kcptun](https://github.com/xtaci/kcptun)
 
 ## 安全协议
+
 ### TLS
 
 传输层安全性协议(Transport Layer Security)，缩写：TLS
 
 ::: info 关于SSL
 TLS的前身就是安全套接层（SSL，Secure Sockets Layer）
-- 特点：基于 [TCP/IP协议](https://yiov.top/gfw/protocol.html#tcp-ip) 上实现的一种安全协议，采用公开密钥技术
+- 特点：基于 [TCP/IP协议](#tcp-ip) 上实现的一种安全协议，采用公开密钥技术
 - 优劣：密码算法过时，容易被破解，现已用TLS代替
 
 SSL不使用了，浏览器却还是SSL证书
@@ -149,18 +152,18 @@ SSL不使用了，浏览器却还是SSL证书
 :::
 
 ::: info 关于TLS
-- 特点：基于 [TCP/IP协议](https://yiov.top/gfw/protocol.html#tcp-ip) 上实现的一种安全协议
+- 特点：基于 [TCP/IP协议](#tcp-ip) 上实现的一种安全协议
 - 优劣：加密、数据完整性、身份认证；加解密会消耗CPU资源
 :::
 
 ---
 
-### XTLS[​](https://yiov.top/gfw/protocol.html#xtls)
+### XTLS
 
-由 [Project X Community](https://github.com/XTLS/) 开发并维护，基于 [TLS 1.3](l#tls) 开发的网络代理工具
+由 [Project X Community](https://github.com/XTLS/) 开发并维护，基于 [TLS 1.3](#tls) 开发的网络代理工具
 
 ::: info 关于XTLS
-- 特点：使用 [TLS 1.3 协议](https://yiov.top/gfw/protocol.html#tls) 握手，[TCP协议](https://yiov.top/gfw/protocol.html#tcp) 进行传输
+- 特点：使用 [TLS 1.3 协议](#tls) 握手，[TCP协议](#tcp) 进行传输
 - 优劣：通过混淆、伪装和流量控制等技术，增加了网络流量的隐蔽性和安全性；但可能会减慢通信速度
 :::
 
@@ -178,7 +181,7 @@ HTTP 代理协议是一种基于 [HTTP协议](#http) 的特定协议，用于�
 
 ---
 
-Socks5
+### Socks5
 
 防火墙安全会话转换协议(Protocol for sessions traversal across firewall securely)，简称 socks，最新的版本为：socks5
 
@@ -196,6 +199,7 @@ Socks5
 仓库：[https://github.com/shadowsocks/shadowsocks-rust](https://github.com/shadowsocks/shadowsocks-rust)
 
 客户端：[安卓端](https://github.com/shadowsocks/shadowsocks-android/releases)丨[PC端](https://github.com/shadowsocks/shadowsocks-windows/releases)丨[Mac端](https://github.com/shadowsocks/ShadowsocksX-NG/releases/)
+
 
 ### ShadowsocksR
 
@@ -255,7 +259,7 @@ Trojan-Go 兼容原版 Trojan 的绝大多数功能，2020年沿用至今
 - 自定义路由模块，可实现国内外分流 / 广告屏蔽等功能
 :::
 
-### ShadowTLS[​](https://yiov.top/gfw/protocol.html#shadowtls)
+### ShadowTLS
 
 一个可以使用别人的受信证书的 TLS 伪装代理
 
@@ -283,7 +287,7 @@ XrayR:[基于Xray的后端框架](https://github.com/XrayR-project/XrayR)
 :::
 
 ::: info 关于VLESS
-简介：VLESS 是一个无状态的轻量传输协议，最突出的就是它可以配合 [XTLS](https://yiov.top/gfw/protocol.html#xtls) 进行数据加密，效果更好、性能更强
+简介：VLESS 是一个无状态的轻量传输协议，最突出的就是它可以配合 [XTLS](#xtls) 进行数据加密，效果更好、性能更强
 
 优势：在使用 TLS 的情况下，VLess 协议比 VMess 速度更快，性能更好，因为 VLess 不会对数据进行加解密
 :::
@@ -300,7 +304,7 @@ Hysteria 2 基于经过修改的 [QUIC协议](#quic) ，简称hy2
 - 特点：伪装成标准的 HTTP/3 流量，有很强的的防封锁能力；但是无法套CDN
 :::
 
-### mieru[​](https://yiov.top/gfw/protocol.html#mieru)
+### mieru
 
 mieru【見える】是一款安全的、无流量特征、难以主动探测的，基于 TCP 或 UDP 协议的 socks5 / HTTP / HTTPS 网络代理软件
 
