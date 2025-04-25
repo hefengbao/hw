@@ -30,3 +30,7 @@
 
 [Dive into Systems :: Dive Into Systems](https://diveintosystems.org/book/index.html) （教程将从 C 语言展开，带你了解 C 语言调试工具、二进制、冯诺依曼结构、汇编、代码优化、共享内存等相关知识。）
 
+[我认识的最优秀程序员 - OSCHINA - 中文开源技术交流社区](https://www.oschina.net/news/343958)
+
+
+[为什么有些程序员进步飞快？揭秘编码技能的实战获取之道-哔哩哔哩](https://b23.tv/7EhPZWT)

@@ -6,3 +6,10 @@
 [devhubapp/devhub: TweetDeck for GitHub - Filter Issues, Activities & Notifications - Web, Mobile & Desktop with 99% code sharing between them](https://github.com/devhubapp/devhub)
 
 [521xueweihan/HelloGitHub: 分享 GitHub 上有趣、入门级的开源项目](https://github.com/521xueweihan/HelloGitHub)
+
+
+
+
+[jvxiao/speed-github: 一键解决github在国内网页加载和下载速度慢的问题](https://github.com/jvxiao/speed-github)
+
+

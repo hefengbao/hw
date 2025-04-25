@@ -10,8 +10,6 @@
 
 解决办法[🔗](https://blog.csdn.net/m0_54706625/article/details/131902647)：
 
-![](./src/lXIDdKisiF.gif)
-
 
 ```shell
 diskpart

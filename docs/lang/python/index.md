@@ -1,6 +1,7 @@
 
 [Python 3.13.3 文档](https://docs.python.org/zh-cn/3/)
 
+[Python Cookbook 3rd Edition Documentation — python3-cookbook 2.0.0 文档](https://python-cookbook.readthedocs.io/zh-cn/latest/)
 
 ## 包管理工具
 
