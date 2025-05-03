@@ -349,7 +349,7 @@ export default defineConfig({
             { text: 'Laravel timestamp', link: '/framework/php/laravel/blog/20180328-Laravel-timestamp' },
             { text: 'Laravel 用 UUID 做主键', link: '/framework/php/laravel/blog/20180620-laravel-use-uuid-as-primary-key' },
             { text: 'Laravel 备份', link: '/framework/php/laravel/blog/20181114-laravel-backup' },
-            { text: 'Laravel Mail 配置', link: '/framework/php/laravel/20181114-laravel-mail-config' },
+            { text: 'Laravel Mail 配置', link: '/framework/php/laravel/blog/20181114-laravel-mail-config' },
             { text: 'Laravel 定时任务', link: '/framework/php/laravel/blog/20181214-laravel-cron' },
             { text: '【转】浅析 Laravel 文档推荐的 Nginx 配置', link: '/framework/php/laravel/blog/20190821-laravel-recommended-nginx-conf-analysis' },
             { text: 'Erroneous data format for unserializing \'Symfony Component Routing CompiledRoute\'', link: '/framework/php/laravel/blog/20200404-Erroneous-data-format-for-unserializing-Symfony-Component-Routing-CompiledRoute' },
