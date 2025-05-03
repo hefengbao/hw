@@ -235,3 +235,7 @@ def calculate_statistics(numbers):
 参考：
 
 [Python 元组 - 了解如何创建、访问和添加元素 - 《Dive into Python》中文版](https://diveintopython.cn/learn/variables/tuple)
+
+[Python 元组的基本操作 - 排序、比较、切片 - 《Dive into Python》中文版](https://diveintopython.cn/learn/variables/tuple/basic-operations)
+
+[如何在 Python 中将元组转换为其他类型 - 《Dive into Python》中文版](https://diveintopython.cn/learn/variables/tuple/convert)

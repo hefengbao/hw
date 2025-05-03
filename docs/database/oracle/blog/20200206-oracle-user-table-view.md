@@ -1,4 +1,4 @@
-# Oracle-查看某个账户下的表、视图
+# Oracle 查看某个账户下的表、视图
 
 
 select * from all_tab_comments -- 查询所有用户的表,视图等。

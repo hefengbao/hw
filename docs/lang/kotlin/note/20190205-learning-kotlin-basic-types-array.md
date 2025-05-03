@@ -1,4 +1,4 @@
-# Learning Kotlin: 基本类型 - 数组
+# 基本类型 - 数组
 
 数组是一种初始化时指定容器大小， 不可以动态调整其大小的容器。元素按顺序存储在一串连续的内存段上。
 
@@ -22,7 +22,7 @@ val arrayObjects: Array<Any> = arrayOf(1, true, "2", JSONObject())
 
 创建一个指定大小的、所有原色都为空的数组，必须指定集合中的元素类型
 
-```
+```kotlin
 val arrayOfNulls: Array<String?> = arrayOfNulls<String>(5)
 arrayOfNulls[0] = "element1"
 arrayOfNulls[4] = null
@@ -34,7 +34,7 @@ arrayOfNulls[4] = null
 
 动态创建数组，用接受数组大小以及一个方法参数的 Array 构造方法，用作参数的方法能够返回给定索引的每个元素初始值
 
-```
+```kotlin
 val asc = Array(5){ i -> (i * i).toString() } //i = 0, 1, 2, 3, 4
 asc.forEach { println(it) }
 ```
@@ -58,7 +58,7 @@ asc.forEach { println(it) }
 
 
 
-```
+```kotlin
 // IntArray
 val intArr = IntArray(5)
 intArr[0] = 1
@@ -74,7 +74,7 @@ val intArr3 = IntArray(5) { it *2 } // it , lambda 表达式专有变量， 这�
 
 数组的常见操作
 
-```
+```kotlin
 for (item in intArr3 ) {}
 
 for (i int intArr3.indices) {}

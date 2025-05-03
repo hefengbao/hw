@@ -104,6 +104,37 @@ Traceback (most recent call last):
 NameError: name 'y' is not defined
 ```
 
+
+```python
+x = "全局变量"  
+
+def my_function():
+    x = "局部变量"
+    print(x)
+
+my_function() # 输出：局部变量
+
+print(x) # 输出：全局变量
+```
+
+如上述代码所述，`my_function()` 函数中定义的 `x = "局部变量"` 创建了一个新的局部变量，而不是修改全局变量 `x`。
+
+如何在函数内修改全局变量？
+
+```python
+x = "全局变量"  
+
+def my_function():
+    global x
+    x = "局部变量"
+    print(x)
+
+my_function() # 输出：局部变量
+
+print(x) # 输出：局部变量
+```
+
+
 ## 检查变量的类型
 
 ### 函数 `type()`
@@ -373,6 +404,56 @@ print(y)  # NameError: name 'y' is not defined
 请注意， `__del__()` 方法并不保证在所有情况下都会被调用。例如，如果程序突然终止，则可能不会调用该方法。因此，通常不建议依赖此方法来执行关键清理任务。相反，最好在可能的情况下使用其他清理机制，例如 `with` [语句](./statements) 或上下文管理器。
 :::
 
+## 导入变量
+
+例如在 `text.py` 文件中定义变量:
+
+```python
+# text.py
+world = "Hello World."
+python = "Hello Python."
+```
+
+### 从另一个文件中导入变量
+
+
+```python
+import test
+print(test.world) # 输出：Hello World.
+```
+
+### 通过模块导入从另一个文件中导入变量
+
+```python
+from test import world
+print(world) # 输出：Hello World.
+```
+
+### 从另一个文件中导入多个变量
+
+通过在`from ... import`语句后用逗号分隔指定多个变量：
+
+```python
+from test import world, python
+```
+
+### 使用别名
+
+有时，从不同文件中导入时，变量名称可能会冲突或模棱两可，可以使用别人加以区分,，示例：
+
+```python
+from test import world as alias_world
+
+print(alias_world)
+```
+
+### 从不同目录导入模块
+
+Python 支持使用绝对或相对路径从不同目录导入[模块](./modules)。
+
+### 使用 `importlib` 进行动态导入
+
+`importlib` 库允许动态导入，使你能够根据运行时条件导入模块或变量。
 
 
 参考：
@@ -380,3 +461,5 @@ print(y)  # NameError: name 'y' is not defined
 [Python 中的变量 - 变量类型、定义、命名约定 - 《Dive into Python》中文版](https://diveintopython.cn/learn/variables)
 
 [Python 中的变量：如何检查、删除和操作变量 - 《Dive into Python》中文版](https://diveintopython.cn/learn/variables/operations-with-variables)
+
+[Python 函数中的全局变量 - 如何使用、设置和更新 - 《Dive into Python》中文版](https://diveintopython.cn/learn/functions/global-variables)

@@ -1,4 +1,4 @@
-# The following exception is caused by a lack of memory or swap, or not havingswap configured
+# proc_open(): fork failed - Cannot allocate memory
 
 执行 `composer update` 出现如下错误：
 

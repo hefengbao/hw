@@ -9,7 +9,7 @@
 
 资料：
 
-[A practical   guide to   building agents](https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf)
+[A practical guide to building agents](https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf)
 
 [AI Agent调研--7种Agent框架对比！盘点国内一站式Agent搭建平台，一文说清差别！大家都在用Agent做什么？-CSDN博客](https://blog.csdn.net/Python_cocola/article/details/140407020)
 

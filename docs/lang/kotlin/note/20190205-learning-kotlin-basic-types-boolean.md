@@ -1,4 +1,4 @@
-# Learning Kotlin: 基本类型 - 布尔值
+# 基本类型 - 布尔值
 
 
 `Boolean`

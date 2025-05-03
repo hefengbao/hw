@@ -1,4 +1,5 @@
 # Vue Router
+
 ## Query parameters
 
 `https://something.com/user/456?locale=en`

@@ -1,15 +1,5 @@
----
-title: 
-date: 2020-02-06 14:53:22
-updated: 2020-02-06 14:53:22
-tags:
-  - git
-categories:
-  - 版本控制
-  - Git
-permalink: .html
----
-# Git 新建项目初始化
+# Github 新建项目初始化
+
 ### Command line instructions
 
 You can also upload existing files from your computer using the instructions below.

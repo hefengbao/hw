@@ -1,11 +1,4 @@
----
-title: 'Learning Kotlin: 基本类型 - 字符'
-date: 2019-02-05 16:15:19
-tags: kotlin
-categories: Kotlin
-permalink: learning-kotlin-basic-types-char.html
----
-# Learning Kotlin: 基本类型 - 字符
+# 基本类型 - 字符
 
 
 `Char`
@@ -16,7 +9,7 @@ permalink: learning-kotlin-basic-types-char.html
 
 
 
-```
+```kotlin
 val char: Char = 'a'
 ```
 

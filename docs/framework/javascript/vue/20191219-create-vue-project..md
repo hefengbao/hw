@@ -86,7 +86,3 @@ Vue-Router 利用了浏览器自身的hash 模式和 history 模式的特性来�
 ```shell
 ? Savethisasa presetforfuture projects? (Y/n)  // y:记录本次配置，然后需要你起个名; n：不记录本次配置
 ```
-
-来源：
-
-https://my.oschina.net/u/4203303/blog/3144340

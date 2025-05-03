@@ -1,13 +1,4 @@
----
-title: Ubuntu iptables
-date: 2020-04-30 11:09:23
-updated: 2020-04-30 11:09:23
-tags: iptables
-categories: 
-- Linux
-- Ubuntu
-permalink: ubuntu-iptables.html
----
+# Ubuntu iptables
 
 Ubuntu 编写的 iptables 规则，在重启后会失效；使用 `iptables-persistent` 持久化保存。
 

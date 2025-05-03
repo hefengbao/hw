@@ -227,3 +227,6 @@ with open("example.txt", "w") as file:
 参考：
 
 [如何在 Python 中处理文件：读取、写入和文件操作 - 《Dive into Python》中文版](https://diveintopython.cn/learn/file-handling)
+
+[在 Python 中将文件读入字符串，探索“with”语句 - 《Dive into Python》中文版](https://diveintopython.cn/learn/variables/string/read-from-file)
+

@@ -1,4 +1,4 @@
-Ubuntu 安装 gitlab
+# Ubuntu 安装 gitlab
 
 *这里选用的是社区版（ce）*
 

@@ -1,3 +1,5 @@
+#WSL
+
 ## 安装
 
 官方文档 [安装 WSL | Microsoft Learn](https://learn.microsoft.com/zh-cn/windows/wsl/install)

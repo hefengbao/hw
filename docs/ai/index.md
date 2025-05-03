@@ -51,7 +51,7 @@
 
 [fengdu78/lihang-code: 《统计学习方法》的代码实现 (github.com)](https://github.com/fengdu78/lihang-code)
 
-### 深度学习：
+## 深度学习
 
 [《动手学深度学习》 — 动手学深度学习 2.0.0-alpha2 documentation (d2l.ai)](https://zh-v2.d2l.ai/)
 

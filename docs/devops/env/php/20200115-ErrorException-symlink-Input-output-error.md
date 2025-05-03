@@ -1,13 +1,4 @@
----
-title: 'ErrorException  : symlink(): Input/output error'
-date: 2020-01-15 13:31:24
-updated: 2020-01-15 13:31:24
-tags: homestead
-categories: 
-- PHP
-- Laravel
-permalink: symlink-inputouput-error.html
----
+# ErrorException  : symlink(): Input/output error
 
 在 Windows 10 环境下， 项目中 `php artisan storage:link` 命令生成软连接，但是访问时总是提示 `404` 错误，于是远程到 homestead 环境创建软连接：
 
