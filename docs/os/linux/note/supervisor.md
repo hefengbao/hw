@@ -10,22 +10,28 @@ Supervisor [官方](http://www.supervisord.org/installing.html) 提供的安装�
 
 ### 安装pip
 
-```
-$ yum install python-pip# 升级pip$ pip install --upgrade pip$ pip -Vpip 9.0.1
+```shell
+$ yum install python-pip
+
+# 升级pip
+
+$ pip install --upgrade pip
+
+$ pip -V
 ```
 
 ### 安装Supervisor
 
 通过 pip 安装 Supervisor：
 
-```
-$ pip install supervisorSuccessfully installed supervisor-3.3.3
+```shell
+$ pip install supervisor
 ```
 
 安装 Supervisor 后，会出现 supervisorctl 和 supervisord 两个程序，其中 supervisorctl 为服务监控终端，而 supervisord 才是所有监控服务的大脑。查看 supervisord 是否安装成功：
 
-```
-$ supervisord -v3.3.3
+```shell
+$ supervisord -v
 ```
 
 ### 开机启动
@@ -34,7 +40,7 @@ $ supervisord -v3.3.3
 
 修改关键路径配置：
 
-```
+```shell
 PIDFILE=/var/run/supervisord.pid
 LOCKFILE=/var/lock/subsys/supervisord
 OPTIONS="-c /etc/supervisord.conf"
@@ -42,13 +48,13 @@ OPTIONS="-c /etc/supervisord.conf"
 
 移到该文件到`/etc/init.d`目录下，并重命名为 supervisor，添加可执行权限：
 
-```
+```shell
 $ chmod 777 /etc/init.d/supervisor
 ```
 
 配置成开机启动服务：
 
-```
+```shell
 $ chkconfig --add supervisor
 $ chkconfig supervisor on
 $ chkconfig --list | grep "supervisor"
@@ -61,7 +67,7 @@ supervisor  0:off 1:off 2:on 3:on 4:on 5:on 6:off
 
 Supervisord 安装后，需要使用如下命令生成配置文件。
 
-```
+```shell
 $ mkdir /etc/supervisor
 $ echo_supervisord_conf > /etc/supervisor/supervisord.conf
 ```
@@ -70,7 +76,7 @@ $ echo_supervisord_conf > /etc/supervisor/supervisord.conf
 
 `supervisord.conf`的主配置部分说明：
 
-```
+```shell
 [unix_http_server]
 file=/tmp/supervisor.sock   ; socket文件的路径
 ;chmod=0700                 ; socket文件权限
@@ -119,7 +125,7 @@ files = /etc/supervisor/*.ini ; 多个进程的配置文件
 
 Supervisor 需管理的进程服务配置，示例如下：
 
-```
+```shell
 [program:work]                      ; 服务名，例如work
 command=php -r "sleep(10);exit(1);" ; 带有参数的可执行命令
 process_name=%(process_num)s        ; 进程名，当numprocs>1时，需包含%(process_num)s
@@ -155,7 +161,7 @@ stdout_logfile=/data/logs/work.log ; 进程的stdout的日志路径
 
 配置完成后，启动 supervisord 守护服务：
 
-```
+```shell
 $ supervisord -c /etc/supervisor/supervisord.conf
 ```
 
@@ -168,7 +174,7 @@ $ supervisord -c /etc/supervisor/supervisord.conf
 
 查看 supervisord 启动情况：
 
-```
+```shell
 $ ps -ef | grep "supervisor"
 root  24901  1  0 Sep23 ? 00:00:30 /usr/bin/python /usr/bin/supervisord -c /etc/supervisor/supervisord.conf
 $ netstat -tunpl
@@ -183,7 +189,7 @@ Supervisor 提供了多种监控服务的方式，包括 supervisorctl 命令行
 
 直接使用 supervisorctl 即可在命令行终端查看所有服务的情况，如下：
 
-```
+```shell
 $ supervisorctl 
 work:0      RUNNING   pid 31313, uptime 0:00:07
 work:1      RUNNING   pid 31318, uptime 0:00:06
@@ -203,9 +209,3 @@ supervisorctl 常用命令列表如下；
 ### Web
 
 在配置中开启 inet_http_server 后，即可通过 Web 界面便捷地监控进程服务了。
-
-
-
-来源：
-
-https://www.fanhaobai.com/2017/09/supervisor.html
