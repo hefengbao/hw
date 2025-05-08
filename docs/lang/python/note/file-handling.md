@@ -128,7 +128,7 @@ shutil.move("example.txt", "./file/example.txt") # 移动到当前目录下的 f
 
 
 
-## 取文件大小
+## 获取文件大小
 
 `os.path` 模块提供了一个便捷的方法 `getsize()`，用于以字节为单位检索文件的大小。
 
