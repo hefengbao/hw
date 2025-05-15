@@ -58,3 +58,7 @@
 [rasbt/deeplearning-models: A collection of various deep learning architectures, models, and tips (github.com)](https://github.com/rasbt/deeplearning-models)
 
 [面向机器学习的特征工程](http://fe4ml.apachecn.org/#/?id=面向机器学习的特征工程)
+
+
+
+[爆火MCP的来时路：LLM开启超进化，从函数调用到通用上下文协议](https://mp.weixin.qq.com/s/1lfpd_6vckF5iiCFRpw2mQ)

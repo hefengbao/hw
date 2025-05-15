@@ -38,9 +38,14 @@ export default defineConfig({
           { text: 'Html', link: '/lang/html/', activeMatch: '/lang/html/*' },
           { text: 'Java', link: '/lang/java/', activeMatch: '/lang/java/*' },
           { text: 'Javascript', link: '/lang/javascript/', activeMatch: '/lang/javascript/*' },
+          { text: 'JSON', link: '/lang/json/', activeMatch: '/lang/json/*' },
           { text: 'Kotlin', link: '/lang/kotlin/', activeMatch: '/lang/kotlin/*' },
+          { text: 'Markdown', link: '/lang/markdown/', activeMatch: '/lang/markdown/*' },
           { text: 'PHP', link: '/lang/php/', activeMatch: '/lang/php/*' },
           { text: 'Python', link: '/lang/python/', activeMatch: '/lang/python/*' },
+          { text: 'TOML', link: '/lang/toml/', activeMatch: '/lang/toml/*' },
+          { text: 'XML', link: '/lang/xml/', activeMatch: '/lang/xml/*' },
+          { text: 'YAML', link: '/lang/yaml/', activeMatch: '/lang/yaml/*' },
         ]
       },
       {
@@ -55,6 +60,7 @@ export default defineConfig({
               { text: 'Vue', link: '/framework/javascript/vue/',activeMatch: '/framework/javascript/vue/*' },
             ]
           },
+          { text: 'KMP', link: '/framework/kmp/', activeMatch: '/framework/kmp/*' },
           {
             text: 'PHP',
             items: [
@@ -116,10 +122,19 @@ export default defineConfig({
           text: '笔记', 
           items: [
             { text: '概述', link: '/ai/note/overview' },
-            { text: '自然语言处理', link: '/ai/note/nlp' },
-            { text: '通用人工智能', link: '/ai/note/agi' },
-            { text: '智能体', link: '/ai/note/agent' },
+            { text: '自然语言处理（NLP）', link: '/ai/note/nlp' },
+            { text: '通用人工智能（AGI）', link: '/ai/note/agi' },
+            { text: '大模型（LLM）', link: '/ai/note/llm' },
+            { text: 'LangChain', link: '/ai/note/lang-chain' },
+            { text: '智能体（Agent）', link: '/ai/note/agent' },
             { text: 'MCP', link: '/ai/note/mcp' },
+            { text: 'OpenManus', link: '/ai/note/open-manus' },
+            { 
+              text: 'Ollama', 
+              items: [
+                { text: '安装 & 配置', link: '/ai/note/ollama/index' },
+              ]
+            },
           ]
         },
       ],
@@ -270,6 +285,21 @@ export default defineConfig({
             },
           ]
         },
+        {
+          text: 'Python',
+          items: [
+            { text: '安装', link: '/devops/env/python/install' },
+            { text: 'IDE', link: '/devops/env/python/ide' },
+            { text: '虚拟环境', link: '/devops/env/python/venv' },
+            { 
+              text: '包管理', 
+              items: [
+                { text: 'pip', link: '/devops/env/python/pip' },
+                { text: 'uv', link: '/devops/env/python/uv' },
+              ]
+            },
+          ]
+        },
         { 
           text: 'Redis', 
           items: [
@@ -336,6 +366,9 @@ export default defineConfig({
         { text: 'Vue 配置', link: '/framework/javascript/vue/20191214-vue-conifg' },
         { text: 'Vue 路由', link: '/framework/javascript/vue/20190728-Vue-Router' },
       ],
+      '/framework/kmp': [
+        { text: '开篇', link: '/framework/kmp/index' },
+      ],
       '/framework/php/filament/': [
         { text: '开篇', link: '/framework/php/filament/index' },
       ],
@@ -389,6 +422,9 @@ export default defineConfig({
             { text: 'can not read a block mapping entry; a multiline key may not be an implicit key', link: '/lang/javascript/blog/20200101-can-not-read-a-block-mapping-entry-a-multiline-key-may-not-be-an-implicit-key' },
           ]
         },
+      ],
+      '/lang/json/': [
+        { text: '开篇', link: '/lang/json/index' },
       ],
       '/lang/kotlin/': [
         { text: '开篇', link: '/lang/kotlin/index' },
@@ -445,6 +481,9 @@ export default defineConfig({
           ]
         }
       ],
+      '/lang/markdown/': [
+        { text: '开篇', link: '/lang/markdown/index' },
+      ],
       '/lang/php/': [
         { text: '开篇', link: '/lang/php/index' },
         { text: '包', link: '/lang/php/20210727-PHP-Package' },
@@ -460,8 +499,6 @@ export default defineConfig({
         {
           text: '笔记',
           items: [
-            { text: '安装', link: '/lang/python/note/install' },
-            { text: 'IDE', link: '/lang/python/note/ide' },
             { text: '基础', link: '/lang/python/note/basic' },
             { 
               text: '数据类型', 
@@ -478,6 +515,15 @@ export default defineConfig({
           ]
         }
       ],
+      '/lang/toml/': [
+        { text: '开篇', link: '/lang/toml/index' },
+      ],
+      '/lang/xml/': [
+        { text: '开篇', link: '/lang/xml/index' },
+      ],
+      '/lang/yaml/': [
+        { text: '开篇', link: '/lang/yaml/index' },
+      ],
       '/os/linux/': [
         { text: '开篇', link: '/os/linux/index' },
         {
@@ -489,6 +535,7 @@ export default defineConfig({
             { text: '磁盘', link: '/os/linux/note/disk' },
             { text: '包管理', link: '/os/linux/note/package-manager' },
             { text: 'Supervisor', link: '/os/linux/note/supervisor' },
+            { text: '环境变量', link: '/os/linux/note/environment-variables' },
           ]
         },
         {
@@ -505,6 +552,7 @@ export default defineConfig({
         { text: '软件', link: '/os/windows/softwate' },
         { text: 'USB 设备', link: '/os/windows/usb-device' },
         { text: 'WSL', link: '/os/windows/wsl' },
+        { text: '环境变量', link: '/os/windows/note/environment-variables' },
       ],
       '/web-development/': [
         { text: '开篇', link: '/web-development/index' },

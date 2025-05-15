@@ -13,4 +13,8 @@
 
 [jvxiao/speed-github: 一键解决github在国内网页加载和下载速度慢的问题](https://github.com/jvxiao/speed-github)
 
+[GitHub 入门文档](https://docs.github.com/zh/get-started/start-your-journey)
 
+[GitHub 新手训练营 | GitHub 中文社区](https://www.github-zh.com/getting-started)
+
+[使用 GitHub_GitHub中文网](https://github.net.cn/zh/get-started/using-github)
