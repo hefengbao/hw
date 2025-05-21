@@ -354,9 +354,15 @@ export default defineConfig({
         { 
           text: '插件', 
           items: [
-            { text: '图片查看器', link: '/framework/javascript/vitepress/vitepress-plugin-image-viewer' },
-            { text: 'Giscus 评论系统', link: '/framework/javascript/vitepress/vitepress-plugin-comment-with-giscus' },
-            { text: '哔哩哔哩视频', link: '/framework/javascript/vitepress/vitepress-plugin-bilibili-video' },
+            { text: '图片查看器', link: '/framework/javascript/vitepress/plugins/vitepress-plugin-image-viewer' },
+            { text: 'Giscus 评论系统', link: '/framework/javascript/vitepress/plugins/vitepress-plugin-comment-with-giscus' },
+            { text: '哔哩哔哩视频', link: '/framework/javascript/vitepress/plugins/vitepress-plugin-bilibili-video' },
+          ]
+        },
+        { 
+          text: '博客', 
+          items: [
+            { text: 'https://hefengbao.github.io 无法加载样式', link: '/framework/javascript/vitepress/blog/2025-05-21-hefengbao-github-io-can-not-load-style' },
           ]
         },
       ],
