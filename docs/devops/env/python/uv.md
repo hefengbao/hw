@@ -30,6 +30,10 @@ uv init <project_name>
 ## 创建虚拟环境
 
 ```shell
+uv venv
+
+# 或者
+
 uv sync
 ```
 

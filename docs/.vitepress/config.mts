@@ -22,7 +22,7 @@ export default defineConfig({
     },
     footer: {
       message: '亲手创建自己所需的软件，是程序员的幸运。',
-      copyright: 'Copyright © 2025 ♥贺丰宝♥'
+      copyright: `Copyright © 2019-${new Date().getFullYear()} ♥贺丰宝♥`
     },
     docFooter: {
       prev: '上一页',
