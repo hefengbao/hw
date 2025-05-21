@@ -10,9 +10,6 @@ export default {
     ...DefaultTheme,
     enhanceApp(ctx) {
         DefaultTheme.enhanceApp(ctx);
-        // 注册全局组件，如果你不想使用也可以不添加
-        ctx.app.component('vImageViewer', vImageViewer);
-        // ...
     },
     setup() {
         // 获取路由
