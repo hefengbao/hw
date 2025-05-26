@@ -3,6 +3,11 @@
 
 [Python Cookbook 3rd Edition Documentation — python3-cookbook 2.0.0 文档](https://python-cookbook.readthedocs.io/zh-cn/latest/)
 
+
+## 类型检查工具
+
+[facebook/pyrefly: A fast type checker and IDE for Python](https://github.com/facebook/pyrefly/)
+
 ## 包管理工具
 
 pip

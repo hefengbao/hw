@@ -2,24 +2,24 @@
 
 The methods which begin with two underscores (__) are called Magic Methods in PHP, and they play an important role. Magic methods include:
 
-| Method Name                        | Description                                                                                                  |
-|:---------------------------------- |:------------------------------------------------------------------------------------------------------------ |
-| __construct()                      | the constructor of a class                                                                                   |
-| __destruct()                       | the destructor of a class                                                                                    |
-| __call($funName, $arguments)       | The __call() method will be called when an undefined or inaccessible method is called.                       |
-| __callStatic($funName, $arguments) | The __callStatic() method will be called when an undefined or inaccessible static method is called.          |
-| __get($propertyName)               | The __get() method will be called when getting a member variable of a class.                                 |
-| __set($property, $value)           | The __set() method will be called when setting a member variable of a class.                                 |
-| __isset($content)                  | The __isset() method will be called when calling isset() or empty() for an undefined or inaccessible member. |
-| __unset($content)                  | The __unset() method will be called when calling reset() for an undefined or inaccessible member.            |
-| __sleep()                          | The __sleep() method will be called first when executing serialize().                                        |
-| __wakeup()                         | The __wakeup() method will be called first when deserialization() is executed.                               |
-| __toString()                       | The __toString() method will be called when using echo method to print an object directly.                   |
-| __invoke()                         | The __invoke() method will be called when trying to call an object in a way of calling function.             |
-| __set_state($an_array)             | The __set_state() method will be called when calling var_export().                                           |
-| __clone()                          | The __clone() method will be called when the object is copied.                                               |
-| __autoload($className)             | Try to load an undefined class.                                                                              |
-| __debugInfo()                      | Print debug information.                                                                                     |
+| Method Name                        | Description                                                                                                  |                               |
+| :--------------------------------- | :----------------------------------------------------------------------------------------------------------- | ----------------------------- |
+| __construct()                      | the constructor of a class                                                                                   | 类的构造函数                        |
+| __destruct()                       | the destructor of a class                                                                                    | 类的析构函数                        |
+| __call($funName, $arguments)       | The __call() method will be called when an undefined or inaccessible method is called.                       | 在对象中调用一个不可访问方法时调用             |
+| __callStatic($funName, $arguments) | The __callStatic() method will be called when an undefined or inaccessible static method is called.          | 用静态方式中调用一个不可访问方法时调用           |
+| __get($propertyName)               | The __get() method will be called when getting a member variable of a class.                                 | 获得一个类的成员变量时调用                 |
+| __set($property, $value)           | The __set() method will be called when setting a member variable of a class.                                 | 设置一个类的成员变量时调用                 |
+| __isset($content)                  | The __isset() method will be called when calling isset() or empty() for an undefined or inaccessible member. | 当对不可访问属性调用isset()或empty()时调用  |
+| __unset($content)                  | The __unset() method will be called when calling reset() for an undefined or inaccessible member.            | 当对不可访问属性调用unset()时被调用。        |
+| __sleep()                          | The __sleep() method will be called first when executing serialize().                                        | 执行serialize()时，先会调用这个函数       |
+| __wakeup()                         | The __wakeup() method will be called first when deserialization() is executed.                               | 执行unserialize()时，先会调用这个函数     |
+| __toString()                       | The __toString() method will be called when using echo method to print an object directly.                   | 类被当成字符串时的回应方法                 |
+| __invoke()                         | The __invoke() method will be called when trying to call an object in a way of calling function.             | 调用函数的方式调用一个对象时的回应方法           |
+| __set_state($an_array)             | The __set_state() method will be called when calling var_export().                                           | 调用var_export()导出类时，此静态方法会被调用。 |
+| __clone()                          | The __clone() method will be called when the object is copied.                                               | 当对象复制完成时调用                    |
+| __autoload($className)             | Try to load an undefined class.                                                                              | 尝试加载未定义的类                     |
+| __debugInfo()                      | Print debug information.                                                                                     | 打印所需调试信息                      |
 
 In this article, we will show you how to use these PHP magic methods with some examples.
 

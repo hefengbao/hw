@@ -2,7 +2,7 @@
 
 ## Ocache 配置项：
 
-```
+```shell
 [opcache]
 ; 是否快开启opcache缓存。
 ;opcache.enable=1

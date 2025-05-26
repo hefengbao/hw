@@ -1,10 +1,138 @@
 # Ubuntu 安装 Oracle Instant Client 和 OCI
 
+
+下载 oracle 的 instantclient [https://www.oracle.com/database/technologies/instant-client/linux-x86-64-downloads.html](https://www.oracle.com/database/technologies/instant-client/linux-x86-64-downloads.html) :
+
+```shell
+cd /home/bao
+
+wget https://download.oracle.com/otn_software/linux/instantclient/2111000/instantclient-basic-linux.x64-21.11.0.0.0dbru.zip
+wget https://download.oracle.com/otn_software/linux/instantclient/2111000/instantclient-sdk-linux.x64-21.11.0.0.0dbru.zip
+
+unzip instantclient-basic-linux.x64-21.11.0.0.0dbru.zip
+unzip instantclient-sdk-linux.x64-21.11.0.0.0dbru.zip
+```
+
+如果没有安装 `unzip`:
+
+```shell
+apt install unzip
+```
+
+放到 ` /opt/oracle/` 目录下（可选项）：
+
+```shell
+mkdir /opt/oracle
+
+mv  instantclient_21_11/  /opt/oracle/instantclient_21_11/
+```
+
+设置环境变量：
+
+```shell
+export LD_LIBRARY_PATH=/opt/oracle/instantclient_21_11:$LD_LIBRARY_PATH
+```
+
+添加环境变量到 `.bashrc`，使终端重启时仍然生效：
+
+```shell
+vi ~/.bashrc
+```
+
+在最后一行添加：
+
+```shell
+export LD_LIBRARY_PATH=/opt/oracle/instantclient_21_11:$LD_LIBRARY_PATH
+```
+
+保存后，运行如下命令使其生效：
+
+```shell
+source ~/.bashrc
+```
+
+我选择的 instantclient 需要 `glibc 2.14` 以上的版本，安装参考 [Ubuntu 安装 glibc](https://hefengbao.github.io/hw/os/linux/blog/20230709-ubuntu-install-glibc)。
+
+可通过如下命令查看 glibc 版本 ：
+
+```shell
+ldd --version
+```
+
+下载 oci8 并解压：
+
+```shell
+cd ~
+wget https://pecl.php.net/get/oci8-3.3.0.tgz
+tar -zxf oci8-3.3.0.tgz
+cd oci8-3.3.0
+```
+
+安装 oci8：
+
+```shell
+phpize
+
+./configure -with-oci8=shared,instantclient,/opt/oracle/instantclient_21_11
+
+make & make install
+```
+
+成功后的消息：
+
+```shell
+Libraries have been installed in:
+   /root/oci8-3.3.0/modules
+
+If you ever happen to want to link against installed libraries
+in a given directory, LIBDIR, you must either use libtool, and
+specify the full pathname of the library, or use the '-LLIBDIR'
+flag during linking and do at least one of the following:
+   - add LIBDIR to the 'LD_LIBRARY_PATH' environment variable
+     during execution
+   - add LIBDIR to the 'LD_RUN_PATH' environment variable
+     during linking
+   - use the '-Wl,-rpath -Wl,LIBDIR' linker flag
+   - have your system administrator add LIBDIR to '/etc/ld.so.conf'
+
+See any operating system documentation about shared libraries for
+more information, such as the ld(1) and ld.so(8) manual pages.
+----------------------------------------------------------------------
+Installing shared extensions:     /usr/lib/php/20220829/
+```
+
+编辑 `php.ini`，在 【Dynamic Extensions 】后添加如下内容：
+
+```shell
+extension=oci8.so
+```
+
+```shell
+vi /etc/php/8.2/cli/php.ini
+vi /etc/php/8.2/fpm/php.ini
+```
+
+在 cli 模式下用的好好的，但是部署到服务器后，出现错误 `Undefined constant "Yajra\Pdo\OCI_DEFAULT" found` ，最后解决方法：
+
+```shell
+sudo sh -c "echo /opt/oracle/instantclient_21_11 > \
+      /etc/ld.so.conf.d/oracle-instantclient.conf"
+sudo ldconfig
+```
+
+这样总算可以了！！！
+
+参考：
+
+[https://pecl.php.net/package/oci8](https://pecl.php.net/package/oci8)
+
+[https://www.php.net/manual/zh/oci8.installation.php](https://www.php.net/manual/zh/oci8.installation.php)
+
+--
+
 高版本需要安装 `glibc  2.14` 及以上版本
 
 [glibc的安装配置_glibc环境变量](https://blog.csdn.net/mengzhongsuiyi521/article/details/88432237)
-
-
 
 ## ZIP 文件安装
 

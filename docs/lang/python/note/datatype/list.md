@@ -132,7 +132,7 @@ print(my_list) # Output: [0, 2, 3, 4, 5]
 
 ### `insert()` 方法
 
-`insert()` 方法可用于在指定索引处将元素追加到列表中。使用 `insert()` 方法的语法如下
+`insert()` 方法可用于**在指定索引处将元素追加到列表中**。使用 `insert()` 方法的语法如下
 
 ```python
 list.insert(index, element)
@@ -148,7 +148,7 @@ print(my_list)  # [1, 2, 'hello', 3, 4]
 
 ### `append()` 方法
 
-要向 Python 列表的末尾插入元素，可以使用 `append()` 方法。
+要向 Python 列表的**末尾插入元素**，可以使用 `append()` 方法。
 
 ```python
 my_list = [1, 2, 3, 4]
@@ -158,7 +158,7 @@ print(my_list)  # [1, 2, 3, 4, 5]
 
 ### `extend()` 方法
 
-Python 中的 `extend()` 方法用于将可迭代对象（例如列表、元组、集合或字符串）中的元素追加到现有列表的末尾。
+Python 中的 `extend()` 方法用于将可迭代对象（例如列表、元组、集合或字符串）中的元素**追加到现有列表的末尾**。
 
 ```python
 # Create a list
@@ -225,7 +225,7 @@ print(evens)  # Output: [2, 4, 6, 8, 10]
 
 ```python
 my_list = [1, 2, 3, 4, 5]
-my_list.remove(3)
+my_list.remove(3) # 3 是元素
 print(my_list) 
 
 # Output: [1, 2, 4, 5]
@@ -233,23 +233,23 @@ print(my_list)
 
 ```python
 my_list = [1, 2, 3, 4, 5, 3]
-my_list.remove(3)
+my_list.remove(3) # 3 是元素
 print(my_list) 
 
 # Output: [1, 2, 4, 5, 3]
 ```
 
-使用 `del` 语句从列表中删除元素，根据索引删除。
+使用 `del` 语句从列表中删除元素，根据**索引**删除。
 
 ```python
 my_list = [1, 2, 3, 4, 5]
-del my_list[2]
+del my_list[2] # 2 是索引
 print(my_list)
 
 # Output: [1, 2, 3, 5]
 ```
 
-从列表中删除第一个元素，可以使用 `del` 语句或 `pop()` 方法，根据索引删除。。
+从列表中删除第一个元素，可以使用 `del` 语句或 `pop()` 方法，根据**索引**删除。。
 
 ```python
 my_list = [1, 2, 3, 4, 5]

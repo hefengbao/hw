@@ -10,37 +10,37 @@
 
 ### 查看是否安装了 `snap`:
 
-```
+```shell
 snap --version 
 ```
 
 没有安装，则：
 
-```
+```shell
 sudo apt install snapd
 ```
 
 ### 确保 `snapd` 更新到最新：
 
-```
+```shell
 sudo snap install core;sudo snap refresh core
 ```
 
 ### 安装 `Certbot`:
 
-```
+```shell
 sudo snap install --classic certbot
 ```
 
 ### 添加 `certbot` 到命令行：
 
-```
+```shell
 sudo ln -s /snap/bin/certbot /usr/bin/certbot
 ```
 
 查看设否设置成功：
 
-```
+```shell
 certbot --version
 ```
 
@@ -48,25 +48,25 @@ certbot --version
 
 首先应配置好站点，准确的说应在 `/etc/nginx/sites-available/` 目录下配置站点信息，主要是域名信息， 并软连接到 `/etc/nginx/sites-enabled/` 目录下，并重启 `nginx`, 运行：
 
-```
+```shell
 sudo certbot --nginx
 ```
 
 仅生成证书，不修改 Nginx 配置：
 
-```
+```shell
 sudo certbot --nginx certonly
 ```
 
 手动输入域名生成证书：
 
-```
+```shell
 sudo certbot certonly --manual
 ```
 
 生成的证书有效期 90 天，开启定时任务续订：
 
-```
+```shell
 sudo crontab -u root -e
 0 3 1 * * certbot renew --dry-run
 #sudo systemctl reload crond
