@@ -1,12 +1,4 @@
----
-title: 'widget has an unresolved type,and thus it was upcasted to android.view.View'
-date: 2019-04-06 11:22:34
-updated: 2019-04-06 11:22:34
-tags: 
-- kotlin
-categories: Android
-permalink: widget-has-an-unresolved-type-and-thus-it-was-upcasted-to-android.view.View.html
----
+# widget has an unresolved type,and thus it was upcasted to android.view.View
 
 使用 `Kotlin` 的 `View Binding` 来绑定 `View`, 对于框架提供的控件没有任何问题，但是对自定义控件会出现如下错误：
 

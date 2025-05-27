@@ -1,4 +1,4 @@
-# Laravel 读取 json  文件
+# Laravel 读取 json 文件
 
 假设 json 文件存放在 `storage/app/` 目录下：
 

@@ -1,4 +1,4 @@
-# livedata-map-switchmap
+# Livedata map switchmap
 
 LiveData可以通过Transformations的map和switchMap操作，将一个LiveData转成另一种类型的LiveData，效果与RxJava的map/switchMap操作符类似。 
 

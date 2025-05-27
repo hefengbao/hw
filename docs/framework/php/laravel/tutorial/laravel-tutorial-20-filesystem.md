@@ -1,4 +1,4 @@
-# Laravel 入门：20-文件存储
+# Laravel 入门：20-文件系统
 
 Laravel 文件系统提供了多种驱动，参考 `config/filesystems.php` 配置中的说明，并提供统一的访问、操作 API，开发人员可以方便快速的切换存储选项。
 
