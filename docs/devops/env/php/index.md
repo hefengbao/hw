@@ -5,7 +5,7 @@
 - [Ubuntu 服务器配置 LEMP 环境](./20170418-ubuntu-install-lemp)
 - [Windows10 搭建 php 环境](./20200206-windows-10-php-env)
 - [Ubuntu 安装 PHP 的 PDO_OCI 扩展](./20200410-intall-php-pdo-oci-extension-on-ubuntu)
-- [PHP Opcache](./20211013-php-opcache)
+- [PHP Opcache](./20211013-php-opcache-01)
 
 ## 使用
 
