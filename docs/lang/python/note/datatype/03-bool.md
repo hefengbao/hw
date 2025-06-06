@@ -19,6 +19,38 @@ print(a or b)   # True
 print(not a)    # False
 ```
 
+## 真值和假值
+
+```python
+print(bool(""))  # 输出：False
+
+print(bool(0))  # 输出：False
+
+print(bool(0.0))  # 输出：False
+
+print(bool(0 + 0j))  # 输出：False
+
+print(bool(None))  # 输出：False
+```
+
+其他都是真值：
+
+```python
+print(bool(-1))  # 输出：True
+
+print(bool(1))  # 输出：True
+
+print(bool(0.1))  # 输出：True
+
+print(bool(-0.1))  # 输出：True
+
+print(bool(" "))  # 输出：True
+
+print(bool("0"))  # 输出：True
+
+print(bool(0 + 1j))  # True
+```
+
 ## 布尔变量用法
 
 ### 条件语句

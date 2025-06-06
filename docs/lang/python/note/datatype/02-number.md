@@ -20,20 +20,89 @@ z = 2 + 3j
 print(type(z))  # Output: <class 'complex'>
 ```
 
-### `isinstance()` 函数
+## 运算
 
-要检查变量在 Python 中是否为数字，可以使用 `isinstance()` 函数来检查变量是否属于 int、float 或 complex 数据类型。
+基本运算：
+
+```python
+print(10 + 3)  # 加法 13
+
+print(10 - 3)  # 减法 7
+
+print(10 * 3)  # 乘法 30
+
+print(10 / 3)  # 除法 3.3333333333333335
+
+print(10 // 3)  # 整除 3
+
+print(10 % 3)  # 取余 1
+
+print(10 ** 3)  # 幂运算 1000
+```
+
+增强赋值运算符：
 
 ```python
 x = 10
-y = 3.14
-z = 2 + 3j
 
-print(isinstance(x, (int, float, complex)))  # Output: True
-print(isinstance(y, (int, float, complex)))  # Output: True
-print(isinstance(z, (int, float, complex)))  # Output: True
-print(isinstance('hello', (int, float, complex)))  # Output: False
+x = x + 3
+
+# 等价写法
+x += 3
 ```
+
+运算顺序（优先级）：
+
+```python
+print(10 + 3 * 2)  # 运算符优先级 16
+
+print((10 + 3) * 2)  # 使用括号改变运算顺序 26
+
+print(10 + 3 * 2 - 5)  # 混合运算 11
+
+print(10 + 3 * (2 - 5))  # 使用括号改变运算顺序 1
+
+print(10 + 3 * (2 - 5) / 2)  # 混合运算与括号5.5
+```
+
+## 类型转换
+
+```python
+x = "1"
+y = x + 1
+```
+
+运行代码将出现如下错误：
+
+```shell
+TypeError: can only concatenate str (not "int") to str
+```
+
+```python
+x = "1"
+
+y = 1 + x
+```
+
+运行代码将出现如下错误：
+
+```shell
+TypeError: unsupported operand type(s) for +: 'int' and 'str'
+```
+
+需要做类型转换：
+
+```python
+x = "1"
+
+y = 1 + int(x)
+print(y) # 输出：2
+
+y = str(1) + x
+print(y) # 输出：11
+```
+
+可用的方法有： `int()`、`float()`、`complex()`、`str()`、`bool()`。
 
 ## 四舍五入数字
 
@@ -90,6 +159,21 @@ print("%.2f" % x)  # Output: 3.14
 `%` 运算符中的 `%.2f` 字符串告诉 Python 将数字格式化为小数点后两位的浮点数。
 
 ## 检查字符串是否为数字
+
+### `isinstance()` 函数
+
+要检查变量在 Python 中是否为数字，可以使用 `isinstance()` 函数来检查变量是否属于 `int`、`float` 或 `complex` 数据类型。
+
+```python
+x = 10
+y = 3.14
+z = 2 + 3j
+
+print(isinstance(x, (int, float, complex)))  # Output: True
+print(isinstance(y, (int, float, complex)))  # Output: True
+print(isinstance(z, (int, float, complex)))  # Output: True
+print(isinstance('hello', (int, float, complex)))  # Output: False
+```
 
 ### 使用 `isnumeric()` 方法
 

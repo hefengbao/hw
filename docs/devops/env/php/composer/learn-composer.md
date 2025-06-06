@@ -1,4 +1,4 @@
-# Composer
+# Composer 安装使用
 
 Composer - A Dependency Manager for PHP（PHP的依赖管理器）。
 
@@ -141,3 +141,6 @@ composer require pestphp/pest --dev
     "sort-packages": true
 }
 ```
+
+
+[你生产环境的 Composer 是这样吗？ | Laravel China 社区 (learnku.com)](https://learnku.com/articles/26343)

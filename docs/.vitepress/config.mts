@@ -10,7 +10,7 @@ export default defineConfig({
   themeConfig: {
     // https://vitepress.dev/reference/default-theme-config
     outline: {
-      level: [2,3],
+      level: [2, 3],
       label: '页面导航'
     },
     lastUpdated: {
@@ -57,23 +57,23 @@ export default defineConfig({
           {
             text: 'Javascript',
             items: [
-              { text: 'Jquery', link: '/framework/javascript/jquery/',activeMatch: '/framework/javascript/jquery/*' },
-              { text: 'Vitepress', link: '/framework/javascript/vitepress/',activeMatch: '/framework/javascript/vitepress/*' },
-              { text: 'Vue', link: '/framework/javascript/vue/',activeMatch: '/framework/javascript/vue/*' },
+              { text: 'Jquery', link: '/framework/javascript/jquery/', activeMatch: '/framework/javascript/jquery/*' },
+              { text: 'Vitepress', link: '/framework/javascript/vitepress/', activeMatch: '/framework/javascript/vitepress/*' },
+              { text: 'Vue', link: '/framework/javascript/vue/', activeMatch: '/framework/javascript/vue/*' },
             ]
           },
           { text: 'KMP', link: '/framework/kmp/', activeMatch: '/framework/kmp/*' },
           {
             text: 'PHP',
             items: [
-              { text: 'Filament', link: '/framework/php/filament/',activeMatch: '/framework/php/filament/*' },
-              { text: 'Laravel', link: '/framework/php/laravel/',activeMatch: '/framework/php/laravel/*' },
+              { text: 'Filament', link: '/framework/php/filament/', activeMatch: '/framework/php/filament/*' },
+              { text: 'Laravel', link: '/framework/php/laravel/', activeMatch: '/framework/php/laravel/*' },
             ]
           },
           {
             text: 'Python',
             items: [
-              { text: 'Flash', link: '/framework/python/flask/',activeMatch: '/framework/python/flask/*' },
+              { text: 'Flash', link: '/framework/python/flask/', activeMatch: '/framework/python/flask/*' },
             ]
           },
         ]
@@ -82,7 +82,7 @@ export default defineConfig({
         text: '移动开发',
         activeMatch: '/mobile-development/*',
         items: [
-          { text: 'Android', link: '/mobile-development/android/',activeMatch: '/mobile-development/android/*' },
+          { text: 'Android', link: '/mobile-development/android/', activeMatch: '/mobile-development/android/*' },
         ]
       },
       {
@@ -94,29 +94,29 @@ export default defineConfig({
         text: 'Database',
         activeMatch: '/database/*',
         items: [
-          { text: 'MySQL', link: '/database/mysql/',activeMatch: '/database/mysql/*' },
-          { text: 'Oracle', link: '/database/oracle/',activeMatch: '/database/oracle/*' },
-          { text: 'Redis', link: '/database/redis/',activeMatch: '/database/redis/*' },
-          { text: 'SQLite', link: '/database/sqlite/',activeMatch: '/database/sqlite/*' },
+          { text: 'MySQL', link: '/database/mysql/', activeMatch: '/database/mysql/*' },
+          { text: 'Oracle', link: '/database/oracle/', activeMatch: '/database/oracle/*' },
+          { text: 'Redis', link: '/database/redis/', activeMatch: '/database/redis/*' },
+          { text: 'SQLite', link: '/database/sqlite/', activeMatch: '/database/sqlite/*' },
         ]
       },
       {
         text: 'DevOps',
         activeMatch: '/devops/*',
         items: [
-          { text: '部署',  link: '/devops/deploy/',activeMatch: '/devops/deploy/*'},
-          { text: '开发环境',  link: '/devops/env/',activeMatch: '/devops/env/*'},
-          { text: '版本控制',  link: '/devops/svn/',activeMatch: '/devops/svn/*'},
-          { text: '测试',  link: '/devops/testing/',activeMatch: '/devops/testing/*'},
-          { text: '其他',  link: '/devops/other/',activeMatch: '/devops/other/*'},
+          { text: '部署', link: '/devops/deploy/', activeMatch: '/devops/deploy/*' },
+          { text: '开发环境', link: '/devops/env/', activeMatch: '/devops/env/*' },
+          { text: '版本控制', link: '/devops/svn/', activeMatch: '/devops/svn/*' },
+          { text: '测试', link: '/devops/testing/', activeMatch: '/devops/testing/*' },
+          { text: '其他', link: '/devops/other/', activeMatch: '/devops/other/*' },
         ]
       },
       {
         text: 'OS',
         activeMatch: '/os/*',
         items: [
-          { text: 'Windows',  link: '/os/windows/',activeMatch: '/os/windows/*'},
-          { text: 'Linux',  link: '/os/linux/',activeMatch: '/os/linux/*'},
+          { text: 'Windows', link: '/os/windows/', activeMatch: '/os/windows/*' },
+          { text: 'Linux', link: '/os/linux/', activeMatch: '/os/linux/*' },
         ]
       },
       { text: 'CS', link: '/cs/', activeMatch: '/cs/*' },
@@ -127,8 +127,8 @@ export default defineConfig({
     sidebar: {
       '/ai/': [
         { text: '开篇', link: '/ai/index' },
-        { 
-          text: '笔记', 
+        {
+          text: '笔记',
           items: [
             { text: '概述', link: '/ai/note/01-overview' },
             { text: '自然语言处理（NLP）', link: '/ai/note/02-nlp' },
@@ -139,11 +139,11 @@ export default defineConfig({
             { text: 'RAG', link: '/ai/note/rag' },
           ]
         },
-        { 
-          text: '应用', 
+        {
+          text: '应用',
           items: [
-            { 
-              text: 'Ollama', 
+            {
+              text: 'Ollama',
               items: [
                 { text: '安装 & 配置', link: '/ai/app/ollama/index' },
               ]
@@ -158,8 +158,8 @@ export default defineConfig({
       '/cs/': [
         { text: '开篇', link: '/cs/index' },
         { text: '协议', link: '/cs/protocol' },
-        { 
-          text: '算法', 
+        {
+          text: '算法',
           items: [
             { text: '资料', link: '/cs/algorithm/index' },
           ]
@@ -167,27 +167,16 @@ export default defineConfig({
       ],
       '/database/mysql/': [
         { text: '开篇', link: '/database/mysql/index' },
-        { 
-          text: '博客', 
-          items: [
-            { text: 'Working with JSON in MySQL', link: '/database/mysql/blog/20200522-working-with-json-in-mysql' },
-          ]
-        },
+        { text: '博客', link: '/database/mysql/blog/index' },
       ],
       '/database/oracle/': [
         { text: '开篇', link: '/database/oracle/index' },
-        { 
-          text: '博客', 
-          items: [
-            { text: 'Oracle查看某个账户下的表/视图', link: '/database/oracle/blog/20200206-oracle-user-table-view' },
-            { text: 'Oracle对where条件中有null值字段的处理', link: '/database/oracle/blog/20200518-oracle-where-null' },
-          ]
-        },
+        { text: '博客', link: '/database/oracle/blog/index' },
       ],
       '/database/redis/': [
         { text: '开篇', link: '/database/redis/index' },
-        { 
-          text: '笔记', 
+        {
+          text: '笔记',
           items: [
             { text: 'Redis学习笔记', link: '/database/oracle/note/20201115-learning-redis' },
           ]
@@ -198,145 +187,53 @@ export default defineConfig({
       ],
       '/devops/deploy/': [
         { text: '开篇', link: '/devops/deploy/index' },
-        { 
-          text: 'Nginx', 
+        {
+          text: 'Nginx',
           items: [
-            { text: 'Nginx学习资料', link: '/devops/deploy/nginx/index' },
-            { text: 'Nginx服务器部署php项目', link: '/devops/deploy/nginx/20170419-nginx-deploy-php-project' },
-            { text: '如何使用Nginx重定向www到非www及反之', link: '/devops/deploy/nginx/20200522-how-to-redirect-www-to-non-www-and-vice-versa-with-nginx' },
+            { text: '资料', link: '/devops/deploy/nginx/index' },
+            { text: '博客', link: '/devops/deploy/nginx/blog/index' },
           ]
         },
-        { 
-          text: 'PHP', 
+        {
+          text: 'PHP',
           items: [
-            { text: 'Deployer', link: '/devops/deploy/php/20200522-deployer-usage' },
+            { text: '博客', link: '/devops/deploy/php/blog/index' },
           ]
         },
-        { 
-          text: 'SSL', 
+        {
+          text: 'SSL',
           items: [
-            { text: '通过Let\'s Encrypt申请HTTPS证书', link: '/devops/deploy/ssl/20210713-letsencrypt-https' },
             { text: '工具', link: '/devops/deploy/ssl/tools' },
+            { text: '博客', link: '/devops/deploy/ssl/blog/index' },
           ]
         },
       ],
       '/devops/env': [
         { text: '开篇', link: '/devops/env/index' },
-        { 
-          text: 'Docker', 
+        {
+          text: 'Docker',
           items: [
             { text: '安装', link: '/devops/env/docker/01-install' },
             { text: '镜像', link: '/devops/env/docker/02-mirror' },
             { text: '命令', link: '/devops/env/docker/03-command' },
           ]
         },
-        { 
+        {
           text: 'IDE',
           items: [
-            { 
-              text: 'Android Studio', 
-              items: [
-                { text: 'Build output中文乱码', link: '/devops/env/ide/android-studio/20210202-output-chinese-character-encoding' },
-                { text: '修改.android和.gradle目录', link: '/devops/env/ide/android-studio/20250310-android-studio-android-gradle-directory' },
-              ]
-            },
-            { 
-              text: 'PhpStorm', 
-              items: [
-                { text: 'PhpStorm从已有文件创建项目', link: '/devops/env/ide/phpstorm/20171108-phpstorm-create-new-project-from-existing-files' },
-              ]
-            },
-            { 
-              text: 'VS Code', 
-              items: [
-                { text: 'VS Code插件', link: '/devops/env/ide/vscode/20210727-plugins' },
-                { text: '使用vscode作为Laravel开发IDE', link: '/devops/env/ide/vscode/20231017-setup-vscode-for-laravel-development' },
-              ]
-            },
+            { text: 'Android Studio', link: '/devops/env/ide/android-studio/index' },
+            { text: 'PhpStorm', link: '/devops/env/ide/phpstorm/index' },
+            { text: 'VS Code', link: '/devops/env/ide/vscode/index' },
           ]
         },
-        { 
-          text: 'MinIO', 
-          items: [
-            { text: 'MinIO 安装配置', link: '/devops/env/minio/20200411-minio' },
-          ]
-        },
-        { 
-          text: 'MySQL', 
-          items: [
-            { text: 'Mysql 8 安装', link: '/devops/env/mysql/20191203-mysql-8-install' },
-          ]
-        },
-        { 
-          text: 'Nginx', 
-          items: [
-            { text: 'Docker容器中运行Nginx', link: '/devops/env/nginx/20241210-nginx-docker' },
-          ]
-        },
-        { 
-          text: 'Node.js', 
-          items: [
-            { text: 'Windows安装Node.js', link: '/devops/env/nodejs/20250415-windows-install-nodejs' },
-            { text: 'SyntaxError: Unexpected token \'export\'', link: '/devops/env/nodejs/20231011-SyntaxError-Unexpected-token-export' },
-          ]
-        },
-        { 
-          text: 'Oracle', 
-          items: [
-            { text: 'Ubuntu安装Oracle Instant Client和OCI', link: '/devops/env/oracle/20180511-ubuntu-install-oracle-instant-client-and-oci' },
-            { text: 'PL/SQL Developer配置', link: '/devops/env/oracle/20200516-pl-sql-developer-config' },
-            { text: 'Windows 10安装配置PL/SQL', link: '/devops/env/oracle/20230901-windows-10-install-plsql' },
-          ]
-        },
-        { 
-          text: 'PHP', 
-          items: [
-            { text: 'Ubuntu服务器配置LEMP环境', link: '/devops/env/php/20170418-ubuntu-install-lemp' },
-            { text: 'ErrorException:symlink():Input/output error', link: '/devops/env/php/20200115-ErrorException-symlink-Input-output-error' },
-            { text: 'Windows10搭建php环境', link: '/devops/env/php/20200206-windows-10-php-env' },
-            { text: 'Ubuntu安 PHP的PDO_OCI扩展', link: '/devops/env/php/20200410-intall-php-pdo-oci-extension-on-ubuntu' },
-            { text: 'PHP Opcache', link: '/devops/env/php/20211013-php-opcache' },
-            { text: '如何通过PHP-FPM配置Nginx与PHP协同工作', link: '/devops/env/php/20241206-how-to-configure-nginx-to-work-with-php-via-php-fpm' },
-            { 
-              text: 'Composer', 
-              items: [
-                { text: '学习 Composer', link: '/devops/env/php/composer/learn-composer' },
-                { text: 'composer update: Discard changes [y,n,v,d,s,?]?', link: '/devops/env/php/composer/20200103-composer-update-discard-changes-ynvds' },
-                { text: 'proc_open(): fork failed - Cannot allocate memory', link: '/devops/env/php/composer/20200103-proc_open-fork-failed -cannot-allocate-memory' },
-                { text: '生产环境Composer使用', link: '/devops/env/php/composer/20210808-composer-in-production-env' },
-              ]
-            },
-            { 
-              text: 'WAMP', 
-              items: [
-                { text: 'WAMP: You don\'t have permission to access on this server', link: '/devops/env/php/wamp/20170619-wamp-403' },
-                { text: 'WAMPServer为Laravel项目配置alias', link: '/devops/env/php/wamp/20180412-wampserver-add-alias-for-laravel-programe' },
-                { text: 'WAMPServer之Apache日志分割', link: '/devops/env/php/wamp/20180813-wampserver-apche-logs-setting' },
-              ]
-            },
-          ]
-        },
-        {
-          text: 'Python',
-          items: [
-            { text: '安装', link: '/devops/env/python/install' },
-            { text: 'IDE', link: '/devops/env/python/ide' },
-            { text: '虚拟环境', link: '/devops/env/python/venv' },
-            { 
-              text: '包管理', 
-              items: [
-                { text: 'pip', link: '/devops/env/python/pip' },
-                { text: 'uv', link: '/devops/env/python/uv' },
-              ]
-            },
-          ]
-        },
-        { 
-          text: 'Redis', 
-          items: [
-            { text: 'Ubuntu redis多实例安装', link: '/devops/env/redis/20180720-ubuntu-install-redis-multi-instance' },
-          ]
-        },
+        { text: 'MinIO', link: '/devops/env/minio/index' },
+        { text: 'MySQL', link: '/devops/env/mysql/index' },
+        { text: 'Nginx', link: '/devops/env/nginx/index' },
+        { text: 'Node.js', link: '/devops/env/nodejs/index' },
+        { text: 'Oracle', link: '/devops/env/oracle/index' },
+        { text: 'PHP', link: '/devops/env/php/index' },
+        { text: 'Python', link: '/devops/env/python/index' },
+        { text: 'Redis', link: '/devops/env/redis/index' },
       ],
       '/devops/other': [
         { text: 'DevOps', link: '/devops/other/index' },
@@ -344,34 +241,10 @@ export default defineConfig({
       ],
       '/devops/svn': [
         { text: '开篇', link: '/devops/svn/index' },
-        { 
-          text: 'Git', 
-          items: [
-            { text: 'Git 基础', link: '/devops/svn/git/index' },
-            { text: 'Ubuntu搭建git server', link: '/devops/svn/git/20170711-ubuntu-install-git-server' },
-            { text: 'Git Commit规范化工具', link: '/devops/svn/git/20231026-git-commit-format' },
-          ]
-        },
-        { 
-          text: 'Github', 
-          items: [
-            { text: 'Github资料', link: '/devops/svn/github/index' },
-            { text: 'Github新建项目初始化', link: '/devops/svn/github/20200206-github-new-project-init.md' },
-          ]
-        },
-        { 
-          text: 'Gitlab', 
-          items: [
-            { text: 'Ubuntu安装gitlab', link: '/devops/svn/gitlab/20180513-ubuntu-install-gitlab' },
-            { text: 'GitlabUpgrade', link: '/devops/svn/gitlab/20180925-GItlab-Upgrade' },
-          ]
-        },
-        { 
-          text: 'Visual SVN', 
-          items: [
-            { text: 'Windows下VisualSVN配置钩子', link: '/devops/svn/visual-svn/20170623-windows-visualsvn-post-commit' },
-          ]
-        },
+        { text: 'Git', link: '/devops/svn/git/index' },
+        { text: 'Github', link: '/devops/svn/github/index' },
+        { text: 'Gitlab', link: '/devops/svn/gitlab/index' },
+        { text: 'Visual SVN', link: '/devops/svn/visual-svn/index' },
       ],
       '/devops/testing': [
         { text: '开篇', link: '/devops/testing/index' },
@@ -383,16 +256,16 @@ export default defineConfig({
       ],
       '/framework/javascript/vitepress/': [
         { text: '开篇', link: '/framework/javascript/vitepress/index' },
-        { 
-          text: '插件', 
+        {
+          text: '插件',
           items: [
             { text: '图片查看器', link: '/framework/javascript/vitepress/plugins/vitepress-plugin-image-viewer' },
             { text: 'Giscus评论系统', link: '/framework/javascript/vitepress/plugins/vitepress-plugin-comment-with-giscus' },
             { text: '哔哩哔哩视频', link: '/framework/javascript/vitepress/plugins/vitepress-plugin-bilibili-video' },
           ]
         },
-        { 
-          text: '博客', 
+        {
+          text: '博客',
           items: [
             { text: 'https://hefengbao.github.io 无法加载样式', link: '/framework/javascript/vitepress/blog/2025-05-21-hefengbao-github-io-can-not-load-style' },
           ]
@@ -409,14 +282,14 @@ export default defineConfig({
       ],
       '/framework/php/filament/': [
         { text: '开篇', link: '/framework/php/filament/index' },
-        { 
-          text: '博客', 
+        {
+          text: '博客',
           items: [
             { text: 'Filament表单复用', link: '/framework/php/filament/blog/20240828-reusing-filament-forms' },
           ]
         },
-        { 
-          text: '教程', 
+        {
+          text: '教程',
           items: [
             { text: '安装', link: '/framework/php/filament/tutorial/filament-tutorial-01-installation' },
             { text: '配置', link: '/framework/php/filament/tutorial/filament-tutorial-02-configuration' },
@@ -433,15 +306,15 @@ export default defineConfig({
       '/framework/php/laravel/': [
         { text: '开篇', link: '/framework/php/laravel/index' },
         { text: 'Deploy', link: '/framework/php/laravel/deploy' },
-        { 
-          text: '包', 
+        {
+          text: '包',
           items: [
             { text: 'Package', link: '/framework/php/laravel/package/20200522-laravel-package' },
             { text: 'LaravelEasyMetrics', link: '/framework/php/laravel/package/20250527-laravel-easy-metrics' },
           ]
         },
-        { 
-          text: '博客', 
+        {
+          text: '博客',
           items: [
             { text: 'Laravel系统登录后的跳转', link: '/framework/php/laravel/blog/20171109-larvel-redirect-if-authenticated' },
             { text: 'Laravel timestamp', link: '/framework/php/laravel/blog/20180328-Laravel-timestamp' },
@@ -481,8 +354,8 @@ export default defineConfig({
             { text: 'Laravel请求流式接口返回流式Http响应', link: '/framework/php/laravel/blog/20250312-using-stream-request-stream-response-in-laravel' },
           ]
         },
-        { 
-          text: '教程', 
+        {
+          text: '教程',
           items: [
             { text: '开篇', link: '/framework/php/laravel/tutorial/laravel-tutorial-01-start' },
             { text: '搭建环境&创建项目', link: '/framework/php/laravel/tutorial/laravel-tutorial-02-development-enviroment' },
@@ -658,8 +531,8 @@ export default defineConfig({
           text: '笔记',
           items: [
             { text: '基础', link: '/lang/python/note/basic' },
-            { 
-              text: '数据类型', 
+            {
+              text: '数据类型',
               items: [
                 { text: '数字', link: '/lang/python/note/datatype/number' },
                 { text: '字符串', link: '/lang/python/note/datatype/string' },
@@ -685,19 +558,19 @@ export default defineConfig({
       '/lang/yaml/': [
         { text: '开篇', link: '/lang/yaml/index' },
       ],
-       '/mobile-development/android/': [
+      '/mobile-development/android/': [
         { text: '开篇', link: '/mobile-development/android/index' },
         { text: 'Dependecy', link: '/mobile-development/android/20190504-android-dependecies' },
         {
           text: 'JetpackCompose',
           items: [
-            { 
+            {
               text: '博客',
               items: [
                 { text: '使用LinkAnnotation替代ClickableText', link: '/mobile-development/android/jetpack-compose/blog/20240824-jetpack-compose-migrating-from-the-clickabletext-composable-to-linkannotation' },
               ]
             },
-            { 
+            {
               text: '教程',
               items: [
                 { text: '开发环境&新建项目', link: '/mobile-development/android/jetpack-compose/tutorial/jetpack-compose-tutorial-01-android-env-config-create-project' },

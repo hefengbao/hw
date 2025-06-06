@@ -2,18 +2,7 @@
 
 ## VS Code
 
-下载[https://code.visualstudio.com/](https://code.visualstudio.com/) 安装 VS Code:
-
-![](./src/20250410102026.png)
-
-插件：
-
-![](./src/20250410102431.png)
-
-Demo:
-
-![](./src/GZIIUKAVKc.gif)
-
+参见 [使用 VS Code 作为 Python 开发 IDE](https://hefengbao.github.io/hw/devops/env/ide/vscode/20250602-setup-vscode-for-python-development.html)
 
 ## PyCharm
 

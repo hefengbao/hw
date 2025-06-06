@@ -62,3 +62,6 @@
 
 
 [爆火MCP的来时路：LLM开启超进化，从函数调用到通用上下文协议](https://mp.weixin.qq.com/s/1lfpd_6vckF5iiCFRpw2mQ)
+
+
+[Rivet - The Open-Source Visual AI Programming Environment](https://rivet.ironcladapp.com/)

@@ -1,4 +1,4 @@
-# 使用 vscode 作为 Laravel 开发 IDE
+# 使用 VS Code 作为 Laravel 开发 IDE
 
 想要 vscode 使用方便，就得安装插件 😄
 
@@ -97,3 +97,5 @@ https://script-jungle.com/setup-vscode-for-laravel-development
 https://dhanar98.hashnode.dev/best-laravel-dev-tools-for-faster-development-2024
 
 https://alemsbaja.hashnode.dev/recommended-visual-studio-code-extensions-for-laravel-developers
+
+[Four VS Code Extensions For Laravel/PHP Projects](https://laraveldaily.com/post/vs-code-extensions-laravel-php)

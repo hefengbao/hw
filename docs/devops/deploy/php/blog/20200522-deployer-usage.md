@@ -1,7 +1,5 @@
 # Deployer 使用资料
 
-# Deployer
-
 A deployment tool for PHP
 
 https://deployer.org/
