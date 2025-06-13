@@ -12,4 +12,4 @@
 
 [主流开源AI Agent框架对比与选型（langgraph, AutoGen, MetaGPT, ChatDev, Swarm, uagents） • Tech Explorer 🚀](https://stable-learn.com/zh/global-open-source-ai-agents-introduction-and-selection/)
 
-[构建有效的 AI 代理 \ Anthropic](https://www.anthropic.com/engineering/building-effective-agents)
+

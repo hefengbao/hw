@@ -1,4 +1,4 @@
-# Kotlin 入门：Char & String
+# Char & String
 
 ## 定义字符、字符串
 

@@ -16,6 +16,8 @@ MCP 采用客户端-服务器架构，主要包含以下几个组件：
 
 [实操干货！MCP Server开发从0到1](https://mp.weixin.qq.com/s/H5RLAeYTkyTIZFUM9AdkLQ)
 
+[MCP很好，但它不是万灵药！真正的技术进步，往往始于祛魅之后的清醒认知](https://mp.weixin.qq.com/s/Zs2yF1MovpBD_a12bIVibg)
+
 ## MCP 市场
 
 [MCP Marketplace](https://mcp.higress.ai/)

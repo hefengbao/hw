@@ -1,17 +1,14 @@
 # Github 新建项目初始化
 
-### Command line instructions
 
-You can also upload existing files from your computer using the instructions below.
-
-##### Git global setup
+## Git 全局设置
 
 ```
 git config --global user.name ""
 git config --global user.email ""
 ```
 
-##### Create a new repository
+## 新建空项目
 
 ```
 git clone http://127.0.0.1/bao/test.git
@@ -22,23 +19,24 @@ git commit -m "add README"
 git push -u origin master
 ```
 
-##### Push an existing folder
+## 已有项目添加到 Github
 
 ```
 cd existing_folder
 git init
-git remote add origin http://127.0.0.1/bao/test.git
+git remote add origin http://github.com/hefengbao/test.git
+git pull origin main
 git add .
-git commit -m "Initial commit"
-git push -u origin master
+git commit -m "初始化项目"
+git push --set-upstream origin main
 ```
 
-##### Push an existing Git repository
+## 修改仓库源
 
 ```
 cd existing_repo
 git remote rename origin old-origin
-git remote add origin http://127.0.0.1/bao/test.git
+git remote add origin http://github.com/hefengbao/test.git
 git push -u origin --all
 git push -u origin --tags
 ```

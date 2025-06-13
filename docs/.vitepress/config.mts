@@ -264,158 +264,44 @@ export default defineConfig({
             { text: '哔哩哔哩视频', link: '/framework/javascript/vitepress/plugins/vitepress-plugin-bilibili-video' },
           ]
         },
-        {
-          text: '博客',
-          items: [
-            { text: 'https://hefengbao.github.io 无法加载样式', link: '/framework/javascript/vitepress/blog/2025-05-21-hefengbao-github-io-can-not-load-style' },
-          ]
-        },
+        { text: '博客', link: '/framework/javascript/vitepress/blog/index' },
       ],
       '/framework/javascript/vue/': [
         { text: '开篇', link: '/framework/javascript/vue/index' },
-        { text: '创建Vue项目', link: '/framework/javascript/vue/20191219-create-vue-project.' },
-        { text: 'Vue 配置', link: '/framework/javascript/vue/20191214-vue-conifg' },
-        { text: 'Vue 路由', link: '/framework/javascript/vue/20190728-Vue-Router' },
+        { text: '博客', link: '/framework/javascript/vue/blog/index' },
       ],
       '/framework/kmp': [
         { text: '开篇', link: '/framework/kmp/index' },
       ],
       '/framework/php/filament/': [
         { text: '开篇', link: '/framework/php/filament/index' },
-        {
-          text: '博客',
-          items: [
-            { text: 'Filament表单复用', link: '/framework/php/filament/blog/20240828-reusing-filament-forms' },
-          ]
-        },
-        {
-          text: '教程',
-          items: [
-            { text: '安装', link: '/framework/php/filament/tutorial/filament-tutorial-01-installation' },
-            { text: '配置', link: '/framework/php/filament/tutorial/filament-tutorial-02-configuration' },
-            { text: '替换默认的User用户模型', link: '/framework/php/filament/tutorial/filament-tutorial-03-use-anothor-user-model' },
-            { text: '资源（Resource）', link: '/framework/php/filament/tutorial/filament-tutorial-04-resource' },
-            { text: '表单（Form）', link: '/framework/php/filament/tutorial/filament-tutorial-05-form' },
-            { text: '列表（Table）', link: '/framework/php/filament/tutorial/filament-tutorial-06-table' },
-            { text: 'Enum', link: '/framework/php/filament/tutorial/filament-tutorial-07-enum' },
-            { text: '详情页（Infolist）', link: '/framework/php/filament/tutorial/filament-tutorial-08-infolist' },
-            { text: '操作（Action）', link: '/framework/php/filament/tutorial/filament-tutorial-09-action' },
-          ]
-        },
+        { text: '博客', link: '/framework/php/filament/blog/index' },
+        { text: '教程', link: '/framework/php/filament/tutorial/index' },
       ],
       '/framework/php/laravel/': [
         { text: '开篇', link: '/framework/php/laravel/index' },
         { text: 'Deploy', link: '/framework/php/laravel/deploy' },
-        {
-          text: '包',
-          items: [
-            { text: 'Package', link: '/framework/php/laravel/package/20200522-laravel-package' },
-            { text: 'LaravelEasyMetrics', link: '/framework/php/laravel/package/20250527-laravel-easy-metrics' },
-          ]
-        },
-        {
-          text: '博客',
-          items: [
-            { text: 'Laravel系统登录后的跳转', link: '/framework/php/laravel/blog/20171109-larvel-redirect-if-authenticated' },
-            { text: 'Laravel timestamp', link: '/framework/php/laravel/blog/20180328-Laravel-timestamp' },
-            { text: 'Laravel用UUID做主键', link: '/framework/php/laravel/blog/20180620-laravel-use-uuid-as-primary-key' },
-            { text: 'Laravel备份', link: '/framework/php/laravel/blog/20181114-laravel-backup' },
-            { text: 'Laravel Mail配置', link: '/framework/php/laravel/blog/20181114-laravel-mail-config' },
-            { text: 'Laravel定时任务', link: '/framework/php/laravel/blog/20181214-laravel-cron' },
-            { text: '浅析Laravel文档推荐的Nginx配置', link: '/framework/php/laravel/blog/20190821-laravel-recommended-nginx-conf-analysis' },
-            { text: 'Erroneous data format for unserializing \'Symfony Component Routing CompiledRoute\'', link: '/framework/php/laravel/blog/20200404-Erroneous-data-format-for-unserializing-Symfony-Component-Routing-CompiledRoute' },
-            { text: 'Laravel使用Redis', link: '/framework/php/laravel/blog/20220423-laravel-redis' },
-            { text: '在类型为datetime-local的input中显示日期', link: '/framework/php/laravel/blog/20230328-laravel-tutorial-show-a-date-in-a-datetime-local-input' },
-            { text: 'Laravel10.x使用Livewire和TailwindCSS', link: '/framework/php/laravel/blog/20230503-installing-laravel-livewire-and-tailwind-css' },
-            { text: 'Laravel中的setVisible和setHidden模型方法', link: '/framework/php/laravel/blog/20230504-the-setvisible-and-sethidden-eloquent-methods-in-laravel' },
-            { text: 'Laravel使用Vuepress搭建文档', link: '/framework/php/laravel/blog/20230506-how-to-add-documentation-to-your-laravel-app-with-vuepress' },
-            { text: '控制器中CURD方法不能满足需求时如何给方法命名', link: '/framework/php/laravel/blog/20230818-laravel-tips-how-to-name-the-method-in-the-controller-that-beyond-curd' },
-            { text: '7个Laravel函数也接受数组参数', link: '/framework/php/laravel/blog/20231001-laravel-functions-that-also-accept-array-parameter' },
-            { text: '添加自定义Artisan命令(带可选参数)', link: '/framework/php/laravel/blog/20231002-adding-a-custom-artisan-command-with-optional-arguments' },
-            { text: '在Laravel中加载限制数量的关联数据并避免 N+1问题', link: '/framework/php/laravel/blog/20231003-limiting-loaded-relationship-records-in-laravel' },
-            { text: '在Laravel中使用PHP Enums存储附加信息', link: '/framework/php/laravel/blog/20231005-using-php-enums-in-laravel' },
-            { text: 'Laravel保存json数据不转义汉字', link: '/framework/php/laravel/blog/20231214-laravel-save-json-to-database-unescaped-unicode' },
-            { text: '用Traits增强Laravel应用程序', link: '/framework/php/laravel/blog/20240228-enhancing-laravel-applications-with-traits' },
-            { text: 'Laravel的Collection::times()使用', link: '/framework/php/laravel/blog/20240319-using-collection-times-in-laravel' },
-            { text: 'Laravel读取json文件', link: '/framework/php/laravel/blog/20240826-how-to-read-json-file-in-laravel' },
-            { text: 'Laravel配置额外的环境文件', link: '/framework/php/laravel/blog/20240826-how-to-read-json-file-in-laravel' },
-            { text: 'Laravel11使用JWT认证API', link: '/framework/php/laravel/blog/20240829-laravel-11-json-jwt-authentication' },
-            { text: '5个调度方法', link: '/framework/php/laravel/blog/20240830-laravel-advanced-top-5-scheduler-functions-you-might-not-know-about' },
-            { text: 'Laravel查询作用域', link: '/framework/php/laravel/blog/20240831-laravel-query-scopes' },
-            { text: '使用HTTP响应缓存加速LaravelAPI', link: '/framework/php/laravel/blog/20240904-supercharge-your-laravel-api-with-http-response-caching' },
-            { text: 'Laravel方法Str::replaceArray()', link: '/framework/php/laravel/blog/20240905-discover-the-power-of-str-replacearray-in-laravel' },
-            { text: 'Laravel API速率限制', link: '/framework/php/laravel/blog/20240906-securing-your-laravel-apis-with-built-in-rate-limiting' },
-            { text: 'Laravel集合中使用ensure()方法验证数据类型', link: '/framework/php/laravel/blog/20240907-data-type-validation-in-laravel-collections-with-the-ensure-method' },
-            { text: 'Laravel性能提升的秘密武器OPCache', link: '/framework/php/laravel/blog/20240908-php-opcache-the-secret-weapon-for-laravel-performance-boost' },
-            { text: 'Laravel预加载限定条数', link: '/framework/php/laravel/blog/20240922-limit-eager-loaded-relationships-in-laravel' },
-            { text: 'Laravel重设SessionID', link: '/framework/php/laravel/blog/20240924-laravel-regenerate-session-id' },
-            { text: 'Laravel Blade:@stack', link: '/framework/php/laravel/blog/20240930-laravel-blade-stack' },
-            { text: 'TrustProxies Middleware', link: '/framework/php/laravel/blog/20241008-laravel-trustproxies-middleware' },
-            { text: 'Laravel请求流式接口返回流式Http响应', link: '/framework/php/laravel/blog/20250312-using-stream-request-stream-response-in-laravel' },
-          ]
-        },
-        {
-          text: '教程',
-          items: [
-            { text: '开篇', link: '/framework/php/laravel/tutorial/laravel-tutorial-01-start' },
-            { text: '搭建环境&创建项目', link: '/framework/php/laravel/tutorial/laravel-tutorial-02-development-enviroment' },
-            { text: '概览', link: '/framework/php/laravel/tutorial/laravel-tutorial-03-introduction' },
-            { text: '路由', link: '/framework/php/laravel/tutorial/laravel-tutorial-04-routes' },
-            { text: 'Artisan 命令行', link: '/framework/php/laravel/tutorial/laravel-tutorial-05-artisan-command' },
-            { text: '控制器', link: '/framework/php/laravel/tutorial/laravel-tutorial-06-controllers' },
-            { text: '数据库&模型', link: '/framework/php/laravel/tutorial/laravel-tutorial-07-database-model' },
-            { text: '模型设置', link: '/framework/php/laravel/tutorial/laravel-tutorial-08-model-settings' },
-            { text: '查询构造器&检索模型', link: '/framework/php/laravel/tutorial/laravel-tutorial-09-queries-retrieving-models' },
-            { text: 'Telescope & dd方法', link: '/framework/php/laravel/tutorial/laravel-tutorial-10-telescope-dd' },
-            { text: '视图 & Blade模板', link: '/framework/php/laravel/tutorial/laravel-tutorial-11-view-blade' },
-            { text: '请求 & CSRF保护', link: '/framework/php/laravel/tutorial/laravel-tutorial-12-request-csrf' },
-            { text: '表单验证', link: '/framework/php/laravel/tutorial/laravel-tutorial-13-form-validation' },
-            { text: '模型关联', link: '/framework/php/laravel/tutorial/laravel-tutorial-14-eloquent-relationships' },
-            { text: '中间件', link: '/framework/php/laravel/tutorial/laravel-tutorial-15-middleware' },
-            { text: '事件系统', link: '/framework/php/laravel/tutorial/laravel-tutorial-16-events' },
-            { text: '发送邮件', link: '/framework/php/laravel/tutorial/laravel-tutorial-17-mail' },
-            { text: '队列', link: '/framework/php/laravel/tutorial/laravel-tutorial-18-queues' },
-            { text: '任务调度', link: '/framework/php/laravel/tutorial/laravel-tutorial-19-scheduling' },
-            { text: '文件系统', link: '/framework/php/laravel/tutorial/laravel-tutorial-20-filesystem' },
-            { text: '缓存', link: '/framework/php/laravel/tutorial/laravel-tutorial-21-cache' },
-            { text: '用户认证', link: '/framework/php/laravel/tutorial/laravel-tutorial-22-auth' },
-            { text: '用户授权', link: '/framework/php/laravel/tutorial/laravel-tutorial-23-access' },
-          ]
-        },
+        { text: 'Package', link: '/framework/php/laravel/package/index' },
+        { text: '博客', link: '/framework/php/laravel/blog/index' },
+        { text: '教程', link: '/framework/php/laravel/tutorial/index' },
       ],
       '/framework/python/flask/': [
         { text: '开篇', link: '/framework/python/flask/index' },
       ],
       '/lang/css/': [
         { text: '开篇', link: '/lang/css/index' },
-        {
-          text: '博客',
-          items: [
-            { text: '使用align-content:center实现div居中', link: '/lang/css/blog/20240903-align-content-center' },
-          ]
-        },
+        { text: '博客', link: '/lang/css/blog/index' },
       ],
       '/lang/go/': [
         { text: '开篇', link: '/lang/go/index' },
       ],
       '/lang/html/': [
         { text: '开篇', link: '/lang/html/index' },
-        {
-          text: '最佳实践',
-          items: [
-            { text: 'Head 最佳实践', link: '/lang/html/best-practices/20191009-html-head-best-practices' },
-          ]
-        }
+        { text: '博客', link: '/lang/html/blog/index' },
       ],
       '/lang/java/': [
         { text: '开篇', link: '/lang/java/index' },
-        {
-          text: '博客',
-          items: [
-            { text: 'JDK8中的LocalDate、LocalTime和LocalDateTime', link: '/lang/java/blog/20230927-jdk8-localdate-localtime-localdatetime' },
-            { text: 'JDK8中的ZoneId、ZoneDateTime、Instant、DateTimeFormatter、Period和Duration', link: '/lang/java/blog/20230929-jdk8-zoneid-zonedatetime-instant-datetimeformatter-period-duration' },
-          ]
-        },
+        { text: '博客', link: '/lang/java/blog/index' },
       ],
       '/lang/javascript/': [
         { text: '开篇', link: '/lang/javascript/index' },
@@ -434,12 +320,7 @@ export default defineConfig({
             { text: 'Editor.js', link: '/lang/javascript/plugin/20250517-editorjs' },
           ]
         },
-        {
-          text: '博客',
-          items: [
-            { text: 'can not read a block mapping entry; a multiline key may not be an implicit key', link: '/lang/javascript/blog/20200101-can-not-read-a-block-mapping-entry-a-multiline-key-may-not-be-an-implicit-key' },
-          ]
-        },
+        { text: '博客', link: '/lang/javascript/blog/index' },
       ],
       '/lang/json/': [
         { text: '开篇', link: '/lang/json/index' },
@@ -491,39 +372,21 @@ export default defineConfig({
             { text: '协程', link: '/lang/kotlin/note/20190502-learning-kotlin-coroutine' },
           ]
         },
-        {
-          text: '博客',
-          items: [
-            { text: 'let、with、run、apply、also函数的使用', link: '/lang/kotlin/blog/20190511-kotlin-let-with-run-apply-also' },
-            { text: '使用Moshi解析json', link: '/lang/kotlin/blog/20190519-getting-started-using-moshi-for-json-parsing-with-kotlin' },
-          ]
-        },
-        {
-          text: '教程',
-          items: [
-            { text: 'Char & String', link: '/lang/kotlin/tutorial/kotlin-toturial-01-char-string' },
-          ]
-        }
+        { text: '博客', link: '/lang/kotlin/blog/index' },
       ],
       '/lang/markdown/': [
         { text: '开篇', link: '/lang/markdown/index' },
       ],
       '/lang/php/': [
         { text: '开篇', link: '/lang/php/index' },
-        { text: '包', link: '/lang/php/20210727-PHP-Package' },
         {
           text: '笔记',
           items: [
             { text: '魔术方法', link: '/lang/php/note/20191129-php-magic-methods' },
           ]
         },
-        {
-          text: '博客',
-          items: [
-            { text: '空值检查!/is_null/isset', link: '/lang/php/blog/20231110-php-check-for-empty-values-not-is-null-vs-isset' },
-            { text: '使用JSON Schema验证JSON数据', link: '/lang/php/blog/20240901-validating-json-with-json-schema-and-php' },
-          ]
-        }
+        { text: '包', link: '/lang/php/package/index' },
+        { text: '博客', link: '/lang/php/blog/index' },
       ],
       '/lang/python/': [
         { text: '开篇', link: '/lang/python/index' },
@@ -564,63 +427,11 @@ export default defineConfig({
         {
           text: 'JetpackCompose',
           items: [
-            {
-              text: '博客',
-              items: [
-                { text: '使用LinkAnnotation替代ClickableText', link: '/mobile-development/android/jetpack-compose/blog/20240824-jetpack-compose-migrating-from-the-clickabletext-composable-to-linkannotation' },
-              ]
-            },
-            {
-              text: '教程',
-              items: [
-                { text: '开发环境&新建项目', link: '/mobile-development/android/jetpack-compose/tutorial/jetpack-compose-tutorial-01-android-env-config-create-project' },
-                { text: 'Modifier,Box,Colum,Row', link: '/mobile-development/android/jetpack-compose/tutorial/jetpack-compose-tutorial-02-modifier-box-colum-row' },
-                { text: 'Text & ClickableText', link: '/mobile-development/android/jetpack-compose/tutorial/jetpack-compose-tutorial-03-text-clickabletext' },
-                { text: 'TextField & OutlinedTextField', link: '/mobile-development/android/jetpack-compose/tutorial/jetpack-compose-tutorial-04-textfield-outlinedtextfield' },
-                { text: 'Image', link: '/mobile-development/android/jetpack-compose/tutorial/jetpack-compose-tutorial-05-image' },
-                { text: '获取Context,Lifecycle,UriHandler', link: '/mobile-development/android/jetpack-compose/tutorial/jetpack-compose-tutorial-06-context-lifecycle-urihandler' },
-                { text: '使用Coil加载图片', link: '/mobile-development/android/jetpack-compose/tutorial/jetpack-compose-tutorial-07-use-coli-load-image-circle-crop' },
-                { text: 'Image使用Icon', link: '/mobile-development/android/jetpack-compose/tutorial/jetpack-compose-tutorial-08-image-use-vectordrawables-imagevector-painter' },
-                { text: 'Icon', link: '/mobile-development/android/jetpack-compose/tutorial/jetpack-compose-tutorial-09-icon' },
-                { text: 'Button', link: '/mobile-development/android/jetpack-compose/tutorial/jetpack-compose-tutorial-10-Button-OutlinedButton-TextButton-IconButton-FilledTonalButton-ElevatedButton' },
-                { text: 'RadioButton、Checkbox、Switch', link: '/mobile-development/android/jetpack-compose/tutorial/jetpack-compose-tutorial-11-RadioButton-Checkbox-Switch' },
-                { text: 'TopAppBar & BottomAppBar', link: '/mobile-development/android/jetpack-compose/tutorial/jetpack-compose-tutorial-12-topappbar-bottomappbar' },
-                { text: 'Scaffold & Snackbar', link: '/mobile-development/android/jetpack-compose/tutorial/jetpack-compose-tutorial-13-scaffold-snackbar' },
-                { text: 'Navigation导航', link: '/mobile-development/android/jetpack-compose/tutorial/jetpack-compose-tutorial-14-navigation' },
-                { text: 'LazyColumn & LazyRow', link: '/mobile-development/android/jetpack-compose/tutorial/jetpack-compose-tutorial-15-lazycolumn-lazyrow' },
-                { text: 'LazyVerticalGrid & LazyHorizontalGrid', link: '/mobile-development/android/jetpack-compose/tutorial/jetpack-compose-tutorial-16-LazyVerticalGrid-LazyHorizontalGrid' },
-                { text: 'Card', link: '/mobile-development/android/jetpack-compose/tutorial/jetpack-compose-tutorial-17-card' },
-                { text: 'AlertDialog', link: '/mobile-development/android/jetpack-compose/tutorial/jetpack-compose-tutorial-18-alertdialog' },
-                { text: 'NavigationBar & Badge', link: '/mobile-development/android/jetpack-compose/tutorial/jetpack-compose-tutorial-19-navigationbar-badge' },
-                { text: '权限请求', link: '/mobile-development/android/jetpack-compose/tutorial/jetpack-compose-tutorial-20-permission-request' },
-              ]
-            },
+            { text: '博客', link: '/mobile-development/android/jetpack-compose/blog/index' },
+            { text: '教程', link: '/mobile-development/android/jetpack-compose/tutorial/index' },
           ]
         },
-        {
-          text: '博客',
-          items: [
-            { text: 'DatePickerDialog', link: '/mobile-development/android/blog/20170820-android-datepickerdialog' },
-            { text: 'transformDexArchiveWithExternalLibsDexMergerForDebug', link: '/mobile-development/android/blog/20180321-transformDexArchiveWithExternalLibsDexMergerForDebug' },
-            { text: 'RecyclerView滚动监听', link: '/mobile-development/android/blog/20180528-ecyclerview-addonscrolllistene' },
-            { text: '获取签名证书的sha1值', link: '/mobile-development/android/blog/20180619-android-get-sha1' },
-            { text: 'widget has an unresolved type,and thus it was upcasted to android.view.View', link: '/mobile-development/android/blog/20190406-widget-has-an-unresolved-type-and-thus-it-was-upcasted-to-android-view-View' },
-            { text: 'Parameter type must not include a type variable or wildcard: java.util.Map<java.lang.String, ? extends okhttp3.RequestBody>', link: '/mobile-development/android/blog/20190420-parameter-type-must-not-include-a-type-variable-or-wildcard' },
-            { text: '如何在Android开发中保存敏感信息', link: '/mobile-development/android/blog/20190526-how-to-store-use-sensitive-information-in-android-development' },
-            { text: 'Storage', link: '/mobile-development/android/blog/20190629-Storing-data-on-Android' },
-            { text: 'Android 透明色', link: '/mobile-development/android/blog/20191014-android-color-alpha' },
-            { text: 'Livedata map switchmap', link: '/mobile-development/android/blog/20191015-livedata-map-switchmap' },
-            { text: '7 Pro-tips for Room', link: '/mobile-development/android/blog/20191129-7-pro-tips-for-room' },
-            { text: 'Practical ProGuard rules examples', link: '/mobile-development/android/blog/20191129-Practical-ProGuard-rules-examples' },
-            { text: 'Okhttp 开启日志', link: '/mobile-development/android/blog/20200402-how-to-enable-logging-in-okhttp' },
-            { text: 'OkHttp Interceptor', link: '/mobile-development/android/blog/20200402-OkHttp-Interceptor-Making-the-most-of-it' },
-            { text: 'Android多国语言文件夹汇总', link: '/mobile-development/android/blog/20200601-android-multi-language' },
-            { text: 'GitHub Actions for Android developers', link: '/mobile-development/android/blog/20210302-GitHub-Actions-for-Android-developers' },
-            { text: 'Response from xxx  was null but response body type was declared as non-null', link: '/mobile-development/android/blog/20230706-response-from-was-null-but-response-body-type-was-declared-as-non-null' },
-            { text: 'EditText inputType & TextField keyboardType', link: '/mobile-development/android/blog/20230810-android-edittext-inputtype-textfield-keyboardtype' },
-            { text: 'Android保存bitmap到共享目录', link: '/mobile-development/android/blog/20231027-android-save-bitmap-to-share-folder' },
-          ]
-        },
+        { text: '博客', link: '/mobile-development/android/blog/index' },
       ],
       '/os/linux/': [
         { text: '开篇', link: '/os/linux/index' },
@@ -636,15 +447,7 @@ export default defineConfig({
             { text: '环境变量', link: '/os/linux/note/environment-variables' },
           ]
         },
-        {
-          text: '博客',
-          items: [
-            { text: 'Setup is unable to find the "ifconfig" program on your machine', link: '/os/linux/blog/20171001-setup-is-unable-to-find-the-ifconfig-program-on-your-machine' },
-            { text: 'Ubuntu iptables', link: '/os/linux/blog/20200430-ubuntu-iptables' },
-            { text: 'dpkg: warning: files list file for package \'xxxx\ missing; assuming package has no files currently installed', link: '/os/linux/blog/20200823-dpkg-warning-files-list-file-for-package-xxxx-missing-assuming-package-has-no-files-currently-installed' },
-            { text: 'Ubuntu 安装 glibc', link: '/os/linux/blog/20230709-ubuntu-install-glibc' },
-          ]
-        },
+        { text: '博客', link: '/os/linux/blog/index' },
       ],
       '/os/windows/': [
         { text: '开篇', link: '/os/windows/index' },

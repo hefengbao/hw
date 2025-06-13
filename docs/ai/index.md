@@ -65,3 +65,15 @@
 
 
 [Rivet - The Open-Source Visual AI Programming Environment](https://rivet.ironcladapp.com/)
+
+
+
+## 微软教程
+
+[AI for Beginners](https://microsoft.github.io/AI-For-Beginners/)
+
+[Generative AI for Beginners - 生成性人工智能](https://microsoft.github.io/generative-ai-for-beginners/#/translations/zh/README)
+
+[AI Agents for Beginners -面向初学者的 Agent 教程](https://microsoft.github.io/ai-agents-for-beginners/translations/zh/)
+
+[Model Context Protocol (MCP) Curriculum for Beginners - 面向初学者的 MCP 课程](https://github.com/microsoft/mcp-for-beginners)
