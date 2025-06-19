@@ -393,17 +393,18 @@ export default defineConfig({
         {
           text: '笔记',
           items: [
-            { text: '基础', link: '/lang/python/note/basic' },
+            { text: '开始', link: '/lang/python/note/01-start' },
             {
               text: '数据类型',
               items: [
-                { text: '数字', link: '/lang/python/note/datatype/number' },
-                { text: '字符串', link: '/lang/python/note/datatype/string' },
-                { text: '布尔', link: '/lang/python/note/datatype/bool' },
-                { text: '列表', link: '/lang/python/note/datatype/list' },
-                { text: '元组', link: '/lang/python/note/datatype/tuple' },
-                { text: '集合', link: '/lang/python/note/datatype/set' },
-                { text: '字典', link: '/lang/python/note/datatype/dict' },
+                { text: '字符串', link: '/lang/python/note/datatype/01-string' },
+                { text: '数字', link: '/lang/python/note/datatype/02-number' },
+                { text: '布尔', link: '/lang/python/note/datatype/03-bool' },
+                { text: '列表', link: '/lang/python/note/datatype/04-list' },
+                { text: '元组', link: '/lang/python/note/datatype/05-tuple' },
+                { text: '数组', link: '/lang/python/note/datatype/06-array' },
+                { text: '集合', link: '/lang/python/note/datatype/07-set' },
+                { text: '字典', link: '/lang/python/note/datatype/08-dict' },
               ]
             },
           ]

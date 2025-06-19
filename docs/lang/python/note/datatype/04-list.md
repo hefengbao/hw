@@ -27,18 +27,16 @@ list_of_lists = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 可以使用切片运算符或 `copy()` 方法。
 
 ```python
-# Using the slice operator
+# 使用切片
 original_list = [1, 2, 3, 4, 5]
 new_list = original_list[:]
 print(new_list)  # Output: [1, 2, 3, 4, 5]
 
-# Using the copy() method
+# 使用 copy() 方法
 original_list = [1, 2, 3, 4, 5]
 new_list = original_list.copy()
 print(new_list)  # Output: [1, 2, 3, 4, 5]
 ```
-
-浅复制？
 
 
 ## 删除列表
@@ -504,7 +502,7 @@ print(my_string) # Output: apple, banana, orange
 
 ## 列表到字典转换
 
-可以使用 `dict()` 构造函数将列表转换为 [字典](./dict)。列表应包含键值对作为 [元组](./tuple)，其中每个元组的第一个元素是键，第二个元素是值。
+可以使用 `dict()` 构造函数将列表转换为 [字典](08-dict.md)。列表应包含键值对作为 [元组](05-tuple.md)，其中每个元组的第一个元素是键，第二个元素是值。
 
 ```python
 my_list = [("a", 1), ("b", 2), ("c", 3)]
