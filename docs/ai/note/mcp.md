@@ -18,6 +18,8 @@ MCP 采用客户端-服务器架构，主要包含以下几个组件：
 
 [MCP很好，但它不是万灵药！真正的技术进步，往往始于祛魅之后的清醒认知](https://mp.weixin.qq.com/s/Zs2yF1MovpBD_a12bIVibg)
 
+[microsoft/mcp-for-beginners: This open-source curriculum introduces the fundamentals of Model Context Protocol (MCP) through real-world, cross-language examples in .NET, Java, TypeScript, JavaScript, Rust and Python. Designed for developers, it focuses on practical techniques for building modular, scalable, and secure AI workflows from session setup to service orchestration.](https://github.com/microsoft/mcp-for-beginners)
+
 ## MCP 市场
 
 [MCP Marketplace](https://mcp.higress.ai/)

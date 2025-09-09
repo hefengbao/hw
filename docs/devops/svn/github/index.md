@@ -1,5 +1,9 @@
 # Github
 
+## 解决 Github  无法访问
+
+[gitlab.com/ineo6/hosts/-/raw/master/next-hosts](https://gitlab.com/ineo6/hosts/-/raw/master/next-hosts)
+
 ## 使用
 
 - [Github 新建项目初始化](20200206-github-new-project-init)

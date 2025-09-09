@@ -1,6 +1,6 @@
 # 列表
 
-Python 中的列表是有序、可变且允许重复的元素集合，可以是任何类型。列表中的每个元素都有一个唯一的索引，表示其在列表中的位置。列表索引从 0 开始，这意味着列表中的第一个元素的索引为 0，第二个元素的索引为 1，依此类推。
+Python 中的列表是**有序、可变且允许重复的元素集合**，可以是任何类型。列表中的每个元素都有一个唯一的索引，表示其在列表中的位置。列表索引从 0 开始，这意味着列表中的第一个元素的索引为 0，第二个元素的索引为 1，依此类推。
 
 ## 创建列表
 
@@ -36,18 +36,6 @@ print(new_list)  # Output: [1, 2, 3, 4, 5]
 original_list = [1, 2, 3, 4, 5]
 new_list = original_list.copy()
 print(new_list)  # Output: [1, 2, 3, 4, 5]
-```
-
-
-## 删除列表
-
-使用 `del` 语句删除列表。
-
-```python
-my_list = [1, 2, 3, 4, 5]
-del my_list
-
-print(my_list) # NameError: name 'my_list' is not defined
 ```
 
 ## 列表长度
@@ -90,6 +78,7 @@ list_of_lists = [[1, 2, 3], [4, 5, 6], [7, 8, 9]]
 print(list_of_lists.index([1, 2, 3])) # 输出： 0
 print(list_of_lists.index(1)) # ValueError: 1 is not in list
 ```
+
 ## 元素访问
 
 你可以使用方括号并指定索引号来访问特定索引处的元素。
@@ -118,6 +107,7 @@ print(level2) # 输出： 5
 # 可以简写为
 print(list_of_lists[1][1]) # 输出： 5
 ```
+
 ## 更改或替换元素
 
 ```python
@@ -125,6 +115,7 @@ my_list = [1, 2, 3, 4, 5]
 my_list[0] = 0
 print(my_list) # Output: [0, 2, 3, 4, 5]
 ```
+
 
 ## 添加元素
 
@@ -170,51 +161,15 @@ print(my_list)
 # Output: [1, 2, 3, 4, 5, 6]
 ```
 
-## 列表合并
+## 删除列表
 
-使用 `+` 运算符连接两个或多个列表。
-
-```python
-list1 = [1, 2, 3]
-list2 = [4, 5, 6]
-concatenated_list = list1 + list2
-print(concatenated_list) # Output: [1, 2, 3, 4, 5, 6]
-```
-
-连接列表的另一种方法是 `extend()` 方法
+使用 `del` 语句删除列表。
 
 ```python
-list1 = [1, 2, 3]
-list2 = [4, 5, 6]
-list1.extend(list2)
-print(list1) # Output: [1, 2, 3, 4, 5, 6]
-```
-## 列表推导式
+my_list = [1, 2, 3, 4, 5]
+del my_list
 
-列表推导式是通过对现有列表或可迭代对象的每个元素应用表达式来创建新列表的简洁方式。列表推导式的基本语法是
-
-```python
-new_list = [expression(item) for item in iterable if condition]
-```
-
-其中
-- `expression` 是将应用于可迭代对象每个元素的操作。
-- `item` 是表示可迭代对象每个元素的变量。
-- `iterable` 是元素序列，例如列表或范围。
-- `condition` 是基于条件筛选元素的可选表达式。
-
-例如，要创建一个新列表，其中包含从 `1` 到 `5` 的数字的平方，可以使用如下列表推导式
-
-```python
-squares = [x**2 for x in range(1, 6)]
-print(squares)  # Output: [1, 4, 9, 16, 25]
-```
-
-还可以使用 `if` 语句基于条件筛选元素。例如，要创建一个新列表，其中包含从 `1` 到 `10` 的偶数，可以使用如下列表推导式
-
-```python
-evens = [x for x in range(1, 11) if x % 2 == 0]
-print(evens)  # Output: [2, 4, 6, 8, 10]
+print(my_list) # NameError: name 'my_list' is not defined
 ```
 
 ## 删除元素
@@ -285,24 +240,85 @@ my_list.clear()
 print(my_list)  # Output: []
 ```
 
-## 列表反转
+## 列表合并
 
-可以使用内置的 `reverse()` 方法或切片符号。
-
-使用 `reverse()` 方法
+使用 `+` 运算符连接两个或多个列表。
 
 ```python
-my_list = [1, 2, 3, 4, 5]
-my_list.reverse()
-print(my_list) # Output: [5, 4, 3, 2, 1]
+list1 = [1, 2, 3]
+list2 = [4, 5, 6]
+concatenated_list = list1 + list2
+print(concatenated_list) # Output: [1, 2, 3, 4, 5, 6]
 ```
 
-使用切片符号
+连接列表的另一种方法是 `extend()` 方法
 
 ```python
-my_list = [1, 2, 3, 4, 5]
-reversed_list = my_list[::-1]
-print(reversed_list) # Output: [5, 4, 3, 2, 1]
+list1 = [1, 2, 3]
+list2 = [4, 5, 6]
+list1.extend(list2)
+print(list1) # Output: [1, 2, 3, 4, 5, 6]
+```
+
+## 列表切片
+
+使用切片符号提取列表的一部分。列表切片的语法是
+
+```python
+my_list[start:end:step]
+```
+
+其中 `start` 是要包括的第一个项目的索引，`end` 是要排除的第一个项目的索引，`step` 是在切片中每个项目之间要跳过的项目数（默认为 1）。
+
+```python
+my_list = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+# 获取前3个元素
+print(my_list[:3]) # output: [0, 1, 2]
+
+# 获取第3个至第5个元素
+print(my_list[3:6]) # output: [3, 4, 5]
+
+# 从第二个元素开始间隔（step = 2）获取元素
+print(my_list[1::2])  # output: [1, 3, 5, 7, 9]
+
+# 反转列表
+print(my_list[::-1]) # output: [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
+```
+
+还可以使用切片替换多个元素。
+
+```python
+my_list = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
+my_list[3:6] = [0] # Output: [0, 1, 2, 0, 6, 7, 8, 9]
+```
+
+## 列表推导式
+
+列表推导式是通过对现有列表或可迭代对象的每个元素应用表达式来创建新列表的简洁方式。列表推导式的基本语法是
+
+```python
+new_list = [expression(item) for item in iterable if condition]
+```
+
+其中
+- `expression` 是将应用于可迭代对象每个元素的操作。
+- `item` 是表示可迭代对象每个元素的变量。
+- `iterable` 是元素序列，例如列表或范围。
+- `condition` 是基于条件筛选元素的可选表达式。
+
+例如，要创建一个新列表，其中包含从 `1` 到 `5` 的数字的平方，可以使用如下列表推导式
+
+```python
+squares = [x**2 for x in range(1, 6)]
+print(squares)  # Output: [1, 4, 9, 16, 25]
+```
+
+还可以使用 `if` 语句基于条件筛选元素。例如，要创建一个新列表，其中包含从 `1` 到 `10` 的偶数，可以使用如下列表推导式
+
+```python
+evens = [x for x in range(1, 11) if x % 2 == 0]
+print(evens)  # Output: [2, 4, 6, 8, 10]
 ```
 
 ## 列表去重
@@ -366,53 +382,24 @@ print(sorted_list)
 # Output: [1, 1, 2, 3, 3, 4, 5, 5, 5, 6, 9]
 ```
 
-## 列表筛选
+## 列表反转
 
-可以使用 `filter()` 函数筛选列表，即创建新列表，其中仅包含满足特定条件的现有列表中的元素。
+可以使用内置的 `reverse()` 方法或切片符号。
 
-`filter()` 函数接受两个参数：函数和可迭代对象。该函数应为可迭代对象中的每个元素返回 True 或 False。然后，`filter()` 函数返回一个新可迭代对象，其中仅包含函数返回 True 的元素。
+使用 `reverse()` 方法
 
 ```python
-numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-
-def is_even(num):
-    return num % 2 == 0
-
-even_numbers = list(filter(is_even, numbers))
-print(even_numbers)  # Output: [2, 4, 6, 8, 10]
+my_list = [1, 2, 3, 4, 5]
+my_list.reverse()
+print(my_list) # Output: [5, 4, 3, 2, 1]
 ```
 
-## 列表切片
-
-使用切片符号提取列表的一部分。列表切片的语法是
+使用切片符号
 
 ```python
-my_list[start:end:step]
-```
-
-其中 `start` 是要包括的第一个项目的索引，`end` 是要排除的第一个项目的索引，`step` 是在切片中每个项目之间要跳过的项目数（默认为 1）。
-
-```python
-my_list = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-
-# 获取前3个元素
-print(my_list[:3])  # output: [0, 1, 2]
-
-# 获取第3个至第5个元素
-print(my_list[3:6])  # output: [3, 4, 5]
-
-# 从第二个元素开始间隔（step = 2）获取元素
-print(my_list[1::2])  # output: [1, 3, 5, 7, 9]
-
-# 反转列表
-print(my_list[::-1])  # output: [9, 8, 7, 6, 5, 4, 3, 2, 1, 0]
-```
-
-还可以使用切片替换多个元素。
-
-```python
-my_list = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
-my_list[3:6] = [0] # Output: [0, 1, 2, 0, 6, 7, 8, 9]
+my_list = [1, 2, 3, 4, 5]
+reversed_list = my_list[::-1]
+print(reversed_list) # Output: [5, 4, 3, 2, 1]
 ```
 
 ## 列表求和
@@ -445,6 +432,21 @@ else:
 # Output: list1 is less than list2
 ```
 
+## 列表筛选
+
+可以使用 `filter()` 函数筛选列表，即创建新列表，其中仅包含满足特定条件的现有列表中的元素。
+
+`filter()` 函数接受两个参数：函数和可迭代对象。该函数应为可迭代对象中的每个元素返回 True 或 False。然后，`filter()` 函数返回一个新可迭代对象，其中仅包含函数返回 True 的元素。
+
+```python
+numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+
+def is_even(num):
+    return num % 2 == 0
+
+even_numbers = list(filter(is_even, numbers))
+print(even_numbers)  # Output: [2, 4, 6, 8, 10]
+```
 ## 列表映射
 
 `map()` 是一个内置函数，它对可迭代对象（如列表、元组或集合）的每个元素应用一个函数，并返回一个包含转换后值的新可迭代对象。
