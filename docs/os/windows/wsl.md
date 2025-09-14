@@ -32,6 +32,8 @@
 
 ## 遇到的错误
 
+### 参考的对象类型不支持尝试的操作。
+
 ![](./src/20210615102952.png)
 
 启动 `wsl ubuntu` 出现如下错误：
@@ -51,6 +53,29 @@
 netsh winsock reset
 ```
 
-参考：
+### 无法将磁盘“C:\Program Files\WSL\system.vhd”附加到 WSL2
 
-[🔗](https://www.cnblogs.com/fanqisoft/p/13028976.html)
+```shell
+无法将磁盘“C:\Program Files\WSL\system.vhd”附加到 WSL2： 系统找不到指定的文件。 
+错误代码: Wsl/Service/CreateInstance/CreateVm/MountVhd/HCS/ERROR_FILE_NOT_FOUND
+```
+
+使用 `wsl --version` 命令查看 WSL 版本：
+
+```
+PS C:\Users\OoO> wsl --version
+WSL 版本: 2.6.1.0
+内核版本: 6.6.87.2-1
+WSLg 版本: 1.0.66
+MSRDC 版本: 1.2.6353
+Direct3D 版本: 1.611.1-81528511
+DXCore 版本: 10.0.26100.1-240331-1435.ge-release
+Windows: 10.0.26100.6584
+```
+
+在 https://github.com/microsoft/WSL/releases 下载对应的安装包：
+
+
+![](./src/explorer_zEm8owvN0q.gif)
+
+"修复"后应该可以解决问题。
