@@ -79,3 +79,12 @@ Windows: 10.0.26100.6584
 ![](./src/explorer_zEm8owvN0q.gif)
 
 "修复"后应该可以解决问题。
+
+### 灾难性故障 错误代码 WSL/Service/E_UNEXPECTED
+
+
+以管理员身份打开终端：
+
+```shell
+wsl --shutdown
+```
