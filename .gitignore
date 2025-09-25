@@ -1,11 +1,4 @@
-.DS_Store
-Thumbs.db
-db.json
-*.log
 node_modules/
-public/
-.deploy*/
-.obsidian/
-.trash/
 docs/.vitepress/cache/
 docs/.vitepress/dist/
+.obsidian/
