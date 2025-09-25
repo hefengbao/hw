@@ -156,3 +156,10 @@ $this->routes(function () {
 Demo：https://github.com/hefengbao/laravel-demo
 
 https://laravel-news.com/managing-routes
+
+
+```php
+$route = Route::current();
+$name = Route::currentRouteName();
+$action = Route::currentRouteAction();
+```
