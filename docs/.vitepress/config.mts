@@ -126,7 +126,7 @@ export default defineConfig({
 
     sidebar: {
       '/ai/': [
-        { text: '开篇', link: '/ai/index' },
+        { text: '开篇', link: '/ai/' },
         {
           text: '笔记',
           items: [
@@ -145,7 +145,7 @@ export default defineConfig({
             {
               text: 'Ollama',
               items: [
-                { text: '安装 & 配置', link: '/ai/app/ollama/index' },
+                { text: '安装 & 配置', link: '/ai/app/ollama/' },
               ]
             },
             { text: 'Dify', link: '/ai/app/dify' },
@@ -156,25 +156,25 @@ export default defineConfig({
         },
       ],
       '/cs/': [
-        { text: '开篇', link: '/cs/index' },
+        { text: '开篇', link: '/cs/' },
         { text: '协议', link: '/cs/protocol' },
         {
           text: '算法',
           items: [
-            { text: '资料', link: '/cs/algorithm/index' },
+            { text: '资料', link: '/cs/algorithm/' },
           ]
         },
       ],
       '/database/mysql/': [
-        { text: '开篇', link: '/database/mysql/index' },
-        { text: '博客', link: '/database/mysql/blog/index' },
+        { text: '开篇', link: '/database/mysql/' },
+        { text: '博客', link: '/database/mysql/blog/' },
       ],
       '/database/oracle/': [
-        { text: '开篇', link: '/database/oracle/index' },
-        { text: '博客', link: '/database/oracle/blog/index' },
+        { text: '开篇', link: '/database/oracle/' },
+        { text: '博客', link: '/database/oracle/blog/' },
       ],
       '/database/redis/': [
-        { text: '开篇', link: '/database/redis/index' },
+        { text: '开篇', link: '/database/redis/' },
         {
           text: '笔记',
           items: [
@@ -183,33 +183,33 @@ export default defineConfig({
         },
       ],
       '/database/sqlite/': [
-        { text: '开篇', link: '/database/sqlite/index' },
+        { text: '开篇', link: '/database/sqlite/' },
       ],
       '/devops/deploy/': [
-        { text: '开篇', link: '/devops/deploy/index' },
+        { text: '开篇', link: '/devops/deploy/' },
         {
           text: 'Nginx',
           items: [
-            { text: '资料', link: '/devops/deploy/nginx/index' },
-            { text: '博客', link: '/devops/deploy/nginx/blog/index' },
+            { text: '资料', link: '/devops/deploy/nginx/' },
+            { text: '博客', link: '/devops/deploy/nginx/blog/' },
           ]
         },
         {
           text: 'PHP',
           items: [
-            { text: '博客', link: '/devops/deploy/php/blog/index' },
+            { text: '博客', link: '/devops/deploy/php/blog/' },
           ]
         },
         {
           text: 'SSL',
           items: [
             { text: '工具', link: '/devops/deploy/ssl/tools' },
-            { text: '博客', link: '/devops/deploy/ssl/blog/index' },
+            { text: '博客', link: '/devops/deploy/ssl/blog/' },
           ]
         },
       ],
       '/devops/env': [
-        { text: '开篇', link: '/devops/env/index' },
+        { text: '开篇', link: '/devops/env/' },
         {
           text: 'Docker',
           items: [
@@ -221,41 +221,41 @@ export default defineConfig({
         {
           text: 'IDE',
           items: [
-            { text: 'Android Studio', link: '/devops/env/ide/android-studio/index' },
-            { text: 'PhpStorm', link: '/devops/env/ide/phpstorm/index' },
-            { text: 'VS Code', link: '/devops/env/ide/vscode/index' },
+            { text: 'Android Studio', link: '/devops/env/ide/android-studio/' },
+            { text: 'PhpStorm', link: '/devops/env/ide/phpstorm/' },
+            { text: 'VS Code', link: '/devops/env/ide/vscode/' },
           ]
         },
-        { text: 'MinIO', link: '/devops/env/minio/index' },
-        { text: 'MySQL', link: '/devops/env/mysql/index' },
-        { text: 'Nginx', link: '/devops/env/nginx/index' },
-        { text: 'Node.js', link: '/devops/env/nodejs/index' },
-        { text: 'Oracle', link: '/devops/env/oracle/index' },
-        { text: 'PHP', link: '/devops/env/php/index' },
-        { text: 'Python', link: '/devops/env/python/index' },
-        { text: 'Redis', link: '/devops/env/redis/index' },
+        { text: 'MinIO', link: '/devops/env/minio/' },
+        { text: 'MySQL', link: '/devops/env/mysql/' },
+        { text: 'Nginx', link: '/devops/env/nginx/' },
+        { text: 'Node.js', link: '/devops/env/nodejs/' },
+        { text: 'Oracle', link: '/devops/env/oracle/' },
+        { text: 'PHP', link: '/devops/env/php/' },
+        { text: 'Python', link: '/devops/env/python/' },
+        { text: 'Redis', link: '/devops/env/redis/' },
       ],
       '/devops/other': [
-        { text: 'DevOps', link: '/devops/other/index' },
+        { text: 'DevOps', link: '/devops/other/' },
         { text: '微服务', link: '/devops/other/20190121-microservices' },
       ],
       '/devops/svn': [
-        { text: '开篇', link: '/devops/svn/index' },
-        { text: 'Git', link: '/devops/svn/git/index' },
-        { text: 'Github', link: '/devops/svn/github/index' },
-        { text: 'Gitlab', link: '/devops/svn/gitlab/index' },
-        { text: 'Visual SVN', link: '/devops/svn/visual-svn/index' },
+        { text: '开篇', link: '/devops/svn/' },
+        { text: 'Git', link: '/devops/svn/git/' },
+        { text: 'Github', link: '/devops/svn/github/' },
+        { text: 'Gitlab', link: '/devops/svn/gitlab/' },
+        { text: 'Visual SVN', link: '/devops/svn/visual-svn/' },
       ],
       '/devops/testing': [
-        { text: '开篇', link: '/devops/testing/index' },
+        { text: '开篇', link: '/devops/testing/' },
       ],
       '/framework/javascript/jquery/': [
-        { text: '开篇', link: '/framework/javascript/jquery/index' },
+        { text: '开篇', link: '/framework/javascript/jquery/' },
         { text: 'Ajax', link: '/framework/javascript/jquery/20220409-jquery-ajax' },
         { text: 'DOM', link: '/framework/javascript/jquery/20220409-jquery-dom' },
       ],
       '/framework/javascript/vitepress/': [
-        { text: '开篇', link: '/framework/javascript/vitepress/index' },
+        { text: '开篇', link: '/framework/javascript/vitepress/' },
         {
           text: '插件',
           items: [
@@ -264,47 +264,47 @@ export default defineConfig({
             { text: '哔哩哔哩视频', link: '/framework/javascript/vitepress/plugins/vitepress-plugin-bilibili-video' },
           ]
         },
-        { text: '博客', link: '/framework/javascript/vitepress/blog/index' },
+        { text: '博客', link: '/framework/javascript/vitepress/blog/' },
       ],
       '/framework/javascript/vue/': [
-        { text: '开篇', link: '/framework/javascript/vue/index' },
-        { text: '博客', link: '/framework/javascript/vue/blog/index' },
+        { text: '开篇', link: '/framework/javascript/vue/' },
+        { text: '博客', link: '/framework/javascript/vue/blog/' },
       ],
       '/framework/kmp': [
-        { text: '开篇', link: '/framework/kmp/index' },
+        { text: '开篇', link: '/framework/kmp/' },
       ],
       '/framework/php/filament/': [
-        { text: '开篇', link: '/framework/php/filament/index' },
-        { text: '博客', link: '/framework/php/filament/blog/index' },
-        { text: '教程', link: '/framework/php/filament/tutorial/index' },
+        { text: '开篇', link: '/framework/php/filament/' },
+        { text: '博客', link: '/framework/php/filament/blog/' },
+        { text: '教程', link: '/framework/php/filament/tutorial/' },
       ],
       '/framework/php/laravel/': [
         { text: '开篇', link: '/framework/php/laravel/' },
         { text: 'Deploy', link: '/framework/php/laravel/deploy' },
         { text: 'Package', link: '/framework/php/laravel/package/' },
         { text: '博客', link: '/framework/php/laravel/blog/' },
-        { text: '教程', link: '/framework/php/laravel/tutorial/', activeMatch: '/framework/php/laravel/tutorial/*' },
+        { text: '教程', link: '/framework/php/laravel/tutorial/' },
       ],
       '/framework/python/flask/': [
-        { text: '开篇', link: '/framework/python/flask/index' },
+        { text: '开篇', link: '/framework/python/flask/' },
       ],
       '/lang/css/': [
-        { text: '开篇', link: '/lang/css/index' },
-        { text: '博客', link: '/lang/css/blog/index' },
+        { text: '开篇', link: '/lang/css/' },
+        { text: '博客', link: '/lang/css/blog/' },
       ],
       '/lang/go/': [
-        { text: '开篇', link: '/lang/go/index' },
+        { text: '开篇', link: '/lang/go/' },
       ],
       '/lang/html/': [
-        { text: '开篇', link: '/lang/html/index' },
-        { text: '博客', link: '/lang/html/blog/index' },
+        { text: '开篇', link: '/lang/html/' },
+        { text: '博客', link: '/lang/html/blog/' },
       ],
       '/lang/java/': [
-        { text: '开篇', link: '/lang/java/index' },
-        { text: '博客', link: '/lang/java/blog/index' },
+        { text: '开篇', link: '/lang/java/' },
+        { text: '博客', link: '/lang/java/blog/' },
       ],
       '/lang/javascript/': [
-        { text: '开篇', link: '/lang/javascript/index' },
+        { text: '开篇', link: '/lang/javascript/' },
         {
           text: '笔记',
           items: [
@@ -320,13 +320,13 @@ export default defineConfig({
             { text: 'Editor.js', link: '/lang/javascript/plugin/20250517-editorjs' },
           ]
         },
-        { text: '博客', link: '/lang/javascript/blog/index' },
+        { text: '博客', link: '/lang/javascript/blog/' },
       ],
       '/lang/json/': [
-        { text: '开篇', link: '/lang/json/index' },
+        { text: '开篇', link: '/lang/json/' },
       ],
       '/lang/kotlin/': [
-        { text: '开篇', link: '/lang/kotlin/index' },
+        { text: '开篇', link: '/lang/kotlin/' },
         {
           text: '笔记',
           items: [
@@ -372,24 +372,24 @@ export default defineConfig({
             { text: '协程', link: '/lang/kotlin/note/20190502-learning-kotlin-coroutine' },
           ]
         },
-        { text: '博客', link: '/lang/kotlin/blog/index' },
+        { text: '博客', link: '/lang/kotlin/blog/' },
       ],
       '/lang/markdown/': [
-        { text: '开篇', link: '/lang/markdown/index' },
+        { text: '开篇', link: '/lang/markdown/' },
       ],
       '/lang/php/': [
-        { text: '开篇', link: '/lang/php/index' },
+        { text: '开篇', link: '/lang/php/' },
         {
           text: '笔记',
           items: [
             { text: '魔术方法', link: '/lang/php/note/20191129-php-magic-methods' },
           ]
         },
-        { text: '包', link: '/lang/php/package/index' },
-        { text: '博客', link: '/lang/php/blog/index' },
+        { text: '包', link: '/lang/php/package/' },
+        { text: '博客', link: '/lang/php/blog/' },
       ],
       '/lang/python/': [
-        { text: '开篇', link: '/lang/python/index' },
+        { text: '开篇', link: '/lang/python/' },
         {
           text: '笔记',
           items: [
@@ -414,28 +414,28 @@ export default defineConfig({
         { text: 'Join', link: '/lang/sql/join' },
       ],
       '/lang/toml/': [
-        { text: '开篇', link: '/lang/toml/index' },
+        { text: '开篇', link: '/lang/toml/' },
       ],
       '/lang/xml/': [
-        { text: '开篇', link: '/lang/xml/index' },
+        { text: '开篇', link: '/lang/xml/' },
       ],
       '/lang/yaml/': [
-        { text: '开篇', link: '/lang/yaml/index' },
+        { text: '开篇', link: '/lang/yaml/' },
       ],
       '/mobile-development/android/': [
-        { text: '开篇', link: '/mobile-development/android/index' },
+        { text: '开篇', link: '/mobile-development/android/' },
         { text: 'Dependecy', link: '/mobile-development/android/20190504-android-dependecies' },
         {
           text: 'JetpackCompose',
           items: [
-            { text: '博客', link: '/mobile-development/android/jetpack-compose/blog/index' },
-            { text: '教程', link: '/mobile-development/android/jetpack-compose/tutorial/index' },
+            { text: '博客', link: '/mobile-development/android/jetpack-compose/blog/' },
+            { text: '教程', link: '/mobile-development/android/jetpack-compose/tutorial/' },
           ]
         },
-        { text: '博客', link: '/mobile-development/android/blog/index' },
+        { text: '博客', link: '/mobile-development/android/blog/' },
       ],
       '/os/linux/': [
-        { text: '开篇', link: '/os/linux/index' },
+        { text: '开篇', link: '/os/linux/' },
         {
           text: '笔记',
           items: [
@@ -448,24 +448,24 @@ export default defineConfig({
             { text: '环境变量', link: '/os/linux/note/environment-variables' },
           ]
         },
-        { text: '博客', link: '/os/linux/blog/index' },
+        { text: '博客', link: '/os/linux/blog/' },
       ],
       '/os/windows/': [
-        { text: '开篇', link: '/os/windows/index' },
+        { text: '开篇', link: '/os/windows/' },
         { text: '软件', link: '/os/windows/softwate' },
         { text: 'USB 设备', link: '/os/windows/usb-device' },
         { text: 'WSL', link: '/os/windows/wsl' },
         { text: '环境变量', link: '/os/windows/note/environment-variables' },
       ],
       '/tools/': [
-        { text: '开篇', link: '/tools/index' },
+        { text: '开篇', link: '/tools/' },
         { text: '浏览器', link: '/tools/browser' },
         { text: '代码统计', link: '/tools/cloc' },
         { text: '编辑器', link: '/tools/editor' },
         { text: '邮件', link: '/tools/mail' },
       ],
       '/web-development/': [
-        { text: '开篇', link: '/web-development/index' },
+        { text: '开篇', link: '/web-development/' },
         { text: 'API', link: '/web-development/api' },
         { text: 'CORS', link: '/web-development/cors' },
         { text: 'HTTP', link: '/web-development/http' },
