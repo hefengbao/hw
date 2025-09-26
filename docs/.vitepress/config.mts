@@ -279,11 +279,11 @@ export default defineConfig({
         { text: '教程', link: '/framework/php/filament/tutorial/index' },
       ],
       '/framework/php/laravel/': [
-        { text: '开篇', link: '/framework/php/laravel/index' },
+        { text: '开篇', link: '/framework/php/laravel/' },
         { text: 'Deploy', link: '/framework/php/laravel/deploy' },
-        { text: 'Package', link: '/framework/php/laravel/package/index' },
-        { text: '博客', link: '/framework/php/laravel/blog/index' },
-        { text: '教程', link: '/framework/php/laravel/tutorial/index' },
+        { text: 'Package', link: '/framework/php/laravel/package/' },
+        { text: '博客', link: '/framework/php/laravel/blog/' },
+        { text: '教程', link: '/framework/php/laravel/tutorial/' },
       ],
       '/framework/python/flask/': [
         { text: '开篇', link: '/framework/python/flask/index' },
