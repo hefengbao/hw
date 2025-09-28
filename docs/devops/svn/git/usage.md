@@ -73,6 +73,10 @@ git branch feature_x
 
 ```shell
 git checkout feature_x
+
+# 或者
+
+git switch feature_x
 ```
 
 创建分支并切换到新建的分支：
