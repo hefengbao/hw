@@ -211,7 +211,7 @@ git add <file>
 git add <folder>
 ```
 
-## Commit
+## 提交（commit）
 
 把修改提交到本地仓库
 
@@ -228,7 +228,7 @@ git commit --amend
 
 [Git 提交信息规范化](https://xie.infoq.cn/article/dffa8c4efd68796bc526639ee)
 
-## 提交（push）
+## 推送（push）
 
 > 把自己最新代码提交到远程服务器
 
@@ -242,7 +242,70 @@ git push -u origin master
 git push --set-upstream origin master
 ```
 
-## Stash
+
+## 标签（tag）
+
+### 创建标签
+
+```shell
+git tag v1.0.0
+
+git tag -a v1.0.0 -m '发布 v1.0.0'
+```
+
+### 远程操作
+
+推送标签到远程仓库
+
+```shell
+git push origin v1.0.0
+```
+
+推送所有标签到远程仓库
+
+```shell
+git push origin --tags
+```
+
+删除远程标签
+
+```shell
+git push origin :resfs/tags/v1.0.0
+```
+
+获取远程标签
+
+```shell
+git fetch origin --tags
+```
+
+### 本地管理
+
+列出标签
+
+```shell
+git tag -l 'v1.*'
+```
+
+删除本地标签
+
+```shell
+git tag -d v1.0.0
+```
+
+检出标签
+
+```shell
+git checkout v1.0.0
+```
+
+基于标签创建分支
+
+```shell
+git checkout -b hotfix-v1.0.1 v1.0.1
+```
+
+## 暂存（stash）
 
 把当前分支中未提交的修改移动到其他分支：
 
@@ -268,9 +331,16 @@ git stash drop
 
 ## Rebase
 
-## Reset
+## 回退
+
+### reset
 
 https://juejin.cn/post/7071780876501123085
+
+### restore
+
+### revert
+
  
 ## 远程服务器（remote）
 
