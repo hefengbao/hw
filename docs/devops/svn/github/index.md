@@ -2,6 +2,8 @@
 
 ## 解决 Github  无法访问
 
+修改 host ,偶尔有用。
+
 [gitlab.com/ineo6/hosts/-/raw/master/next-hosts](https://gitlab.com/ineo6/hosts/-/raw/master/next-hosts)
 
 ## 使用

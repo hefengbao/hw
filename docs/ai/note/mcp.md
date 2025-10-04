@@ -1,3 +1,5 @@
+## 介绍
+
 ![](./src/20250520101757.png)
 
 ![](./src/20250520101908.webp)
@@ -25,3 +27,24 @@ MCP 采用客户端-服务器架构，主要包含以下几个组件：
 [MCP Marketplace](https://mcp.higress.ai/)
 
 MCP.so
+
+## MCP Server
+
+## ffmpeg-mcp
+
+https://github.com/egoist/ffmpeg-mcp
+
+ffmpeg-mcp 是一个基于 MCP 协议的服务端项目，专门用来和 FFmpeg 交互，简化常见多媒体操作。  
+  
+它通过标准输入输出接口与 FFmpeg 通信，方便集成到各种 MCP 客户端中，提升自动化处理效率。  
+  
+主要特点：  
+  
+- 轻量级 MCP 服务器，专注于 FFmpeg 的常用命令封装；  
+- 支持通过环境变量自定义 FFmpeg 路径，灵活适配各种环境；  
+- 易于集成，直接通过 `npx -y ffmpeg-mcp` 命令即可启动；  
+- 由 ChatWise 赞助，持续维护和更新；  
+- 开源 MIT 许可，适合二次开发和商业使用。  
+  
+适合需要自动化音视频转码、处理的开发者和运维人员。
+
