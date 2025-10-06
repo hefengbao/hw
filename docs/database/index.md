@@ -114,3 +114,5 @@
 [Database Sharding Explained](https://architecturenotes.co/database-sharding-explained/)
 
 [Prisma's Data Guide](https://www.prisma.io/dataguide)
+
+![](./src/save_share_review_picture_1581900491.jpeg)
