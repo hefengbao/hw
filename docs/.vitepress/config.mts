@@ -275,8 +275,8 @@ export default defineConfig({
       ],
       '/framework/php/filament/': [
         { text: '开篇', link: '/framework/php/filament/' },
-        { text: '博客', link: '/framework/php/filament/blog/' },
-        { text: '教程', link: '/framework/php/filament/tutorial/' },
+        { text: '博客', link: '/framework/php/filament/blog' },
+        { text: '教程', link: '/framework/php/filament/tutorial' },
       ],
       '/framework/php/laravel/': [
         { text: '开篇', link: '/framework/php/laravel/' },
