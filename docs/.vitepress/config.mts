@@ -167,11 +167,11 @@ export default defineConfig({
       ],
       '/database/mysql/': [
         { text: '开篇', link: '/database/mysql/' },
-        { text: '博客', link: '/database/mysql/blog/' },
+        { text: '博客', link: '/database/mysql/blog' },
       ],
       '/database/oracle/': [
         { text: '开篇', link: '/database/oracle/' },
-        { text: '博客', link: '/database/oracle/blog/' },
+        { text: '博客', link: '/database/oracle/blog' },
       ],
       '/database/redis/': [
         { text: '开篇', link: '/database/redis/' },
@@ -191,20 +191,20 @@ export default defineConfig({
           text: 'Nginx',
           items: [
             { text: '资料', link: '/devops/deploy/nginx/' },
-            { text: '博客', link: '/devops/deploy/nginx/blog/' },
+            { text: '博客', link: '/devops/deploy/nginx/blog' },
           ]
         },
         {
           text: 'PHP',
           items: [
-            { text: '博客', link: '/devops/deploy/php/blog/' },
+            { text: '博客', link: '/devops/deploy/php/blog' },
           ]
         },
         {
           text: 'SSL',
           items: [
             { text: '工具', link: '/devops/deploy/ssl/tools' },
-            { text: '博客', link: '/devops/deploy/ssl/blog/' },
+            { text: '博客', link: '/devops/deploy/ssl/blog' },
           ]
         },
       ],
@@ -264,11 +264,11 @@ export default defineConfig({
             { text: '哔哩哔哩视频', link: '/framework/javascript/vitepress/plugins/vitepress-plugin-bilibili-video' },
           ]
         },
-        { text: '博客', link: '/framework/javascript/vitepress/blog/' },
+        { text: '博客', link: '/framework/javascript/vitepress/blog' },
       ],
       '/framework/javascript/vue/': [
         { text: '开篇', link: '/framework/javascript/vue/' },
-        { text: '博客', link: '/framework/javascript/vue/blog/' },
+        { text: '博客', link: '/framework/javascript/vue/blog' },
       ],
       '/framework/kmp': [
         { text: '开篇', link: '/framework/kmp/' },
@@ -281,27 +281,27 @@ export default defineConfig({
       '/framework/php/laravel/': [
         { text: '开篇', link: '/framework/php/laravel/' },
         { text: 'Deploy', link: '/framework/php/laravel/deploy' },
-        { text: 'Package', link: '/framework/php/laravel/package/' },
-        { text: '博客', link: '/framework/php/laravel/blog/' },
-        { text: '教程', link: '/framework/php/laravel/tutorial/' },
+        { text: 'Package', link: '/framework/php/laravel/package' },
+        { text: '博客', link: '/framework/php/laravel/blog' },
+        { text: '教程', link: '/framework/php/laravel/tutorial' },
       ],
       '/framework/python/flask/': [
         { text: '开篇', link: '/framework/python/flask/' },
       ],
       '/lang/css/': [
         { text: '开篇', link: '/lang/css/' },
-        { text: '博客', link: '/lang/css/blog/' },
+        { text: '博客', link: '/lang/css/blog' },
       ],
       '/lang/go/': [
         { text: '开篇', link: '/lang/go/' },
       ],
       '/lang/html/': [
         { text: '开篇', link: '/lang/html/' },
-        { text: '博客', link: '/lang/html/blog/' },
+        { text: '博客', link: '/lang/html/blog' },
       ],
       '/lang/java/': [
         { text: '开篇', link: '/lang/java/' },
-        { text: '博客', link: '/lang/java/blog/' },
+        { text: '博客', link: '/lang/java/blog' },
       ],
       '/lang/javascript/': [
         { text: '开篇', link: '/lang/javascript/' },
@@ -320,7 +320,7 @@ export default defineConfig({
             { text: 'Editor.js', link: '/lang/javascript/plugin/20250517-editorjs' },
           ]
         },
-        { text: '博客', link: '/lang/javascript/blog/' },
+        { text: '博客', link: '/lang/javascript/blog' },
       ],
       '/lang/json/': [
         { text: '开篇', link: '/lang/json/' },
@@ -372,7 +372,7 @@ export default defineConfig({
             { text: '协程', link: '/lang/kotlin/note/20190502-learning-kotlin-coroutine' },
           ]
         },
-        { text: '博客', link: '/lang/kotlin/blog/' },
+        { text: '博客', link: '/lang/kotlin/blog' },
       ],
       '/lang/markdown/': [
         { text: '开篇', link: '/lang/markdown/' },
@@ -386,7 +386,7 @@ export default defineConfig({
           ]
         },
         { text: '包', link: '/lang/php/package/' },
-        { text: '博客', link: '/lang/php/blog/' },
+        { text: '博客', link: '/lang/php/blog' },
       ],
       '/lang/python/': [
         { text: '开篇', link: '/lang/python/' },
@@ -424,15 +424,25 @@ export default defineConfig({
       ],
       '/mobile-development/android/': [
         { text: '开篇', link: '/mobile-development/android/' },
-        { text: 'Dependecy', link: '/mobile-development/android/20190504-android-dependecies' },
         {
-          text: 'JetpackCompose',
+          text: '基础',
           items: [
-            { text: '博客', link: '/mobile-development/android/jetpack-compose/blog/' },
-            { text: '教程', link: '/mobile-development/android/jetpack-compose/tutorial/' },
+            { text: 'Activity', link: '/mobile-development/android/basic/activity' },
+            { text: 'Fragment', link: '/mobile-development/android/basic/fragment' },
+            { text: 'Service', link: '/mobile-development/android/basic/service' },
+            { text: '四大组件', link: '/mobile-development/android/basic/four-components' },
+            { text: 'Flavor', link: '/mobile-development/android/basic/flavor' },
+            { text: 'Launch Mode', link: '/mobile-development/android/basic/launch-mode' },
           ]
         },
-        { text: '博客', link: '/mobile-development/android/blog/' },
+        {
+          text: 'Jetpack Compose',
+          items: [
+
+          ]
+        },
+        { text: '博客', link: '/mobile-development/android/blog' },
+        { text: 'Dependecy', link: '/mobile-development/android/20190504-android-dependecies' },
       ],
       '/os/linux/': [
         { text: '开篇', link: '/os/linux/' },
@@ -448,7 +458,7 @@ export default defineConfig({
             { text: '环境变量', link: '/os/linux/note/environment-variables' },
           ]
         },
-        { text: '博客', link: '/os/linux/blog/' },
+        { text: '博客', link: '/os/linux/blog' },
       ],
       '/os/windows/': [
         { text: '开篇', link: '/os/windows/' },
