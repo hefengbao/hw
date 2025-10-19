@@ -2,7 +2,7 @@
 
 ## VS Code
 
-参见 [使用 VS Code 作为 Python 开发 IDE](https://hefengbao.github.io/hw/devops/env/ide/vscode/20250602-setup-vscode-for-python-development.html)
+参见 [使用 VS Code 作为 Python 开发 IDE](https://hefengbao.github.io/blog/20250602-setup-vscode-for-python-development.html)
 
 ## PyCharm
 
