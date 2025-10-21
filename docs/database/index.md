@@ -116,3 +116,6 @@
 [Prisma's Data Guide](https://www.prisma.io/dataguide)
 
 ![](./src/save_share_review_picture_1581900491.jpeg)
+
+
+Snowflake 用于数据仓库，Clickhouse 用于临时分析，Timescale 用于时间序列数据，Elastic 用于搜索数据，Postgres 用于事务, Redis 用于缓存，Cassandra 用于复杂工作负载，Dgraph 用于关系数据

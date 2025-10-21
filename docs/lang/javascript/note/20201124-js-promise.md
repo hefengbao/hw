@@ -123,8 +123,8 @@ const r = p.then((res)=>{
 console.dir(r)
 ```
 
-> then 返回结果为一个新的 promise 对象, 状态为 pending
 
+> then 返回结果为一个新的 promise 对象, 状态为 pending
 
 
 ```javascript
@@ -168,3 +168,10 @@ console.dir(p)
 参考：
 
 [2020最好理解的Promise教程_哔哩哔哩 (゜-゜)つロ 干杯~-bilibili](https://www.bilibili.com/video/BV1454y1R7vj)
+
+其他：
+
+<video controls width="600">
+	<source src="./src/JavaScript-Promise.mp4" type="video/mp4">
+	您的浏览器不支持视频播放。
+</video>
