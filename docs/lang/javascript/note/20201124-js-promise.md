@@ -171,7 +171,7 @@ console.dir(p)
 
 其他：
 
-<video controls width="600">
-	<source src="./src/JavaScript-Promise.mp4" type="video/mp4">
-	您的浏览器不支持视频播放。
+<video width="320" height="240" controls>
+  <source src="./src/JavaScript-Promise.mp4"  type="video/mp4">
+  您的浏览器不支持 HTML5 video 标签。
 </video>

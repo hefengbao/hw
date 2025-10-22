@@ -3,13 +3,13 @@
 
 W3C发布的说明Web标准的文档称为规范（specification，缩写为spec）。这些规范对HTML、CSS等语言的参数进行了定义。也就是说，规范对语言规则进行了标准化。要了解W3C的活动，请访问www.w3.org。
 
-由于种种原因，另一个组织，Web超文本应用技术工作组（WHATWG），在负责开发HTML5规范的大量内容。W3C将WHATWG的工作纳入了其正在开发的规范的正式版本之中。可以通过[www.whatwg.org](www.whatwg.org) 访问WHATWG。
+由于种种原因，另一个组织，Web超文本应用技术工作组（WHATWG），在负责开发HTML5规范的大量内容。W3C将WHATWG的工作纳入了其正在开发的规范的正式版本之中。可以通过[www.whatwg.org](https://www.whatwg.org) 访问WHATWG。
 
 查看这些规范：
 
-- HTML5（W3C）：http://www.w3.org/TR/html5/
-- HTML5.1（W3C）：http://www.w3.org/TR/html51/
-- 开发中的HTML标准（WHATWG）：http://www.whatwg.org/specs/web-apps/current-work/multipage/
+- HTML5（W3C）：https://www.w3.org/TR/html5/
+- HTML5.1（W3C）：https://www.w3.org/TR/html51/
+- 开发中的HTML标准（WHATWG）：https://www.whatwg.org/specs/web-apps/current-work/multipage/
 
 **渐进增强（progressive enhancement）** 的理念：开始用所有人都能访问的HTML内容和行为构建网站，再用CSS加入你的设计，最后用JavaScript（一种编程语言）添加额外的行为。这些组件都是分离的，但可以同时发挥作用。
 
