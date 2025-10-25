@@ -619,3 +619,6 @@ https://statamic.dev/
 ## Inertiajs
 
 https://inertiajs.com/
+
+
+[ReactPHP: Event-driven, non-blocking I/O with PHP - ReactPHP](https://reactphp.org/)

@@ -29,3 +29,7 @@
 [google/guava - Google core libraries for Java](https://github.com/google/guava)
 
 [Apache Commons – Apache Commons is an Apache project focused on all aspects of reusable Java components.s](https://commons.apache.org/)
+
+
+[java-diff-utils/java-diff-utils: Diff Utils library is an OpenSource library for performing the comparison / diff operations between texts or some kind of data: computing diffs, applying patches, generating unified diffs or parsing them, generating diff output for easy future displaying (like side-by-side view) and so on.](https://github.com/java-diff-utils/java-diff-utils)
+
