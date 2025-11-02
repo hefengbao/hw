@@ -48,3 +48,20 @@ deactivate
 ```
 
 ![](./src/20250512151146.png)
+
+
+## 命令创建
+
+创建项目文件夹 `demo`:
+
+```shell
+cd demo
+```
+
+```shell
+python -m venv .venv
+```
+
+```shell
+.venv/Scripts/activate
+```
