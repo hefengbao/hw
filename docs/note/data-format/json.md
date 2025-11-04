@@ -4,6 +4,12 @@
 
 [Google JSON Style Guide](https://google.github.io/styleguide/jsoncstyleguide.xml?showone=error#error)
 
+## Json 介绍
+
+https://json.org/json-zh.html
+
+[JSON Schema](https://json-schema.org/)
+
 ## JSON基本概念
 
 ```
@@ -40,7 +46,7 @@
 ```
 
 ```
-SON值类型
+JSON值类型
 
     数字(整数或浮点数) : 无需双引号
     字符串            : 在引号中
@@ -65,3 +71,17 @@ SON值类型
     可以都过如下调用获取小王的年龄
     jsonone.staff[0].age
 ```
+
+
+
+### Json 工具
+
+https://jsonplaceholder.typicode.com/ Free fake API for testing and prototyping.
+
+https://jqplay.org/
+
+https://altearius.github.io/tools/json/index.html
+
+https://jsonhero.io/
+
+https://jsoncrack.com/
