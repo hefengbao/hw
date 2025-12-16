@@ -18,6 +18,8 @@
 
 [从零开始搭建完善的记账体系 - 少数派](https://sspai.com/post/58025)
 
+[开发记账小程序说明（一） 了解市场上其它同类的记账程序-CSDN博客](https://blog.csdn.net/lx_mai/article/details/154599673)
+
 测评：
 
 [16 款安卓个人记账 APP 大横评 - 少数派](https://sspai.com/post/98549)

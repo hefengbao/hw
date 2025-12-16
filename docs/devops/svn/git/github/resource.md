@@ -4,9 +4,13 @@
 
 修改 host ,偶尔有用。
 
-[gitlab.com/ineo6/hosts/-/raw/master/next-hosts](https://gitlab.com/ineo6/hosts/-/raw/master/next-hosts)
+[https://gitlab.com/ineo6/hosts/-/raw/master/next-hosts](https://gitlab.com/ineo6/hosts/-/raw/master/next-hosts)
 
+[https://raw.hellogithub.com/hosts](https://raw.hellogithub.com/hosts)
 
+## 社区
+
+[GitHub中文社区](https://www.github-zh.com/)
 ## 资料
 
 - [HowToStartOpenSource GitHub开源项目维护协作指南](https://eryajf.github.io/HowToStartOpenSource/)

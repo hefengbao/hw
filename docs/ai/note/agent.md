@@ -4,6 +4,8 @@
 
 ![](./src/a5a05adf403afa8d98aca8ea7616377c.png)
 
+![](./src/2025-10-15_142631_854.png)
+
 资料：
 
 [A practical guide to building agents](https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf)
@@ -27,4 +29,5 @@
 - 评估与监控：利用MCP日志、OpenAI评估API和自定义仪表盘，持续测试与优化Agent性能。[🔗](https://weibo.com/1402400261/Q3v14gCpS)
 
 doc.agentscope.io  
+
 🔗 github.com/agentscope-ai/agentscope
