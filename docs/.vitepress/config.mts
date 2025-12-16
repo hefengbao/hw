@@ -245,7 +245,21 @@ export default defineConfig({
         { text: '开篇', link: '/devops/svn/' },
         { text: 'Git', link: '/devops/svn/git/' },
         { text: 'Github', link: '/devops/svn/github/' },
-        { text: 'Gitlab', link: '/devops/svn/gitlab/' },
+        {
+          text: 'Github',
+          items: [
+            { text: 'Github Action', link: '/devops/svn/github/github-action' },
+            { text: '资源', link: '/devops/svn/github/resource' },
+          ]
+        },
+        {
+          text: 'Gitlab',
+          items: [
+            { text: '安装', link: '/devops/svn/gitlab/install' },
+            { text: '升级', link: '/devops/svn/gitlab/upgrade' },
+            { text: '命令', link: '/devops/svn/gitlab/command' },
+          ]
+        },
         { text: 'Visual SVN', link: '/devops/svn/visual-svn/' },
       ],
       '/devops/testing': [
