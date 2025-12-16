@@ -82,7 +82,9 @@ export default defineConfig({
         text: '移动开发',
         activeMatch: '/mobile-development/*',
         items: [
-          { text: 'Android', link: '/mobile-development/android/', activeMatch: '/mobile-development/android/*' },
+          { text: 'Android', link: '/mobile-development/Android/', activeMatch: '/mobile-development/Android/*' },
+          { text: 'HarmonyOS', link: '/mobile-development/HarmonyOS/', activeMatch: '/mobile-development/HarmonyOS/*' },
+          { text: 'KMP', link: '/mobile-development/KMP/', activeMatch: '/mobile-development/KMP/*' },
         ]
       },
       {
