@@ -82,9 +82,9 @@ export default defineConfig({
         text: '移动开发',
         activeMatch: '/mobile-development/*',
         items: [
-          { text: 'Android', link: '/mobile-development/Android/', activeMatch: '/mobile-development/Android/*' },
-          { text: 'HarmonyOS', link: '/mobile-development/HarmonyOS/', activeMatch: '/mobile-development/HarmonyOS/*' },
-          { text: 'KMP', link: '/mobile-development/KMP/', activeMatch: '/mobile-development/KMP/*' },
+          { text: 'Android', link: '/mobile-development/android/', activeMatch: '/mobile-development/android/*' },
+          { text: 'HarmonyOS', link: '/mobile-development/harmonyos/', activeMatch: '/mobile-development/harmonyos/*' },
+          { text: 'KMP', link: '/mobile-development/kmp/', activeMatch: '/mobile-development/kmp/*' },
         ]
       },
       {
@@ -438,17 +438,17 @@ export default defineConfig({
       '/lang/yaml/': [
         { text: '开篇', link: '/lang/yaml/' },
       ],
-      '/mobile-development/Android/': [
-        { text: '开篇', link: '/mobile-development/Android/' },
+      '/mobile-development/android/': [
+        { text: '开篇', link: '/mobile-development/android/' },
         {
           text: '基础',
           items: [
-            { text: 'Activity', link: '/mobile-development/Android/basic/activity' },
-            { text: 'Fragment', link: '/mobile-development/Android/basic/fragment' },
-            { text: 'Service', link: '/mobile-development/Android/basic/service' },
-            { text: '四大组件', link: '/mobile-development/Android/basic/four-components' },
-            { text: 'Flavor', link: '/mobile-development/Android/basic/flavor' },
-            { text: 'Launch Mode', link: '/mobile-development/Android/basic/launch-mode' },
+            { text: 'Activity', link: '/mobile-development/android/basic/activity' },
+            { text: 'Fragment', link: '/mobile-development/android/basic/fragment' },
+            { text: 'Service', link: '/mobile-development/android/basic/service' },
+            { text: '四大组件', link: '/mobile-development/android/basic/four-components' },
+            { text: 'Flavor', link: '/mobile-development/android/basic/flavor' },
+            { text: 'Launch Mode', link: '/mobile-development/android/basic/launch-mode' },
           ]
         },
         {
@@ -457,14 +457,15 @@ export default defineConfig({
 
           ]
         },
-        { text: '博客', link: '/mobile-development/Android/blog' },
-        { text: 'Dependecy', link: '/mobile-development/Android/20190504-android-dependecies' },
+        { text: '博客', link: '/mobile-development/android/blog' },
+        { text: 'Dependecy', link: '/mobile-development/android/20190504-android-dependecies' },
+        { text: '反编译', link: '/mobile-development/android/decompile' },
       ],
-      '/mobile-development/HarmonyOS/': [
-        { text: '开篇', link: '/mobile-development/HarmonyOS/' },
+      '/mobile-development/harmonyos/': [
+        { text: '开篇', link: '/mobile-development/harmonyos/' },
       ],
-      '/mobile-development/KMP/': [
-        { text: '开篇', link: '/mobile-development/KMP/' },
+      '/mobile-development/kmp/': [
+        { text: '开篇', link: '/mobile-development/kmp/' },
       ],
       '/os/linux/': [
         { text: '开篇', link: '/os/linux/' },

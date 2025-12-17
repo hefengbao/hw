@@ -469,3 +469,6 @@ print(dictionary)
 [如何将 Python 字典转换为（从）列表、字符串和元组 - 《Dive into Python》中文版](https://diveintopython.cn/learn/variables/dictionary/convert)
 
 [Python 字典中的键值示例：获取、转换、检查和删除 - 《Dive into Python》中文版](https://diveintopython.cn/learn/variables/dictionary/key-value-operations)
+
+
+[Python中的TypedDict：给字典穿上类型的外衣# Python中的TypedDict：给字典穿上类型的外衣 > - 掘金](https://juejin.cn/post/7527193767084310578)
