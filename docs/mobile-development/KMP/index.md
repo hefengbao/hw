@@ -12,3 +12,16 @@ KMP([Kotlin Multiplatform - 构建跨平台应用 ](https://www.jetbrains.com/zh
 ## 库
 
 [Klibs.io — Search 3000+ KMP projects](https://klibs.io/)
+
+
+### 依赖注入
+
+[Koin - The pragmatic Kotlin Injection Framework - by Kotzilla and its open-source contributors](https://insert-koin.io/)
+
+### 网络请求
+
+[Ktor](https://ktor.io/docs/create-client.html)
+
+### 数据库
+
+[SQLDelight](https://github.com/cashapp/sqldelight)

@@ -5,6 +5,9 @@
 
 [AndroidDevTools](https://www.androiddevtools.cn/)
 
+
+[AndroidX 版本  |  Jetpack  |  Android Developers](https://developer.android.google.cn/jetpack/androidx/versions?hl=zh-cn)
+
 ## 升级适配
 
 [Android 14 适配](https://juejin.cn/post/7308434314777772042)
