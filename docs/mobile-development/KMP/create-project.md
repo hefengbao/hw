@@ -17,7 +17,7 @@
 
 ### Kotlin Multiplatform Wizard
 
-在线创建 [Kotlin Multiplatform Wizard | JetBrains](https://kmp.jetbrains.com/?android=true&ios=true&iosui=compose&includeTests=true)， 可根据模板创建。
+在线创建 [Kotlin Multiplatform Wizard | JetBrains](https://kmp.jetbrains.com/)， 可根据模板创建。
 
 ## 目录结构
 
