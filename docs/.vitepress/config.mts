@@ -462,10 +462,13 @@ export default defineConfig({
         { text: '反编译', link: '/mobile-development/android/decompile' },
       ],
       '/mobile-development/harmonyos/': [
-        { text: '开篇', link: '/mobile-development/harmonyos/' },
+        { text: '开篇', link: '/mobile-development/harmonyos/index' },
+        { text: '环境搭建', link: '/mobile-development/harmonyos/env' },
       ],
       '/mobile-development/kmp/': [
-        { text: '开篇', link: '/mobile-development/kmp/' },
+        { text: '开篇', link: '/mobile-development/kmp/index' },
+        { text: '创建项目', link: '/mobile-development/kmp/create-project' },
+        { text: 'expect/actual', link: '/mobile-development/kmp/expect-actual' },
       ],
       '/os/linux/': [
         { text: '开篇', link: '/os/linux/' },

@@ -19,6 +19,8 @@
 
 在线创建 [Kotlin Multiplatform Wizard | JetBrains](https://kmp.jetbrains.com/)， 可根据模板创建。
 
+[Compose Multiplatform Wizard](https://terrakok.github.io/Compose-Multiplatform-Wizard/)
+
 ## 目录结构
 
 [Create your Compose Multiplatform app | Kotlin Multiplatform Documentation](https://kotlinlang.org/docs/multiplatform/compose-multiplatform-create-first-app.html#examine-the-project-structure)
