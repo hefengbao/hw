@@ -1,7 +1,7 @@
 # SQLite
 
 
-[SQLite Home Page](https://sqlite.org/index.html)
+[SQLite 官网](https://sqlite.org/index.html)
 
 ## Tools
 

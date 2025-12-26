@@ -8,6 +8,11 @@
 
 [https://raw.hellogithub.com/hosts](https://raw.hellogithub.com/hosts)
 
+
+加速
+
+[xixu-me/xget: Ultra-high-performance, secure, all-in-one acceleration engine for developer resources](https://github.com/xixu-me/xget)
+
 ## 社区
 
 [GitHub中文社区](https://www.github-zh.com/)

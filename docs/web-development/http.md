@@ -1,6 +1,14 @@
 # HTTP
 
 
+- `Strict-Transport-Security`：强制 HTTPS 传输，预防中间人攻击
+- `X-Frame-Options: DENY`：防止点击劫持攻击
+- `X-XSS-Protection`：内置 XSS 防护机制
+- `Content-Security-Policy`：严格的内容安全策略
+- `Referrer-Policy`：控制引用信息泄露
+
+
+
 [HTTP Status Dogs](https://httpstatusdogs.com/)
 
 [HTTP Status Codes — httpstatuses.com](https://httpstatuses.com/)
@@ -14,3 +22,8 @@
 https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Status
 
 [Choosing an HTTP Status Code — Stop Making It Hard](https://www.codetinkerer.com/2015/12/04/choosing-an-http-status-code.html)
+
+
+参考：
+
+[xget/README.zh-Hans.md at main · xixu-me/xget](https://github.com/xixu-me/xget/blob/main/README.zh-Hans.md)
