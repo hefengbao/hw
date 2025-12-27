@@ -4,3 +4,6 @@ expect/actual 是 Kotlin 多平台项目中用于实现平台特定代码的核�
 
 
 [Egloo 中Kotlin 多平台中的 expect/actualKotlin 多平台中的 expect/actual - 掘金](https://juejin.cn/post/7517457120511115290)
+
+
+[Leveraging expect/actual in Kotlin Multiplatform for Native Implementations – Carrion.dev](https://carrion.dev/en/posts/expect-actual-kmp/)
