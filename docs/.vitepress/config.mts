@@ -494,6 +494,7 @@ export default defineConfig({
             { text: 'CSV', link: '/notes/data-format/csv' },
             { text: 'JSON', link: '/notes/data-format/json' },
             { text: 'Protocol Buffers', link: '/notes/data-format/protocol-buffers' },
+            { text: 'TOML', link: '/notes/data-format/toml' },
             { text: 'XML', link: '/notes/data-format/xml' },
             { text: 'YAML', link: '/notes/data-format/yaml' },
           ]
