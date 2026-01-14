@@ -491,11 +491,11 @@ export default defineConfig({
         {
           text: '数据格式',
           items: [
-            { text: 'CSV', link: '/notes/data-type/csv' },
-            { text: 'JSON', link: '/notes/data-type/json' },
-            { text: 'Protocol Buffers', link: '/notes/data-type/protocol-buffers' },
-            { text: 'XML', link: '/notes/data-type/xml' },
-            { text: 'YAML', link: '/notes/data-type/yaml' },
+            { text: 'CSV', link: '/notes/data-format/csv' },
+            { text: 'JSON', link: '/notes/data-format/json' },
+            { text: 'Protocol Buffers', link: '/notes/data-format/protocol-buffers' },
+            { text: 'XML', link: '/notes/data-format/xml' },
+            { text: 'YAML', link: '/notes/data-format/yaml' },
           ]
         },
         { text: '数据可视化', link: '/notes/data-visualization' },
