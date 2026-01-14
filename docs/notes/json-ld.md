@@ -1,11 +1,3 @@
----
-title: JSON-LD
-date: 2020-04-14 16:17:12
-updated: 2020-04-14 16:17:12
-tags: josn-ld
-categories: 资料
-permalink: json-ld.html
----
 # JSON-LD
 
 ## 什么是JSON-LD？

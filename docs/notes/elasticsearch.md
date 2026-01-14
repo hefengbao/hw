@@ -1,11 +1,3 @@
----
-title: Elasticearch 基础
-date: 2020-12-14 20:12:32
-updated: 2020-12-14 20:12:32
-tags: elasticsearch
-categories: 资料
-permalink: elasticsearch.html
----
 # Elasticearch 基础
 
 ![](./src/2020121402.jpeg)

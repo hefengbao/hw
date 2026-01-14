@@ -1,12 +1,5 @@
----
-title: Open Images V4
-date: 2020-05-22 14:45:52
-updated: 2020-05-22 14:45:52
-tags: 数据集
-categories: 资料
-permalink: open-images-v4.html
----
 # Open Images V4
+
 ## Open Images V4
 
 [Open Images](https://research.googleblog.com/2016/09/introducing-open-images-dataset.html) 包含大约9百万张图片，带有 `image-level` 的标签和 `object-level` 的矩形框标注信息。

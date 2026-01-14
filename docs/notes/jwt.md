@@ -1,7 +1,6 @@
 # JWT
 
-
- 验证JWT：[JSON Web Tokens - jwt.io](https://jwt.io/)
+验证JWT：[JSON Web Tokens - jwt.io](https://jwt.io/)
 
 
 资料：

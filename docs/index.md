@@ -12,11 +12,11 @@ hero:
   actions:
 
 features:
-  - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+  - title: 程序员
+    details: 或许有用的思考
+    link: ./programer
+  - title: 独立开发者
+    details: 或许有用的资料
+    link: ./independent-developer
 ---
 

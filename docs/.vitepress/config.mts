@@ -34,7 +34,7 @@ export default defineConfig({
         text: 'Lang',
         activeMatch: '/lang/*',
         items: [
-          { text: 'CSS', link: '/lang/css/', activeMatch: '/lang/chinecssse/*' },
+          { text: 'CSS', link: '/lang/css/', activeMatch: '/lang/css/*' },
           { text: 'Go', link: '/lang/go/', activeMatch: '/lang/go/*' },
           { text: 'Html', link: '/lang/html/', activeMatch: '/lang/html/*' },
           { text: 'Java', link: '/lang/java/', activeMatch: '/lang/java/*' },
@@ -45,9 +45,6 @@ export default defineConfig({
           { text: 'PHP', link: '/lang/php/', activeMatch: '/lang/php/*' },
           { text: 'Python', link: '/lang/python/', activeMatch: '/lang/python/*' },
           { text: 'SQL', link: '/lang/sql/', activeMatch: '/lang/sql/*' },
-          { text: 'TOML', link: '/lang/toml/', activeMatch: '/lang/toml/*' },
-          { text: 'XML', link: '/lang/xml/', activeMatch: '/lang/xml/*' },
-          { text: 'YAML', link: '/lang/yaml/', activeMatch: '/lang/yaml/*' },
         ]
       },
       {
@@ -62,7 +59,6 @@ export default defineConfig({
               { text: 'Vue', link: '/framework/javascript/vue/', activeMatch: '/framework/javascript/vue/*' },
             ]
           },
-          { text: 'KMP', link: '/framework/kmp/', activeMatch: '/framework/kmp/*' },
           {
             text: 'PHP',
             items: [
@@ -106,6 +102,7 @@ export default defineConfig({
         text: 'DevOps',
         activeMatch: '/devops/*',
         items: [
+          { text: '构建', link: '/devops/build/', activeMatch: '/devops/build/*' },
           { text: '部署', link: '/devops/deploy/', activeMatch: '/devops/deploy/*' },
           { text: '开发环境', link: '/devops/env/', activeMatch: '/devops/env/*' },
           { text: '版本控制', link: '/devops/svn/', activeMatch: '/devops/svn/*' },
@@ -124,6 +121,8 @@ export default defineConfig({
       { text: 'CS', link: '/cs/', activeMatch: '/cs/*' },
       { text: 'AI', link: '/ai/', activeMatch: '/ai/*' },
       { text: '工具', link: '/tools/', activeMatch: '/tools/*' },
+      { text: '产品', link: '/products/', activeMatch: '/products/*' },
+      { text: '笔记', link: '/notes/', activeMatch: '/notes/*' },
     ],
 
     sidebar: {
@@ -139,6 +138,7 @@ export default defineConfig({
             { text: '智能体（Agent）', link: '/ai/note/agent' },
             { text: 'MCP', link: '/ai/note/mcp' },
             { text: 'RAG', link: '/ai/note/rag' },
+            { text: 'Prompt', link: '/ai/note/prompt' },
           ]
         },
         {
@@ -153,17 +153,21 @@ export default defineConfig({
             { text: 'Dify', link: '/ai/app/dify' },
             { text: 'LangChain', link: '/ai/app/lang-chain' },
             { text: 'LangGraph', link: '/ai/app/lang-graph' },
+            { text: 'LangSmith', link: '/ai/app/lang-smith' },
             { text: 'OpenManus', link: '/ai/app/open-manus' },
+            { text: 'Browser', link: '/ai/app/browser-use' },
           ]
         },
       ],
       '/cs/': [
         { text: '开篇', link: '/cs/' },
         { text: '协议', link: '/cs/protocol' },
+        { text: '网络', link: '/cs/network' },
         {
           text: '算法',
           items: [
-            { text: '资料', link: '/cs/algorithm/' },
+            { text: 'Big O', link: '/cs/algorithm/20251020-big-o' },
+            { text: '资料', link: '/cs/algorithm/resources' },
           ]
         },
       ],
@@ -186,6 +190,11 @@ export default defineConfig({
       ],
       '/database/sqlite/': [
         { text: '开篇', link: '/database/sqlite/' },
+        { text: 'DataType', link: '/database/sqlite/data-types' },
+      ],
+      '/devops/build/': [
+        { text: '开篇', link: '/devops/build/' },
+        { text: 'Gradle', link: '/devops/build/gradle/' },
       ],
       '/devops/deploy/': [
         { text: '开篇', link: '/devops/deploy/' },
@@ -210,7 +219,7 @@ export default defineConfig({
           ]
         },
       ],
-      '/devops/env': [
+      '/devops/env/': [
         { text: '开篇', link: '/devops/env/' },
         {
           text: 'Docker',
@@ -237,11 +246,11 @@ export default defineConfig({
         { text: 'Python', link: '/devops/env/python/' },
         { text: 'Redis', link: '/devops/env/redis/' },
       ],
-      '/devops/other': [
+      '/devops/other/': [
         { text: 'DevOps', link: '/devops/other/' },
         { text: '微服务', link: '/devops/other/20190121-microservices' },
       ],
-      '/devops/svn': [
+      '/devops/svn/': [
         { text: '开篇', link: '/devops/svn/' },
         { text: 'Git', link: '/devops/svn/git/' },
         { text: 'Github', link: '/devops/svn/github/' },
@@ -262,7 +271,7 @@ export default defineConfig({
         },
         { text: 'Visual SVN', link: '/devops/svn/visual-svn/' },
       ],
-      '/devops/testing': [
+      '/devops/testing/': [
         { text: '开篇', link: '/devops/testing/' },
       ],
       '/framework/javascript/jquery/': [
@@ -285,9 +294,6 @@ export default defineConfig({
       '/framework/javascript/vue/': [
         { text: '开篇', link: '/framework/javascript/vue/' },
         { text: '博客', link: '/framework/javascript/vue/blog' },
-      ],
-      '/framework/kmp': [
-        { text: '开篇', link: '/framework/kmp/' },
       ],
       '/framework/php/filament/': [
         { text: '开篇', link: '/framework/php/filament/' },
@@ -457,6 +463,7 @@ export default defineConfig({
 
           ]
         },
+        { text: 'Material Design', link: '/mobile-development/android/material-design' },
         { text: '博客', link: '/mobile-development/android/blog' },
         { text: 'Dependecy', link: '/mobile-development/android/20190504-android-dependecies' },
         { text: '反编译', link: '/mobile-development/android/decompile' },
@@ -464,11 +471,49 @@ export default defineConfig({
       '/mobile-development/harmonyos/': [
         { text: '开篇', link: '/mobile-development/harmonyos/index' },
         { text: '环境搭建', link: '/mobile-development/harmonyos/env' },
+        { text: 'Database', link: '/mobile-development/harmonyos/database' },
+        { text: '卡片', link: '/mobile-development/harmonyos/form' },
       ],
       '/mobile-development/kmp/': [
         { text: '开篇', link: '/mobile-development/kmp/index' },
         { text: '创建项目', link: '/mobile-development/kmp/create-project' },
+        { text: 'Room', link: '/mobile-development/kmp/room' },
+        { text: 'Datastore', link: '/mobile-development/kmp/datastore' },
+        { text: 'ViewModel', link: '/mobile-development/kmp/viewmodel' },
+        { text: 'Navigation', link: '/mobile-development/kmp/navigation' },
+        { text: 'Koin', link: '/mobile-development/kmp/koin' },
+        { text: 'Ktor', link: '/mobile-development/kmp/ktor' },
+        { text: 'Uuid', link: '/mobile-development/kmp/uuid' },
         { text: 'expect/actual', link: '/mobile-development/kmp/expect-actual' },
+      ],
+      '/notes/': [
+        { text: '开篇', link: '/notes/index' },
+        {
+          text: '数据格式',
+          items: [
+            { text: 'CSV', link: '/notes/data-type/csv' },
+            { text: 'JSON', link: '/notes/data-type/json' },
+            { text: 'Protocol Buffers', link: '/notes/data-type/protocol-buffers' },
+            { text: 'XML', link: '/notes/data-type/xml' },
+            { text: 'YAML', link: '/notes/data-type/yaml' },
+          ]
+        },
+        { text: '数据可视化', link: '/notes/data-visualization' },
+        { text: '时间日期', link: '/notes/datetime' },
+        { text: 'DSL', link: '/notes/dsl' },
+        { text: 'Elasticsearch', link: '/notes/elasticsearch' },
+        { text: 'Emoji', link: '/notes/emoji' },
+        { text: 'Ffmpeg', link: '/notes/ffmpeg' },
+        { text: 'ID', link: '/notes/id' },
+        { text: 'JSON-LD', link: '/notes/json-ld' },
+        { text: 'JWT', link: '/notes/jwt' },
+        { text: 'Markdown', link: '/notes/markdown' },
+        { text: 'Oauth2', link: '/notes/oauth2' },
+        { text: 'OpenImages', link: '/notes/open-images-v4' },
+        { text: 'PDF', link: '/notes/pdf' },
+        { text: 'Print', link: '/notes/print' },
+        { text: 'SAAS PAAS IAAS', link: '/notes/saas-paas-iaas' },
+        { text: 'SnowFlake', link: '/notes/snowflake' },
       ],
       '/os/linux/': [
         { text: '开篇', link: '/os/linux/' },
@@ -492,6 +537,18 @@ export default defineConfig({
         { text: 'USB 设备', link: '/os/windows/usb-device' },
         { text: 'WSL', link: '/os/windows/wsl' },
         { text: '环境变量', link: '/os/windows/note/environment-variables' },
+      ],
+      '/products/': [
+        { text: '开篇', link: '/products/' },
+        { text: 'Logo', link: '/products/logo' },
+        { text: 'UI', link: '/products/ui' },
+        {
+          text: '项目',
+          items: [
+            { text: '记账', link: '/products/project/bookkeeping' },
+            { text: '笔记', link: '/products/project/note' },
+          ]
+        },
       ],
       '/tools/': [
         { text: '开篇', link: '/tools/' },

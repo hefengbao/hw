@@ -1,9 +1,6 @@
 # SOLID PRINCIPLES
 
-
 ![](./src/2019050701.png)
-
- 
 
 1. **Single Responsibility Principle :** It is defined as,A class should have one, and only one, reason to change.
 2. **Open-Closed Principle** **:** Software entities (classes, modules, functions, etc…) should be open for extension, but closed for modification
