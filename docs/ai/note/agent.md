@@ -31,3 +31,6 @@
 doc.agentscope.io  
 
 🔗 github.com/agentscope-ai/agentscope
+
+
+Multimodal Foundation Agent（多模态基础智能体）

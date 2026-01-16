@@ -12,6 +12,9 @@ MCP 采用客户端-服务器架构，主要包含以下几个组件：
 - 本地数据源（Local Data Source）：计算机上的文件、数据库和服务，MCP 服务器可以安全访问这些内容。
 - 远程服务（Remote Service）：通过互联网可用的外部系统（例如通过 API），MCP 服务器可以连接这些服务。
 
+## 文档
+
+[MCP 官方文档中文版 - apifox.cn](https://mcp-docs.apifox.cn/)
 ## 资料
 
 [一文讲透MCP的原理及实践](https://mp.weixin.qq.com/s/kElGH8WvrHr_0Hv-nQT8lQ)
