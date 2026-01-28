@@ -1,4 +1,4 @@
-# 独立开发者
+# 独立开发者（indie developers）
 
 
 [Freemium_百度百科](https://baike.baidu.com/item/Freemium/2270444)

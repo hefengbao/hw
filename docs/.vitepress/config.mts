@@ -433,6 +433,7 @@ export default defineConfig({
         }
       ],
       '/lang/sql/': [
+        { text: '开篇', link: '/lang/sql/' },
         { text: 'Join', link: '/lang/sql/join' },
       ],
       '/lang/toml/': [
