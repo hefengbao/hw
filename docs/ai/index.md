@@ -77,3 +77,6 @@
 [AI Agents for Beginners -面向初学者的 Agent 教程](https://microsoft.github.io/ai-agents-for-beginners/translations/zh/)
 
 [Model Context Protocol (MCP) Curriculum for Beginners - 面向初学者的 MCP 课程](https://github.com/microsoft/mcp-for-beginners)
+
+
+![](./src/20260205.png)图源 [Open Source LLM Development Landscape 2025](https://antoss-landscape.my.canva.site/)
