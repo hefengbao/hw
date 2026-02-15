@@ -478,7 +478,7 @@ export default defineConfig({
       '/mobile-development/kmp/': [
         { text: '开篇', link: '/mobile-development/kmp/index' },
         { text: '创建项目', link: '/mobile-development/kmp/create-project' },
-        { text: 'Room', link: '/mobile-development/kmp/room' },
+        { text: 'Database', link: '/mobile-development/kmp/database' },
         { text: 'Datastore', link: '/mobile-development/kmp/datastore' },
         { text: 'ViewModel', link: '/mobile-development/kmp/viewmodel' },
         { text: 'Navigation', link: '/mobile-development/kmp/navigation' },
