@@ -26,4 +26,6 @@ skills/skill-name/
 
 ## 参考
 
+[兄弟！你真的懂 Skill 吗？](https://mp.weixin.qq.com/s/h9BKGfLgH7GCNEhvwDBYBg)（Anthropic 开源了 16 个官方 Skill。本文的工作是：逐个分析它们的目录结构、SKILL.md 内容和执行方式，同时结合对整个 Skill 框架源码（9 个核心文件，约 2000+ 行代码）的逐文件拆解，回答一个问题：Skill 系统的执行模式到底有几种？）
+
 [为什么 AI 巨头们放弃私有壁垒，争相拥抱 Agent Skills - OSCHINA - 中文开源技术交流社区](https://my.oschina.net/IDP/blog/19209853)

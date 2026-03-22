@@ -44,3 +44,8 @@ https://docs.dify.ai/zh-hans/development/models-integration/ollama
 ```shell
 ollama run deepseek-r1:14b
 ```
+
+
+## 其他 
+
+[CanIRun.ai — Can your machine run AI models?](https://www.canirun.ai/)（网页检测你的机器，能够运行哪些本地的 AI 模型。）

@@ -8,6 +8,7 @@ KMP([Kotlin Multiplatform - 构建跨平台应用 ](https://www.jetbrains.com/zh
 
 [Kotlin Multiplatform samples | Kotlin Multiplatform Documentation](https://kotlinlang.org/docs/multiplatform/multiplatform-samples.html)
 
+[Kotlin 多平台路线图 | Kotlin Multiplatform Development Documentation](https://docs.kmpstudy.com/kotlin-multiplatform-roadmap.html)
 
 ## 库
 
