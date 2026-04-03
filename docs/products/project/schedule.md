@@ -4,7 +4,9 @@
 
 ## 资料
 
-[RFC 2445 - Internet Calendaring and Scheduling Core Object Specification (iCalendar)](https://datatracker.ietf.org/doc/html/rfc2445)
+[RFC 5545 - Internet Calendaring and Scheduling Core Object Specification (iCalendar)](https://datatracker.ietf.org/doc/html/rfc5545)
+
+[RFC5545 中文翻译 中文RFC RFC文档 RFC翻译 RFC中文版](https://rfc2cn.com/rfc5545.html)
 
 [iCalendar.org - iCalendar.org - iCalendar Resources, Specifications and Tools](https://icalendar.org/)
 

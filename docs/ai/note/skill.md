@@ -1,5 +1,7 @@
 # Skill（技能）
 
+[SkillHub-专为中国用户优化的Skills社区](https://skillhub.tencent.com/)
+
 [https://agentskills.io](https://agentskills.io/)
 
 [Agent Skills 市场 - Claude、Codex 和 ChatGPT Skills | SkillsMP](https://skillsmp.com/zh)
