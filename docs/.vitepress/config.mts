@@ -482,9 +482,11 @@ export default defineConfig({
         { text: 'Datastore', link: '/mobile-development/kmp/datastore' },
         { text: 'ViewModel', link: '/mobile-development/kmp/viewmodel' },
         { text: 'Navigation', link: '/mobile-development/kmp/navigation' },
+        { text: 'Notification', link: '/mobile-development/kmp/notification' },
         { text: 'Koin', link: '/mobile-development/kmp/koin' },
         { text: 'Ktor', link: '/mobile-development/kmp/ktor' },
         { text: 'Uuid', link: '/mobile-development/kmp/uuid' },
+        { text: 'Fastlane', link: '/mobile-development/kmp/fastlane' },
         { text: 'expect/actual', link: '/mobile-development/kmp/expect-actual' },
       ],
       '/notes/': [

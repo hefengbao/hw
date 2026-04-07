@@ -23,9 +23,15 @@ KMP([Kotlin Multiplatform - 构建跨平台应用 ](https://www.jetbrains.com/zh
 
 [Ktor](https://ktor.io/docs/create-client.html)
 
+[skymansandy/wiretapKMP: Kotlin Multiplatform library for network inspection and mocking. Intercept HTTP and WebSocket traffic, mock API responses, and throttle requests.](https://github.com/skymansandy/wiretapKMP)
+
 ### 数据库
 
 [SQLDelight](https://github.com/cashapp/sqldelight)
+
+## UI
+
+[Compose Loaders – Mathematical Loading Animations in Jetpack Compose | Compose Internals](https://composeinternals.com/composeloaders)
 
 
 
