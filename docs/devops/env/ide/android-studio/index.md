@@ -21,10 +21,16 @@
 -Dconsole.encoding=UTF-8
 ```
 
+项目根目录下的 `gradle.properties` 配置：
+
+![](images/ScreenShot_2026-05-11_130136_807.png)
+```
+org.gradle.jvmargs=-Dfile.encoding=UTF-8
+```
 
 Windows 11 还需要做如下设置：
 
-![](images/ScreenShot_2026-05-11_121652_583.png)
+![651](images/ScreenShot_2026-05-11_121652_583.png)
 
 ## gradle 下载慢
 
