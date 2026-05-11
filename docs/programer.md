@@ -77,3 +77,7 @@
 职业生涯初期，你用时间换取金钱，各种事情都做----这无可厚非。但到了某个阶段，情况就完全不同了，你会开始意识到，时间才是不可再生资源。你要专注于那些对你最重要的事情，放弃其他事情。
 
 [🔗](https://www.ruanyifeng.com/blog/2026/01/weekly-issue-382.html)
+
+## 软件工程定律
+
+[Laws of Software Engineering](https://lawsofsoftwareengineering.com/)
