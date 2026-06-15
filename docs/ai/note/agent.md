@@ -8,6 +8,9 @@
 
 资料：
 
+
+[从0开发大模型的17种Agent架构演进详细拆解](https://mp.weixin.qq.com/s/5f0I2apY4oFsHrttANBOJg)
+
 [A practical guide to building agents](https://cdn.openai.com/business-guides-and-resources/a-practical-guide-to-building-agents.pdf)
 
 [AI Agent调研--7种Agent框架对比！盘点国内一站式Agent搭建平台，一文说清差别！大家都在用Agent做什么？-CSDN博客](https://blog.csdn.net/Python_cocola/article/details/140407020)
@@ -27,6 +30,7 @@
 - 输出格式优化：生成Markdown、PDF或结构化JSON，兼顾人类可读与机器可解析需求。  
 - UI/API封装（可选）：通过Gradio、Streamlit或FastAPI构建界面或API，快速将Agent转化为产品。  
 - 评估与监控：利用MCP日志、OpenAI评估API和自定义仪表盘，持续测试与优化Agent性能。[🔗](https://weibo.com/1402400261/Q3v14gCpS)
+
 
 doc.agentscope.io  
 
