@@ -173,6 +173,8 @@ export default defineConfig({
       ],
       '/database/mysql/': [
         { text: '开篇', link: '/database/mysql/' },
+        { text: 'binlog', link: '/database/mysql/binlog' },
+        { text: 'optimize', link: '/database/mysql/optimize' },
         { text: '博客', link: '/database/mysql/blog' },
       ],
       '/database/oracle/': [
