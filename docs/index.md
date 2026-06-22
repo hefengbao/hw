@@ -18,5 +18,8 @@ features:
   - title: 独立开发者
     details: 或许有用的资料
     link: ./independent-developer
+  - title: 镜像站
+    details: 或许有用的软件
+    link: ./mirror
 ---
 
