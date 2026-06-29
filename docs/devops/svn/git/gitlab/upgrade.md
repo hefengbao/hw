@@ -1,5 +1,6 @@
 # Gitlab Upgrade
 
+## It seems you are upgrading from 10.x version series to 11.x series
 
 错误：
 
@@ -42,3 +43,7 @@ https://gitlab.com/gitlab-org/gitlab/-/releases
 
 
 [Upgrading GitLab | GitLab](https://docs.gitlab.com/ee/update/index.html#upgrade-paths)
+
+## The following signatures were invalid: EXPKEYSIG 3F01618A51312F3F GitLab B.V.
+
+[Ubuntu 更新Gitlab-ce提示：The following signatures were invalid: EXPKEYSIG 3F01618A51312F3F GitLab B.V.-CSDN博客](https://blog.csdn.net/u014291571/article/details/136496856)
