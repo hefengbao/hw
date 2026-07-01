@@ -490,6 +490,7 @@ export default defineConfig({
         { text: 'Uuid', link: '/mobile-development/kmp/uuid' },
         { text: 'Fastlane', link: '/mobile-development/kmp/fastlane' },
         { text: 'expect/actual', link: '/mobile-development/kmp/expect-actual' },
+        { text: '打包', link: '/mobile-development/kmp/package' },
       ],
       '/notes/': [
         { text: '开篇', link: '/notes/index' },
