@@ -8,6 +8,7 @@
 
 资料：
 
+[相比层出不穷的 Agent 框架，不变的 Agent Protocol 是什么](https://mp.weixin.qq.com/s/0N-RnpGVy_PLSDHMwAIFNg)
 
 [从0开发大模型的17种Agent架构演进详细拆解](https://mp.weixin.qq.com/s/5f0I2apY4oFsHrttANBOJg)
 

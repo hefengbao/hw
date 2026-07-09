@@ -1,6 +1,7 @@
 # 编辑器
 
 [Editor.js (editorjs.io)](https://editorjs.io/)
+[BlockNote - Javascript Block-Based React rich text editor](https://www.blocknotejs.org/)
 [Summernote - Super Simple WYSIWYG editor](https://summernote.org/)
 
 ## Markdown

@@ -138,11 +138,19 @@ export default defineConfig({
             { text: '智能体（Agent）', link: '/ai/note/agent' },
             { text: 'MCP', link: '/ai/note/mcp' },
             { text: 'RAG', link: '/ai/note/rag' },
-            { text: 'Prompt', link: '/ai/note/prompt' },
+            {
+              text: '工程范式',
+              items: [
+                { text: 'Prompt', link: '/ai/note/engineering/prompt' },
+                { text: 'Context', link: '/ai/note/engineering/context' },
+                { text: 'Harness', link: '/ai/note/engineering/harness' },
+                { text: 'Loop', link: '/ai/note/engineering/loop' },
+              ]
+            },
           ]
         },
         {
-          text: '应用',
+          text: '应用/框架',
           items: [
             {
               text: 'Ollama',
