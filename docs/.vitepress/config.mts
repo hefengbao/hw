@@ -270,16 +270,17 @@ export default defineConfig({
             {
               text: 'Github',
               items: [
-                { text: 'Github Action', link: '/devops/svn/github/github-action' },
-                { text: '资源', link: '/devops/svn/github/resource' },
+                { text: 'Action', link: '/devops/svn/git/github/github-action' },
+                { text: 'Runner', link: '/devops/svn/git/github/runner' },
+                { text: '资源', link: '/devops/svn/git/github/resource' },
               ]
             },
             {
               text: 'Gitlab',
               items: [
-                { text: '安装', link: '/devops/svn/gitlab/install' },
-                { text: '升级', link: '/devops/svn/gitlab/upgrade' },
-                { text: '命令', link: '/devops/svn/gitlab/command' },
+                { text: '安装', link: '/devops/svn/git/gitlab/install' },
+                { text: '升级', link: '/devops/svn/git/gitlab/upgrade' },
+                { text: '命令', link: '/devops/svn/git/gitlab/command' },
               ]
             },
           ]
