@@ -569,6 +569,8 @@ export default defineConfig({
           items: [
             { text: '记账', link: '/products/project/bookkeeping' },
             { text: '笔记', link: '/products/project/note' },
+            { text: '番茄钟', link: '/products/project/pomodoro' },
+            { text: '日程', link: '/products/project/schedule' },
           ]
         },
       ],
