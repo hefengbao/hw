@@ -18,7 +18,7 @@ CREATE SEQUENCE SEQ_ID_INCREMENT --SEQ_表名
 ### 定义 trigger
 
 ``` sql
-create or replace trigger trigger_id_auto_increment -- 自定义名称，和表明有相关性，避免重复？
+create or replace trigger trigger_id_auto_increment -- 自定义名称，和表名有相关性，避免重复？
   before insert
   on table_name -- 表名 
   for each row
