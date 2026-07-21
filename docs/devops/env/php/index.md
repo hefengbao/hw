@@ -17,6 +17,14 @@
 
 - [ErrorException  : symlink(): Input/output error](https://hefengbao.github.io/blog/20200115-ErrorException-symlink-Input-output-error)
 
+- Repository 'https://ppa.launchpadcontent.net/ondrej/php/ubuntu noble InRelease' changed its 'Label' value from 'PPA for PHP' to 'Use https://packages.sury.org/php/ instead'
+
+``` shell
+sudo wget -O /etc/apt/trusted.gpg.d/php.gpg https://packages.sury.org/php/apt.gpg
+echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/php.list
+```
+
+移除 `/etc/apt/sources.list.d/` 目录下包含 `ondrej/php` 或 `ppa.launchpadcontent.net` 的 `.list` 文件
 ## Composer
 
 ### Usage
@@ -27,7 +35,9 @@
 
 - [composer update: Discard changes [y,n,v,d,s,?]?](https://hefengbao.github.io/blog/20200103-composer-update-discard-changes-ynvds)
 - [proc_open(): fork failed - Cannot allocate memory](https://hefengbao.github.io/blog/20200103-proc_open-fork-failed%20-cannot-allocate-memory)
+## PIE
 
+[Home :: Documentation :: PIE Documentation](https://php.github.io/pie/#docs/index)
 ## WAMPServer
 
 ### Usage

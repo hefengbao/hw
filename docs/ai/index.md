@@ -31,7 +31,7 @@
 
 [LLM从构建到应用工具全集：推理大模型Github索引梳理 - 每时AI](https://mmssai.com/archives/26632)
 
-
+[独家 | 智谱创始人唐杰发内部信：「GLM 时刻」之后，什么是更重要的事-36氪](https://36kr.com/p/3891132709206784)
 
 [中国人工智能学会通讯2018年第10期 (yunzhan365.com)](https://book.yunzhan365.com/poui/iart/mobile/index.html)
 

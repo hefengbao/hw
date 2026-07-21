@@ -187,6 +187,12 @@ export default defineConfig({
       ],
       '/database/oracle/': [
         { text: '开篇', link: '/database/oracle/' },
+        {
+          text: '笔记',
+          items: [
+            { text: '触发器', link: '/database/oracle/note/trigger' },
+          ]
+        },
         { text: '博客', link: '/database/oracle/blog' },
       ],
       '/database/redis/': [
@@ -272,6 +278,7 @@ export default defineConfig({
               items: [
                 { text: 'Action', link: '/devops/svn/git/github/github-action' },
                 { text: 'Runner', link: '/devops/svn/git/github/runner' },
+                { text: 'gh', link: '/devops/svn/git/github/gh' },
                 { text: '资源', link: '/devops/svn/git/github/resource' },
               ]
             },

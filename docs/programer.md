@@ -3,7 +3,7 @@
 
 ## 观点
 
-## # Ralph Loop创造者、Claude Code核心技术设计者访谈
+### Ralph Loop创造者、Claude Code核心技术设计者访谈
 
 **Q：那我该重点学什么？**
 
