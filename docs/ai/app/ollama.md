@@ -35,7 +35,7 @@ https://docs.dify.ai/zh-hans/development/models-integration/ollama
 
 查找模型 [https://ollama.com/search](https://ollama.com/search) ，比如 DeepSeek 模型 [https://ollama.com/library/deepseek-r1](https://ollama.com/library/deepseek-r1) ：
 
-![](./src/20250512111936.png)
+![](src/20250512111936.png)
 
 ### 安装模型
 

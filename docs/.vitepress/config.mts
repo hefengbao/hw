@@ -134,10 +134,13 @@ export default defineConfig({
             { text: '概述', link: '/ai/note/01-overview' },
             { text: '自然语言处理（NLP）', link: '/ai/note/02-nlp' },
             { text: '通用人工智能（AGI）', link: '/ai/note/03-agi' },
-            { text: '大模型（LLM）', link: '/ai/note/llm' },
-            { text: '智能体（Agent）', link: '/ai/note/agent' },
-            { text: 'MCP', link: '/ai/note/mcp' },
-            { text: 'RAG', link: '/ai/note/rag' },
+            { text: '大模型（LLM）', link: '/ai/note/04-llm' },
+            { text: '智能体（Agent）', link: '/ai/note/05-agent' },
+            { text: 'MCP', link: '/ai/note/06-mcp' },
+            { text: 'RAG', link: '/ai/note/07-rag' },
+            { text: 'SKILL', link: '/ai/note/08-skill' },
+            { text: 'TokenVector', link: '/ai/note/09-token-vector' },
+            { text: 'AGENTS.md', link: '/ai/note/10-agents-md' },
             {
               text: '工程范式',
               items: [
@@ -150,22 +153,69 @@ export default defineConfig({
           ]
         },
         {
-          text: '应用/框架',
+          text: 'Coding',
           items: [
-            {
-              text: 'Ollama',
-              items: [
-                { text: '安装 & 配置', link: '/ai/app/ollama/' },
-              ]
-            },
-            { text: 'Dify', link: '/ai/app/dify' },
-            { text: 'LangChain', link: '/ai/app/lang-chain' },
-            { text: 'LangGraph', link: '/ai/app/lang-graph' },
-            { text: 'LangSmith', link: '/ai/app/lang-smith' },
-            { text: 'OpenManus', link: '/ai/app/open-manus' },
-            { text: 'Browser', link: '/ai/app/browser-use' },
+            { text: 'Spec Coding', link: '/ai/coding/spec-coding' },
           ]
         },
+        {
+          text: 'Env',
+          items: [
+            { text: 'Lmstudio', link: '/ai/env/lmstudio' },
+          ]
+        },
+        {
+          text: '应用',
+          items: [
+            { text: 'Browser User', link: '/ai/app/browser-user' },
+            { text: 'Dify', link: '/ai/app/dify' },
+            { text: 'Ollama', link: '/ai/app/ollama' },
+            { text: 'OpenManus', link: '/ai/app/open-manus' },
+            { text: 'OpenClaw', link: '/ai/app/open-claw' },
+          ]
+        },
+        {
+          text: '框架',
+          items: [
+            {
+              text: 'AgentScope',
+              items: [
+                { text: 'Index', link: '/ai/framework/agent-scope/' },
+              ]
+            },
+            {
+              text: 'Koog',
+              items: [
+                { text: 'Rag', link: '/ai/framework/koog/rag' },
+              ]
+            },
+            {
+              text: 'LangChain',
+              items: [
+                { text: 'Index', link: '/ai/framework/lang-chain/' },
+              ]
+            },
+            {
+              text: 'LangGraph',
+              items: [
+                { text: 'Index', link: '/ai/framework/lang-graph/' },
+              ]
+            },
+            {
+              text: 'LangSmith',
+              items: [
+                { text: 'Index', link: '/ai/framework/lang-smith/' },
+              ]
+            },
+            {
+              text: 'nanobot',
+              items: [
+                { text: 'Index', link: '/ai/framework/nanobot/' },
+              ]
+            },
+          ]
+        },
+        { text: '博客', link: '/ai/blog' },
       ],
       '/cs/': [
         { text: '开篇', link: '/cs/' },
