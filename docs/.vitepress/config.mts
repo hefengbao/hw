@@ -167,11 +167,11 @@ export default defineConfig({
         {
           text: '应用',
           items: [
-            { text: 'Browser User', link: '/ai/app/browser-user' },
+            { text: 'Browser Use', link: '/ai/app/browser-use' },
             { text: 'Dify', link: '/ai/app/dify' },
             { text: 'Ollama', link: '/ai/app/ollama' },
             { text: 'OpenManus', link: '/ai/app/open-manus' },
-            { text: 'OpenClaw', link: '/ai/app/open-claw' },
+            { text: 'OpenClaw', link: '/ai/app/openclaw' },
           ]
         },
         {
