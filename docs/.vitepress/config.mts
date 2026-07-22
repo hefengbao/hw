@@ -180,7 +180,7 @@ export default defineConfig({
             {
               text: 'AgentScope',
               items: [
-                { text: 'Index', link: '/ai/framework/agent-scope/' },
+                { text: 'Index', link: '/ai/framework/agentscope/' },
               ]
             },
             {
