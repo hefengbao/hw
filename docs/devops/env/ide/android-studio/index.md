@@ -32,6 +32,10 @@ Windows 11 还需要做如下设置：
 
 ![651](images/ScreenShot_2026-05-11_121652_583.png)
 
+但是会出现一些软件中文名称乱码
+
+[关于JDK 21在IDEA控制台中文乱码问题解决_jdk21中文乱码-CSDN博客](https://blog.csdn.net/lifeislikeadream8/article/details/141496725)
+
 ## gradle 下载慢
 
 替换使用国内镜像：
