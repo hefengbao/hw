@@ -81,7 +81,7 @@ docker history my-app:1.0
    ```
 
 6. **使用 .dockerignore**
-   ```gitignore
+   ```
    # 忽略不必要的文件
    .git
    node_modules

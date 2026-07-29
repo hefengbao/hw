@@ -95,7 +95,7 @@ volumes:  # 声明命名卷
 
 1. **环境变量文件**  
    使用 `.env` 文件定义变量：
-   ```env
+   ```
    DB_PASSWORD=secret
    ```
    在 Compose 文件中引用：
