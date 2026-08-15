@@ -14,30 +14,13 @@ KMP([Kotlin Multiplatform - 构建跨平台应用 ](https://www.jetbrains.com/zh
 
 [Klibs.io — Search 3000+ KMP projects](https://klibs.io/)
 
-
-### 依赖注入
-
-[Koin - The pragmatic Kotlin Injection Framework - by Kotzilla and its open-source contributors](https://insert-koin.io/)
-
-### 网络请求
-
-[Ktor](https://ktor.io/docs/create-client.html)
-
-[skymansandy/wiretapKMP: Kotlin Multiplatform library for network inspection and mocking. Intercept HTTP and WebSocket traffic, mock API responses, and throttle requests.](https://github.com/skymansandy/wiretapKMP)
-
-### 数据库
-
-[SQLDelight](https://github.com/cashapp/sqldelight)
+[Haze - 一个为 Compose Multiplatform 提供视觉特效（如模糊）的库。](https://chrisbanes.github.io/haze/latest/)
 
 ## UI
 
 [Compose Loaders – Mathematical Loading Animations in Jetpack Compose | Compose Internals](https://composeinternals.com/composeloaders)
 
 
-
-[Kotlin跨平台Compose Multiplatform实战指南-腾讯云开发者社区-腾讯云](https://cloud.tencent.com/developer/article/2519639)
-
-[Kotlin Multiplatform 入门：构建你的第一个跨平台应用 - CrossPaste 技术博客 - SegmentFault 思否](https://segmentfault.com/a/1190000045404935)
-
+## 其他
 
 [KMP 桌面应用开机启动完全指南 - 知乎](https://zhuanlan.zhihu.com/p/12926451201)

@@ -22,6 +22,11 @@
 
 [携程Android 10适配踩坑指南](https://mp.weixin.qq.com/s/syAzZLYLmTC7AebICb22AQ)
 
+
+## 架构
+
+[预防远大于治理：Android 架构指南](https://juejin.cn/post/7672996833275936778)
+
 ## 图标
 
 [Vico:A light and extensible chart library for Android.Support compose.](https://patrykandpatrick.com/vico/wiki/)
@@ -29,22 +34,6 @@
 ## 反编译
 
 [dex2jar:Tools to work with android .dex and java .class files](https://github.com/pxb1988/dex2jar)
-
-## Android Studio
-
-[Android Studio Iguana | 2023.2.1 发布](https://blog.csdn.net/ZuoYueLiang/article/details/136389783)
-
-## Jetpack Compose
-
-[Jetpack Compose 1.6 发布](https://mp.weixin.qq.com/s/r_Ug5a4ns-oW6hvD6f2rHA)
-
-[https://composablescore.com/](https://composablescore.com/)
-
-[Find components for your Jetpack Compose apps – Composables](https://composables.com/)
-
-## WindowManager 
-
-[Jetpack WindowManager 1.1 稳定版](https://mp.weixin.qq.com/s/F4i0DylUDnEc27Ug48D0Og)
 
 ## 开发者社区
 
@@ -72,10 +61,6 @@
 [Markwon is a markdown library for Android.](https://noties.io/Markwon/)
 
 [MarkdownTwain - A Jetpack Compose UI library for editing Markdown content on Android, based on Markwon](https://github.com/colintheshots/MarkdownTwain)
-
-### 图片
-
-[Kotlin Multiplatform library for Compose Multiplatform, designed for seamless integration of an image picker feature in iOS and Android applications.](https://github.com/onseok/peekaboo)
 
 ### UI
 
