@@ -54,6 +54,7 @@ export default defineConfig({
           {
             text: 'Javascript',
             items: [
+              { text: 'Astro', link: '/framework/javascript/astro/', activeMatch: '/framework/javascript/astro/*' },
               { text: 'Jquery', link: '/framework/javascript/jquery/', activeMatch: '/framework/javascript/jquery/*' },
               { text: 'Vitepress', link: '/framework/javascript/vitepress/', activeMatch: '/framework/javascript/vitepress/*' },
               { text: 'Vue', link: '/framework/javascript/vue/', activeMatch: '/framework/javascript/vue/*' },
