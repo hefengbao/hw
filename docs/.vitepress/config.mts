@@ -347,6 +347,9 @@ export default defineConfig({
       '/devops/testing/': [
         { text: '开篇', link: '/devops/testing/' },
       ],
+      '/framework/javascript/astro/': [
+        { text: '开篇', link: '/framework/javascript/astro/' },
+      ],
       '/framework/javascript/jquery/': [
         { text: '开篇', link: '/framework/javascript/jquery/' },
         { text: 'Ajax', link: '/framework/javascript/jquery/20220409-jquery-ajax' },
