@@ -173,6 +173,7 @@ export default defineConfig({
             { text: 'Ollama', link: '/ai/app/ollama' },
             { text: 'OpenManus', link: '/ai/app/open-manus' },
             { text: 'OpenClaw', link: '/ai/app/openclaw' },
+            { text: 'OpenCode', link: '/ai/app/opencode' },
           ]
         },
         {
@@ -533,6 +534,10 @@ export default defineConfig({
             { text: '四大组件', link: '/mobile-development/android/basic/four-components' },
             { text: 'Flavor', link: '/mobile-development/android/basic/flavor' },
             { text: 'Launch Mode', link: '/mobile-development/android/basic/launch-mode' },
+            { text: 'Datastore', link: '/mobile-development/android/basic/datastore' },
+            { text: 'File Storage', link: '/mobile-development/android/basic/file-storage' },
+            { text: 'Media3', link: '/mobile-development/android/basic/media3' },
+            { text: 'Navigation', link: '/mobile-development/android/basic/navigation' },
           ]
         },
         {
