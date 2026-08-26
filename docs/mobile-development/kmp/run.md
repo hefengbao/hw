@@ -14,7 +14,7 @@
 
 那么可以通过如下命令运行：
 
-```sehll
+```shell
 ./gradlew :sample:run
 ```
 
