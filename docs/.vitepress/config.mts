@@ -538,6 +538,7 @@ export default defineConfig({
             { text: 'File Storage', link: '/mobile-development/android/basic/file-storage' },
             { text: 'Media3', link: '/mobile-development/android/basic/media3' },
             { text: 'Navigation', link: '/mobile-development/android/basic/navigation' },
+            { text: 'Permission', link: '/mobile-development/android/basic/permission' },
           ]
         },
         {
