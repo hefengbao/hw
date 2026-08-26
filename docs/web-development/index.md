@@ -49,6 +49,10 @@ W3C发布的说明Web标准的文档称为规范（specification，缩写为spec
 
 [Griddy - Learn the CSS Grid!](https://griddy.io/)
 
+### 标准检查工具
+
+html-validate 和 csstree-validator 是开源工具
+[几乎没人再关注 Web 标准了：5000 个网站只有 2.6% 完全符合规范 - OSCHINA - 开源 × AI · 开发者生态社区](https://www.oschina.net/news/502003)
 ## CSS
 
 [最佳 CSSS 框架，根据 Github Star 数据](https://www.libhunt.com/css)

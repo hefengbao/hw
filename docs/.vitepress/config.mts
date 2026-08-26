@@ -616,6 +616,7 @@ export default defineConfig({
             { text: 'Supervisor', link: '/os/linux/note/supervisor' },
             { text: '环境变量', link: '/os/linux/note/environment-variables' },
             { text: '升级', link: '/os/linux/note/upgrade' },
+            { text: 'XDG', link: '/os/linux/note/xdg' },
           ]
         },
         { text: '博客', link: '/os/linux/blog' },
