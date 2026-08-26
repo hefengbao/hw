@@ -551,6 +551,7 @@ export default defineConfig({
         { text: '博客', link: '/mobile-development/android/blog' },
         { text: 'Dependecy', link: '/mobile-development/android/20190504-android-dependecies' },
         { text: '反编译', link: '/mobile-development/android/decompile' },
+        { text: 'ADB', link: '/mobile-development/android/adb' },
       ],
       '/mobile-development/harmonyos/': [
         { text: '开篇', link: '/mobile-development/harmonyos/index' },

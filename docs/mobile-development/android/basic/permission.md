@@ -203,3 +203,5 @@
 | `android.permission.INJECT_EVENTS`                        | **注入事件**        | 允许应用注入输入事件（仅系统应用可申请）。                                  |     |
 | `android.permission.READ_LOGS`                            | **读取日志**        | 允许应用读取系统日志（仅系统应用可申请）。                                  |     |
 | `android.permission.SET_WALLPAPER_COMPONENT`              | **设置壁纸组件**      | 允许应用设置壁纸组件。                                            |     |
+[🔗](https://www.fuwa.org/tools/android-manifest.html)
+
