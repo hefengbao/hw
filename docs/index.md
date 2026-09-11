@@ -21,5 +21,8 @@ features:
   - title: 镜像站
     details: 或许有用的软件
     link: ./mirror
+  - title: 资讯
+    details: 或许有用的消息
+    link: ./info
 ---
 

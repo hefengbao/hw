@@ -94,6 +94,13 @@
 
 [🔗](https://www.ruanyifeng.com/blog/2026/01/weekly-issue-382.html)
 
+### 为什么我不“凭感觉编程”
+
+“偶然复杂性”（accidental complexity）和“本质复杂性”（essential complexity）
+
+即便更好的工具削弱了偶然复杂性，本质复杂性还在那儿。设计出正确、优雅、清晰且易于维护的抽象架构和系统，依然是一项无比艰巨的工作，这种复杂性哪儿也去不了。这项工作需要技能、经验，以及从过去系统崩溃的血泪史中艰难汲取的智慧。
+
+[🔗](https://baoyu.io/translations/2026-05-17/i-dont-vibe-code)
 ## 软件工程定律
 
 [Laws of Software Engineering](https://lawsofsoftwareengineering.com/)

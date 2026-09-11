@@ -18,5 +18,8 @@ Windows用户可能会发现，这与微软自Windows NT 4版本以来的情况�
 
 [🔗](https://dev59.com/unix/aEHGoIgBc1ULPQZFNZzo)
 
+## 资料
 
 [XDG Base Directory Specification](https://specifications.freedesktop.org/basedir/latest/)
+
+[XDG基本目录规范 | DeepinWiki](https://wiki.deepin.org/zh/03_%E6%8A%80%E6%9C%AF%E8%A7%84%E8%8C%83/02_XDG%E8%A7%84%E8%8C%83/XDG%E5%9F%BA%E6%9C%AC%E7%9B%AE%E5%BD%95%E8%A7%84%E8%8C%83)
