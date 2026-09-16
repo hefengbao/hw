@@ -604,6 +604,7 @@ export default defineConfig({
         { text: 'Print', link: '/notes/print' },
         { text: 'SAAS PAAS IAAS', link: '/notes/saas-paas-iaas' },
         { text: 'SnowFlake', link: '/notes/snowflake' },
+        { text: 'GUID', link: '/notes/guid' },
       ],
       '/os/linux/': [
         { text: '开篇', link: '/os/linux/' },
