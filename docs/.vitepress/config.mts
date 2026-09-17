@@ -305,14 +305,25 @@ export default defineConfig({
             { text: 'VS Code', link: '/devops/env/ide/vscode/' },
           ]
         },
-        { text: 'MinIO', link: '/devops/env/minio/' },
-        { text: 'MySQL', link: '/devops/env/mysql/' },
+        {
+          text: '对象存储',
+          items: [
+            { text: 'RustFS', link: '/devops/env/rustfs' },
+            { text: 'MinIO', link: '/devops/env/minio/' },
+          ]
+        },
+        {
+          text: '数据库',
+          items: [
+            { text: 'Redis', link: '/devops/env/redis/' },
+            { text: 'MySQL', link: '/devops/env/mysql/' },
+            { text: 'Oracle', link: '/devops/env/oracle/' },
+          ]
+        },
         { text: 'Nginx', link: '/devops/env/nginx/' },
         { text: 'Node.js', link: '/devops/env/nodejs/' },
-        { text: 'Oracle', link: '/devops/env/oracle/' },
         { text: 'PHP', link: '/devops/env/php/' },
         { text: 'Python', link: '/devops/env/python/' },
-        { text: 'Redis', link: '/devops/env/redis/' },
       ],
       '/devops/other/': [
         { text: 'DevOps', link: '/devops/other/' },
@@ -604,7 +615,6 @@ export default defineConfig({
         { text: 'Print', link: '/notes/print' },
         { text: 'SAAS PAAS IAAS', link: '/notes/saas-paas-iaas' },
         { text: 'SnowFlake', link: '/notes/snowflake' },
-        { text: 'GUID', link: '/notes/guid' },
       ],
       '/os/linux/': [
         { text: '开篇', link: '/os/linux/' },
