@@ -243,6 +243,7 @@ export default defineConfig({
           text: '笔记',
           items: [
             { text: '触发器', link: '/database/oracle/note/trigger' },
+            { text: '表空间', link: '/database/oracle/note/data-space' },
           ]
         },
         { text: '博客', link: '/database/oracle/blog' },
@@ -252,13 +253,15 @@ export default defineConfig({
         {
           text: '笔记',
           items: [
-            { text: 'Redis学习笔记', link: '/database/oracle/note/20201115-learning-redis' },
+            { text: 'Redis学习笔记', link: '/database/redis/note/20201115-learning-redis' },
           ]
         },
       ],
       '/database/sqlite/': [
         { text: '开篇', link: '/database/sqlite/' },
-        { text: 'DataType', link: '/database/sqlite/data-types' },
+        { text: 'DataType', link: '/database/sqlite/datatypes' },
+        { text: 'FTS5', link: '/database/sqlite/fts5' },
+        { text: 'Extension', link: '/database/sqlite/extension' },
       ],
       '/devops/build/': [
         { text: '开篇', link: '/devops/build/' },
