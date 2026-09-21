@@ -622,3 +622,7 @@ https://inertiajs.com/
 
 
 [ReactPHP: Event-driven, non-blocking I/O with PHP - ReactPHP](https://reactphp.org/)
+
+## 版本变迁
+
+[PHP 8.6 只是个小版本，三十项弃用却已在为 PHP 9.0 铺路 - JaguarJack - 博客园](https://www.cnblogs.com/catchadmin/p/23020590)

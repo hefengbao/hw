@@ -408,9 +408,11 @@ export default defineConfig({
       ],
       '/lang/go/': [
         { text: '开篇', link: '/lang/go/' },
+        { text: '跨平台', link: '/lang/go/cross-platform' },
       ],
       '/lang/html/': [
         { text: '开篇', link: '/lang/html/' },
+        { text: 'Boilerplate', link: '/lang/html/boilerplate' },
         { text: '博客', link: '/lang/html/blog' },
       ],
       '/lang/java/': [
