@@ -412,7 +412,7 @@ export default defineConfig({
             { text: 'Grid', link: '/lang/css/note/grid' },
           ]
         },
-        { text: 'CSS Modules', link: '/lang/css/note/css-modules' },
+        { text: 'CSS Modules', link: '/lang/css/css-modules' },
         { text: 'Print', link: '/lang/css/print' },
         { text: '博客', link: '/lang/css/blog' },
       ],
