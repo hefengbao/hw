@@ -292,6 +292,7 @@ export default defineConfig({
       ],
       '/devops/env/': [
         { text: '开篇', link: '/devops/env/' },
+        { text: 'WindowsDeveloperConfig', link: '/devops/env/windows-developer-config' },
         {
           text: 'Docker',
           items: [

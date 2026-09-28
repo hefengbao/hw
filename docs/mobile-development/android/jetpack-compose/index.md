@@ -11,3 +11,7 @@
 ## 工具
 
 [Rebound — Compose Recomposition Budget Monitor](https://aldefy.github.io/compose-rebound/)
+
+## 资料
+
+[Jetpack Compose 2026 年 8 月版本详解：Compose 1.12 赋能应用高效开发](https://mp.weixin.qq.com/s/7Q5z4lh5OMS8YK67SvCUqw)
