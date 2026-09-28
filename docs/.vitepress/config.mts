@@ -103,11 +103,11 @@ export default defineConfig({
         text: 'DevOps',
         activeMatch: '/devops/*',
         items: [
-          { text: '构建', link: '/devops/build/', activeMatch: '/devops/build/*' },
-          { text: '部署', link: '/devops/deploy/', activeMatch: '/devops/deploy/*' },
           { text: '开发环境', link: '/devops/env/', activeMatch: '/devops/env/*' },
           { text: '版本控制', link: '/devops/svn/', activeMatch: '/devops/svn/*' },
+          { text: '构建', link: '/devops/build/', activeMatch: '/devops/build/*' },
           { text: '测试', link: '/devops/testing/', activeMatch: '/devops/testing/*' },
+          { text: '部署', link: '/devops/deploy/', activeMatch: '/devops/deploy/*' },
           { text: '其他', link: '/devops/other/', activeMatch: '/devops/other/*' },
         ]
       },
