@@ -331,7 +331,6 @@ export default defineConfig({
       ],
       '/devops/other/': [
         { text: 'DevOps', link: '/devops/other/' },
-        { text: '微服务', link: '/devops/other/20190121-microservices' },
       ],
       '/devops/svn/': [
         { text: '开篇', link: '/devops/svn/' },
@@ -570,7 +569,11 @@ export default defineConfig({
         {
           text: 'Jetpack Compose',
           items: [
-
+            { text: 'Index', link: '/mobile-development/android/jetpack-compose/index' },
+            { text: 'Navigation', link: '/mobile-development/android/jetpack-compose/navigation' },
+            { text: 'PhotoPicker', link: '/mobile-development/android/jetpack-compose/photo-picker' },
+            { text: 'CompositionLocalProvider', link: '/mobile-development/android/jetpack-compose/composition-local-provider' },
+            { text: 'SubcomposeLayout', link: '/mobile-development/android/jetpack-compose/subcompose-layout' },
           ]
         },
         { text: 'Material Design', link: '/mobile-development/android/material-design' },
