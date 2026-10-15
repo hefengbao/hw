@@ -108,6 +108,7 @@ export default defineConfig({
           { text: '构建', link: '/devops/build/', activeMatch: '/devops/build/*' },
           { text: '测试', link: '/devops/testing/', activeMatch: '/devops/testing/*' },
           { text: '部署', link: '/devops/deploy/', activeMatch: '/devops/deploy/*' },
+          { text: '监控', link: '/devops/telemetry/', activeMatch: '/devops/telemetry/*' },
           { text: '其他', link: '/devops/other/', activeMatch: '/devops/other/*' },
         ]
       },
@@ -359,6 +360,10 @@ export default defineConfig({
           ]
         },
         { text: 'Visual SVN', link: '/devops/svn/visual-svn/' },
+      ],
+      '/devops/telemetry/': [
+        { text: 'Index', link: '/devops/telemetry/index' },
+        { text: 'OpenTelemetry', link: '/devops/telemetry/opentelemetry' },
       ],
       '/devops/testing/': [
         { text: '开篇', link: '/devops/testing/' },

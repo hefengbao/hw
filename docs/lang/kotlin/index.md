@@ -28,6 +28,8 @@
 
 ## Java
 
-[Spring 实战 (第 6 版) MEAP](https://leonli0102.github.io/spring-in-action-v6/)
 
-[ava进阶之路](https://javabetter.cn/)
+
+## 资料
+
+[Android 响应式编程核心：彻底搞懂 Kotlin 异步流工作原理](https://mp.weixin.qq.com/s/iLcfyupzF5y1g9BZ4ojuEQ)

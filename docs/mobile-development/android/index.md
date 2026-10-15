@@ -35,10 +35,6 @@
 
 [dex2jar:Tools to work with android .dex and java .class files](https://github.com/pxb1988/dex2jar)
 
-## 开发者社区
-
-[https://androiddev.social](https://androiddev.social/explore)
-
 ## 开源项目
 
 [Aegis - A free, secure and open source app for Android to manage your 2-step verification tokens.](https://github.com/beemdevelopment/Aegis)
@@ -176,21 +172,6 @@
 
 ### Jetpack Compose
 
-[在 Jetpack Compose 中安全地使用数据流](https://mp.weixin.qq.com/s/8GPc-zOHu5A-LBsy3jRPaA)
-
-[来自 Twitter 的 17 条 Compose 开发规范](https://mp.weixin.qq.com/s/Cvvdt9Wklb5ZCW-RoUcdNg)
-
-[Jetpack Compose: DropDown Menu](https://alexzh.com/jetpack-compose-dropdownmenu/)
-
-[How to handle deeplinks using Jetpack Compose navigation](https://www.composables.com/tutorials/deeplinks)
-
-[Jetpack Compose 实现下拉动态渐变切换布局 | 开发者说·DTalk](https://mp.weixin.qq.com/s/FbG6qjv1ff2EQZOQtUwfgA)
-
-[Jetpack Compose : 超简单实现文本展开和收起](https://juejin.cn/post/7317132381013082122)
-
-[Creating Pager Animations in Jetpack Compose](https://www.sinasamaki.com/pager-animations/)
-
-[zekierciyas/survey-compose - A Survey library of fully configurable, dynamic questions/answers and UI written in Jetpack Compose.](https://github.com/zekierciyas/survey-compose)
 
 ### Multiplatform
 
@@ -201,3 +182,5 @@
 ### 其他
 
 [Netflix Android 客户端使用的开源库](https://juejin.cn/post/7246453307735392316)
+
+[Android 开发必读：Kotlin “坏味道” 完整避坑指南](https://mp.weixin.qq.com/s/-XrHCslZspRZdlyhlOrx5w)
