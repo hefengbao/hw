@@ -1,5 +1,7 @@
 ## UUID
 
+[UUIDv7 in 33 languages](https://antonz.org/uuidv7/)
+
 ## ULID
 
 ## Snowflake

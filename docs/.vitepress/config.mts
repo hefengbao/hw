@@ -675,6 +675,8 @@ export default defineConfig({
             { text: '笔记', link: '/products/project/note' },
             { text: '番茄钟', link: '/products/project/pomodoro' },
             { text: '日程', link: '/products/project/schedule' },
+            { text: '智能体', link: '/products/project/agent' },
+            { text: '个人助理', link: '/products/project/personal-agent' },
           ]
         },
       ],
