@@ -327,7 +327,14 @@ export default defineConfig({
         },
         { text: 'Nginx', link: '/devops/env/nginx/' },
         { text: 'Node.js', link: '/devops/env/nodejs/' },
-        { text: 'PHP', link: '/devops/env/php/' },
+        {
+          text: 'PHP',
+          items: [
+            { text: 'index', link: '/devops/env/php/index' },
+            { text: 'php-oci8', link: '/devops/env/php/php-oci8' },
+            { text: 'pdo-oci', link: '/devops/env/php/php-pdo-oci' },
+          ]
+        },
         { text: 'Python', link: '/devops/env/python/' },
       ],
       '/devops/other/': [
