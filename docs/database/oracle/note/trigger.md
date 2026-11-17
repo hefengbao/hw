@@ -29,3 +29,24 @@ begin
    :NEW.ID := NEXT_ID; --:NEW表示新插入的那条记录
 end trigger_id_auto_increment;
 ```
+
+## 示例
+
+```SQL
+create sequence FAILED_JOBS_ID_SEQ
+  minvalue 1
+  maxvalue 9999999999999999999999999999
+  start with 1
+  increment by 1
+  cache 20;
+
+
+create or replace trigger failed_jobs_id_trg
+  before insert on FAILED_JOBS
+  for each row
+begin
+  if :new.ID is null then
+    select failed_jobs_id_seq.nextval into :new.ID from dual;
+  end if;
+end;
+```

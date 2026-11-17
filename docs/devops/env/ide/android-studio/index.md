@@ -71,3 +71,7 @@ distributionUrl=https\://mirrors.cloud.tencent.com/gradle/gradle-9.0.0-bin.zip
 ```shell
 distributionUrl=https\://mirrors.aliyun.com/gradle/gradle-9.0.0-bin.zip
 ```
+
+## 资料
+
+[新工具，新性能｜助力您更高效地构建高品质 Android 应用](https://mp.weixin.qq.com/s/kldQQsBud860xxbGY_TNLQ)

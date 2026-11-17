@@ -34,6 +34,10 @@ MCP 采用客户端-服务器架构，主要包含以下几个组件：
 ## 文档
 
 [MCP 官方文档中文版 - apifox.cn](https://mcp-docs.apifox.cn/)
+
+## Learn
+
+[MCP Explained · how the Model Context Protocol works](https://mcp-explained.com/)
 ## 资料
 
 [一文讲透MCP的原理及实践](https://mp.weixin.qq.com/s/kElGH8WvrHr_0Hv-nQT8lQ)
