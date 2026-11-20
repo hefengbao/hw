@@ -88,3 +88,7 @@ Windows: 10.0.26100.6584
 ```shell
 wsl --shutdown
 ```
+
+## 参考
+
+[安装 WSL | Microsoft Docs](https://docs.microsoft.com/zh-cn/windows/wsl/install)

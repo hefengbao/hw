@@ -122,3 +122,6 @@ libclntsh.so.23.1 => /opt/oracle/instantclient_23_26/libclntsh.so.23.1 (0x000070
 libclntshcore.so.23.1 => /opt/oracle/instantclient_23_26/libclntshcore.so.23.1 (0x00007087ab400000)
 ```
 
+
+
+[vitoo/docker-php-oci8: Docker image with php, oci8, pdo_oci, oracle instant_client](https://github.com/vitoo/docker-php-oci8)
